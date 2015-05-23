@@ -39,7 +39,7 @@ module.exports = function (outputFolder) {
     readFilesProcessor.sourceFiles = [
       {
         // Process all js files in `src` and its subfolders ...
-        include: '../angular-li/src/**/*.js',
+        include: path.join(process.cwd(), 'src/**/*.js'),
         // ... except for this one!
         //exclude: '../angular-li/src/module.*.js',
         // When calculating the relative path to these files use this as the base path.

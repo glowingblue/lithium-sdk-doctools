@@ -1,0 +1,53 @@
+@ngdoc overview
+@name Plugin Validation
+@sortOrder 150
+@description
+
+# Plugin Validation
+When you run `li package-project` or `li submit-plugin` the plugin goes through validation.
+Validation of file contents (XML validation, FreeMarker validation, skin properties) occurs
+server-side. Client-side validation includes the plugin directory
+structure, directory names, and file names.
+
+##Asset validation
+For files in `web/html`, validation ensures that:
+* Only file extensions defined through Community Admin are used
+* `web/html/assets` can have subdirectories, but only five levels develop
+
+##Component validation
+For files in `res/components`, validation ensures that:
+* Files use the `.ftl` extension
+* Files use valid FreeMarker syntax
+
+**Note:** If `strictMode` is set to `true` in `server.conf.json` in `PLUGIN_REPO/<plugin_name`>,
+FreeMarker syntax errors will block the plugin from being uploaded to the stage server. If `strictMode`
+is set to `false`, the plugin will be uploaded to stage despite the FreeMarker errors.
+
+##Quilt validation
+For files in `res/quilts`, validation ensures that:
+* The quilt uses the `.quilt.xml` file extension
+* The quilt references a layout that exists in Studio
+* The file uses valid XML
+* `res/quilts` contains only one subdirectory, `custom`
+
+##Skin validation
+For files in `res/skins`, validation ensures that:
+* Files in `res/skins/<skin_id>/images` have extensions `.png`, `.gif`, `.jpeg`, `.jpg` or `.svg`
+* Files in `res/skins/<skin_id>/images` have underscores (_) in names, but not dashes (-)
+* Files in `res/skins/<skin_id>/images` replace an existing image file from the base skin
+* Files in `res/skins/<skin_id>/css` are named `skin.css`
+* Files in `res/skins/<skin_id>/components` have one of the following names:
+  * content_wrapper.ftl
+  * head.ftl
+  * head_top.ftl
+  * hitbox.ftl
+* CSS and Sass files ending in `.ftl` compile through FreeMarker - valid FreeMarker is required
+* Values in `skin.properties` only override properties that apply to the `base` skin and
+does not introduce new ones
+* Skin images only replace existing skin images from `base` skin and do not introduce new ones
+
+##Text validation
+For files in `res/lang`, validation ensures that:
+* The text properties file name uses only supported language codes. See [Languages that Lithium supports](https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566).
+* The text properties file uses the correct file name: text.<language_code>.properties
+* Subdirectories under `res/lang` exist only for supported languages

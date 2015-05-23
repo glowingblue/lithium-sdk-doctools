@@ -21,7 +21,6 @@ angular.module('DocsController', [])
 
   $scope.$on('$includeContentLoaded', function() {
     var pagePath = $scope.currentPage ? $scope.currentPage.path : $location.path();
-    $window._gaq = $window._gaq || [];
     $window._gaq.push(['_trackPageview', pagePath]);
   });
 

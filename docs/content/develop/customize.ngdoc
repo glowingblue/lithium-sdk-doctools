@@ -17,6 +17,7 @@ Find instructions on this page to:
 * [Customize components](/develop/customize#components)
 * [Customize quilts](/develop/customize#quilts)
 * [Customize skins](/develop/customize#skins)
+* [Customize styles](/develop/customize#stylesheets)
 * [Customize text](/develop/customize#text)
 * [Customize assets](/develop/customize#assets)
 
@@ -43,18 +44,22 @@ with a special SDK icon.
 * `web/html/assets` - Assets here appear in the **Studio >
 Community Style > Other Assets** tab in the Asset Library.
 
+To test your customizations on your stage server, you run `li submit-plugin` or `li package-project`
+as described in {@link develop/deploy Deploy}. Review {@link refer/pluginvalidation Plugin Validation}
+to understand naming conventions and directory structure requirements for your plugin.
+
 These instructions assume you're working in your plugin repository (or PLUGIN_REPO).
 
 **Note:** Remember that any customizations that exist in Studio that have the same
 name and file extension as a customization you submit using the SDK override the SDK
 version.
 
-
-
 ### Customize components<a id="components"></a>
-Let's trying adding a custom component.
+Let's trying adding a custom component. When you're writing components you use FreeMarker,
+a templating language. You can learn about FreeMarker at [FreeMarker.org](http://freemarker.org/).
+Lithium also provides our own [FreeMarker context objects and directives](http://community.lithium.com/t5/Developers-Knowledge-Base/FreeMarker-context-objects-and-directives/ta-p/9217).
 
-Here is some sample code that prints out details about the node in context using the
+Here is some sample FreeMarker code that prints out details about the node in context using the
 coreNode FreeMarker context object.
 
 ```
@@ -75,6 +80,8 @@ From here, the custom component can be added to a quilt using Studio or you can 
 a custom quilt that you create and upload to the stage server with the SDK. We'll create a custom
 quilt next.
 
+**Note:** Component names are case-sensitive.
+
 <hr/>
 
 ### Create a new quilt <a id="quilts"></a>
@@ -83,6 +90,9 @@ Quilts go in `PLUGIN_REPO/res/quilts/custom` in your local plugin. Unique custom
 the file name structure `<quilt_name>.quilt.xml`, for example MyCusttomPage.quilt.xml. Quilts that override Lithium core quilts use the
 file name structure `<core_quilt_name>.<descriptive_identifier>.quilt.xml`, for example
 BlogPage.custom.quilt.xml.
+
+See [this article](http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page/ta-p/110639)
+in the Lithium Community for more information about creating custom pages.
 
 Here is a simple quilt - MyCustomPage.quilt.xml. It
 adds the coreNodeDetails component in the `side-content` section.
@@ -165,6 +175,9 @@ Save your changes, {@link develop/deploy submit} to stage, and refresh your page
 the tutorial with the Customize Skins section.
 
 ###Override a core quilt
+This section provides simple instructions for overriding core Lithium quilts.
+For more detailed information, read [this article](http://community.lithium.com/t5/Pages-and-layouts/Override-a-default-page/ta-p/108961)
+on the Lithium Community.
 To override a core Lithium quilt:
 1. Go to **Studio > Page**.
 1. Click **Choose** to select the quilt to override.
@@ -184,6 +197,10 @@ wrappers for desktop and mobile v1. Put skin customizations in `res/skins`
 under your plugin root. Create a subdirectory in `res/skins` for each skin. For each
  skin, you'll add directories to hold skin properties and wrappers for
  mobile and desktop as needed. We'll look at that subdirectory structure in the next section.
+
+**Note:** At this time, skins contributed using the SDK must the `base` skin as the parent skin.
+**Tip:** Skin IDs cannot have spaces. For example, `my_custom_skin` is allowed, but
+`My Custom Skin` is not.
 
  ####Create a skin
 
@@ -207,22 +224,9 @@ Let's look at an example called `mycustomskin`. Here is what the file structure 
 <img src="img/skinDir.png" width="520" align="middle"/>
 
 3 Next, choose a a parent skin from one of the core skins. The parent skin acts as
- base to build on. You can choose any of the core skins, but most customers choose
-base, White UI, or Mondrian. You'll reference the skin ID in `skin.properties` for your
+ base to build on. At this time, skins created with the SDK must use the `base` skin
+ as the parent skin. You'll reference the skin ID in `skin.properties` for your
 custom skin. The skin ID is in parentheses.
-
-* base - very minimal styling -- more of a blank slate
-* White UI (whiteui) - minimal styling
-* Mondrian (mondrian) - minimal styling but with a more modern feel
-
-Other parent skin options are:
-* Ano Nuevo (anonuevoui)
-* Castle Rock UI (castlerockui)
-* Light UI (lightui)
-* Natural Bridges UI (naturalbridgesui)
-* News Skin (newsui)
-* Pacifica UI (pacificaui)
-* Pro UI (proui)
 
 4 Open ``/[skinid]/skin.properties` and populate it with the parent skin ID
 ("base" in this example) and the skin title (mycustomskin). If you wanted to
@@ -230,7 +234,7 @@ Other parent skin options are:
  create additional `skin.properties` files within the `desktop` and `mobile` directories
  for the the `mycustomskin` directory.
 
- See {@link develop/skinproperties Skin Properties} for additional skin
+ See {@link refer/skinproperties Skin Properties} for additional skin
 properties you can add to the file. In this example, we are going to change the background
 color of all community pages from white (FFFFFF) to gray (DEE3E3) by changing the value of `color.background`.
 
@@ -308,7 +312,7 @@ ${settings.name.get("layout.urlfetcher_footer")}
 ```
 
 <hr/>
-### Customize styles
+### Customize styles <a id="stylesheets"></a>
 There are visual elements which doesn't have a skin property for,
 but we might still want to style. This is where CSS comes in.
 
@@ -324,12 +328,15 @@ add CSS to color the displayed user name blue.
   </div>
    ```
 3 Save your changes.
+
 4 Create a new file called `skin.css` and add this line:
   ```
   #lia-body .lia-content .welcome-user-name { color: #1668BA; font-weight: bold; }
   ```
 5 Save this new `skin.css` file in `PLUGIN_REPO/res/skins/mycustomskin/css`.
+
 6 {@link develop/deploy Submit} to stage.
+
 7 Refresh your custom page in the browser.
   You should see your the text, "Welcome <username>!" The text should be blue and
   the username should be the username of the current logged-in user.

@@ -13,6 +13,10 @@ version on the version page located at _stage_url_/status/version.
 * you have access to the SDK tab in Studio. This tab generates an
 upload token needed to deploy your plugin to the stage environment. See {@link /develop/deploy Deploy}
 for instructions. Developers can share a single token or use separate tokens.
+* you are using either Mac or Linux The SDK supports Mac and Linux operating systems.
+
+**Note:** If you have more than one stage environment, the SDK is only supported on the stage environment
+that is connected via Studio Publish to your production site.
 
 You will need:
 
@@ -20,6 +24,9 @@ You will need:
 environment runs on top of node.js. When you do local development, it is on a node.js
 server that we proxy to a Lithium community instance. Usually, npm (the Node Package Manager)
 gets bundled with the node environment, but it's good to make sure you have this too.
+
+* Run `node -v` at the command line to check whether node is installed
+* Run `npm` at the command line to check whether npm is installed
 
 ## Installing dependencies
 We use two npm packages in all of our project repositories: [gulp](http://gulpjs.com/) and
@@ -39,4 +46,10 @@ You might find one or all of the following approaches to suit your needs:
  * `sudo chown -R $USER node_modules`
 * Give yourself write access to `/bin`:
  * `sudo chmod -R u+w /usr/bin`
+
+If you are having permission issues, use this:
+```
+sudo npm install gulp -g
+Sudo npm install lithium-sdk -g
+```
 ___

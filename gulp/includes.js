@@ -12,7 +12,12 @@ var connect = require('gulp-connect');
 var historyApiFallback = require('connect-history-api-fallback');
 var del = require('del');
 var through = require('through2').obj;
-var sdkConf = require(path.resolve(process.cwd(), 'sdk.conf.json'));
+var sdkConf;
+try {
+  sdkConf = require(path.resolve(process.cwd(), 'sdk.conf.json'));
+} catch (err) {
+  sdkConf = {};
+}
 
 function getPrettyEscapedContent(templateContent) {
   return templateContent

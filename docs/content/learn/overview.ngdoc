@@ -12,9 +12,12 @@ in a way that provides maximum business.
 To help you succeed in this mission, we make it easy for developers to build on the platform
 using the tools and workflows they're already familiar with.
 
-The SDK is currently in open beta. Features can be added or changed during this
-beta program. To keep up to date on changes, to ask questions, or provide feedback 
-subscribe to the [Current Betas](http://community.lithium.com/t5/Current-betas/bd-p/BetaCurrent)
+SDK is currently in open beta. We've made our best effort to give you a stable
+and robust product, but it's a beta so there may be some glitches. Please consider 
+your business goals and tolerance for bugs before joining the program. Also, since
+we're actively developing the product, we'll try to surprise you with  new features
+or make the existing ones better during the program. To keep up to date on changes,
+to ask questions, or provide feedback subscribe to the [Current Betas](http://community.lithium.com/t5/Current-betas/bd-p/BetaCurrent)
 board.
 
 ## <img src="img/development-kit.png" width="35px"/> Architecture and SDK

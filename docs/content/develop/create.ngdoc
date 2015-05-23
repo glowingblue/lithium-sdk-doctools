@@ -39,11 +39,11 @@ Let's look at `server.conf.json`. There are a couple of important default option
 
 ```
 {
-  "serverUrl": "http://ldn.qa.lithium.com",
-  "pluginToken": "ea70e8e7-7905-4d80-8e48-472d6fd1bf12",
+  "serverUrl": "http://mycommunity.lithium.com",
+  "pluginToken": "esdlkf09827-7905-39dks-8e48-9e8lkjf093",
   "pluginUploadProtocol": "https",
-  "allowStudioOverrides": true,
-  "strictMode": false,
+  "allowStudioOverrides": false,
+  "strictMode": true,
   "dryRun": false
 }
 ```
@@ -55,11 +55,13 @@ Let's look at `server.conf.json`. There are a couple of important default option
    be overridden in the community by the file in the Studio plugin.
 
 * `strictMode` - when `true`, FreeMarker syntax failures block plugin upload to the server
-when you run `li submit-package`
+when you run `li submit-package`. We recommend setting `strictMode` to false to prevent uploading
+broken components to stage.
 
 * `dryRun` - when `true`, the `li submit-package` command performs packaging and validation, but
 does not save the plugin to the server. Generally you will set `dryRun` to false in `server.conf.json`
-and instead pass the `dryrun` flag with `li submit-plugin`.
+and instead pass the `dryrun` flag with `li submit-plugin`. To learn about what kind of
+validation occurs on the plugin, see {@link refer/pluginvalidation Plugin Validation}.
 
 Read {@link /develop/deploy Deploy} to learn more about packaging the plugin for deployment
  to stage. Read {@link /develop/customize Customize} to learn how to contribute customizations

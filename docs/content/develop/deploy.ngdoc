@@ -29,5 +29,8 @@ From the root of your plugin directory, run one of the following:
 When you run `li submit-plugin` you are asked to confirm uploading the plugin to your
 stage site. Say yes. Alternatively pass the `--force` flag to skip the prompt.
 
+**Tip:** If you encounter errors on your upload, review {@link refer/pluginvalidation Plugin Validation}
+to help debug your plugin.
+
 
 ___
