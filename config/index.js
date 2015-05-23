@@ -33,17 +33,12 @@ module.exports = function (outputFolder) {
     log.level = 'info';
 
     // Specify the base path used when resolving relative paths to source and output files
-    readFilesProcessor.basePath = path.resolve(__dirname, '..');
+    readFilesProcessor.basePath = process.cwd();
 
     // Specify collections of source files that should contain the documentation to extract
     readFilesProcessor.sourceFiles = [
       {
-        // Process all js files in `src` and its subfolders ...
-        include: path.join(process.cwd(), 'src/**/*.js'),
-        // ... except for this one!
-        //exclude: '../angular-li/src/module.*.js',
-        // When calculating the relative path to these files use this as the base path.
-        // So `src/foo/bar.js` will have relative path of `foo/bar.js`
+        include: 'src/**/*.js',
         basePath: 'src'
       },
       { 
@@ -53,7 +48,7 @@ module.exports = function (outputFolder) {
     ];
 
     // Specify where the writeFilesProcessor will write our generated doc files
-    writeFilesProcessor.outputFolder = path.resolve(process.cwd(),'./' + outputFolder);
+    writeFilesProcessor.outputFolder = path.resolve(process.cwd(), outputFolder);
   })
 
   .config(function(parseTagsProcessor) {

@@ -37,9 +37,10 @@ module.exports = function(gulp, gutil) {
 
   var outputFolder = 'dist-ngdoc';
 
-  var docAppSrc = 'docs/app/src/**/*.js';
-  var docAppAssets = 'docs/app/assets/**/!(*.js)';
-  var docAppAssetsJs = 'docs/app/assets/**/*.js';
+  var docJsCombined = 'docs/js/combined/**/*.js';
+  var docJsStandalone = 'docs/js/standalone/**/*.js';
+  var docCss = 'docs/css/**/*.css';
+  var docImg = 'docs/images/**/*';
 
   var copyComponent = function(component, pattern, sourceFolder, packageFile) {
     pattern = pattern || '/**/*';
@@ -59,21 +60,6 @@ module.exports = function(gulp, gutil) {
 
   gulp.task('ngdoc-clean', function (cb) {
     del(outputFolder, cb);
-  });
-
-  gulp.task('ngdoc-app', ['ngdoc-clean'], function() {
-    var file = 'docs.js';
-    var minFile = 'docs.min.js';
-    var folder = outputFolder + '/js/';
-
-    return gulp.src(docAppSrc)
-      .pipe(sourcemaps.init())
-      .pipe(concat(file))
-      .pipe(gulp.dest(folder))
-      .pipe(rename(minFile))
-      .pipe(uglify())
-      .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest(folder));
   });
 
   gulp.task('ngdoc-src', ['ngdoc-clean'], function (cb) {
@@ -119,13 +105,18 @@ module.exports = function(gulp, gutil) {
     }
   });
 
-  gulp.task('ngdoc-assets', ['ngdoc-clean'], function() {
+  gulp.task('ngdoc-app', ['ngdoc-clean'], function() {
     var JS_EXT = /\.js$/;
     return merge(
-      gulp.src(['docs/images/**/*']).pipe(rename({dirname: ''}))
-        .pipe(gulp.dest(outputFolder + '/img')),
-      gulp.src(docAppAssets).pipe(gulp.dest(outputFolder)),
-      gulp.src(docAppAssetsJs)
+
+      gulp.src(docJsCombined)
+        .pipe(sourcemaps.init())
+        .pipe(concat('docs.min.js'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(outputFolder + '/js')),
+
+      gulp.src(docJsStandalone)
         .pipe(sourcemaps.init())
         .pipe(through(function (file, enc, cb) {
           file.path = file.path.replace(JS_EXT, '.min.js');
@@ -135,7 +126,14 @@ module.exports = function(gulp, gutil) {
         }))
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(outputFolder)),
+        .pipe(gulp.dest(outputFolder + '/js')),
+
+      gulp.src(docImg)
+        .pipe(rename({dirname: ''}))
+        .pipe(gulp.dest(outputFolder + '/img')),
+
+      gulp.src(docCss).pipe(gulp.dest(outputFolder + '/css')),
+
       copyComponent('bootstrap', '/dist/**/*'),
       copyComponent('open-sans-fontface','/**/*'),
       copyComponent('lunr','/lunr.min.js'),
@@ -151,7 +149,7 @@ module.exports = function(gulp, gutil) {
   });
 
   // The default task that will be run if no task is supplied
-  gulp.task('ngdoc-build', ['ngdoc-assets', 'ngdoc-dgeni', 'ngdoc-app', 'ngdoc-src']);
+  gulp.task('ngdoc-build', ['ngdoc-app', 'ngdoc-src', 'ngdoc-dgeni']);
 
   gulp.task('ngdoc-reload', ['ngdoc-build'], function () {
     return gulp.src(outputFolder + '/index.html').pipe(connect.reload());

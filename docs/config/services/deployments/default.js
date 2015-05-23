@@ -22,7 +22,7 @@ module.exports = function defaultDeployment(getVersion) {
             'components/marked-' + getVersion('marked', 'node_modules', 'package.json') + '/lib/marked.js',
             'js/angular-bootstrap/bootstrap.min.js',
             'js/angular-bootstrap/dropdown-toggle.min.js',
-            'components/lunr.js-' + getVersion('lunr.js') + '/lunr.min.js',
+            'components/lunr-' + getVersion('lunr.js') + '/lunr.min.js',
             'components/google-code-prettify-' + getVersion('google-code-prettify') + '/src/prettify.js',
             'components/google-code-prettify-' + getVersion('google-code-prettify') + '/src/lang-css.js',
             'js/pages-data.js',

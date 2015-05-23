@@ -5,8 +5,13 @@ module.exports = function exampleSrcProcessor (log, exampleMap) {
   return {
     $runAfter: ['files-read'],
     $runBefore: ['parsing-tags'],
-    $process: function(docs) {
+    $process: function() {
       exampleMap.forEach(function (example, key) {
+        var path = example.doc.fileInfo.relativePath.split('/');
+        path.pop();
+        path.unshift('li');
+        example.module = path.join('.');
+
         Object.getOwnPropertyNames(example.files).forEach(function (fileName) {
           if (example.files[fileName].src) {
             try {

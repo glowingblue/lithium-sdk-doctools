@@ -78,6 +78,16 @@
     //  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     //})();
   </script>
+  <script type="text/ng-template" id="Error404.html">
+    <h1>Oops!</h1>
+    <p>The page you requested does not exist. Perhaps you were looking for something else...</p>
+    <div ng-controller="Error404SearchCtrl">
+      <dl ng-repeat="(key, value) in results" ng-show="value.length" style="float: left; margin-right:20px">
+        <dt>{{ key }}</dt>
+        <dd ng-repeat="item in value"><a ng-href="{{ item.path }}">{{ item.name }}</a></dd>
+      </dl>
+    </div>
+  </script>
 </head>
 <body>
   <div id="wrapper">
