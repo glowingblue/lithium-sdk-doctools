@@ -1,0 +1,67 @@
+@ngdoc overview
+@name Create
+@sortOrder 200
+@description
+
+# Create
+
+## Create your plugin
+
+Now that you have your SDK developer environment set up, you can go about creating
+your local plugin repository.
+
+Before you begin, generate a plugin upload token in Studio. Go to **Studio > SDK** and click
+**Generate Token**. You will use this token when creating your project and for other SDK
+commands. Alternatively you can add this token to the `server.conf.json` file created
+in the next step.
+
+Move to a new directory where you will create your plugin, and run `li create-project`.
+
+* Enter the name of your plugin project directory. The plugin project is created in the
+directory from where you run `li create-project`.
+* Enter the URL of your community instance
+* Enter the plugin token. Get this token by clicking **Generate Token** in **Studio > SDK**.
+If you do not have the token at this time, you can add it later.
+
+Let the script run to completion.
+
+**Tip:** Type `li` to see the full list of SDK commands. We'll talk about them more later.
+
+##Understanding the plugin structure
+
+Your plugin project repository contains several sub directories. Your customizations go in
+ the `res` and `web` directories. The other file you'll use is `server.conf.json`. This
+ config file contains default configs and your plugin upload token.
+
+<img src="img/pluginDir.png" width="380px" align="middle"/>
+
+Let's look at `server.conf.json`. There are a couple of important default options set here.
+
+```
+{
+  "serverUrl": "http://ldn.qa.lithium.com",
+  "pluginToken": "ea70e8e7-7905-4d80-8e48-472d6fd1bf12",
+  "pluginUploadProtocol": "https",
+  "allowStudioOverrides": true,
+  "strictMode": false,
+  "dryRun": false
+}
+```
+
+* `allowStudioOverrides` - when `true`, the `li package-plugin` and `li submit-plugin` commands
+ ignore validation that cause the SDK upload to fail if a file with the same name in your
+ SDK plugin already exists in Studio. When `allowStudioOverrides` is `true`, and a file with
+   the same name in the Studio plugin exists. The file you submit with your SDK plugin will
+   be overridden in the community by the file in the Studio plugin.
+
+* `strictMode` - when `true`, FreeMarker syntax failures block plugin upload to the server
+when you run `li submit-package`
+
+* `dryRun` - when `true`, the `li submit-package` command performs packaging and validation, but
+does not save the plugin to the server. Generally you will set `dryRun` to false in `server.conf.json`
+and instead pass the `dryrun` flag with `li submit-plugin`.
+
+Read {@link /develop/deploy Deploy} to learn more about packaging the plugin for deployment
+ to stage. Read {@link /develop/customize Customize} to learn how to contribute customizations
+using the SDK.
+___

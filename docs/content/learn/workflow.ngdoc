@@ -1,0 +1,81 @@
+@ngdoc overview
+@name Developer Workflow
+@sortOrder 300
+@description
+
+# Developer Workflow
+
+The Lithium-Klout SDK supports a developer-friendly "choose your own IDE" experience
+that enables you to develop locally with the tools of your choice, collaborate with your
+own team safely in your own source control system, and test on your stage environment.
+
+##Developer environment recommendations
+
+We recommend that developers commit to a shared repository and be in close communication to ensure
+that their customization contributions to not override one another's. Lithium does not provide a central build solution to combine
+all customizations from all developers into a single plugin to deploy to the stage environment.
+
+
+**Note:** At this time, submitting a plugin as part of a Continuous Integration (CI) environment, such
+as [Jenkins](http://jenkins-ci.org/) or [Travis-CI](http://docs.travis-ci.com/),
+is not recommended. We are still testing this workflow and will update the Beta
+participants when this workflow is ready for use.
+
+This diagram illustrates how your team can set up your SDK developer environment.
+
+<img src="img/SDK_DevEnvSetup.png" width="420 px"/>
+
+In a multi-developer team, members set up their individual SDK development environments using
+the instructions in {@link /develop/getStarted Getting Started}, but select _one_ developer to run
+through the instructions in {@link /develop/create Create}
+to create the SDK plugin project for your community. This task creates the directory
+structure that should be put into your preferred source control system. After the SDK project
+files are created and placed under source control, other developers
+should pull the plugin project to replicate the SDK plugin directory structure onto their local machines.
+
+After this is complete, the team is ready to customize and check in. Read {@link /develop/customize Customize}
+to learn where to place customizations in the plugin repository.
+
+This diagram illustrates the workflow.
+
+<img src="img/DevWorkflowNoCI.png" width="620 px"/>
+
+### Deploying to stage
+The command `li submit-plugin` deploys the plugin to the stage environment.
+
+At this time, each developer submits his or her local plugin to the stage server.
+Therefore, it is important that the developer has updated his local plugin with the
+latest code from the repository before deploying.
+If you work in a multi-developer customization team, communicate closely with team
+members about which files you are working with and when you are going to submit them
+to stage. If two developers submit a plugin with conflicting changes, the last plugin
+submitted to the server will override earlier versions.
+
+In addition, customizations made to components, pages, text strings, and assets made in
+Studio will override the customizations made to the same items submitted using the SDK.
+
+For more information about how plugins interact, read
+[About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) and
+[More about plugins](https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316).
+
+{@link /develop/deploy Deploying to stage} requires an upload token generated
+in the **Studio > SDK tab**. The `li submit-plugin` task bundles the plugin and validates it.
+The plugin appears in the **Studio > Versions** tab. Look for a line that says
+"Plugin Checkin" For more information about plugins see the Understanding
+Plugins section in {@link /learn/architecture Architecture}.
+
+If needed you can roll back to the previous plugin version in the Versions tab.
+
+**Important:** In the Versions tab, you will see both Studio and SDK plugins. When reverting
+to a previous SDK plguin, be sure re-stage another SDK plguin version, not a Studio plugin.
+
+### Pushing to production
+Push plugins to production using Studio Publish. If you must roll back your live Community version
+to a previous version, you also use Studio Publish. See [Studio Publish Overview](https://community.lithium.com/t5/Previewing-and-publishing/Studio-Publish-overview/ta-p/81728)
+and [The Studio Publish Workflow](https://community.lithium.com/t5/Previewing-and-publishing/The-Studio-Publish-workflow/ta-p/109037)
+for details.
+
+
+
+
+___

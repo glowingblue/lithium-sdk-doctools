@@ -1,0 +1,378 @@
+@ngdoc overview
+@name Customize
+@sortOrder 300
+@description
+
+# Customize
+
+## Customize your community
+Now that you have {@link develop/create created} your local SDK plugin repository,
+let's try a few customizations. We'll go through a short tutorial where you will create
+a custom page, add a custom component, move components around on a quilt, add custom
+text strings, and do some simple skin properties and CSS customizations. We'll create the
+custom files, put them in the proper location in your local repository, and then upload the
+plugin to the stage server using the `li submit-plugin` command.
+
+Find instructions on this page to:
+* [Customize components](/develop/customize#components)
+* [Customize quilts](/develop/customize#quilts)
+* [Customize skins](/develop/customize#skins)
+* [Customize text](/develop/customize#text)
+* [Customize assets](/develop/customize#assets)
+
+Be sure that you have read the Understand Plugins section in {@link learn/architecture Architecture}, as well as
+[About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) and [More About Plugins](https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316/message-revision/194316:3)
+before you begin.
+
+When you created your plugin project, the script created several folder in your local
+plugin repository. You will place your customizations in the `res` and `web` directories.
+* `res/components` - Place custom components here. Components
+placed here appear in the **Studio > Components** tab in the SDK section. They are identified
+with a special SDK icon. Custom components use the file extension FTL.
+* `res/lang` - Place custom text string files here. Text strings contributed with
+the SDK **do not** appear in the **Studio > Text Editor** tab.
+* `res/quilts/custom` - Place custom quilts here. Quilts files placed here can be
+selected from the Custom section in the page selection modal in the **Studio > Page** tab.
+They are identified
+with a special SDK icon. Custom quilts use the
+file extension XML.
+* `res/skins` - Place skin resources here -- your CSS, skin properties, and wrapper content.
+Custom skin files placed here display in the **Studio > Community Style** tab in the
+Parent Skin section. They are identified
+with a special SDK icon.
+* `web/html/assets` - Assets here appear in the **Studio >
+Community Style > Other Assets** tab in the Asset Library.
+
+These instructions assume you're working in your plugin repository (or PLUGIN_REPO).
+
+**Note:** Remember that any customizations that exist in Studio that have the same
+name and file extension as a customization you submit using the SDK override the SDK
+version.
+
+
+
+### Customize components<a id="components"></a>
+Let's trying adding a custom component.
+
+Here is some sample code that prints out details about the node in context using the
+coreNode FreeMarker context object.
+
+```
+Core Node Details</br>
+${coreNode.id}</br>
+${coreNode.nodeId}</br>
+${coreNode.nodeType}</br>
+${coreNode.shortTitle}</br>
+${coreNode.title}
+```
+
+1. Copy the code into a text editor and name it `CoreNodeDetails.ftl`.
+1. Place the code in your `PLUGIN_REPO/res/components` directory.
+1. Run `li submit-plugin` from any location to {@link develop/deploy submit} the plugin
+contents to stage.
+
+From here, the custom component can be added to a quilt using Studio or you can add it to
+a custom quilt that you create and upload to the stage server with the SDK. We'll create a custom
+quilt next.
+
+<hr/>
+
+### Create a new quilt <a id="quilts"></a>
+Building on our last example, let's put that custom component on a new custom quilt.
+Quilts go in `PLUGIN_REPO/res/quilts/custom` in your local plugin. Unique custom quilts use
+the file name structure `<quilt_name>.quilt.xml`, for example MyCusttomPage.quilt.xml. Quilts that override Lithium core quilts use the
+file name structure `<core_quilt_name>.<descriptive_identifier>.quilt.xml`, for example
+BlogPage.custom.quilt.xml.
+
+Here is a simple quilt - MyCustomPage.quilt.xml. It
+adds the coreNodeDetails component in the `side-content` section.
+
+```xml
+<quilt layout="two-column.main-side" nestable="false">
+  <add to="common-footer">
+    <component id="quilt:Footer"/>
+  </add>
+  <add to="side-content">
+    <component id="coreNodeDetails"/>
+    <component id="community.widget.admin-links"/>
+    <component id="common.widget.announcement"/>
+    <component id="forums.widget.users-online"/>
+    <component id="community.widget.quick-links"/>
+  </add>
+  <add to="main-content">
+    <component id="qanda.widget.ask-an-expert" discussionStyle="forum"/>
+    <component id="forums.widget.board-browser-list"/>
+    <component id="forums.widget.recent-threads"/>
+    <component id="forums.widget.recent-messages"/>
+  </add>
+  <add to="common-header">
+    <component id="quilt:Header"/>
+  </add>
+  <remove from="breadcrumb" for="Header">
+    <component id="common.widget.breadcrumb"/>
+  </remove>
+</quilt>
+```
+
+1. Copy the code above into a text editor.
+1. Name the file MyCustomPage.quilt.xml.
+1. Place the file in PLUGIN_REPO/res/quilts/custom.
+1. {@link develop/deploy Submit} to stage.
+1. Go to the page using this URL: `<your_stage_url>/t5/custom/Page/page-id/MyCustomPage`.
+
+   **Note:** The "t5" in the URL might be different for your community. If the page does not
+   render for you, go to your community and see what displays directly after your stage site
+   domain name.
+
+<hr/>
+#### Remove a component
+Suppose we want to remove that coreNodeDetails component from the MyCustomPage quilt.
+
+1. Navigate to the quilt in `PLUGIN_REPO/res/quilts/custom`.
+1. Open the XML file in the editor of your choice.
+1. Remove the line `<component id=“coreNodeDetails”/>`.
+1. Save your changes.
+1. {@link develop/deploy Submit} to stage.
+
+When you refresh your community, the component should no longer appear on the page. We're going to
+use this component again later, so let's put it back in. Paste the line `<component id=“coreNodeDetails”/>`
+directly under `<add to="side-content">` and save the file. You can submit the plugin to stage again
+and refresh the page to verify that the component displays correctly.
+<hr/>
+#### Move a component
+Moving a component is a simple copy/paste task.
+
+Let's move the CoreNodeDetails component from the top of the `side-content` section of the
+MyCustomPage quilt to the bottom of the `side-content` section.
+
+1. Navigate to the quilt in `PLUGIN_REPO/res/quilts/custom`.
+1. Open the XML file in the editor of your choice.
+1. Cut the line `<component id=“coreNodeDetails”/>` and paste it below the line
+`<component id="community.widget.quick-links"/>`.
+
+The `side-content` section should look like this:
+
+```xml
+<add to="side-content">
+  <component id="community.widget.admin-links"/>
+  <component id="common.widget.announcement"/>
+  <component id="forums.widget.users-online"/>
+  <component id="community.widget.quick-links"/>
+  <component id=“coreNodeDetails”/>
+</add>```
+
+Save your changes, {@link develop/deploy submit} to stage, and refresh your page. We'll continue
+the tutorial with the Customize Skins section.
+
+###Override a core quilt
+To override a core Lithium quilt:
+1. Go to **Studio > Page**.
+1. Click **Choose** to select the quilt to override.
+1. Click **XML**.
+1. Copy the quilt XML.
+1. In a text editor, paste the quilt XML and name your quilt file <quilt_name_from_Studio>.<descriptive_identifier>.quilt.xml. For example: BlogPage.custom.quilt.xml
+1. Save your file to `PLUGIN_REPO/res/quilts/custom` in your local plugin.
+1. Make your changes to the quilt (add, remove, or move components).
+1. {@link develop/deploy Submit} to stage.
+1. Override the core community quilt in **Community Admin > Content > Custom Pages**.
+
+<hr/>
+
+### Customize skins <a id="skins"></a>
+Using the SDK, you can contribute custom skin properties, CSS, and
+wrappers for desktop and mobile v1. Put skin customizations in `res/skins`
+under your plugin root. Create a subdirectory in `res/skins` for each skin. For each
+ skin, you'll add directories to hold skin properties and wrappers for
+ mobile and desktop as needed. We'll look at that subdirectory structure in the next section.
+
+ ####Create a skin
+
+1 Create new folders under res/skins where [skinid] is the name of your new skin:
+* res/skins/[skinid]
+* res/skins/[skinid]/desktop/components
+* res/skins/[skinid]/desktop/css
+* res/skins/[skinid]/desktop/images
+* res/skins/[skinid]/mobile/components (optional if not using mobile v1)
+* res/skins/[skinid]/mobile/css (optional if not using mobile v1)
+* res/skins/[skinid]/mobile/images (optional if not using mobile v1)
+
+2 Create new files under res/skins:
+* res/skins/[skinid]/skin.properties
+* res/skins/[skinid]/desktop/skin.properties (optional unless overriding properties for desktop)
+* res/skins/[skinid]/mobile/skin.properties (optional unless overriding properties for mobile)
+
+Let's look at an example called `mycustomskin`. Here is what the file structure might
+ look like under `res/skins`:
+
+<img src="img/skinDir.png" width="520" align="middle"/>
+
+3 Next, choose a a parent skin from one of the core skins. The parent skin acts as
+ base to build on. You can choose any of the core skins, but most customers choose
+base, White UI, or Mondrian. You'll reference the skin ID in `skin.properties` for your
+custom skin. The skin ID is in parentheses.
+
+* base - very minimal styling -- more of a blank slate
+* White UI (whiteui) - minimal styling
+* Mondrian (mondrian) - minimal styling but with a more modern feel
+
+Other parent skin options are:
+* Ano Nuevo (anonuevoui)
+* Castle Rock UI (castlerockui)
+* Light UI (lightui)
+* Natural Bridges UI (naturalbridgesui)
+* News Skin (newsui)
+* Pacifica UI (pacificaui)
+* Pro UI (proui)
+
+4 Open ``/[skinid]/skin.properties` and populate it with the parent skin ID
+("base" in this example) and the skin title (mycustomskin). If you wanted to
+ use different properties in the mobile and desktop versions of the skin, you would
+ create additional `skin.properties` files within the `desktop` and `mobile` directories
+ for the the `mycustomskin` directory.
+
+ See {@link develop/skinproperties Skin Properties} for additional skin
+properties you can add to the file. In this example, we are going to change the background
+color of all community pages from white (FFFFFF) to gray (DEE3E3) by changing the value of `color.background`.
+
+Here is the example `/[skinid]/skin.properties`:
+
+```
+parent              = base
+title               = mycustomskin
+color.background			= DEE3E3
+```
+
+5 {@link develop/deploy Submit} to stage.
+
+6 Go into **Studio > Community Style > Community Skins > Properties** and verify that your new skin in
+there and that Background Color is set to DEE3E3.
+
+Optionally, Apply the skin to the community in **Community Admin > Display > Skins**. You might
+want to skip this step if you do not want to change the skin used on stage. After applying the
+skin, refresh your custom page in the browser. The background of the page should be grey. Reapply
+the correct skin to your community.
+
+ We'll continue the tutorial with the Customize Styles section.
+
+####Customize the wrapper
+The page wrapper for a skin provides an additional layer or styling above and below the main
+content of the page (anything above and below li-body when looking at a the code for a community page.)
+
+You can upload wrapper content to the stage server using the SDK. The wrapper contents you
+ contribute using the SDK map to the content areas in **Studio > Community Style > Community
+ Skins > Wrapper**.
+
+Wrapper content is put into FTL (FreeMarker) files. The are placed in
+  `PLUGIN_HOME/res/skins/<skinid>/components`. Use theses file names for wrapper elements:
+* head_top.ftl - Generally only used if you need to add browser compatibility tags
+* head.ftl - HTML to add meta tags, links to external CSS or JavaScript files, styling,
+ API keys and more to the <head> code on each page.
+* content_wrapper.ftl - HTML to add header and footer content above and below the `<@liaBody />` tag in a community page.
+ This content maps to content you would could add to the **Page Header** section of the Studio **Wrapper** tab.
+* hitbox.ftl - for HTML content to add below the footer, such as Google Analytics or Omniture metrics collection,
+or additional JavaScript.
+
+See [Edit the page wrapper](https://community.lithium.com/t5/Skins-and-assets/Edit-the-page-wrapper/ta-p/109069) and
+ [Community Wrapper Guidelines](http://community.lithium.com/t5/Developers-Knowledge-Base/Launch-Community-Wrapper-Guidelines/ta-p/6411)
+  for more details about how the wrapper works in communities.
+
+#####Example head_top.ftl
+```
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+```
+#####Example head.ftl
+This example adds some styling and adds some navigation logic based on whether a user is
+anonymous or not.
+```
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=cyrillic,cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+<link href="${asset.get("/html/assets/favicon.ico")}" rel="shortcut icon" />
+
+<#if user.anonymous>
+<style>
+#lia-body .lia-content .lia-component-common-widget-user-navigation .lia-component-users-action-registration { display: none; }
+#lia-body .lia-content .lia-component-common-widget-user-navigation li:first-child + li { display: none; }
+</style>
+</#if>
+```
+
+#####Example content_wrapper.ftl
+ This retrieves header and footer content and inserts it into the page as it is rendered
+ and displays custom content.
+ ```
+${settings.name.get("layout.urlfetcher_header")}
+<@component id="common.widget.custom-content" name="1" panel="false"/>
+<@liaBody />
+
+
+${settings.name.get("layout.urlfetcher_footer")}
+```
+
+<hr/>
+### Customize styles
+There are visual elements which doesn't have a skin property for,
+but we might still want to style. This is where CSS comes in.
+
+Let's add a simple change to our coreNodeDetails component. We're going to add a
+Community API REST call to retrieve the name of the current user in session, and then
+add CSS to color the displayed user name blue.
+
+1 Go to `PLUGIN_REPO/res/components` and opne `coreNodeDetails.ftl`.
+2 Add the following at the top of the file:
+  ```
+  <div>
+     Welcome <span class="welcome-user-name">${rest("/users/id/${user.id}/profiles/name/name_first").value}</span>!
+  </div>
+   ```
+3 Save your changes.
+4 Create a new file called `skin.css` and add this line:
+  ```
+  #lia-body .lia-content .welcome-user-name { color: #1668BA; font-weight: bold; }
+  ```
+5 Save this new `skin.css` file in `PLUGIN_REPO/res/skins/mycustomskin/css`.
+6 {@link develop/deploy Submit} to stage.
+7 Refresh your custom page in the browser.
+  You should see your the text, "Welcome <username>!" The text should be blue and
+  the username should be the username of the current logged-in user.
+
+<hr/>
+### Customize text properties <a id="text"></a>
+Text used in your customizations go in a file called `text.<language_code>.properties` where
+<language_code> represents a language, such as "en" for English or "de" for German.
+Create a separate text properties file for each language used in your community.
+Supported languages and the associated language code are described in
+[Languages that Lithium supports](https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566).
+
+Put your text properties files in `PLUGIN_REPO/res/lang`.
+
+Let's change our coreNodeDetails component so that it uses a text key
+value for the title instead of hard-coding the text within the component.
+
+1. Create a new file in a text editor.
+1. Enter this line `custom.text.coreNodeDetails.component.title = Node Details`
+1. Name the file `text.en.properties` (or use a different language code if you'd prefer).
+1. Save the file to `PLUGIN_REPO/res/lang`.
+1. {@link develop/deploy Submit} to stage.
+1. Refresh your custom page.
+
+   The coreNodeDetails component should now pull the title from the text properties file.
+
+<hr/>
+### Customize images, icons, and other assets <a id="assets"></a>
+At this time, you can add assets to the plugin that will appear in the Other Assets tab
+of the Asset Library in **Studio > Community Style**. These assets might be image assets like
+your community logo, but they could also be other files such as PDFs, CSS, and JavaScript.
+The files here are often included in wrapper content, custom components, and endpoints.
+
+Custom asset files go in `web/html/assets` or in one of the following subdirectories:
+* `css`
+* `images`
+* `js`
+
+**Note:** Image files should not include hyphens. Use underscores instead.
+
+#### Add an asset
+
+1. Place the asset in the appropriate directory.
+1. {@link develop/deploy Submit} to stage.
+
+___

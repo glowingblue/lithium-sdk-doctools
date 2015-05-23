@@ -1,0 +1,118 @@
+@ngdoc overview
+@name Architecture
+@sortOrder 200
+@description
+
+#Architecture <a id="arch"></a>
+
+When you start with Lithium Community, you start with our standard out-of-the-box experience.
+The look and feel of your community is controlled through your community [skin](http://community.lithium.com/t5/Skins-and-assets/About-skins/ta-p/109067). The content
+is displayed using widgets called [components](http://community.lithium.com/t5/Pages-and-layouts/About-components/ta-p/134343),
+created with a templating language called [FreeMarker](http://freemarker.org/),[custom content](http://community.lithium.com/t5/Custom-Content/About-custom-content/ta-p/108551),
+and [endpoints](http://community.lithium.com/t5/Components-endpoints-and-the/About-endpoints/ta-p/108971) to interact with third-party applications and your company website.
+
+Community ships with core pages, layouts, components, text, CSS, images and more. Developers and end-users
+can customize, add, and override our core resources.
+
+Customizations are bundled into a _plugin_ and published to the stage server. From there,
+ the plugin can be deployed to your production environment using Studio Publish. We
+discuss plugins in more detail later. There are two ways to create customizations:
+* Using the Lithium-Klout SDK
+* Using Studio -- our customization GUI
+
+The illustration below shows the Community technology stack. The stack rests on the Community object model,
+which is accessed through our platform and API. Our customers use Studio and the SDK to create
+  custom plugins, which hold the customizations that are rendered on your deployed community. Settings
+  in Community Admin, our administrator tool, determine how core components behave, which quilts and skins are used,
+  and much more. Integrations with a corporate website, native mobile app, or third-party applications
+ can interact with the plugin, administration, and API levels of the stack.
+
+  <img src="img/LithiumCommunityTechStackOpenBeta.png" width="750" align="middle"/>
+
+The blue rectangles in the diagram represent the layers of the Community platform that create
+a Lithium community. The blue squares represent the tools we provide for our customers to
+ interact with the layers of the stack. Lithium maintains the code for our core resources (components,
+ pages, skins, and so on) as well as our tool set (Studio, Community Admin, APIs, and the SDK).
+ The purple rectangles (the SDK plugin and integrations) are the pieces of the technology stack
+ contributed by customers. Customers are responsible for upgrading
+customizations and integration points from release to release.
+
+##The Lithium-Klout software development kit <a id="sdk"></a>
+
+The Lithium-Klout SDK enables developers to create customizations in their preferred IDE
+or text editor (e.g. Eclipse, IntelliJ, Sublime) and to submit their customizations to the
+stage server directly from the command line.
+
+**Note:** The SDK supports Mac and Linux operating systems. Also, if you have more than one stage environment,
+the SDK is only supported on the stage environment that is connected via Studio Publish to your production site.
+
+Using the SDK you can submit:
+* Components
+* Pages (also referred to as quilts)
+* Skin properties
+* CSS
+* Text strings
+* Assets
+
+**Note:** At this time, assets submitted are the equivalent of the assets in the Other Assets tab in
+Studio Asset Library, located in **Studio > Community Style > Asset Library > Other Assets**. You cannot
+submit skin images, avatars, rank icons, or badge images using the SDK.
+
+Use Studio to submit:
+* Endpoints
+* Macros
+* Layouts
+* Custom Content
+* Images for skins, avatars, ranks, and badges
+
+Our developer environment runs on top of node.js, using bower and gulp Node Package Manager (npm)
+dependencies for its package management and streaming build system. You can see the tool chain
+used to support our SDK {@link /learn/architecture#tool-chain here}.
+
+##Understanding plugins <a id="plugins"></a>
+A plugin is the mechanism for storing and organizing customizations for your community.
+Essentially, it is a directory structure containing customization resources. Plugin resources include things
+like skins, components, endpoints, text strings, and image assets. They are the building blocks that make your
+community unique.
+
+Your community uses a variety of plugin resources. Some control core Lithium Community features and
+functionality, others contain customizations created for you by our Professional Services team, but most
+important to developers, the SDK plugin is for your own use in your local IDE. Ideally, your development team
+will have a source-controlled plugin project that you will pull from and commit to. (Read {@link /learn/workflow Developer
+Workflow} for our recommended developer environment setup and deployment workflow.)
+
+Plugin resources can be overridden. This is how you customize core components,
+  text strings, skins, and assets on the default Lithium community pages. Plugin resources are read and
+  rendered in a specific order -- this is why in the technology stack diagram, the Studio plugin
+  sits above the SDK plugin. The folder structure is identical from one plugin to the next, and resources in
+  your plugin structure (your customizations) will overwrite identically named files for core functionality.
+  Any further customization done in Studio to those resources, however will override your local development
+  environment changes.
+
+It is very important as a developer to work closely with your community team members who use Studio so that
+changes made via the SDK are not inadvertently overridden in Studio. Developers should discuss with their community
+team before they begin contributing customizations to the stage server using the SDK to be sure that
+Studio users understand how the SDK plugin interacts with Studio. Likewise, developers working together on
+customizations should communicate so that they don't accidentally override each others work as they submit their
+local plugin customizations to stage.
+
+You can learn more about plugins,
+how they interact, how to override and revert files in
+[About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320).
+
+##SDK tool chain <a id="tool-chain"></a>
+
+Use the diagram below to understand more about the tool chain we use to create our
+SDK. Our developer environment runs on top of node.js.
+We also have two Node Package Manager (npm) dependencies -- Bower and gulp.
+
+<img src="img/SDKToolChain.png" width="380px" align="middle"/>
+
+From the bottom up:
+
+* [node.js](http://nodejs.org/) is the JavaScript runtime environment for our SPA communities
+* [Bower](http://bower.io/) is a package and dependency management tool
+* [gulp.js](http://gulpjs.com/) is a streaming build system/task runner
+* The Lithium-Klout SDK provides the structure and mechanism you need to build your
+ community customizations.
+___

@@ -1,0 +1,50 @@
+@ngdoc overview
+@name SDK Overview
+@sortOrder 100
+@description
+
+# SDK Overview
+
+At Lithium, we help you keep pace with extreme customer expectations,
+reinvent the way you connect with your customers, build and maintain trusted connections.
+This requires that you're able to customize, extend, and integrate your community
+in a way that provides maximum business.
+To help you succeed in this mission, we make it easy for developers to build on the platform
+using the tools and workflows they're already familiar with.
+
+The SDK is currently in open beta. Features can be added or changed during this
+beta program. To keep up to date on changes, to ask questions, or provide feedback 
+subscribe to the [Current Betas](http://community.lithium.com/t5/Current-betas/bd-p/BetaCurrent)
+board.
+
+## <img src="img/development-kit.png" width="35px"/> Architecture and SDK
+
+The platform offers a development kit built on top of
+<a href="http://nodejs.org">node.js</a>, to help you create, customize, publish and
+maintain a compelling community experience for your users. Learn about our
+{@link /learn/architecture customization framework} and how to
+{@link /develop/getStarted set up your development environment}.
+
+## <img src="img/modules-api.png" width="35px"/> API and customization
+
+Using the Lithium-Klout SDK, you can contribute customizations that extend your Lithium community.
+Learn how to use the SDK to {@link /develop/customize contribute customizations} for:
+
+* Quilts
+* Components
+* Skins
+* Assets
+* Text
+
+Find reference API documentation here:
+* [Community API v1](https://community.lithium.com/t5/Community-API/bd-p/developers-rest-api)
+* [Lithium FreeMarker Context Objects](https://community.lithium.com/t5/Developers-Knowledge-Base/FreeMarker-context-objects-and-directives/ta-p/9217)
+* [Community API v2: Getting Started](http://community.lithium.com/t5/Community-API-v2/Getting-started/ta-p/113193)
+* [Community API v2: Resources](https://community.lithium.com/t5/Community-API-v2/Community-API-v2-Resource-Index/ta-p/191471)
+* [Using LiQL](https://community.lithium.com/t5/Community-API-v2/Using-LiQL/ta-p/115177)
+
+## <img src="img/workflow.png" width="35px"/> Workflow
+
+Learn about {@link /learn/workflow workflow} recommendations to help you create,
+customize, and deploy your community.
+___

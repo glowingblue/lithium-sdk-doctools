@@ -1,0 +1,42 @@
+@ngdoc overview
+@name Get Started
+@sortOrder 100
+@description
+
+# Get Started
+
+## Prerequisites
+
+As you begin setting up your development environment, ensure that:
+* you have a functional Lithium Community on release 15.4 or higher. Check the
+version on the version page located at _stage_url_/status/version.
+* you have access to the SDK tab in Studio. This tab generates an
+upload token needed to deploy your plugin to the stage environment. See {@link /develop/deploy Deploy}
+for instructions. Developers can share a single token or use separate tokens.
+
+You will need:
+
+[node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/) - Our developer
+environment runs on top of node.js. When you do local development, it is on a node.js
+server that we proxy to a Lithium community instance. Usually, npm (the Node Package Manager)
+gets bundled with the node environment, but it's good to make sure you have this too.
+
+## Installing dependencies
+We use two npm packages in all of our project repositories: [gulp](http://gulpjs.com/) and
+[lithium-sdk](https://www.npmjs.com/package/lithium-sdk). Install them by issueing
+the following statements in a command line:
+
+```
+npm install gulp -g
+npm install lithium-sdk -g
+```
+The `-g` flag denotes the package specified will be installed globally on your system.
+
+**Tip:** When you install a node package globally, it will put the package in `usr/local/lib/node_modules` and a symlink in `usr/local/bin`. When you run these commands as yourself (`$USER`), you will not have access to write to these locations.
+You might find one or all of the following approaches to suit your needs:
+* Change ownership of where the global packages are being installed (the following is on OSX):
+ * `cd /usr/local/lib/`
+ * `sudo chown -R $USER node_modules`
+* Give yourself write access to `/bin`:
+ * `sudo chmod -R u+w /usr/bin`
+___
