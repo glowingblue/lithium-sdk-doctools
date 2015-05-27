@@ -28,7 +28,9 @@ structure will be created in this location.
 **4**  Enter the name of your plugin project directory. This is the root directory for
 your plugin. There are no naming requirements or restrictions. The plugin project
 is created in the
-directory from where you run `li create-project`.
+directory from where you run `li create-project`. This directory and sub-directories are the
+ones that should be committed into your source-controlled repository for your development
+team to pull and commit to.
 
 **5**  Enter the URL of your stage environment community instance.
 

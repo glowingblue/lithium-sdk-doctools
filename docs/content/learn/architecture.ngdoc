@@ -64,7 +64,6 @@ Use Studio to submit:
 * Endpoints
 * Macros
 * Layouts
-* Custom Content
 * Images for skins, avatars, ranks, and badges
 
 Our developer environment runs on top of node.js, using bower and gulp Node Package Manager (npm)
