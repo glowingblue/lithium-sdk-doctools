@@ -7,39 +7,59 @@
 
 ## Create your plugin
 
-Now that you have your SDK developer environment set up, you can go about creating
-your local plugin repository.
+After {@link /develop/getStarted setting up your SDK development}, you are ready to
+create your local plugin project repository.
 
-Before you begin, generate a plugin upload token in Studio. Go to **Studio > SDK** and click
-**Generate Token**. You will use this token when creating your project and for other SDK
-commands. Alternatively you can add this token to the `server.conf.json` file created
-in the next step.
+**1** Generate a plugin upload token in Studio. Go to **Studio > SDK** and click
+**Generate Token**. The token is required to upload, validate, and update your plugin.
+Alternatively, you can generate this token later and add it to the appropriate configuration
+file manually. **Note:** Multiple users can share the same token.
 
-Move to a new directory where you will create your plugin, and run `li create-project`.
+**2**  Move to a directory where you want to create your plugin repository. A separate directory
+structure will be created in this location.
 
-* Enter the name of your plugin project directory. The plugin project is created in the
+**3**  Run `li create-project`. The command asks you a few questions.
+
+**4**  Enter the name of your plugin project directory. This is the root directory for
+your plugin. There are no naming requirements or restrictions. The plugin project
+is created in the
 directory from where you run `li create-project`.
-* Enter the URL of your community instance
-* Enter the plugin token. Get this token by clicking **Generate Token** in **Studio > SDK**.
-If you do not have the token at this time, you can add it later.
 
-Let the script run to completion.
+**5**  Enter the URL of your stage environment community instance.
 
-**Tip:** Type `li` to see the full list of SDK commands. We'll talk about them more later.
+**6**  When asked, "Do you have a plugin token," enter the token value if you have it.
+Entering the token at this point puts the token value into a configuration file. If you
+do not have a token, press **Enter** to continue. You will have to enter the token into
+the configuration file manually after the create-project script finishes.
 
-##Understanding the plugin structure
+**7**  Let the script run to completion. You will see a new directory with the name you
+defined earlier. **Tip:** Type `li` to see the full list of SDK commands. We'll talk about
+them more later.
 
-Your plugin project repository contains several sub directories. Your customizations go in
- the `res` and `web` directories. The other file you'll use is `server.conf.json`. This
- config file contains default configs and your plugin upload token.
+**8**  (Optional) If you did not enter the token value, generate the token in Studio
+if needed, open `server.conf.json` at the top level of your plugin repository, and
+enter the token for the value of `pluginToken`.
+
+##Revoking a plugin token
+
+If your plugin token expires or becomes compromised, go to **Studio > SDK** and click
+**Revoke Token**. You can then generate a new one. Remember to update `server.conf.json`
+with the new token value, and communicate with any team members who might have been using the
+same token.
+
+##Plugin structure and configuration
+
+Your plugin project repository contains several sub-directories and files. Your customizations go in
+ the `res` and `web` directories. The only file you'll use is `server.conf.json`. This
+ is configuration file contains plugin settings and your plugin upload token.
 
 <img src="img/pluginDir.png" width="380px" align="middle"/>
 
-Let's look at `server.conf.json`. There are a couple of important default options set here.
+Let's look at `server.conf.json`.
 
 ```
 {
-  "serverUrl": "http://mycommunity.lithium.com",
+  "serverUrl": "http://mystagecommunity.lithium.com",
   "pluginToken": "esdlkf09827-7905-39dks-8e48-9e8lkjf093",
   "pluginUploadProtocol": "https",
   "allowStudioOverrides": false,
@@ -48,20 +68,24 @@ Let's look at `server.conf.json`. There are a couple of important default option
 }
 ```
 
-* `allowStudioOverrides` - when true, the `li package-plugin` and `li submit-plugin` commands
- ignore validation that cause the SDK upload to fail if a file with the same name in your
- SDK plugin already exists in Studio. When `allowStudioOverrides` is true, and a file with
-   the same name in the Studio plugin exists. The file you submit with your SDK plugin will
-   be overridden in the community by the file in the Studio plugin.
+* `serverUrl` - the url to the stage server hosting your community
+* `pluginToke` - the plugin token generated in **Studio > SDK**
+* `pluginUploadProtocol` - use "https"
+* `allowStudioOverrides` - when true, plugin upload is allowed even if files exist in the
+Studio plugin with identical names to files in the SDK plugin. When false,  the `li package-plugin`
+and `li submit-plugin` commands won't allow plugin upload if a file in the Studio plugin will
+override a file in the SDK plugin. When true, the commands ignore validation errors
+that prevent Studio plugin overrides. When true, the Studio plugin version of a file
+will be used in the community.
 
 * `strictMode` - when true, FreeMarker syntax failures block plugin upload to the server
-when you run `li submit-plugin`. We recommend setting `strictMode` to false to prevent uploading
+when you run `li submit-plugin`. We recommend setting `strictMode` to true to prevent uploading
 broken components to stage.
 
-* `dryRun` - when true, the `li submit-plugin` validates the plugin on the client side, uploads the plugin to the
-server, and performs server-side validation, but
+* `dryRun` - when true, `li submit-plugin` validates the plugin on the client side,
+uploads the plugin to the server and performs server-side validation, but
 does not save the plugin to the server. Generally you will set `dryRun` to false in `server.conf.json`
-and instead pass the `dryrun` flag with `li submit-plugin`. To learn about what kind of
+and instead pass the `dryrun` option with `li submit-plugin`. To learn about what kind of
 validation occurs on the plugin, see {@link refer/pluginvalidation Plugin Validation}.
 
 Read {@link /develop/deploy Deploy} to learn more about packaging the plugin for deployment
