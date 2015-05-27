@@ -7,10 +7,11 @@
 
 ## Deploying your plugin to stage
 
-Once you've written customizations in your local environment, you are ready to
+Once you've {@link /develop/customize written customizations} in your local environment, you are ready to
 deploy the SDK plugin to stage. If you are working in a multi-developer team, be
 sure to coordinate with team members so you don't accidentally override another team
-member's work. Read {@link /learn/architecture#plugins Understanding plugins}, the sections on plugins in [About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320)
+member's work. See {@link /learn/workflow Developer Workflow} for development environment
+recommendations. Also see {@link /learn/architecture#plugins Understanding plugins}, the sections on plugins in [About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320),
 and [More about plugins](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) for
 more information.
 
@@ -30,7 +31,7 @@ stage site. Enter `y` or `n`.
 plugin to the stage server. The `force` option skips the prompt to confirm upload to the server.
 
 **Tip:** If you encounter errors on your upload, review {@link refer/pluginvalidation Plugin Validation}
-to help debug your plugin.
+to help resolve any upload issues.
 
 
 ___
