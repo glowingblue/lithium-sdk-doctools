@@ -7,7 +7,8 @@
 
 ## Update your plugin
 
-When Lithium releases a new version of the SDK, you will need to update your SDK project.
+When Lithium releases a new version of the SDK, you will need to update your SDK project
+and plugin.
 
 To do this, run `li update-project`.
 
