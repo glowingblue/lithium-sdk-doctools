@@ -7,26 +7,27 @@
 
 ## Prerequisites
 
-As you begin setting up your development environment, ensure that:
-* you have a functional Lithium Community on release 15.4 or higher. Check the
+As you begin setting up your Lithium development environment, ensure that:
+* you have a functional Lithium community on release 15.4 or higher. Check the
 version on the version page located at _stage_url_/status/version.
 * you have access to the SDK tab in Studio. This tab generates an
-upload token needed to deploy your plugin to the stage environment. See {@link /develop/deploy Deploy}
+upload token needed to deploy your plugin to the stage environment.
+See {@link /develop/create Create}
 for instructions. Developers can share a single token or use separate tokens.
-* you are using either Mac or Linux The SDK supports Mac and Linux operating systems.
+* you are using either Mac or Linux
+
+* You have [node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/). Our developer
+environment runs on top of node.js. When you do local development, it is on a node.js
+server that we proxy to a Lithium community instance. Usually, npm (Node Package Manager)
+gets bundled with the node environment, but verify that you have it.
+
+    * Run `node -v` at the command line to check whether node is installed
+    * Run `npm` at the command line to check whether npm is installed
+
 
 **Note:** If you have more than one stage environment, the SDK is only supported on the stage environment
 that is connected via Studio Publish to your production site.
 
-You will need:
-
-[node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/) - Our developer
-environment runs on top of node.js. When you do local development, it is on a node.js
-server that we proxy to a Lithium community instance. Usually, npm (the Node Package Manager)
-gets bundled with the node environment, but it's good to make sure you have this too.
-
-* Run `node -v` at the command line to check whether node is installed
-* Run `npm` at the command line to check whether npm is installed
 
 ## Installing the SDK and dependencies
 We use two npm packages in all of our project repositories: [gulp](http://gulpjs.com/) and
@@ -42,9 +43,10 @@ The `-g` flag denotes the package specified will be installed globally on your s
 **Tip:** When you install a node package globally, the package is put in
 `usr/local/lib/node_modules` and a symlink is put in `usr/local/bin`. When you run these
 commands as yourself (`$USER`), you will not have access to write to these locations, and
-you might get a permission error.
+you might get a permission error that looks something like this:
+`npm ERR! Please try running this command again as root/Administrator.`
 
-If you are having permission issues, use this:
+If you are having permission issues, use:
 ```
 sudo npm install gulp -g
 sudo npm install lithium-sdk -g
@@ -56,5 +58,17 @@ packages are being installed:
  * `sudo chown -R $USER node_modules`
 * Give yourself write access to `/bin`:
  * `sudo chmod -R a+w /usr/bin`
+```
+
+**Note:** You might see warnings generated while installing `lithium-sdk` that look
+something like the following. They are a normal part of the installation process and you can ignore them.
+
+```
+    10 warnings generated.
+    CC(target) Release/obj.target/expat/deps/libexpat/lib/xmlrole.o
+    LIBTOOL-STATIC Release/libexpat.a
+    CXX(target) Release/obj.target/node_expat/node-expat.o
+    SOLINK_MODULE(target) Release/node_expat.node
+    SOLINK_MODULE(target) Release/node_expat.node: Finished
 ```
 ___
