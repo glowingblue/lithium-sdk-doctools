@@ -10,32 +10,24 @@
 Once you've written customizations in your local environment, you are ready to
 deploy the SDK plugin to stage. If you are working in a multi-developer team, be
 sure to coordinate with team members so you don't accidentally override another team
-member's work. Read {@link /learn/architecture#plugins Understanding plugins}, the sections on plugins in [About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) 
+member's work. Read {@link /learn/architecture#plugins Understanding plugins}, the sections on plugins in [About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320)
 and [More about plugins](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) for
 more information.
 
 Before you can upload your customizations, you will need an upload token from Studio.
-Sign in to the community and go to Studio. (If you can't access Studio, ask the community
-administrator for permission.)
-
-In studio, go to the **SDK** tab and click **Generate Upload Token**.
-
-<img src="img/plugin-developer.png" width="640px">
-
-Copy the generated key to the `pluginToken` config in `server.conf.json` located at the root of your
-plugin directory.
+See instructions in {@link /develop/create Create your plugin}.
 
 From the root of your plugin directory, run one of the following:
 
-* `li package-plugin` - to run client-side validation on the plugin, but not upload
+* `li package-plugin` runs client-side validation on the plugin, but does not upload
 the plugin to the stage server
-* `li submit-plugin --dryrun` - to run client and server-side validation on the plugin, upload
-the plugin to the stage server, but not save it to the stage server
-* `li submit-plugin` - run client and server-side validation on the plugin, upload, and save the
-plugin to the stage server
-
-When you run `li submit-plugin` you are asked to confirm uploading the plugin to your
-stage site. Say yes. Alternatively pass the `--force` flag to skip the prompt.
+* `li submit-plugin --dryrun` runs client and server-side validation on the plugin,
+uploads the plugin to the stage server, but does not save it to the stage server
+* `li submit-plugin` runs client and server-side validation on the plugin, uploads, and saves the
+plugin to the stage server. When you run `li submit-plugin` you are asked to confirm uploading the plugin to your
+stage site. Enter `y` or `n`.
+* `li submit-plugin --force` runs client and server-side validation on the plugin, uploads, and saves the
+plugin to the stage server. The `force` option skips the prompt to confirm upload to the server.
 
 **Tip:** If you encounter errors on your upload, review {@link refer/pluginvalidation Plugin Validation}
 to help debug your plugin.

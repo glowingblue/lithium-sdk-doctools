@@ -10,8 +10,13 @@
 After {@link /develop/getStarted setting up your SDK development}, you are ready to
 create your local plugin project repository.
 
-**1** Generate a plugin upload token in Studio. Go to **Studio > SDK** and click
-**Generate Token**. The token is required to upload, validate, and update your plugin.
+**1** Generate a plugin upload token in Studio. Sign in to the community and go to Studio.
+(If you can't access Studio, ask the community administrator for permission.) In studio,
+go to the **SDK** tab and click **Generate Upload Token**.
+
+<img src="img/plugin-developer.png" width="640px">
+
+The token is required to upload, validate, and update your plugin.
 Alternatively, you can generate this token later and add it to the appropriate configuration
 file manually. **Note:** Multiple users can share the same token.
 
