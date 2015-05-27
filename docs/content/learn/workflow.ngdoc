@@ -53,6 +53,8 @@ submitted to the server will override earlier versions.
 
 In addition, customizations made to components, pages, text strings, and assets made in
 Studio will override the customizations made to the same items submitted using the SDK.
+We have added visual cues and warnings in Studio to alert Studio users when they are
+working on a file that was contributed in the SDK and potentially overriding SDK contributions.
 
 For more information about how plugins interact, read
 [About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) and

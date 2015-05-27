@@ -44,7 +44,7 @@ with a special SDK icon.
 * `web/html/assets` - Assets here appear in the **Studio >
 Community Style > Other Assets** tab in the Asset Library.
 
-To test your customizations on your stage server, you run `li submit-plugin` or `li package-project`
+To test your customizations on your stage server, you run `li submit-plugin` or `li package-plugin`
 as described in {@link develop/deploy Deploy}. Review {@link refer/pluginvalidation Plugin Validation}
 to understand naming conventions and directory structure requirements for your plugin.
 

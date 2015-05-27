@@ -4,7 +4,15 @@
 @description
 
 # Plugin Validation
-When you run `li package-project` or `li submit-plugin` the plugin goes through validation.
+Plugin validation occurs when you run any of the following commands at the root
+of your plugin repository:
+
+* `li package-plugin` performs client side validation, but does not upload the plugin to the stage server
+* `li submit-plugin --dryrun` performs client-side validation, uploads the plugin to the server, runs
+server-side validation, but does not save the plugin to the stage server after validation completes
+* `li submit-plugin` performs client-side validation, uploads the plugin, runs server-side validation,
+ and saves the plugin to the stage server
+
 Validation of file contents (XML validation, FreeMarker validation, skin properties) occurs
 server-side. Client-side validation includes the plugin directory
 structure, directory names, and file names.

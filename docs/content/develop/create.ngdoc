@@ -48,17 +48,18 @@ Let's look at `server.conf.json`. There are a couple of important default option
 }
 ```
 
-* `allowStudioOverrides` - when `true`, the `li package-plugin` and `li submit-plugin` commands
+* `allowStudioOverrides` - when true, the `li package-plugin` and `li submit-plugin` commands
  ignore validation that cause the SDK upload to fail if a file with the same name in your
- SDK plugin already exists in Studio. When `allowStudioOverrides` is `true`, and a file with
+ SDK plugin already exists in Studio. When `allowStudioOverrides` is true, and a file with
    the same name in the Studio plugin exists. The file you submit with your SDK plugin will
    be overridden in the community by the file in the Studio plugin.
 
-* `strictMode` - when `true`, FreeMarker syntax failures block plugin upload to the server
-when you run `li submit-package`. We recommend setting `strictMode` to false to prevent uploading
+* `strictMode` - when true, FreeMarker syntax failures block plugin upload to the server
+when you run `li submit-plugin`. We recommend setting `strictMode` to false to prevent uploading
 broken components to stage.
 
-* `dryRun` - when `true`, the `li submit-package` command performs packaging and validation, but
+* `dryRun` - when true, the `li submit-plugin` validates the plugin on the client side, uploads the plugin to the
+server, and performs server-side validation, but
 does not save the plugin to the server. Generally you will set `dryRun` to false in `server.conf.json`
 and instead pass the `dryrun` flag with `li submit-plugin`. To learn about what kind of
 validation occurs on the plugin, see {@link refer/pluginvalidation Plugin Validation}.

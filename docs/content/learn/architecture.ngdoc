@@ -7,18 +7,19 @@
 
 When you start with Lithium Community, you start with our standard out-of-the-box experience.
 The look and feel of your community is controlled through your community [skin](http://community.lithium.com/t5/Skins-and-assets/About-skins/ta-p/109067). The content
-is displayed using widgets called [components](http://community.lithium.com/t5/Pages-and-layouts/About-components/ta-p/134343),
-created with a templating language called [FreeMarker](http://freemarker.org/),[custom content](http://community.lithium.com/t5/Custom-Content/About-custom-content/ta-p/108551),
+is displayed using widgets called [components](http://community.lithium.com/t5/Pages-and-layouts/About-components/ta-p/134343)
+(created with a templating language called [FreeMarker](http://freemarker.org/)), [custom content](http://community.lithium.com/t5/Custom-Content/About-custom-content/ta-p/108551),
 and [endpoints](http://community.lithium.com/t5/Components-endpoints-and-the/About-endpoints/ta-p/108971) to interact with third-party applications and your company website.
 
-Community ships with core pages, layouts, components, text, CSS, images and more. Developers and end-users
-can customize, add, and override our core resources.
-
-Customizations are bundled into a _plugin_ and published to the stage server. From there,
- the plugin can be deployed to your production environment using Studio Publish. We
-discuss plugins in more detail later. There are two ways to create customizations:
+Community ships with core pages, layouts, components, text, CSS, images and more. Developers, designers, and
+other members of your community team can customize, add, and override our core resources.
+There are two ways to create customizations:
 * Using the Lithium-Klout SDK
-* Using Studio -- our customization GUI
+* Using Studio, our customization GUI
+
+Customizations created in either environment are bundled into a _plugin_ and published to the stage server, where
+you can test them before pushing the plugin to your live production environment. Plugins are deployed
+to your production environment using Studio Publish. We will discuss plugins in more detail later.
 
 The illustration below shows the Community technology stack. The stack rests on the Community object model,
 which is accessed through our platform and API. Our customers use Studio and the SDK to create
@@ -43,7 +44,8 @@ The Lithium-Klout SDK enables developers to create customizations in their prefe
 or text editor (e.g. Eclipse, IntelliJ, Sublime) and to submit their customizations to the
 stage server directly from the command line.
 
-**Note:** The SDK supports Mac and Linux operating systems. Also, if you have more than one stage environment,
+**Note:** The SDK supports Mac and Linux operating systems.
+**Note:** If you have more than one stage environment,
 the SDK is only supported on the stage environment that is connected via Studio Publish to your production site.
 
 Using the SDK you can submit:
@@ -54,7 +56,7 @@ Using the SDK you can submit:
 * Text strings
 * Assets
 
-**Note:** At this time, assets submitted are the equivalent of the assets in the Other Assets tab in
+**Note:** At this time, assets submitted are the equivalent of the assets in the Other Assets tab in the
 Studio Asset Library, located in **Studio > Community Style > Asset Library > Other Assets**. You cannot
 submit skin images, avatars, rank icons, or badge images using the SDK.
 
@@ -86,8 +88,7 @@ Plugin resources can be overridden. This is how you customize core components,
   rendered in a specific order -- this is why in the technology stack diagram, the Studio plugin
   sits above the SDK plugin. The folder structure is identical from one plugin to the next, and resources in
   your plugin structure (your customizations) will overwrite identically named files for core functionality.
-  Any further customization done in Studio to those resources, however will override your local development
-  environment changes.
+  Any further customization done in Studio to those resources, however will override your SDK plugin contributions.
 
 It is very important as a developer to work closely with your community team members who use Studio so that
 changes made via the SDK are not inadvertently overridden in Studio. Developers should discuss with their community
@@ -97,7 +98,7 @@ customizations should communicate so that they don't accidentally override each 
 local plugin customizations to stage.
 
 You can learn more about plugins,
-how they interact, how to override and revert files in
+how they interact, and how to override and revert files in
 [About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320).
 
 ##SDK tool chain <a id="tool-chain"></a>

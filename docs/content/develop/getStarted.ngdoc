@@ -28,7 +28,7 @@ gets bundled with the node environment, but it's good to make sure you have this
 * Run `node -v` at the command line to check whether node is installed
 * Run `npm` at the command line to check whether npm is installed
 
-## Installing dependencies
+## Installing the SDK and dependencies
 We use two npm packages in all of our project repositories: [gulp](http://gulpjs.com/) and
 [lithium-sdk](https://www.npmjs.com/package/lithium-sdk). Install them by issueing
 the following statements in a command line:
@@ -39,17 +39,22 @@ npm install lithium-sdk -g
 ```
 The `-g` flag denotes the package specified will be installed globally on your system.
 
-**Tip:** When you install a node package globally, it will put the package in `usr/local/lib/node_modules` and a symlink in `usr/local/bin`. When you run these commands as yourself (`$USER`), you will not have access to write to these locations.
-You might find one or all of the following approaches to suit your needs:
-* Change ownership of where the global packages are being installed (the following is on OSX):
- * `cd /usr/local/lib/`
- * `sudo chown -R $USER node_modules`
-* Give yourself write access to `/bin`:
- * `sudo chmod -R u+w /usr/bin`
+**Tip:** When you install a node package globally, the package is put in
+`usr/local/lib/node_modules` and a symlink is put in `usr/local/bin`. When you run these
+commands as yourself (`$USER`), you will not have access to write to these locations, and
+you might get a permission error.
 
 If you are having permission issues, use this:
 ```
 sudo npm install gulp -g
-Sudo npm install lithium-sdk -g
+sudo npm install lithium-sdk -g
+```
+
+If you are still having permission issues, change ownership of where the global
+packages are being installed:
+ * `cd /usr/local/lib/`
+ * `sudo chown -R $USER node_modules`
+* Give yourself write access to `/bin`:
+ * `sudo chmod -R a+w /usr/bin`
 ```
 ___

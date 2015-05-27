@@ -3,19 +3,19 @@
 @sortOrder 100
 @description
 
-# SDK Overview
+# Welcome to the Lithium-Klout SDK
 
-At Lithium, we help you keep pace with extreme customer expectations,
-reinvent the way you connect with your customers, build and maintain trusted connections.
+At Lithium, we help you reinvent ways to connect, build, and maintain trusted connections with
+your customers.
 This requires that you're able to customize, extend, and integrate your community
-in a way that provides maximum business.
+in a way that provides maximum results.
 To help you succeed in this mission, we make it easy for developers to build on the platform
 using the tools and workflows they're already familiar with.
 
-SDK is currently in open beta. We've made our best effort to give you a stable
-and robust product, but it's a beta so there may be some glitches. Please consider 
+The Lithium-Klout SDK is currently in open beta. We've made our best effort to give you a stable
+and robust product, but it's a beta so there may be some glitches. Please consider
 your business goals and tolerance for bugs before joining the program. Also, since
-we're actively developing the product, we'll try to surprise you with  new features
+we're actively developing the product, we'll try to surprise you with new features
 or make the existing ones better during the program. To keep up to date on changes,
 to ask questions, or provide feedback subscribe to the [Current Betas](http://community.lithium.com/t5/Current-betas/bd-p/BetaCurrent)
 board.
@@ -48,6 +48,6 @@ Find reference API documentation here:
 
 ## <img src="img/workflow.png" width="35px"/> Workflow
 
-Learn about {@link /learn/workflow workflow} recommendations to help you create,
-customize, and deploy your community.
+Learn about {@link /learn/workflow workflow} recommendations to help create an
+efficient development environment.
 ___
