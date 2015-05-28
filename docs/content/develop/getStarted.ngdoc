@@ -13,7 +13,7 @@ version on the version page located at _stage_url_/status/version.
 * you have access to the SDK tab in Studio. This tab generates an
 upload token needed to deploy your plugin to the stage environment.
 See {@link /develop/create Create}
-for instructions. Developers can share a single token or use separate tokens.
+for instructions. Developers in a multi-developer environment share a single token.
 * you are using either Mac or Linux
 
 * You have [node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/). Our developer

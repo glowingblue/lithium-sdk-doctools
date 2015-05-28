@@ -18,7 +18,7 @@ go to the **SDK** tab and click **Generate Upload Token**.
 
 The token is required to upload, validate, and update your plugin.
 Alternatively, you can generate this token later and add it to the appropriate configuration
-file manually. **Note:** Multiple users can share the same token.
+file manually. **Note:** In a multi-developer environment, developers share the same token.
 
 **2**  Move to a directory where you want to create your plugin repository. A separate directory
 structure will be created in this location.
@@ -51,7 +51,7 @@ enter the token for the value of `pluginToken`.
 
 If your plugin token expires or becomes compromised, go to **Studio > SDK** and click
 **Revoke Token**. You can then generate a new one. Remember to update `server.conf.json`
-with the new token value, and communicate with any team members who might have been using the
+with the new token value, and communicate with any team members using the
 same token.
 
 ##Plugin structure and configuration

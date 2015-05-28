@@ -7,7 +7,7 @@
 
 The Lithium-Klout SDK supports a developer-friendly "choose your own IDE" experience
 that enables you to develop locally with the tools of your choice, collaborate with your
-own team safely in your own source control system, and test on your stage environment.
+own team in your own source control system, and test on your stage environment.
 
 ##Developer environment recommendations
 
@@ -16,12 +16,12 @@ that their customization contributions to not override one another's. Lithium do
 all customizations from all developers into a single plugin to deploy to the stage environment.
 
 
-**Note:** At this time, submitting a plugin as part of a Continuous Integration (CI) environment, such
+**Note:** At this time, submitting a plugin as part of a continuous integration (CI) environment, such
 as [Jenkins](http://jenkins-ci.org/) or [Travis-CI](http://docs.travis-ci.com/),
-is not recommended. We are still testing this workflow and will update the Beta
+is not recommended. We are still testing this workflow and will update Beta
 participants when this workflow is ready for use.
 
-This diagram illustrates how your team can set up your SDK developer environment.
+This diagram illustrates how to set up our recommended SDK development environment.
 
 <img src="img/SDK_DevEnvSetup.png" width="420 px"/>
 
@@ -32,6 +32,9 @@ to create the SDK plugin project for your community. This task creates the direc
 structure that should be put into your preferred source control system. After the SDK project
 files are created and placed under source control, other developers
 should pull the plugin project to replicate the SDK plugin directory structure onto their local machines.
+
+Creating the plugin project requires generating an upload token in Studio. See {@link /develop/create Create}
+for instructions. Developers share the access token.
 
 After this is complete, the team is ready to customize and check in. Read {@link /develop/customize Customize}
 to learn where to place customizations in the plugin repository.
