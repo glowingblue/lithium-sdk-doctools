@@ -14,7 +14,7 @@ var path = require('canonical-path');
 module.exports = function generateKeywordsProcessor(log, readFilesProcessor) {
   return {
     ignoreWordsFile: undefined,
-    areasToSearch: ['api', 'learn', 'develop', 'refer', 'discuss'],
+    areasToSearch: fs.readdirSync(path.join(process.cwd(), 'docs/content')),
     propertiesToIgnore: [],
     $validate: {
       ignoreWordsFile: { },
@@ -60,17 +60,17 @@ module.exports = function generateKeywordsProcessor(log, readFilesProcessor) {
         return title;
       }
 
-    function extractWords(text, words, keywordMap) {
+      function extractWords(text, words, keywordMap) {
 
-      var tokens = text.toLowerCase().split(/[\.\s,`'"#]+/mg);
-      _.forEach(tokens, function(token){
-        var match = token.match(KEYWORD_REGEX);
-        if (match){
-          var key = match[1];
-          if ( !keywordMap[key]) {
-            keywordMap[key] = true;
-            words.push(key);
-          }
+        var tokens = text.toLowerCase().split(/[\.\s,`'"#]+/mg);
+        _.forEach(tokens, function(token){
+          var match = token.match(KEYWORD_REGEX);
+          if (match){
+            var key = match[1];
+            if ( !keywordMap[key]) {
+              keywordMap[key] = true;
+              words.push(key);
+            }
           }
         });
       }
@@ -81,34 +81,32 @@ module.exports = function generateKeywordsProcessor(log, readFilesProcessor) {
 
       _.forEach(docs, function(doc) {
 
-      var words = [];
-      var keywordMap = _.clone(ignoreWordsMap);
-      var members = [];
-      var membersMap = {};
+        var words = [];
+        var keywordMap = _.clone(ignoreWordsMap);
+        var members = [];
+        var membersMap = {};
 
-      // Search each top level property of the document for search terms
-      _.forEach(doc, function(value, key) {
+        // Search each top level property of the document for search terms
+        _.forEach(doc, function(value, key) {
 
-        if ( _.isString(value) && !propertiesToIgnore[key] ) {
-          extractWords(value, words, keywordMap);
-        }
+          if ( _.isString(value) && !propertiesToIgnore[key] ) {
+            extractWords(value, words, keywordMap);
+          }
 
-        if ( key === 'methods' || key === 'properties' || key === 'events' ) {
-          _.forEach(value, function(member) {
-            extractWords(member.name, members, membersMap);
-          });
-        }
+          if ( key === 'methods' || key === 'properties' || key === 'events' ) {
+            _.forEach(value, function(member) {
+              extractWords(member.name, members, membersMap);
+            });
+          }
+        });
+
+        doc.searchTerms = {
+          titleWords: extractTitleWords(doc.name),
+          keywords: _.sortBy(words).join(' '),
+          members: _.sortBy(members).join(' ')
+        };
+
       });
-
-
-      doc.searchTerms = {
-        titleWords: extractTitleWords(doc.name),
-        keywords: _.sortBy(words).join(' '),
-        members: _.sortBy(members).join(' ')
-      };
-
-      });
-
     }
   };
 };

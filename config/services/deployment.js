@@ -17,42 +17,47 @@ function getComponentWithVersion(component, sourceFolder, packageFile) {
   return version ? component + '-' + version : component;
 }
 
-module.exports = function defaultDeployment() {
-  return {
-    name: 'default',
-    examples: {
-      commonFiles: {
-        scripts: [ 
-          cdnUrl + '/angular.min.js',
-          '/js/app.js'
-        ]
+module.exports = function (opts) {
+  return function defaultDeployment() {
+    return {
+      name: 'default',
+      examples: {
+        commonFiles: {
+          scripts: [ 
+            cdnUrl + '/angular.min.js',
+            '/' + opts.pathPrefix + 'js/app.js'
+          ],
+          stylesheets: [
+            '/' + opts.pathPrefix + 'css/example.css'
+          ]
+        },
+        dependencyPath: cdnUrl + '/'
       },
-      dependencyPath: cdnUrl + '/'
-    },
-    scripts: [
-      cdnUrl + '/angular.min.js',
-      cdnUrl + '/angular-resource.min.js',
-      cdnUrl + '/angular-route.min.js',
-      cdnUrl + '/angular-cookies.min.js',
-      cdnUrl + '/angular-sanitize.min.js',
-      cdnUrl + '/angular-touch.min.js',
-      cdnUrl + '/angular-animate.min.js',
-      'https://google-code-prettify.googlecode.com/svn/loader/prettify.js',
-      'https://google-code-prettify.googlecode.com/svn/loader/lang-css.js',
-      '/components/' + getComponentWithVersion('marked') + '/marked.js',
-      '/components/' + getComponentWithVersion('lunr') + '/lunr.min.js',
-      '/js/angular-bootstrap/bootstrap.min.js',
-      '/js/angular-bootstrap/dropdown-toggle.min.js',
-      '/js/pages-data.js',
-      '/js/nav-data.js',
-      '/js/docs.min.js'
-    ],
-    stylesheets: [
-      'components/' + getComponentWithVersion('bootstrap') + '/css/bootstrap.min.css',
-      'components/' + getComponentWithVersion('open-sans-fontface') + '/open-sans.css',
-      'css/prettify-theme.css',
-      'css/docs.css',
-      'css/animations.css'
-    ]
+      scripts: [
+        cdnUrl + '/angular.min.js',
+        cdnUrl + '/angular-resource.min.js',
+        cdnUrl + '/angular-route.min.js',
+        cdnUrl + '/angular-cookies.min.js',
+        cdnUrl + '/angular-sanitize.min.js',
+        cdnUrl + '/angular-touch.min.js',
+        cdnUrl + '/angular-animate.min.js',
+        'https://google-code-prettify.googlecode.com/svn/loader/prettify.js',
+        'https://google-code-prettify.googlecode.com/svn/loader/lang-css.js',
+        '/' + opts.pathPrefix + 'components/' + getComponentWithVersion('marked') + '/marked.js',
+        '/' + opts.pathPrefix + 'components/' + getComponentWithVersion('lunr') + '/lunr.min.js',
+        '/' + opts.pathPrefix + 'js/angular-bootstrap/bootstrap.min.js',
+        '/' + opts.pathPrefix + 'js/angular-bootstrap/dropdown-toggle.min.js',
+        '/' + opts.pathPrefix + 'js/pages-data.js',
+        '/' + opts.pathPrefix + 'js/nav-data.js',
+        '/' + opts.pathPrefix + 'js/docs.min.js'
+      ],
+      stylesheets: [
+        'components/' + getComponentWithVersion('bootstrap') + '/css/bootstrap.min.css',
+        'components/' + getComponentWithVersion('open-sans-fontface') + '/open-sans.css',
+        'css/prettify-theme.css',
+        'css/docs.css',
+        'css/animations.css'
+      ]
+    };
   };
 };

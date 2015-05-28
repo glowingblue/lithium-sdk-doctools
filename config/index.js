@@ -6,21 +6,22 @@ var Package = require('dgeni').Package;
 
 // Create and export a new Dgeni package called dgeni-example. This package depends upon
 // the jsdoc and nunjucks packages defined in the dgeni-packages npm module.
-module.exports = function (outputFolder) {
+module.exports = function (opts) {
   return new Package('angularjs', [
     require('dgeni-packages/ngdoc'),
     require('dgeni-packages/nunjucks'),
     require('dgeni-packages/examples')
   ])
 
-  .factory(require('./services/deployment'))
+  .factory(require('./services/deployment')(opts))
   .factory(require('./inline-tag-defs/type'))
 
   .processor(require('./processors/index-page'))
   .processor(require('./processors/keywords'))
   .processor(require('./processors/pages-data'))
-  .processor(require('./processors/git-branch'))
-  .processor(require('./processors/example-src-processor'))
+  .processor(require('./processors/apply-options')(opts))
+  .processor(require('./processors/example-src'))
+  .processor(require('./processors/requires'))
 
   // Configure our dgeni-example package. We can ask the Dgeni dependency injector
   // to provide us with access to services and processors that we wish to configure
@@ -48,7 +49,7 @@ module.exports = function (outputFolder) {
     ];
 
     // Specify where the writeFilesProcessor will write our generated doc files
-    writeFilesProcessor.outputFolder = path.resolve(process.cwd(), outputFolder);
+    writeFilesProcessor.outputFolder = path.resolve(process.cwd(), opts.outputFolder);
   })
 
   .config(function(parseTagsProcessor) {
@@ -64,8 +65,6 @@ module.exports = function (outputFolder) {
 
   .config(function(templateFinder) {
     templateFinder.templateFolders.unshift('./docs/templates');
-    templateFinder.templateFolders.unshift('./docs/templates/ngdoc');
-    templateFinder.templateFolders.unshift('./docs/templates/ngdoc/api');
   })
 
   .config(function(computePathsProcessor, computeIdsProcessor) {
@@ -119,13 +118,17 @@ module.exports = function (outputFolder) {
 
     computeIdsProcessor.idTemplates.push({
       docTypes: ['overview', 'tutorial', 'e2e-test', 'indexPage'],
-      getId: function(doc) { return doc.fileInfo.baseName; },
-      getAliases: function(doc) { return [doc.id]; }
+      getId: function(doc) { 
+        return doc.fileInfo.baseName; },
+      getAliases: function(doc) { 
+        return [doc.id]; 
+      }
     });
 
     computeIdsProcessor.idTemplates.push({
       docTypes: ['error', 'errorNamespace'],
-      getId: function(doc) { return 'error:' + doc.name; },
+      getId: function(doc) {  
+        return 'error:' + doc.name; },
       getAliases: function(doc) { return [doc.id]; }
     });
   })
@@ -151,7 +154,7 @@ module.exports = function (outputFolder) {
     ];
 
     generateProtractorTestsProcessor.basePath = path.resolve(process.cwd(),
-      './' + outputFolder);
+      './' + opts.outputFolder);
 
     generateExamplesProcessor.deployments = [
       defaultDeployment

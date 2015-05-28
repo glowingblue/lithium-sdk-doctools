@@ -12,6 +12,8 @@ var connect = require('gulp-connect');
 var historyApiFallback = require('connect-history-api-fallback');
 var del = require('del');
 var through = require('through2').obj;
+var exec = require('child_process').exec;
+var modrewrite = require('connect-modrewrite');
 var sdkConf;
 try {
   sdkConf = require(path.resolve(process.cwd(), 'sdk.conf.json'));
@@ -35,12 +37,13 @@ var HTML2JS_TEMPLATE = 'angular.module(\'<%= moduleName %>\').run([\'$templateCa
 // See clean and bower for async tasks, and see assets and doc-gen for dependent tasks below
 module.exports = function(gulp, gutil) {
 
-  var outputFolder = 'dist-ngdoc';
-
   var docJsCombined = 'docs/js/combined/**/*.js';
   var docJsStandalone = 'docs/js/standalone/**/*.js';
   var docCss = 'docs/css/**/*.css';
   var docImg = 'docs/images/**/*';
+  var gitBranch = 'master';
+  var pathPrefix = '';
+  var outputFolder = 'dist-ngdoc';
 
   var copyComponent = function(component, pattern, sourceFolder, packageFile) {
     pattern = pattern || '/**/*';
@@ -54,11 +57,28 @@ module.exports = function(gulp, gutil) {
     }
     return gulp
       .src(path.join(__dirname, '..', sourceFolder, component, pattern))
-      .pipe(gulp.dest('./' + outputFolder + '/components/' + 
+      .pipe(gulp.dest(outputFolder + '/components/' + 
           component + (version ? '-' + version : '')));
   };
 
-  gulp.task('ngdoc-clean', function (cb) {
+  gulp.task('ngdoc-git-branch', function (cb) {
+    exec('git rev-parse --abbrev-ref HEAD', function (error, stdout, stderror) {
+      if (error) {
+        gutil.log(gutil.colors.yellow(stderror));
+        gutil.log(gutil.colors.yellow('Using \'master\' ' + 
+          'branch as branch could not be determined.'));
+      } else {
+        gitBranch = stdout.trim();
+      }
+      if (gutil.env['for-release']) {
+        pathPrefix = gitBranch + '/';
+        outputFolder = path.join(outputFolder, pathPrefix);
+      }
+      cb();
+    }); 
+  })
+
+  gulp.task('ngdoc-clean', ['ngdoc-git-branch'], function (cb) {
     del(outputFolder, cb);
   });
 
@@ -142,7 +162,11 @@ module.exports = function(gulp, gutil) {
   });
 
   gulp.task('ngdoc-dgeni', ['ngdoc-clean'], function() {
-    var dgeni = new Dgeni([require('../config')(outputFolder)]);
+    var dgeni = new Dgeni([require('../config')({
+      outputFolder: outputFolder, 
+      gitBranch: gitBranch, 
+      pathPrefix: pathPrefix
+    })]);
     return dgeni.generate().catch(function(error) {
       process.exit(1);
     });
@@ -182,7 +206,21 @@ module.exports = function(gulp, gutil) {
         port: lrPort
       },
       middleware: function(connect, opt) {
-        return [ historyApiFallback ];
+        var middlewares = [];
+        if (gutil.env['for-release']) {
+          middlewares.push(function (req, res, next) {
+            if (req.url.indexOf(pathPrefix) >= 0) {
+              req.url = req.url.replace(new RegExp(pathPrefix), '');
+              next();
+            } else {
+              res.statusCode = 303;
+              res.setHeader('Location', '/' + pathPrefix + 'index.html');
+              res.end();
+            }
+          });
+        }
+        middlewares.push(historyApiFallback);
+        return middlewares;
       }
     });
     gulp.watch(['docs/**/*','src/**/*.js'], ['ngdoc-reload']);

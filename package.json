@@ -13,6 +13,7 @@
     "bootstrap": "^3.3.4",
     "canonical-path": "0.0.2",
     "connect-history-api-fallback": "0.0.5",
+    "connect-modrewrite": "^0.8.1",
     "del": "^1.2.0",
     "dgeni": "^0.4.1",
     "dgeni-packages": "^0.10.5",
@@ -28,7 +29,8 @@
     "marked": "^0.3.3",
     "node-html-encoder": "0.0.2",
     "open-sans-fontface": "^1.4.0",
-    "through2": "^1.1.1"
+    "through2": "^0.6.5",
+    "uglify-js": "^2.4.23"
   },
   "devDependencies": {},
   "keywords": [

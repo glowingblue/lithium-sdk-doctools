@@ -1,7 +1,6 @@
-var exec = require('child_process').exec;
 var fs = require('fs');
 
-module.exports = function exampleSrcProcessor (log, exampleMap) {
+module.exports = function requiresProcessor (log, exampleMap) {
   return {
     $runAfter: ['files-read'],
     $runBefore: ['parsing-tags'],
