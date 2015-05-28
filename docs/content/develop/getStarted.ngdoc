@@ -16,7 +16,9 @@ See {@link /develop/create Create}
 for instructions. Developers in a multi-developer environment share a single token.
 * you are using either Mac or Linux
 
-* You have [node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/). Our developer
+* you have [git](https://git-scm.com/)
+
+* you have [node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/). Our developer
 environment runs on top of node.js. When you do local development, it is on a node.js
 server that we proxy to a Lithium community instance. Usually, npm (Node Package Manager)
 gets bundled with the node environment, but verify that you have it.
