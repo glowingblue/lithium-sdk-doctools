@@ -8,7 +8,7 @@
 At Lithium, we help you reinvent ways to connect, build, and maintain trusted connections with
 your customers.
 This requires that you're able to customize, extend, and integrate your community
-in a way that provides maximum results.
+in a way that provides maximum benefits.
 To help you succeed in this mission, we make it easy for developers to build on the platform
 using the tools and workflows they're already familiar with.
 
@@ -22,8 +22,8 @@ board.
 
 ## <img src="img/development-kit.png" width="35px"/> Architecture and SDK
 
-The platform offers a development kit built on top of
-<a href="http://nodejs.org">node.js</a>, to help you create, customize, publish and
+The Lithium platform offers a development kit built on top of
+<a href="http://nodejs.org">node.js</a>, to help you create, customize, publish, and
 maintain a compelling community experience for your users. Learn about our
 {@link /learn/architecture customization framework} and how to
 {@link /develop/getStarted set up your development environment}.
