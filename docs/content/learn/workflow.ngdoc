@@ -34,7 +34,7 @@ files are created and placed under source control, other developers
 should pull the plugin project to replicate the SDK plugin directory structure onto their local machines.
 
 Creating the plugin project requires generating an upload token in Studio. See {@link /develop/create Create}
-for instructions. Developers share the access token.
+for instructions. Developers share the access token in a multi-developer environment.
 
 After this is complete, the team is ready to customize and check in. Read {@link /develop/customize Customize}
 to learn where to place customizations in the plugin repository.
@@ -44,9 +44,11 @@ This diagram illustrates the workflow.
 <img src="img/DevWorkflowNoCI.png" width="620 px"/>
 
 ### Deploying to stage
-The command `li submit-plugin` deploys the plugin to the stage environment.
+The command `li submit-plugin` deploys the plugin to the stage environment. See
+{@link /develop/deploy Deploy} for optional flags to pass on the command for validation
+prior to deployment.
 
-At this time, each developer submits his or her local plugin to the stage server.
+Each developer submits his or her local plugin to the stage server.
 Therefore, it is important that the developer has updated his local plugin with the
 latest code from the repository before deploying.
 If you work in a multi-developer customization team, communicate closely with team
@@ -57,17 +59,17 @@ submitted to the server will override earlier versions.
 In addition, customizations made to components, pages, text strings, and assets made in
 Studio will override the customizations made to the same items submitted using the SDK.
 We have added visual cues and warnings in Studio to alert Studio users when they are
-working on a file that was contributed in the SDK and potentially overriding SDK contributions.
+working on a file that was contributed in the SDK and are potentially overriding SDK contributions.
 
 For more information about how plugins interact, read
-[About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) and
-[More about plugins](https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316).
+[About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320),
+[More about plugins](https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316),
+and Understanding Plugins in {@link /learn/architecture Architecture}.
 
-{@link /develop/deploy Deploying to stage} requires an upload token generated
-in the **Studio > SDK tab**. The `li submit-plugin` task bundles the plugin and validates it.
-The plugin appears in the **Studio > Versions** tab. Look for a line that says
-"Plugin Checkin" For more information about plugins see the Understanding
-Plugins section in {@link /learn/architecture Architecture}.
+The `li submit-plugin` task bundles the plugin and validates it.
+The plugin appears in **Studio > Versions**. After a successful upload, you will see
+ an entry in the Versions tab that says
+"Plugin Checkin."
 
 If needed you can roll back to the previous plugin version in the Versions tab.
 
