@@ -17,24 +17,24 @@ for more information.
 
 ## Base skin properties
 ```
-title												   = Community Base Skin
-groups                         = community
-  color.foreground					   = 333333
-color.background							 = ffffff
-color.midtone									 = 808080
-color.rollover								 = 24478f
-color.selection								 = ffffcc
-color.alert										 = cc0000
-color.safe										 = 669966
-color.warn                     = 8a6d3b
-color.primary_01							 = cc8b33
-color.primary_02							 = 3366cc
-color.primary_03							 = 808080
-color.primary_04							 = 808080
-type.title_01									 = font-family:Arial; font-weight:bold;
-type.title_02									 = font-family:Arial; font-weight:bold;
-type.title_03									 = font-family:Arial; font-weight:bold;
-type.title_04									 = font-family:Arial; font-weight:bold;
+title                         = Community Base Skin
+groups                        = community
+color.foreground              = 333333
+color.background              = ffffff
+color.midtone                 = 808080
+color.rollover								= 24478f
+color.selection								= ffffcc
+color.alert										= cc0000
+color.safe										= 669966
+color.warn                    = 8a6d3b
+color.primary_01							= cc8b33
+color.primary_02							= 3366cc
+color.primary_03							= 808080
+color.primary_04							= 808080
+type.title_01									= font-family:Arial; font-weight:bold;
+type.title_02									= font-family:Arial; font-weight:bold;
+type.title_03									= font-family:Arial; font-weight:bold;
+type.title_04									= font-family:Arial; font-weight:bold;
 type.body_01									 = font-family:Arial; font-weight:normal;
 type.small_01									 = font-family:Arial; font-weight:normal;
 type.font_size.title_01				 = 30
