@@ -32,7 +32,9 @@
     "through2": "^0.6.5",
     "uglify-js": "^2.4.23"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "3.8.11"
+  },
   "keywords": [
     "lithium",
     "klout",
