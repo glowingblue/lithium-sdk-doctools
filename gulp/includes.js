@@ -70,8 +70,9 @@ module.exports = function(gulp, gutil) {
       } else {
         gitBranch = stdout.trim();
       }
-      if (gutil.env['for-release']) {
-        pathPrefix = gitBranch + '/';
+      if (gutil.env['include-git-branch']) {
+        var cwd = process.cwd().split('/').pop();
+        pathPrefix = path.join(cwd, gitBranch) + '/';
         outputFolder = path.join(outputFolder, pathPrefix);
       }
       cb();
@@ -207,7 +208,7 @@ module.exports = function(gulp, gutil) {
       },
       middleware: function(connect, opt) {
         var middlewares = [];
-        if (gutil.env['for-release']) {
+        if (gutil.env['include-git-branch']) {
           middlewares.push(function (req, res, next) {
             if (req.url.indexOf(pathPrefix) >= 0) {
               req.url = req.url.replace(new RegExp(pathPrefix), '');
