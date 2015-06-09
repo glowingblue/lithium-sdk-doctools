@@ -246,14 +246,12 @@ under your plugin root. Create a subdirectory in `res/skins` for each skin. For 
  skin, you'll add directories to hold skin properties and wrappers for
  mobile and desktop as needed. We'll look at that subdirectory structure in the next section.
 
-**Note:** At this time, skins contributed using the SDK must the `base` skin as the parent skin.
-**Tip:** Skin IDs cannot have spaces. For example, `my_custom_skin` is allowed, but
-`My Custom Skin` is not.
+**Note:** At this time you cannot set a custom skin created in Studio as parent of a skin created
+in the SDK.
 
 [Back to top](/develop/customize#top)
 
 ####Create a skin
-**Note:** At this time, any skin contributed using the SDK must use the base skin as the parent skin.
 
 Before you create your skin, you need to set up several directories to hold skin
 resources.
