@@ -3,7 +3,7 @@
 @sortOrder 300
 @description
 
-# Customize
+# Customize<a id="top">
 
 ## Customize your community
 Now that you have {@link develop/create created} your local SDK plugin repository,
@@ -54,6 +54,8 @@ These instructions assume you're working in your plugin repository (PLUGIN_REPO)
 name and file extension as a customization you submit using the SDK override the SDK
 version.
 
+[Back to top](/develop/customize#top)
+
 ### Customize components<a id="components"></a>
 Let's add a custom component. When you're writing components you use FreeMarker,
 a templating language. You can learn about FreeMarker at [FreeMarker.org](http://freemarker.org/).
@@ -86,6 +88,8 @@ in the tab. It also appears in the Custom Components section of **Studio > Page*
 From here, the custom component can be added to a quilt using Studio or you can add it to
 a custom quilt that you create and upload to the stage server with the SDK. We'll create a custom
 quilt next.
+
+[Back to top](/develop/customize#top)
 
 <hr/>
 
@@ -147,6 +151,8 @@ You will see MyCustomPage in the list of custom quilts.
    Your custom page will look similar to this:
    <img src="img/sdkQuiltTutorialComponents.png" width="700 px"/>
 
+[Back to top](/develop/customize#top)
+
 <hr/>
 #### Remove a component
 Suppose we want to remove that coreNodeDetails component from the MyCustomPage quilt.
@@ -165,6 +171,9 @@ When you refresh your custom page, the coreNodeDetails should no longer appear. 
 use this component again later, so let's put it back in. Paste the line `<component id=“coreNodeDetails”/>`
 directly under `<add to="side-content">` and save the file. You can submit the plugin to stage using
 `li submit-plugin` and refresh the page to verify that the component displays correctly.
+
+[Back to top](/develop/customize#top)
+
 <hr/>
 #### Move a component
 Moving a component is a simple copy/paste task.
@@ -199,6 +208,8 @@ The `side-content` section should look like this:
 The next section describes how to override a core Lithium quilt. If you want to
 continue with the tutorial, skip to the [Customize skins](/develop/customize#skins) section.
 
+[Back to top](/develop/customize#top)
+
 ###Override a core quilt
 Custom quilts that override Lithium core quilts use the
 file name structure `<core_quilt_name>.<descriptive_identifier>.quilt.xml`, for example
@@ -224,6 +235,8 @@ To override a core Lithium quilt:
 
 **9** Override the core community quilt in **Community Admin > Content > Custom Pages**.
 
+[Back to top](/develop/customize#top)
+
 <hr/>
 
 ### Customize skins <a id="skins"></a>
@@ -237,14 +250,16 @@ under your plugin root. Create a subdirectory in `res/skins` for each skin. For 
 **Tip:** Skin IDs cannot have spaces. For example, `my_custom_skin` is allowed, but
 `My Custom Skin` is not.
 
- ####Create a skin
+[Back to top](/develop/customize#top)
+
+####Create a skin
 **Note:** At this time, any skin contributed using the SDK must use the base skin as the parent skin.
 
 Before you create your skin, you need to set up several directories to hold skin
 resources.
 
 **1** Create the following directories under `res/skins` where [skinid] is the name of
-your new skin. Skin IDs cannot contain spaces. Underscores are permitted. For this tutorial,
+your new skin. Skin IDs can contain letters, numbers, and underscores. For this tutorial,
 use the skin ID `mycustomskin`:
 * res/skins/[skinid]
 * res/skins/[skinid]/css
@@ -303,6 +318,17 @@ the correct skin to your community in Community Admin.
 The next section describes how to create a custom wrapper using the SDK.
 If you want to continue with the tutorial, skin to the [Customize styles](/develop/customize#stylesheets)
 section.
+
+[Back to top](/develop/customize#top)
+
+####Override a skin image
+To override an image used in a skin, create a new image asset and give it the same
+name as the image currently used by the skin. Then place the image in PLUGIN_HOME/res/skins/[skinid]/images.
+You cannot add new images to the skin. You can only override existing images.
+
+  **Note:** At this time, you can only override images from the base skin.
+
+[Back to top](/develop/customize#top)
 
 ####Customize the wrapper
 The page wrapper for a skin provides an additional layer or styling above and below the main
@@ -366,6 +392,8 @@ ${settings.name.get("layout.urlfetcher_header")}
 ${settings.name.get("layout.urlfetcher_footer")}
 ```
 
+[Back to top](/develop/customize#top)
+
 <hr/>
 ### Customize styles <a id="stylesheets"></a>
 There are visual elements which doesn't have a skin property for,
@@ -400,6 +428,8 @@ add CSS to color the displayed user name blue.
 
   <img src="img/tutorialStylingCoreNodeDetails.png" width="150 px"/>
 
+[Back to top](/develop/customize#top)
+
 <hr/>
 ### Customize text properties <a id="text"></a>
 Text used in your customizations go in a file called text._language_code_.properties where
@@ -427,6 +457,8 @@ value for the title instead of hard-coding the text within the component.
 
    The coreNodeDetails component should now pull the title from the text properties file.
 
+[Back to top](/develop/customize#top)
+
 <hr/>
 ### Customize images, icons, and other assets <a id="assets"></a>
 At this time, you can add assets to the plugin that will appear in the Other Assets tab
@@ -441,6 +473,8 @@ Custom asset files go in `web/html/assets` or in one of the following subdirecto
 
 **Note:** Image files should not include hyphens. Underscores are permitted.
 
+[Back to top](/develop/customize#top)
+
 #### Add an asset
 
 **1** Place the asset in the appropriate directory.
@@ -450,4 +484,5 @@ Custom asset files go in `web/html/assets` or in one of the following subdirecto
 **3** (Optional) Go to the Asset Library in **Studio > Community Style > Other Assets** to
 see your assets.
 
+[Back to top](/develop/customize#top)
 ___

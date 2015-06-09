@@ -14,6 +14,8 @@ create your local plugin project repository.
 (If you can't access Studio, ask the community administrator for permission.) In studio,
 go to the **SDK** tab and click **Generate Upload Token**.
 
+The token is valid for 30 days.
+
 <img src="img/plugin-developer.png" width="640px">
 
 The token is required to upload, validate, and update your plugin.
@@ -26,11 +28,9 @@ structure will be created in this location.
 **3**  Run `li create-project`. The command asks you a few questions.
 
 **4**  Enter the name of your plugin project directory. This is the root directory for
-your plugin. There are no naming requirements or restrictions. The plugin project
-is created in the
-directory from where you run `li create-project`. This directory and sub-directories are the
-ones that should be committed into your source-controlled repository for your development
-team to pull and commit to.
+your plugin. The directory name can contain lower case characters, numbers, or hyphens.
+This directory and sub-directories are the ones that should be committed into your source-controlled
+repository for your development team to pull and commit to.
 
 **5**  Enter the URL of your stage environment community instance.
 
