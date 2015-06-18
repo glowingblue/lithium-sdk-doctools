@@ -452,7 +452,7 @@ iframe.example {
 }
 
 .main-body-grid > .grid-left {
-  border-right: 1px solid #efefef;
+
 }
 
 .main-header-grid > .grid-left,
@@ -469,7 +469,7 @@ iframe.example {
   border-left: 1px solid #efefef;
   bottom: 0;
   left: 0;
-  margin-left: 199px;
+  margin-left: 150px;
   position: absolute;
   right: 0;
   top: 0;
