@@ -3,7 +3,7 @@
 @sortOrder 200
 @description
 
-#Customization Framework <a id="arch"></a>
+# Customization Framework <a id="arch"></a>
 
 When you start with Lithium Community, you start with our standard out-of-the-box experience.
 The look and feel of your community is controlled through your community [skin](http://community.lithium.com/t5/Skins-and-assets/About-skins/ta-p/109067). The content
