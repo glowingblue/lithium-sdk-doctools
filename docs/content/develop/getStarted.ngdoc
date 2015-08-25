@@ -7,18 +7,18 @@
 
 ## Prerequisites
 
-As you begin setting up your Lithium development environment, ensure that:
-* you have a functional Lithium community on release 15.4 or higher. Check the
+You need these prerequisites before installing the Lithium-Klout SDK:
+* A functional Lithium community on release 15.4 or higher. Check the
 version on the version page located at _stage_url_/status/version.
-* you have access to the SDK tab in Studio. This tab generates an
-upload token needed to deploy your plugin to the stage environment.
-See {@link /develop/create Create}
-for instructions. Developers in a multi-developer environment share a single token.
-* you are using either Mac or Linux
 
-* you have [git](https://git-scm.com/)
+* Access to the SDK tab in Studio. This tab generates an
+upload token needed to run SDK scripts and deploy your plugin to the stage environment.
+Developers in a multi-developer environment share a single token.
 
-* you have [node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/). Our developer
+* A Mac, Linux, or Windows 7+ environment
+
+* [git](https://git-scm.com/). After you install git, run `git` from a new command line to check that it is available
+* [node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/). Our developer
 environment runs on top of node.js. When you do local development, it is on a node.js
 server that we proxy to a Lithium community instance. Usually, npm (Node Package Manager)
 gets bundled with the node environment, but verify that you have it.
@@ -26,10 +26,15 @@ gets bundled with the node environment, but verify that you have it.
     * Run `node -v` at the command line to check whether node is installed
     * Run `npm` at the command line to check whether npm is installed
 
+Windows-specific prerequisites:
 
-**Note:** If you have more than one stage environment, the SDK is only supported on the stage environment
-that is connected via Studio Publish to your production site.
+* While installing git, select **Use Git from the Windows Command Prompt** on the dialog window **Adjusting your PATH environment**
 
+* [Python v2.7.3](https://www.python.org/downloads/windows/). Be sure that you have a PYTHON environment variable and that it is set to
+`drive:\path\to\python.exe`, not to a folder.
+    ** After you have installed Python, run `python` from a new command line to check that it is available.
+
+* [Microsoft Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx)
 
 ## Installing the SDK and dependencies
 We use two npm packages in all of our project repositories: [gulp](http://gulpjs.com/) and
@@ -48,7 +53,11 @@ commands as yourself (`$USER`), you will not have access to write to these locat
 you might get a permission error that looks something like this:
 `npm ERR! Please try running this command again as root/Administrator.`
 
-If you are having permission issues, use:
+### Troubleshooting permission errors in Windows environments
+If you have permission issues when running the install scripts, run the installation commands in <a href ="https://technet.microsoft.com/en-us/library/Cc947813(v=WS.10).aspx">Administrator mode</a>.
+
+### Troubleshooting permission errors in Non-Windows environments
+If you have permission issues, use:
 ```
 sudo npm install gulp -g
 sudo npm install lithium-sdk -g
@@ -60,7 +69,6 @@ packages are being installed:
  * `sudo chown -R $USER node_modules`
 * Give yourself write access to `/bin`:
  * `sudo chmod -R a+w /usr/bin`
-```
 
 **Note:** You might see warnings generated while installing `lithium-sdk` that look
 something like the following. They are a normal part of the installation process and you can ignore them.
@@ -73,4 +81,5 @@ something like the following. They are a normal part of the installation process
     SOLINK_MODULE(target) Release/node_expat.node
     SOLINK_MODULE(target) Release/node_expat.node: Finished
 ```
+
 ___

@@ -1,9 +1,9 @@
 @ngdoc overview
-@name Architecture
+@name Customization Framework
 @sortOrder 200
 @description
 
-#Architecture <a id="arch"></a>
+#Customization Framework <a id="arch"></a>
 
 When you start with Lithium Community, you start with our standard out-of-the-box experience.
 The look and feel of your community is controlled through your community [skin](http://community.lithium.com/t5/Skins-and-assets/About-skins/ta-p/109067). The content
@@ -44,35 +44,22 @@ The Lithium-Klout SDK enables developers to create customizations in their prefe
 or text editor (e.g. Eclipse, IntelliJ, Sublime) and to submit their customizations to the
 stage server directly from the command line.
 
-**Note:** The SDK supports Mac and Linux operating systems.
-
 **Note:** If you have more than one stage environment,
 the SDK is only supported on the stage environment that is connected via Studio Publish to your production site.
 
 Using the SDK you can submit:
+* Assets, badge icons, and rank icons
 * Components
-* Pages (also referred to as quilts)
-* Skin properties
 * CSS
-* Text strings
-* Assets
-
-**Note:** At this time, assets submitted are the equivalent of the assets in the Other Assets tab in the
-Studio Asset Library, located in **Studio > Community Style > Asset Library > Other Assets**. You cannot
-submit skin images, avatars, rank icons, or badge images using the SDK.
-
-**Note:** At this time, any custom skin contributed using the SDK must use the base
-skin as its parent skin.
-
-Use Studio to submit:
 * Endpoints
-* Macros
 * Layouts
-* Images for skins, avatars, ranks, and badges
+* Macros
+* Page Initialization script (common.init)
+* Quilts (also referred to as Pages)
+* Skins
+* Text strings
 
-Our developer environment runs on top of node.js, using bower and gulp Node Package Manager (npm)
-dependencies for its package management and streaming build system. You can see the tool chain
-used to support our SDK {@link /learn/architecture#tool-chain here}.
+Our developer environment runs on top of node.js, using for its streaming build system.
 
 ##Understanding plugins <a id="plugins"></a>
 A plugin is the mechanism for storing and organizing customizations for your community.
@@ -108,16 +95,14 @@ how they interact, and how to override and revert files in
 ##SDK tool chain <a id="tool-chain"></a>
 
 The diagram below illustrates the tool chain we use to run our
-development environment. The SDK runs on top of node.js.
-We use two Node Package Manager (npm) dependencies -- Bower and gulp.
-
-<img src="img/SDKToolChain.png" width="300px" align="middle"/>
-
-From the bottom up:
+development environment. From the bottom up:
 
 * [node.js](http://nodejs.org/) is the JavaScript runtime environment for the SDK
-* [Bower](http://bower.io/) is a package and dependency management tool
 * [gulp.js](http://gulpjs.com/) is a streaming build system and task runner
 * The Lithium-Klout SDK provides the structure and mechanism to build your
  community customizations
+
+<img src="img/SDKToolChain.png" width="300px" align="middle"/>
+
+
 ___

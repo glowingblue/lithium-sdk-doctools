@@ -3,46 +3,88 @@
 @sortOrder 300
 @description
 
-# Customize<a id="top">
+# Customize <a id="top"></a>
 
-## Customize your community
 Now that you have {@link develop/create created} your local SDK plugin repository,
-let's try a few customizations. We'll go through a short tutorial where you will create
-a custom page, add a custom component, move components around on the quilt, add custom
-text strings, and do some simple skin properties and CSS customizations. We'll create the
-custom files, put them in the proper location in your local repository, and then upload the
-plugin to the stage server using the `li submit-plugin` command.
+let's talk about:
+* [Where to put your custom assets](/develop/customize#whereToPut)
+* [Tutorials and How To's](/develop/customize#tutorials)
 
-Find instructions on this page to:
-* [Customize components](/develop/customize#components)
-* [Customize quilts](/develop/customize#quilts)
-* [Customize skins](/develop/customize#skins)
-* [Customize styles](/develop/customize#stylesheets)
-* [Customize text](/develop/customize#text)
-* [Customize assets](/develop/customize#assets)
-
-Be sure that you have read the Understand Plugins section in {@link learn/architecture Architecture}, as well as
+Be sure that you have read the Understand Plugins section in {@link learn/architecture Customization Framework}, as well as
 [About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) and [More About Plugins](https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316/message-revision/194316:3)
-before you begin.
+before you begin. Remember that SDK contributions are visible in Studio . Assets with
+versions existing in SDK are indicated in Studio with a special icon.
+
+<img src="img/sdkVsStudioAssetsInTab.png" width="600">
+
+## Where to put your custom assets <a id="whereToPut"></a>
+
+Let's look
+at where to place different plugin assets.
 
 When you created your plugin project, the script created several folders in your local
 plugin repository. All customizations go in the `res` and `web` directories.
-* `res/components` - Place custom components here. Components
-placed here appear in the **Studio > Components** tab in the SDK section. They are identified
-with a special SDK icon. Custom components use the file extension `.ftl`. Component
+* `res/components` - Place components here. Components
+placed here appear in the **Studio > Components** tab. They are identified
+with a special SDK icon. Components use the file extension `.ftl`. Component
 names are case-sensitive.
-* `res/lang` - Place custom text string files here. Text strings contributed with
+* `res/controllers` - Place endpoint controllers here. Controllers
+placed here appear in **Studio > Endpoints**. They are identified
+with a special SDK icon. Controllers use the file extension `.ftl`. Controller names are case-sensitive and
+must match the associated endpoint XML file.
+* `res/endpoint` - Place endpoint XML metadata definitions here. Files here do not appear in Studio.
+Endpoint metadata definition files use the file extension `.endpoint.xml`. The name is case-sensitive and
+must match the associated controller FTL file.
+* `res/init` - Place the page initialization script file here (`common.init.ftl`) here. Content from this file
+appears in **Studio > Page Intialization**. Page initialization scripts contributed with the SDK _are not_ indicated
+by the SDK icon.
+* `res/lang` - Place text string files here. Text strings contributed with
 the SDK _do not_ appear in the **Studio > Text Editor** tab.
-* `res/quilts/custom` - Place custom quilts here. Quilts files placed here can be
-selected from the Custom section in the page selection modal in the **Studio > Page** tab.
-They are identified in Studio with a special SDK icon. Custom quilts use the
+* `res/layouts` - Place layouts here. Layouts
+placed here appear in **Studio > Layouts**. They are identified
+with a special SDK icon. Layouts use the file extension `.layout.xml`. Layout
+names are case-sensitive.
+* `res/macros` - Place macro files here. Marcos
+placed here appear in the **Macros** secton of **Studio > Endpoints**. They are identified
+with a special SDK icon. Macros use the file extension `.ftl`. Macro
+names are case-sensitive.
+* `res/quilts/custom` - Place quilts here. Quilts files placed here can be
+selected from the Custom section in the page selection modal **Studio > Page**.
+They are identified in Studio with a special SDK icon. Quilts use the
 file extension `quilt.xml`.
 * `res/skins` - Place skin resources here (CSS, skin properties, and wrapper content).
-Custom skin files placed here display in the **Studio > Community Style** tab in the
-Parent Skin section. They are identified in Studio with a special SDK icon.
-* `web/html/assets` - Assets here appear in the **Studio >
-Community Style > Other Assets** tab in the Asset Library. They are identified in Studio with
+Custom skin files placed here display in **Studio > Community Style**. They are identified in Studio with a special SDK icon.
+* `web/html/assets` - Place general assets. Files here appear in **Studio >
+Community Style > Other Assets** in the Asset Library. They are identified in Studio with
 a special SDK icon.
+* `web/html/badge_icons` - Place badge icons here appear in the **Studio >
+Community Style > Badges** tab in the Asset Library. They are identified in Studio with
+a special SDK icon.
+* `web/html/rank_icons` - Place rank icons here. Images here appear in the **Studio >
+Community Style > Rank Icons** tab in the Asset Library. They are identified in Studio with
+a special SDK icon.
+
+
+## Tutorials and How To's <a id="tutorials"></a>
+
+Let's try a few customizations. We'll go through a short tutorial where you will create
+a custom page, add a custom component, move components around on the quilt, add custom
+text strings, and do some simple skin properties and CSS customizations. We'll create the
+custom files, put them in the proper location in your local repository, and then upload the
+plugin to the stage server using `li submit-plugin`.
+
+Start with [Customize components](/develop/customize#components) to begin the tutorial, or jump to one of the other sections on this page.
+
+* [Customize components](/develop/customize#components)
+* [Customize quilts](/develop/customize#quilts)
+* [Customize layouts](/develop/customize#layouts)
+* [Customize skins](/develop/customize#skins)
+* [Customize styles](/develop/customize#stylesheets)
+* [Customize text](/develop/customize#text)
+* [Add images, icons, and other assets](/develop/customize#assets)
+* [Create macros](/develop/customize#macros)
+* [Create endpoints and controllers](/develop/customize#endpoints)
+* [Customize the page initialization script](/develop/customize#pageInit)
 
 To test your customizations on your stage server, you run `li submit-plugin` or `li package-plugin`
 as described in {@link develop/deploy Deploy}. Review {@link refer/pluginvalidation Plugin Validation}
@@ -57,13 +99,13 @@ version.
 [Back to top](/develop/customize#top)
 
 ### Customize components<a id="components"></a>
-Let's add a custom component. When you're writing components you use FreeMarker,
+Let's add a component. When you're writing components you use FreeMarker,
 a templating language. You can learn about FreeMarker at [FreeMarker.org](http://freemarker.org/).
 Lithium provides our own
 [FreeMarker context objects and directives](http://community.lithium.com/t5/Developers-Knowledge-Base/FreeMarker-context-objects-and-directives/ta-p/9217)
 that work specifically with the Lithium Community product.
 
-Here is some sample FreeMarker code that prints out details about the node (community,
+Here is some sample FreeMarker code that prints out details about the node (the community,
 category, or board) in context using the coreNode FreeMarker context object.
 
 ```
@@ -82,24 +124,35 @@ ${coreNode.title}
 **3**  Run `li submit-plugin` from any location to {@link develop/deploy submit} the plugin
 contents to stage.
 
-**4**  (Optional) Go to **Studio > Components**. The coreNodeDetails component appears
-in the tab. It also appears in the Custom Components section of **Studio > Page**.
+**4**  (Optional) Go to **Studio > Components** to see the coreNodeDetails component.
 
-From here, the custom component can be added to a quilt using Studio or you can add it to
-a custom quilt that you create and upload to the stage server with the SDK. We'll create a custom
-quilt next.
+**5** (Optional) Go to **Studio > Page** to see the component listed in the **Custom Components* section to
+be used on community pages.
+
+From here, the component can be added to a quilt using Studio or you can add it to
+a quilt file that you create and upload to the stage server with the SDK.
+
+We'll create a custom quilt next.
 
 [Back to top](/develop/customize#top)
 
 <hr/>
+### Customize quilts <a id="quilts"></a>
+Lithium comes with a set of default pages like the View Profile Page and the Forum Page. A page is a
+combination of a quilt and layout. In our Studio documentation, you will see the terms _quilt_ and _page_
+used interchangeable, but under the covers, the building blocks of a page (the quilt and the layout) are two separate
+pieces of code.
 
-### Create a custom quilt <a id="quilts"></a>
-Building on our last example, let's put that custom component on a new custom quilt.
-Quilts go in `PLUGIN_REPO/res/quilts/custom` in your local plugin. Unique custom quilts use
-the file name structure `<quilt_name>.quilt.xml`, for example MyCustomPage.quilt.xml.
+We'll talk about layouts in a [later section](/develop/customize#layouts). First, we'll concentrate on quilts, which are
+customized more frequently. For now, understand that your custom quilts must always reference a layout to use. For example
 
-See [this article](http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page/ta-p/110639)
-in the Lithium Community for more information about creating custom pages.
+```
+<quilt layout="two-column.main-side" nestable="false">
+```
+
+Quilts use the file extension `quilt.xml`. Place them in `/res/quilts`.
+
+#### The quilt XML
 
 Here is a simple quilt - MyCustomPage.quilt.xml. It
 adds the coreNodeDetails component in the `side-content` section.
@@ -129,6 +182,28 @@ adds the coreNodeDetails component in the `side-content` section.
   </remove>
 </quilt>
 ```
+Let's look at the elements of the quilt XML.
+
+| Element | Description | Attributes | Child Attributes |
+| ------- | ----------- | ---------- | ---------------- |
+| quilt   | The main container. Defines the layout and whether the quilt can be nested within other quilts. Define components to add or remove from the quilt | `layout` - the name of the layout<br />`nestable` - whether or not the quilt can be included within another quilt |` add`, `remove` |
+| add     | Defines a component to add to a column in the layout used by the quilt. | `to` - the column where the component will be added | `component` - the  ID of the component to add |
+| remove  | Defines components to remove from a nested quilt included in the current quilt (for example, the header). In the example above, we are removing the `common.widget.breadcrumb` component from the `breadcrumb` column in the `Header` quilt when Header is included in MyCustomPage.quilt.xml | `from` - the column from which to remove the component. The value must match a valid column name in a valid layout. <br />`for` - the ID of the nested quilt | `component` - the ID of the component to remove |
+| component | Defines a component being added or removed from the quilt | `id` - the component ID. The ID is the name of the component FTL file. <br />`mode` - used with core Lithium components only. Some Lithium components require the mode parameter to render the component property in a slim or wide content panel. The Lithium component hover cards in Studio detail which components use the mode parameter.<br />`interactionStyle` - used to scope a component to a particular interaction style. The Lithium component hover cards in Studio detail which components use the interactionStyle parameter.| . |
+
+You contribute quilts in one of two ways:
+* [Create an entirely new quilt](/develop/customize#newQuilt)
+* [Override one of our default quilts](/develop/customize#overrideQuilt).
+
+#### Create a custom quilt <a id="newQuilt"></a>
+Building on our last example, let's put that custom component on a new custom quilt.
+Quilts go in `PLUGIN_REPO/res/quilts/custom` in your local plugin. Unique custom quilts use
+the file name structure `<quilt_name>.quilt.xml`, for example MyCustomPage.quilt.xml.
+
+See [this article](http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page/ta-p/110639)
+in the Lithium Community for more information about creating custom pages.
+
+Now let's create a custom quilt.
 
 **1**  Copy the code above into a text editor.
 
@@ -138,7 +213,7 @@ adds the coreNodeDetails component in the `side-content` section.
 
 **4**  Run `li submit-plugin`.
 
-**5** (Optional) Go to **Studio > Page** and click the **Choose** link to open the
+**5** (Optional) See your quilt in Studio. Go to **Studio > Page** and click the **Choose** link to open the
 page selection modal. In the page selection modal, expand the **Custom** category.
 You will see MyCustomPage in the list of custom quilts.
 
@@ -157,9 +232,9 @@ You will see MyCustomPage in the list of custom quilts.
 #### Remove a component
 Suppose we want to remove that coreNodeDetails component from the MyCustomPage quilt.
 
-**1** Navigate to the quilt in `PLUGIN_REPO/res/quilts/custom`.
+**1** Find MyCustomPage.quilt.xml in `PLUGIN_REPO/res/quilts/custom`.
 
-**2** Open the XML file in the editor of your choice.
+**2** Open the file in the editor of your choice.
 
 **3** Remove the line `<component id=“coreNodeDetails”/>`.
 
@@ -168,9 +243,9 @@ Suppose we want to remove that coreNodeDetails component from the MyCustomPage q
 **5** Run `li submit-plugin`.
 
 When you refresh your custom page, the coreNodeDetails should no longer appear. We're going to
-use this component again later, so let's put it back in. Paste the line `<component id=“coreNodeDetails”/>`
-directly under `<add to="side-content">` and save the file. You can submit the plugin to stage using
-`li submit-plugin` and refresh the page to verify that the component displays correctly.
+use this component again later, so let's put it back in MyCustomPage. Paste the line `<component id=“coreNodeDetails”/>`
+directly under `<add to="side-content">` and save the file. Submit the plugin to stage using
+`li submit-plugin`. Refresh the page to verify that the component displays correctly.
 
 [Back to top](/develop/customize#top)
 
@@ -205,18 +280,21 @@ The `side-content` section should look like this:
 
 **6** Refresh your custom page.
 
-The next section describes how to override a core Lithium quilt. If you want to
-continue with the tutorial, skip to the [Customize skins](/develop/customize#skins) section.
+The next section describes how to override a core Lithium quilt. To
+continue with the tutorial, skip to [Customize skins](/develop/customize#skins).
 
 [Back to top](/develop/customize#top)
 
-###Override a core quilt
+###Override a core quilt <a id="overrideQuilt"></a>
 Custom quilts that override Lithium core quilts use the
-file name structure `<core_quilt_name>.<descriptive_identifier>.quilt.xml`, for example
-BlogPage.custom.quilt.xml. This section provides simple instructions for overriding core Lithium quilts.
+file name structure <br />`<core_quilt_name>.<descriptive_identifier>.quilt.xml`, for example
+BlogPage.custom.quilt.xml.
+
+This section provides simple instructions for overriding core Lithium quilts.
 For more detailed information, read [this article](http://community.lithium.com/t5/Pages-and-layouts/Override-a-default-page/ta-p/108961)
 on the Lithium Community.
 To override a core Lithium quilt:
+
 **1** Go to **Studio > Page**.
 
 **2** Click **Choose** to select the quilt to override.
@@ -227,9 +305,9 @@ To override a core Lithium quilt:
 
 **5** In a text editor, paste the quilt XML and name your quilt file `<core_quilt_name>.<descriptive_identifier>.quilt.xml`.
 
-**6** Save your file to `PLUGIN_REPO/res/quilts/custom` in your local plugin.
+**6** Save your file to `PLUGIN_REPO/res/quilts/custom`.
 
-**7** Make your changes to the quilt (add, remove, or move components).
+**7** Make your changes to the quilt (add, remove, move components, or change the page layout).
 
 **8** Run `li submit-plugin`.
 
@@ -239,15 +317,51 @@ To override a core Lithium quilt:
 
 <hr/>
 
-### Customize skins <a id="skins"></a>
-Using the SDK, you can contribute custom skin properties, CSS, and
-wrappers for desktop and mobile v1 communities. Put skin customizations in `res/skins`
-under your plugin root. Create a subdirectory in `res/skins` for each skin. For each
- skin, you'll add directories to hold skin properties and wrappers for
- mobile and desktop as needed. We'll look at that subdirectory structure in the next section.
+### Customize layouts <a id="layouts"></a>
 
-**Note:** At this time you cannot set a custom skin created in Studio as parent of a skin created
-in the SDK.
+Layouts define the structure of a page using are rows and columns. Each quilt specifies a layout and the quilt defines which
+components to place within each of the layout's columns. The layout contains any number of rows and each row contains
+one or more columns. Each column has a width and an ID. The total width of the columns in a row must add up to 24. Lithium comes with a large set of layouts to choose from. You can find a list of default layouts in
+**Studio > Layouts**. Learn about layouts in [this article](http://community.lithium.com/t5/Pages-and-layouts/About-page-layouts/ta-p/108951) in
+the Lithium community.
+
+Layouts use the file extension `layout.xml`. Put them in the `/res/layouts` directory in your plugin project.
+
+#### The layout XML
+
+```
+<layout>
+  <row id="header">
+    <column id="common-header" width="24"/>
+  </row>
+  <row id="main">
+    <column id="main-content" width="18"/>
+    <column id="side-content" width="6"/>
+  </row>
+  <row id="footer">
+    <column id="common-footer" width="24"/>
+  </row>
+</layout>
+```
+
+Let's look at the format of the file. [This article](http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page-layout/ta-p/108959) contains
+useful examples for editing and creating the layout XML.
+
+| Element | Description | Attributes | Child Attributes |
+| ------- | ----------- | ---------- | ---------------- |
+| layout  | The main container | NONE | `row` |
+| row     | A row in the layout. | `id` - the ID of the row | `column` - columns in the row |
+| column  | The column definition | `id` - the ID of the columns <br /> `width` - width of the column. The width of columns in a row must add up to 24. | . |
+
+
+<hr/>
+
+### Customize skins <a id="skins"></a>
+Using the SDK, you can contribute skin properties, CSS, and
+wrappers for desktop and mobile v1 communities. Put skin customizations in `res/skins`.
+ Create a subdirectory in `res/skins` for each skin. For each
+ skin, you'll add directories to hold skin properties and wrappers for
+ mobile and desktop as needed. We'll look at that subdirectory structure in the next section
 
 [Back to top](/develop/customize#top)
 
@@ -255,6 +369,8 @@ in the SDK.
 
 Before you create your skin, you need to set up several directories to hold skin
 resources.
+
+**Tip:** Export an existing skin from Studio to quickly create the skin subdirectory structure.
 
 **1** Create the following directories under `res/skins` where [skinid] is the name of
 your new skin. Skin IDs can contain letters, numbers, and underscores. For this tutorial,
@@ -268,14 +384,15 @@ use the skin ID `mycustomskin`:
 * res/skins/[skinid]/mobile/css (optional if not using mobile v1)
 * res/skins/[skinid]/mobile/images (optional if not using mobile v1)
 
-**2** Create new files under res/skins:
+**2** Create new files called `skin.properties` under res/skins in the following locations:
 * res/skins/[skinid]/skin.properties
 * res/skins/[skinid]/desktop/skin.properties
 * res/skins/[skinid]/mobile/skin.properties (optional unless overriding properties for mobile)
 
-The skin.properties files will look like this:
+All skin.properites files must include the fields below. Other fields are optional.
+
 ```
-parent              = base
+parent              = [any existing skin in the SDK or Studio plugin]
 title               = [skinid]
 ```
 
@@ -284,7 +401,7 @@ Let's look at an example called `mycustomskin`. Here is what the file structure 
 
 <img src="img/skinDir.png" width="520" align="middle"/>
 
-**3** Open ``/[skinid]/skin.properties` and populate it with the parent skin ID
+**3** Open `/[skinid]/skin.properties` and populate it with the parent skin ID
 (base) and the skin title (mycustomskin). If you wanted to
  use different properties in the mobile and desktop versions of the skin, you would
  create additional `skin.properties` files within the `desktop` and `mobile` directories
@@ -305,7 +422,7 @@ color.background			= DEE3E3
 
 **4** Run `li submit-plugin`.
 
-**5** Go into **Studio > Community Style > Community Skins > Properties** and verify that the
+**5** (Optional) Go to **Studio > Community Style > Community Skins > Properties** and verify that the
 mycustomskin skin appears and that Background Color is set to DEE3E3.
 
 **6** Optionally, apply the skin to the community in **Community Admin > Display > Skins**. You might
@@ -314,8 +431,7 @@ skin, refresh your custom page in the browser. The background of the page should
 the correct skin to your community in Community Admin.
 
 The next section describes how to create a custom wrapper using the SDK.
-If you want to continue with the tutorial, skin to the [Customize styles](/develop/customize#stylesheets)
-section.
+If you want to continue with the tutorial, skip to [Customize styles](/develop/customize#stylesheets).
 
 [Back to top](/develop/customize#top)
 
@@ -332,6 +448,10 @@ You cannot add new images to the skin. You can only override existing images.
 The page wrapper for a skin provides an additional layer or styling above and below the main
 content of the page (anything above and below `li-body` when looking at a the code for a community page.)
 
+See [Edit the page wrapper](https://community.lithium.com/t5/Skins-and-assets/Edit-the-page-wrapper/ta-p/109069) and
+ [Community Wrapper Guidelines](http://community.lithium.com/t5/Developers-Knowledge-Base/Launch-Community-Wrapper-Guidelines/ta-p/6411)
+  for more details about how the wrapper works in communities.
+
 You can upload wrapper content to the stage server using the SDK. The wrapper contents you
  contribute using the SDK map to the content areas in **Studio > Community Style > Community
  Skins > Wrapper**.
@@ -344,7 +464,7 @@ parent = [skinid]
 title = [skinid]
 ```
 
-Wrapper content is put into FTL (FreeMarker) files. The are placed in
+Wrapper content is put into FTL (FreeMarker) files. Place the in
   `PLUGIN_HOME/res/skins/<skinid>/components/desktop` or `PLUGIN_HOME/res/skins/<skinid>/components/mobile`.
   Use theses file names for wrapper elements:
 * head_top.ftl - Used to add browser compatibility tags. This maps to the **Page Head Top Content** section of the Studio **Wrapper** tab.
@@ -354,10 +474,6 @@ Wrapper content is put into FTL (FreeMarker) files. The are placed in
  This content maps to content you would could add to the **Page Header** and **Page Footer** sections of the Studio **Wrapper** tab.
 * hitbox.ftl - for HTML content to add below the footer, such as Google Analytics or Omniture metrics collection,
 or additional JavaScript. This maps to the **Hitbox** section of the Studio **Wrapper** tab.
-
-See [Edit the page wrapper](https://community.lithium.com/t5/Skins-and-assets/Edit-the-page-wrapper/ta-p/109069) and
- [Community Wrapper Guidelines](http://community.lithium.com/t5/Developers-Knowledge-Base/Launch-Community-Wrapper-Guidelines/ta-p/6411)
-  for more details about how the wrapper works in communities.
 
 #####Example head_top.ftl
 ```
@@ -394,12 +510,12 @@ ${settings.name.get("layout.urlfetcher_footer")}
 
 <hr/>
 ### Customize styles <a id="stylesheets"></a>
-There are visual elements which doesn't have a skin property for,
-but we might still want to style. This is where CSS comes in.
+Some visual elements aren't defined by skin properties,
+but you might still want to style differently. This is where CSS comes in.
 
 Let's add a simple change to our coreNodeDetails component. We're going to add a
 Community API REST call to retrieve the name of the current user in session, and then
-add CSS to color the displayed user name blue.
+add CSS to display the user name in blue.
 
 **1** Go to `PLUGIN_REPO/res/components` and open `coreNodeDetails.ftl`.
 
@@ -445,7 +561,7 @@ value for the title instead of hard-coding the text within the component.
 
 **2** Enter this line `custom.text.coreNodeDetails.component.title = Node Details`
 
-**3** Name the file `text.en.properties` (or use a different language code if you'd prefer).
+**3** Name the file `text.en.properties` (or use a different language code if you prefer).
 
 **4** Save the file to `PLUGIN_REPO/res/lang`.
 
@@ -453,34 +569,168 @@ value for the title instead of hard-coding the text within the component.
 
 **6** Refresh your custom page.
 
-   The coreNodeDetails component should now pull the title from the text properties file.
+   The coreNodeDetails component now pulls the title from the text properties file.
 
 [Back to top](/develop/customize#top)
 
 <hr/>
 ### Customize images, icons, and other assets <a id="assets"></a>
-At this time, you can add assets to the plugin that will appear in the Other Assets tab
-of the Asset Library in **Studio > Community Style**. These assets might be image assets like
+With the SDK, you can contribute images, badge and rank icons, and other assets to the Asset Library.
+These assets might be image assets like
 your community logo, but they could also be other files such as PDFs, CSS, and JavaScript.
 The files here are often included in wrapper content, custom components, and endpoints.
 
-Custom asset files go in `web/html/assets` or in one of the following subdirectories:
-* `css`
-* `images`
-* `js`
+* Custom assets go in `web/html/assets`
+* Custom badge icons go in `web/html/badge_icons`
+* Custom rank icons go in `web/html/rank_icons`.
 
 **Note:** Image files should not include hyphens. Underscores are permitted.
 
 [Back to top](/develop/customize#top)
 
-#### Add an asset
+#### Add an asset or icon
 
 **1** Place the asset in the appropriate directory.
 
 **2** Run `li submit-plugin`.
 
-**3** (Optional) Go to the Asset Library in **Studio > Community Style > Other Assets** to
+**3** (Optional) Go to **Studio > Community Style** and select **Asset Library** from the **Work with** drop down menu to
 see your assets.
+
+[Back to top](/develop/customize#top)
+
+<hr/>
+### Create macros <a id="macros"></a>
+A macro is an easy way to write code once and then reuse in components and endpoints when needed. Macros can be used
+both in components and endpoints, so if you need to share code between the two, place the code in a macro file.
+
+Macros use the extension `.ftl`. Place them in `/res/macros`. Call them as needed from
+components and endpoints using FreeMarker's `include` statement:
+
+```
+<#include "recurse_reponse.ftl" />
+```
+
+This example macro "recurse_response" recursively outputs the contents of a response. Recurse_response calls to a separate macro to include a user avatar in the response
+if the node name is "author."
+
+```
+<#macro recurse_response node>
+	<#if node?node_type == "element">
+		<${node?node_name}<#list node.@@ as attr>${attr?node_name}="${attr}"</#list><#if !hasChildren(node)>/</#if>>
+		<#list node?children as c>
+			<@recurse_response node=c />
+		</#list>
+		<#if node?node_name == "author">
+			<@insertUserAvatar user=node />
+		</#if>
+		<#if hasChildren(node)></${node?node_name}></#if>
+	<#elseif node?node_type == "text">
+		${node}
+	</#if>
+</#macro>
+```
+
+[Back to top](/develop/customize#top)
+
+<hr/>
+### Create endpoints and controllers<a id="endpoints"></a>
+While custom components blend into the look and feel of the community to extend the
+functionality of a core component or provide an entirely new module, endpoints are independent
+of the community. An endpoint can gather and manipulate data from a series of REST calls,
+as well as have its own styling. You can use endpoints to:
+
+* Make AJAX requests from custom components
+* Syndicate community content on other websites
+* [Condense REST API requests](https://community.lithium.com/t5/Developers-Knowledge-Base/Using-Endpoints-to-Condense-REST-API-Requests/ta-p/88908)
+* [Make server-to-server REST API calls](https://community.lithium.com/t5/Developers-Knowledge-Base/Using-the-http-client-Context-Object-to-Integrate-with-a-Third/ta-p/91640)
+
+Endpoints are written in FreeMarker. When contributing an endpoint using the SDK, each endpoint consists
+of two files:
+
+* an XML file defining metadata for the endpoint. Place this file in `/res/endpoints` and use the file extension `endpoint.xml`.
+* an FTL controller file containing the endpoint FreeMarker code. Place this file in `/res/controllers` and use the file extension `.ftl`.
+
+This is different than when you contribute an endpoint using Studio. When you create an endpoint in Studio,
+you create the controller and Studio automatically creates the endpoint metadata XML file.
+
+**Note:** The endpoint and controller file must use the same name.
+**Tip:** To quickly create the endpoint XML, create the endpoint in Studio and export it the endpoint
+into the SDK using `li export-studio-plugin --points "endpoint" --force`.
+
+#### Endpoint XML example and parameters
+This example defines the meta data for an endpoint called ideaStatusCount.
+
+```
+<endpoint version="1.0.0" key="ideaStatusCount" feature="sandbox.myplugin">
+  <model/>
+  <view type="freemarker" contenttype="text/html" macro="false"/>
+  <controller id="basic" path="/ideaStatusCount"/>
+</endpoint>
+```
+endpoint parameters:
+* `version` - always "1.0.0"
+* `key` - the name of the endpoint, without the `.endpoint.xml` extension
+* `feature` - must match the fully-qualified name of the studio plugin, without the phase
+view parameters
+* `type` - always "freemarker"
+* `content/type` - the content type of the response. This corresponds to the types listed in the **View Content Type**
+drop down in **Studio > Endpoints**.
+
+* `macro` - deprecated (set to `false`)
+controller parameters
+* `id` - always "basic"
+* `path` - the path to the controller.  Set this to the same as the `key`, but with a leading forward-slash, such as `/ideaStatusCount`
+
+#### Controller example
+Here is an example controller `ideaStatusCount.ftl` that contains the ideaStatusCount endpoint FreeMarker logic.
+It retrieves a list of idea statuses defined for a community and then returns the count of how many ideas have each status, condensing
+the response from two calls into a single response in order to save an additional HTTP request.
+
+```
+<#include "objecttojson" />
+<#setting url_escaping_charset='ISO-8859-1'>
+<#assign query = http.request.parameters.name.get("q", "select status from messages where conversation.style=\"idea\" and depth=0 limit 300") />
+<#assign result = rest("2.0","/search?q=" + query?url) />
+<@compress>
+{
+<#if result.status = "success">
+  "result": "success",
+  <#assign statusKeys = {} />
+
+  <#list result.data.items as message>
+    <#if message.status??>
+		<#if !statusKeys?keys?seq_contains(message.status.key)>
+		  <#assign statusKeys = statusKeys + {message.status.key: 1} />
+		<#else>
+		  <#assign statusKeys = statusKeys + {message.status.key: (statusKeys[message.status.key] + 1)} />
+		</#if>
+	</#if>
+  </#list>
+  "ideaKeys": ${objectToJsonFunction(statusKeys)}
+<#else>
+"result": "error"
+</#if>
+}
+</@compress>
+```
+
+[Back to top](/develop/customize#top)
+<hr/>
+### Customize the page initialization script <a id="pageInit"></a>
+The page initialization script (common.init.ftl) enables you to execute business logic using
+FreeMarker early in a request prior to any HTML being rendered. The script runs once each request,
+server side, and is often used for redirecting to a different page and reskinning pages in the community.
+
+Read [this article](https://community.lithium.com/t5/Developers-Knowledge-Base/Using-a-FreeMarker-Page-Initialization-Script/ta-p/125767) on the Lithium Community for more information about how to use the script.
+
+The page initialization script is called `common.init.ftl`. Place this file in `res/init`.
+
+During your community launch, Lithium's Professional Services technical consultants or a Lithium partner
+might have already
+customized the script. We recommend downloading the script from the Studio plugin if you see script
+content in **Studio > Page Initialization**. We recommending not altering existing script content that might
+have been added by Lithium Professional Services or by a Lithium partner.
 
 [Back to top](/develop/customize#top)
 ___

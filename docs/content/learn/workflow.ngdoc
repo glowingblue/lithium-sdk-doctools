@@ -9,83 +9,95 @@ The Lithium-Klout SDK supports a developer-friendly "choose your own IDE" experi
 that enables you to develop locally with the tools of your choice, collaborate with your
 own team in your own source control system, and test on your stage environment.
 
-##Developer environment recommendations
+##Developer Environment Recommendations
 
 We recommend that developers commit to a shared repository and be in close communication to ensure
 that their customization contributions to not override one another's. Lithium does not provide
 a central build solution to combine all customizations from all developers into a single plugin
 to deploy to the stage environment. We strongly recommend implementing your own source control
 system and CI service to build and submit the SDK plugin from your source control system to the stage
-environment. We provide an example using GitHub and Travis CI in
-<a href="http://community.lithium.com/t5/Current-betas/Example-CI-implementation-with-the-Lithium-Klout-SDK/td-p/197003">this post</a> on the Current Betas
- Forum.
+environment. We provide an example using GitHub and Travis CI below.
 
-This diagram illustrates how to set up our recommended SDK development environment.
+###Setting up the Plugin Project
+This diagram illustrates the recommended way to set up an SDK plugin project in a development environment.
 
 <img src="img/SDK_DevEnvSetup.png" width="420 px"/>
 
 In a multi-developer team, members set up their individual SDK development environments using
-the instructions in {@link /develop/getStarted Getting Started}, but select _one_ developer to generate
-the plugin token and run through the instructions in {@link /develop/create Create}
-to create the SDK plugin project for your community. This task creates the directory
-structure that should be put into your preferred source control system. Developers share
-the access token in a multi-developer environment.
+the instructions in {@link /develop/getStarted Getting Started}, but only _one_ developer generates
+the plugin token and executes the instructions to {@link /develop/create create the SDK plugin project} for your community.
+This task creates the directory
+structure to place under your preferred source control system.
 
-**Note:** If you implement a CI service to automate submitting your plugin to stage, be sure that
-you encrypte the server.conf.json configuration file created when the plugin project is created.
+After the SDK project is created and placed under source control, other developers
+ pull the plugin project to replicate the SDK plugin directory structure on their local machines.
 
-After the SDK project files are created and placed under source control, other developers
-should pull the plugin project to replicate the SDK plugin directory structure onto their local machines.
+After setup is complete, the team is ready to customize and check in. Read {@link /develop/customize Customize}
+to learn about the plugin repository structure.
 
-After this is complete, the team is ready to customize and check in. Read {@link /develop/customize Customize}
-to learn where to place customizations in the plugin repository.
-
+###Continuous Integration Example
 The diagrams below illustrate the recommended workflow using a continuous integration
- service.
+ service. You can find our [demo project](https://github.com/lithiumtech/linc-sdk-demo) in GitHub.
 
 <img src="img/MultiSDKDevWorkflow.png" width="640 px"/>
 
+For this continuous integration example, we used GitHub, and then hoooked the project into Travis CI using their
+guides for [Getting Started](http://docs.travis-ci.com/user/getting-started/)
+(see the JavaScript with Node.js section) and [Customizing the Build](http://docs.travis-ci.com/user/customizing-the-build/).
+We encrypted server.conf.json using the instructions in [Encrypting Files](http://docs.travis-ci.com/user/encrypting-files/).
+Whatever source control/CI environment you decide to implement, always encrypt server.conf.json, the plugin configuration file described in {@link /develop/create Create}, to
+protect the security of the plugin token.
 
-This diagram illustrates a simple workflow if you cannot implement continuous integation.
+###Non-Continuous Integration
+This diagram illustrates a simple workflow if you cannot implement continuous integration.
 
 <img src="img/DevWorkflowNoCI.png" width="600 px"/>
 
-### Deploying to stage
-The command `li submit-plugin` deploys the plugin to the stage environment. See
-{@link /develop/deploy Deploy} for optional flags to pass on the command for validation
-prior to deployment.
-
-
-If you have not implemented a continuous integration service to build and submit
-your SDK plugin to the stage environment automatically, each developer submits his or her local
-plugin to the stage server individually. Therefore, in a non-CI development environment
-it is important that the developer has updated his local plugin with the
-latest code from the repository before deploying.
-
+### Before you Deploy to Stage
 If you work in a multi-developer customization team, communicate closely with team
 members about which files you are working with and when you are going to submit them
 to stage. If two developers submit a plugin with conflicting changes, the last plugin
 submitted to the server will override earlier versions.
 
-In addition, customizations made to components, pages, text strings, and assets made in
-Studio will override the customizations made to the same items submitted using the SDK.
-We have added visual cues and warnings in Studio to alert Studio users when they are
+In addition, keep in close contact with Studio users when submitting customizations. Studio users
+can see plugin points contributed via the SDK in Studio, and they can
+edit the content. For example,
+a Studio user can see an SDK-contributed component in the Studio Components tab, and can edit the component code. Conversely,
+if you create a customization with the same name as a plugin point that already exists in the Studio plugin, your SDK version will
+not override the version that exists in the Studio plugin. When files with the same name exist in both the Studio plugin and
+the SDK plugin, the Studio version always wins. Changes made to plugin points in Studio always override the SDK version, even if
+the customization originated in the SDK. We have added visual cues and warnings in Studio to alert Studio users when they are
 working on a file that was contributed in the SDK and are potentially overriding SDK contributions.
 
 For more information about how plugins interact, read
-[About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320),
-[More about plugins](https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316),
-and Understanding Plugins in {@link /learn/architecture Architecture}.
+[About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) and
+[More about plugins](https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316) on the Lithium Community
+and {@link /learn/architecture Understanding Plugins} in {@link /learn/architecture Customization Framework}.
+### Deploying to stage
+When you deploy the SDK plugin to the stage server, you submit the _entire_ plugin as a whole package.
+You do not upload individual plugin points, such as a single component, or a subset of images.
 
-The `li submit-plugin` task bundles the plugin and validates it.
-The plugin appears in **Studio > Versions**. After a successful upload, you will see
+The command `li submit-plugin` deploys the plugin to stage. See
+{@link /develop/deploy Deploy} for optional flags to pass on the command for validation
+prior to deployment.
+
+If you have not implemented a continuous integration service to build and submit
+your SDK plugin to the stage environment automatically, each developer submits his or her local
+plugin to the stage server individually. Therefore, in a non-CI development environment
+always be sure that you have updated your local plugin with the
+latest code from the repository before deploying.
+
+The `li submit-plugin` task bundles the plugin, validates it, and submits it to stage.
+After a successful upload, the plugin appears in **Studio > Versions**. Look for
  an entry in the Versions tab that says
 "Plugin Checkin."
 
-If needed you can roll back to the previous plugin version in the Versions tab.
+### Reverting to a Previous Plugin Version
+If needed, you can roll back to the previous plugin version in the Studio Versions tab. Hover over
+the version to stage and click the "Stage this version" link.
 
 **Important:** In the Versions tab, you will see both Studio and SDK plugins. When reverting
-to a previous SDK plguin, be sure re-stage another SDK plguin version, not a Studio plugin.
+to a previous SDK plugin, be sure re-stage another SDK plugin version, not a Studio plugin.
 
 ### Pushing to production
 Push plugins to production using Studio Publish. If you must roll back your live Community version

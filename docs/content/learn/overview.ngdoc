@@ -7,10 +7,12 @@
 
 At Lithium, we help you reinvent ways to connect, build, and maintain trusted connections with
 your customers.
-This requires that you're able to customize, extend, and integrate your community
-in a way that provides maximum benefits.
-To help you succeed in this mission, we make it easy for developers to build on the platform
-using the tools and workflows they're already familiar with.
+Innovation like this includes customizing, extending, and integrating your community
+in ways that provide maximum benefits.
+To help you succeed in this mission, we give developers direct access to their community's
+Studio and SDK plugins (the directory structures containing
+customization resources), and let you build on the Lithium Community platform
+using your favorite tools and common workflows.
 
 The Lithium-Klout SDK is currently in open beta. We've made our best effort to give you a stable
 and robust product, but it's a beta so there may be some glitches. Please consider
@@ -20,34 +22,42 @@ or make the existing ones better during the program. To keep up to date on chang
 to ask questions, or provide feedback subscribe to the [Current Betas](http://community.lithium.com/t5/Current-betas/bd-p/BetaCurrent)
 board.
 
-## <img src="img/development-kit.png" width="35px"/> Architecture and SDK
+## Tell Me More
+What you really want to know is, "What can I do with the SDK?" You probably also have questions about:
 
-The Lithium platform offers a development kit built on top of
-<a href="http://nodejs.org">node.js</a>, to help you create, customize, publish, and
-maintain a compelling community experience for your users. Learn about our
-{@link /learn/architecture customization framework} and how to
-{@link /develop/getStarted set up your development environment}.
+* Lithium's {@link /learn/architecture customization and plugin framework}
+* The {@link /learn/workflow workflow} from local development through publishing to production
+* How to {@link /develop/getStarted set up your development environment}
+* How to {@link /develop/create create your project repository}
+* How to {@link /develop/customize contribute customizations}
 
-## <img src="img/modules-api.png" width="35px"/> API and customization
+First things first. Using the Lithium-Klout SDK you can:
+* Choose to develop in Windows 7+, Mac, or Linux environments
+* Export existing customizations from Studio (components, endpoints, skins, and so on) into the SDK plugin for easier development and source control
+* Clear assets created in Studio from the Studio plugin to keep source code for more technical customizations such as components, endpoints, and macros in the SDK plugin
+* Develop independently of Studio in your preferred IDE and upload customizations to the stage server via the command line
+* Contribute these plugin points:
+  * Assets, badge icons, and rank icons
+  * Components
+  * CSS
+  * Endpoints
+  * Layouts
+  * Macros
+  * Page Initialization script (common.init)
+  * Quilts
+  * Skins
+  * Text strings
 
-Using the Lithium-Klout SDK, you can contribute customizations that extend your Lithium community.
-Learn how to use the SDK to {@link /develop/customize contribute customizations} for:
+## Anything Else I should Know?
+We're very excited about what we're providing for the beta program. That said, we have
+some outstanding features still in development.
 
-* Quilts
-* Components
-* Skins
-* Assets
-* Text
+When you contribute customizations via the SDK, you upload them to the _stage_ server, not to a local
+developer sandbox. While each developer can have a local version of the SDK plugin on his or her own environment,
+customers are currently responsible for creating that environment and for creating and maintaining their
+own source controlled, continuous integration systems. Learn about {@link /learn/workflow workflow} recommendations to help create an
+efficient development environment and see our example continuous integration project using Github and Travis CI.
 
-Find reference API documentation here:
-* [Community API v1](https://community.lithium.com/t5/Community-API/bd-p/developers-rest-api)
-* [Lithium FreeMarker Context Objects](https://community.lithium.com/t5/Developers-Knowledge-Base/FreeMarker-context-objects-and-directives/ta-p/9217)
-* [Community API v2: Getting Started](http://community.lithium.com/t5/Community-API-v2/Getting-started/ta-p/113193)
-* [Community API v2: Resources](https://community.lithium.com/t5/Community-API-v2/Community-API-v2-Resource-Index/ta-p/191471)
-* [Using LiQL](https://community.lithium.com/t5/Community-API-v2/Using-LiQL/ta-p/115177)
-
-## <img src="img/workflow.png" width="35px"/> Workflow
-
-Learn about {@link /learn/workflow workflow} recommendations to help create an
-efficient development environment.
+Also, if you have more than one stage environment, the SDK is only supported on the stage environment
+that is connected via Studio Publish to your production site.
 ___

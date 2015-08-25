@@ -3,99 +3,188 @@
 @sortOrder 200
 @description
 
-# Create
+# Create <a id="top"></a>
 
 ## Create your plugin
 
-After {@link /develop/getStarted setting up your SDK development}, you are ready to
-create your local plugin project repository.
+After {@link /develop/getStarted setting up your SDK development environment}:
+* [Generate an upload token](/develop/create#generateUploadToken)
+* [Create the local plugin project repository](/develop/create#createPluginRepo)
+* Learn about the plugin structure and [set plugin configurations](/develop/create#serverConfJson) server.conf.json
+* Download the [Studio plugin](/develop/create#downloadStudio), an [SDK plugin](/develop/create#downloadSdk) (if one exists), or just get started creating new customizations
 
-**1** Generate a plugin upload token in Studio. Sign in to the community and go to Studio.
-(If you can't access Studio, ask the community administrator for permission.) In studio,
-go to the **SDK** tab and click **Generate Upload Token**.
+### Generate the upload token<a id="GenerateUploadToken"></a>
+The upload token is required for all SDK command line options. Alternatively, you can generate this token
+later and add it to the plugin configuration
+file, `server.conf.json`, manually.
+
+**Note:** In a multi-developer environment, developers share the same token.
+
+**1** Sign in to the community.
+
+**2** Go to **Studio > SDK** and click **Generate Upload Token**.
+
+(If you can't access Studio, ask the community administrator for permission.)
 
 The token is valid for 30 days.
 
 <img src="img/plugin-developer.png" width="640px">
 
-The token is required to upload, validate, and update your plugin.
-Alternatively, you can generate this token later and add it to the appropriate configuration
-file manually. **Note:** In a multi-developer environment, developers share the same token.
+[Back to top](/develop/customize#top)
 
-**2**  Move to a directory where you want to create your plugin repository. A separate directory
-structure will be created in this location.
+---
 
-**3**  Run `li create-project`. The command asks you a few questions.
+### Create the plugin project repository<a id="createPluginRepo"></a>
 
-**4**  Enter the name of your plugin project directory. This is the root directory for
-your plugin. The directory name can contain lower case characters, numbers, or hyphens.
-This directory and sub-directories are the ones that should be committed into your source-controlled
-repository for your development team to pull and commit to.
+**1**  Move to a directory where you want to create your plugin repository. The plugin
+project will be created in this location.
 
-**5**  Enter the URL of your stage environment community instance.
+  **Note:** Do not create a project within a directory where `lithium-sdk` is installed.
 
-**6**  When asked, "Do you have a plugin token," enter the token value if you have it.
-Entering the token at this point puts the token value into a configuration file. If you
-do not have a token, press **Enter** to continue. You will have to enter the token into
-the configuration file manually after the create-project script finishes.
+**2**  Run `li create-project`. The command asks you a few questions.
 
-**7**  Let the script run to completion. You will see a new directory with the name you
-defined earlier. **Tip:** Type `li` to see the full list of SDK commands. We'll talk about
-them more later.
+**3**  Enter the name of your plugin project directory.
 
-**8**  (Optional) If you did not enter the token value, generate the token in Studio
-if needed, open `server.conf.json` at the top level of your plugin repository, and
-enter the token for the value of `pluginToken`.
+This is the root directory for
+your plugin. The directory name can contain lower case characters, numbers, and hyphens.
+This directory structure should be committed into your source-controlled
+repository.
 
-##Revoking a plugin token
+**4**  Enter the URL of your stage environment community instance. Use `https` in the URL.
 
-If your plugin token expires or becomes compromised, go to **Studio > SDK** and click
-**Revoke Token**. You can then generate a new one. Remember to update `server.conf.json`
-with the new token value, and communicate with any team members using the
-same token.
+**5**  When asked, "Do you have a plugin token," enter the token value if you have it.
 
-##Plugin structure and configuration
+Entering the token at this point puts the token into the plugin configuration file. If you
+do not have a token, press **Enter** to continue. You add the token into
+the configuration file manually after the `li create-project` script finishes.
+
+**6**  Let the script run to completion. You will see a new directory with the name you
+defined earlier. **Tip:** Type `li` to see the full list of SDK commands. We'll talk about them more later.
+
+**7**  (Optional) If you did not enter the token value, generate the token in Studio, open
+`server.conf.json` at the top level of your plugin repository, and
+add the token for the value of `pluginToken`.
+
+We'll talk about the other configuration options in `server.conf.json` later
+in [Plugin structure and configuration](/develop/create#serverConfJson).
+
+[Back to top](/develop/customize#top)
+
+---
+
+### Download the Studio Plugin<a id="downloadStudio"></a>
+You can export your community's entire Studio plugin from your stage server to your SDK plugin, or pull specific
+plugin points. When doing a partial export, you may specify up to five plugin points at a time.
+
+**1** Go to your SDK plugin directory.
+
+**2** Enter `li export-studio-plugin` and follow the prompts.
+
+Choose to download the entire Studio plugin from your
+stage server or select up to five plugin points to export into your SDK plugin. If you specify plugin points to
+export using the `--points` flag, you must also pass the `--force` flag.
+
+```
+li export-studio-plugin --points "component", "endpoint", "controller, ""macro" --force
+```
+
+[Back to top](/develop/customize#top)
+Create the plugin project
+
+### Download the SDK Plugin<a id="downloadSdk"></a>
+If your company has already created an SDK plugin, you can populate your plugin project from the
+last SDK plugin uploaded to the stage server. Partial exports of an SDK plugin are not supported at this time.
+
+**1** Go to your SDK plugin directory.
+
+**2** Enter `li export-plugin`.
+
+[Back to top](/develop/customize#top)
+
+##Revoke a plugin token
+
+Plugin tokens expire after 30 days. If your plugin token expires or becomes compromised,
+go to **Studio > SDK** and click
+**Revoke Token** to generate a new one. Remember to update `server.conf.json`
+with the new token value, and communicate with any team members sharing the token.
+
+[Back to top](/develop/customize#top)
+
+##Plugin structure and configuration<a id="serverConfJson"></a>
 
 Your plugin project repository contains several sub-directories and files. Your customizations go in
  the `res` and `web` directories. The only file you'll use is `server.conf.json`. This
  is configuration file contains plugin settings and your plugin upload token.
 
-<img src="img/pluginDir.png" width="380px" align="middle"/>
+<img src="img/pluginStructure.png" width="600px" align="middle"/>
 
 Let's look at `server.conf.json`.
 
 ```
 {
-  "serverUrl": "http://mystagecommunity.lithium.com",
+  "serverUrl": "https://mystagecommunity.lithium.com",
   "pluginToken": "esdlkf09827-7905-39dks-8e48-9e8lkjf093",
-  "pluginUploadProtocol": "https",
   "allowStudioOverrides": false,
   "strictMode": true,
   "dryRun": false
+  "verbose": false
+  "force": false
+  "pluginPoints": ["skin", "endpoint"]
 }
 ```
 
 * `serverUrl` - the url to the stage server hosting your community
-* `pluginToke` - the plugin token generated in **Studio > SDK**
+* `pluginToken` - the plugin token generated in **Studio > SDK**
 * `pluginUploadProtocol` - use "https"
-* `allowStudioOverrides` - when true, plugin upload is allowed even if files exist in the
-Studio plugin with identical names to files in the SDK plugin. When false,  the `li package-plugin`
+* `allowStudioOverrides` - when `false`,  the `li package-plugin`
 and `li submit-plugin` commands won't allow plugin upload if a file in the Studio plugin will
-override a file in the SDK plugin. When true, the commands ignore validation errors
-that prevent Studio plugin overrides. When true, the Studio plugin version of a file
-will be used in the community.
+override a file in the SDK plugin. We recommend setting to `false`.
 
-* `strictMode` - when true, FreeMarker syntax failures block plugin upload to the server
-when you run `li submit-plugin`. We recommend setting `strictMode` to true to prevent uploading
-broken components to stage.
+  when `true`:
+  * plugin upload is allowed even if files exist in the Studio plugin with identical names to files in the SDK plugin
+  * the commands ignore validation errors that prevent Studio plugin overrides
+  * the Studio plugin version of a file will be used in the community.
 
-* `dryRun` - when true, `li submit-plugin` validates the plugin on the client side,
+* `strictMode` - when `true`, FreeMarker syntax failures block plugin upload to the server
+when you run `li submit-plugin`.
+
+  We recommend setting to `true`.
+
+* `dryRun` - when `true`, `li submit-plugin` validates the plugin on the client side,
 uploads the plugin to the server and performs server-side validation, but
-does not save the plugin to the server. Generally you will set `dryRun` to false in `server.conf.json`
-and instead pass the `dryrun` option with `li submit-plugin`. To learn about what kind of
-validation occurs on the plugin, see {@link refer/pluginvalidation Plugin Validation}.
+does not save the plugin to the server. Generally you will set `dryRun` to `false` in `server.conf.json`
+and instead pass the `dryrun` option with `li submit-plugin`. Learn more about validation rules in {@link refer/pluginvalidation Plugin Validation}.
+
+* `verbose` - when `true`, automatically prints a log for each file added to
+the SDK plugin from Studio when you run `li export-studio-plugin`
+* `force` - Automatically adds the `force` flag to commands requiring manual confirmation. **Tip:** This flag is intended to be used in a continuous integration environment where an automated
+build system runs `li submit-plugin`.  We do not recommend individual developers set this to true.
+
+  When `true`, these commands work in the following way:
+
+  * `clear-plugin` automatically clears the entire SDK plugin without manual confirmation
+
+  * `clear-studio-plugin` automatically clears the entire Studio plugin (unless you have specific plugin
+    points defined in the `pluginPoints` field in `server.conf.json`) without manual confirmation
+
+    * `export-plugin` automatically exports the entire SDK plugin without manual confirmation
+
+    * `export-studio-plugin` automatically exports the entire Studio plugin (unless you have plugin points defined in the `pluginPoints`
+in `server.conf.json`) without manual confirmation
+
+    * `submit-plugin` automatically uploads the plugin to the server without manual confirmation
+
+* `pluginPoints` - optionally define a subset to of up to five plugin points to download when you run `li export-studio-plugin`.
+When you have plugin points defined in `server.conf.json`, use the `--force` flag to skip the prompt asking whether you want to
+download the entire plugin.
+
+  Defining plugin points in the config file is equivalent to passing `--points --force` to `li export-studio-plugin`.
+
+  **Note:** You cannot define a subset of plugin points to export when exporting an existing SDK plugin.
 
 Read {@link /develop/deploy Deploy} to learn more about packaging the plugin for deployment
  to stage. Read {@link /develop/customize Customize} to learn how to contribute customizations
 using the SDK.
+
+[Back to top](/develop/customize#top)
 ___
