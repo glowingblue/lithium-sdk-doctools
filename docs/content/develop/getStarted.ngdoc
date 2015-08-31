@@ -9,7 +9,10 @@
 
 You need these prerequisites before installing the Lithium-Klout SDK:
 * A functional Lithium community on release 15.4 or higher. Check the
-version on the version page located at _stage_url_/status/version.
+version on the version page located at _stage_url_/status/version. **Note:** If your Community stage
+server is running 15.6 or earlier and you download the latest version of the SDK, you might encounter
+a "Supported minimum version on server is 15.7" error. See {@link /refer/troubleshoot Troubleshooting}
+to resolve.
 
 * Access to the SDK tab in Studio. This tab generates an
 upload token needed to run SDK scripts and deploy your plugin to the stage environment.
@@ -34,7 +37,8 @@ Windows-specific prerequisites:
 `drive:\path\to\python.exe`, not to a folder.
     ** After you have installed Python, run `python` from a new command line to check that it is available.
 
-* [Microsoft Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx)
+* [Microsoft Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx). **Note:** Visual Studio
+2015 is not supported at this time.
 
 ## Installing the SDK and dependencies
 We use two npm packages in all of our project repositories: [gulp](http://gulpjs.com/) and

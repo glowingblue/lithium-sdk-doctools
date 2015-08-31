@@ -1,0 +1,21 @@
+@ngdoc overview
+@name Troubleshooting
+@sortOrder 250
+@description
+
+# Troubleshooting <a id="top"></a>
+
+
+##Supported minimum version on server is 15.7
+This error message occurs when you have the latest SDK published on [npm](https://www.npmjs.com/package/lithium-sdk),
+but you are pointing at a Lithium Community server running version 15.6 or earlier.
+
+<img src="img/sdkNpmMismatch.png" width="900" align="middle"/>
+
+Solve the error using either of these options:
+
+1. Contact Lithium Support to upgrade to 15.7 or higher.
+
+1. Downgrade your SDK to version 0.0.5 using `npm install lithium-sdk@0.0.5`.
+
+[Back to top](/refer/troubleshoot#top)
