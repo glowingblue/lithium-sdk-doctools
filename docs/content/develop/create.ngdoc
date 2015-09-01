@@ -167,12 +167,12 @@ build system runs `li submit-plugin`.  We do not recommend individual developers
   * `clear-studio-plugin` automatically clears the entire Studio plugin (unless you have specific plugin
     points defined in the `pluginPoints` field in `server.conf.json`) without manual confirmation
 
-    * `export-plugin` automatically exports the entire SDK plugin without manual confirmation
+  * `export-plugin` automatically exports the entire SDK plugin without manual confirmation
 
-    * `export-studio-plugin` automatically exports the entire Studio plugin (unless you have plugin points defined in the `pluginPoints`
+  * `export-studio-plugin` automatically exports the entire Studio plugin (unless you have plugin points defined in the `pluginPoints`
 in `server.conf.json`) without manual confirmation
 
-    * `submit-plugin` automatically uploads the plugin to the server without manual confirmation
+  * `submit-plugin` automatically uploads the plugin to the server without manual confirmation
 
 * `pluginPoints` - optionally define a subset to of up to five plugin points to download when you run `li export-studio-plugin`.
 When you have plugin points defined in `server.conf.json`, use the `--force` flag to skip the prompt asking whether you want to

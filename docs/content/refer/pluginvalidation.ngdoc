@@ -34,9 +34,10 @@ plugin. To force this behavior, set `allowStudioOverrides` in `server.conf.json`
 * [Endpoint validation](/refer/pluginvalidation#endpoint)
 * [Controller validation](/refer/pluginvalidation#controller)
 * [Macro validation](/refer/pluginvalidation#macro)
+* [Other validation requirements](/refer/pluginvalidation#other)
 
 
-##Asset validation <a id="asset"></a>
+## Asset validation <a id="asset"></a>
 For files in `web/html`, validation ensures that:
 
 * `web/html/assets` can have subdirectories, but only five levels deep
@@ -45,7 +46,7 @@ For files in `web/html`, validation ensures that:
 
 [Back to top](/refer/pluginvalidation#top)
 
-##Component validation <a id="component"></a>
+## Component validation <a id="component"></a>
 For files in `res/components`, validation ensures that:
 * Files use the `.ftl` extension
 * Files use valid FreeMarker syntax
@@ -56,7 +57,7 @@ is set to `false`, the plugin will be uploaded to stage despite the FreeMarker e
 
 [Back to top](/refer/pluginvalidation#top)
 
-##Layout validation <a id="layout"></a>
+## Layout validation <a id="layout"></a>
 For files in `res/layouts`, validation ensures that:
 * The layout uses the `.layout.xml` file extension
 * The layout file is not empty
@@ -64,7 +65,7 @@ For files in `res/layouts`, validation ensures that:
 
 [Back to top](/refer/pluginvalidation#top)
 
-##Quilt validation <a id="quilt"></a>
+## Quilt validation <a id="quilt"></a>
 For files in `res/quilts`, validation ensures that:
 * The quilt uses the `.quilt.xml` file extension
 * The quilt references a single layout and that layout exists
@@ -73,7 +74,7 @@ For files in `res/quilts`, validation ensures that:
 
 [Back to top](/refer/pluginvalidation#top)
 
-##Skin validation <a id="skin"></a>
+## Skin validation <a id="skin"></a>
 For files in `res/skins`, validation ensures that:
 * Files in `res/skins/<skin_id>/images` have extensions `.png`, `.gif`, `.jpeg`, `.jpg` or `.svg`
 * Files in `res/skins/<skin_id>/images` do not use dashes (-) in their names. Underscores (_) are permitted
@@ -95,7 +96,7 @@ new skin images
 
 [Back to top](/refer/pluginvalidation#top)
 
-##Text validation <a id="text"></a>
+## Text validation <a id="text"></a>
 For files in `res/lang`, validation ensures that:
 * The text properties file name uses only supported language codes. See [Languages that Lithium supports](https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566).
 * The text properties file uses the correct file name: text._language_code_.properties
@@ -103,7 +104,7 @@ For files in `res/lang`, validation ensures that:
 
 [Back to top](/refer/pluginvalidation#top)
 
-##Endpoint validation <a id="endpoint"></a>
+## Endpoint validation <a id="endpoint"></a>
 For files in `res/endpoints`, validation ensures that:
 * Files use the `.endpoint.xml` extension
 * Files use valid XML syntax
@@ -111,16 +112,30 @@ For files in `res/endpoints`, validation ensures that:
 
 [Back to top](/refer/pluginvalidation#top)
 
-##Controller validation<a id="controller"></a>
+## Controller validation<a id="controller"></a>
 For files in `res/controllers`, validation ensures that:
 * Files use the `.ftl` extension
 * Files use valid FreeMarker syntax
 
 [Back to top](/refer/pluginvalidation#top)
 
-##Macro validation<a id="macro"></a>
+## Macro validation<a id="macro"></a>
 For files in `res/macros`, validation ensures that:
 * Files use the `.ftl` extension
 * Files use valid FreeMarker syntax
+
+[Back to top](/refer/pluginvalidation#top)
+
+## Other plugin validation requirements<a id="other"></a>
+Here are a few more validation requirements when you run the `li` scripts:
+
+* The plugin cannot be empty when you submit it.
+
+* When using the `pluginPoints` setting in `server.conf.json` or the `--points` flag when
+exporting or clearing plugin points from the Studio plugin, files for the plugin points
+specified must exist in the Studio plugin. Otherwise you will receive an error. For example, if you pass
+`-- points 'macro'` to `li export-studio-plugin` but there are no macros in Studio, you will
+recieve a PLUGIN_POINT_DOWNLOAD_FAILURE error.
+
 
 [Back to top](/refer/pluginvalidation#top)

@@ -285,7 +285,7 @@ continue with the tutorial, skip to [Customize skins](/develop/customize#skins).
 
 [Back to top](/develop/customize#top)
 
-###Override a core quilt <a id="overrideQuilt"></a>
+### Override a core quilt <a id="overrideQuilt"></a>
 Custom quilts that override Lithium core quilts use the
 file name structure <br />`<core_quilt_name>.<descriptive_identifier>.quilt.xml`, for example
 BlogPage.custom.quilt.xml.
@@ -365,7 +365,7 @@ wrappers for desktop and mobile v1 communities. Put skin customizations in `res/
 
 [Back to top](/develop/customize#top)
 
-####Create a skin
+#### Create a skin
 
 Before you create your skin, you need to set up several directories to hold skin
 resources.
@@ -435,7 +435,7 @@ If you want to continue with the tutorial, skip to [Customize styles](/develop/c
 
 [Back to top](/develop/customize#top)
 
-####Override a skin image
+#### Override a skin image
 To override an image used in a skin, create a new image asset and give it the same
 name as the image currently used by the skin. Then place the image in PLUGIN_HOME/res/skins/[skinid]/images.
 You cannot add new images to the skin. You can only override existing images.
@@ -444,7 +444,7 @@ You cannot add new images to the skin. You can only override existing images.
 
 [Back to top](/develop/customize#top)
 
-####Customize the wrapper
+#### Customize the wrapper
 The page wrapper for a skin provides an additional layer or styling above and below the main
 content of the page (anything above and below `li-body` when looking at a the code for a community page.)
 
@@ -475,11 +475,11 @@ Wrapper content is put into FTL (FreeMarker) files. Place the in
 * hitbox.ftl - for HTML content to add below the footer, such as Google Analytics or Omniture metrics collection,
 or additional JavaScript. This maps to the **Hitbox** section of the Studio **Wrapper** tab.
 
-#####Example head_top.ftl
+##### Example head_top.ftl
 ```
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
 ```
-#####Example head.ftl
+##### Example head.ftl
 This example adds some styling and adds some navigation logic based on whether a user is
 anonymous or not.
 ```
@@ -494,7 +494,7 @@ anonymous or not.
 </#if>
 ```
 
-#####Example content_wrapper.ftl
+##### Example content_wrapper.ftl
  This retrieves header and footer content and inserts it into the page as it is rendered
  and displays custom content.
  ```

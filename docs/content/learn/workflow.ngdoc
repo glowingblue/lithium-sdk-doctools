@@ -9,7 +9,7 @@ The Lithium-Klout SDK supports a developer-friendly "choose your own IDE" experi
 that enables you to develop locally with the tools of your choice, collaborate with your
 own team in your own source control system, and test on your stage environment.
 
-##Developer Environment Recommendations
+## Developer Environment Recommendations
 
 We recommend that developers commit to a shared repository and be in close communication to ensure
 that their customization contributions to not override one another's. Lithium does not provide
@@ -18,7 +18,7 @@ to deploy to the stage environment. We strongly recommend implementing your own 
 system and CI service to build and submit the SDK plugin from your source control system to the stage
 environment. We provide an example using GitHub and Travis CI below.
 
-###Setting up the Plugin Project
+### Setting up the Plugin Project
 This diagram illustrates the recommended way to set up an SDK plugin project in a development environment.
 
 <img src="img/SDK_DevEnvSetup.png" width="420 px"/>
@@ -48,7 +48,7 @@ We encrypted server.conf.json using the instructions in [Encrypting Files](http:
 Whatever source control/CI environment you decide to implement, always encrypt server.conf.json, the plugin configuration file described in {@link /develop/create Create}, to
 protect the security of the plugin token.
 
-###Non-Continuous Integration
+### Non-Continuous Integration
 This diagram illustrates a simple workflow if you cannot implement continuous integration.
 
 <img src="img/DevWorkflowNoCI.png" width="600 px"/>

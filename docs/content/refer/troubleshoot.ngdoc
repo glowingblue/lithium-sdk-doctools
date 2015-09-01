@@ -6,7 +6,7 @@
 # Troubleshooting <a id="top"></a>
 
 
-##Supported minimum version on server is 15.7
+## Supported minimum version on server is 15.7
 This error message occurs when you have the latest SDK published on [npm](https://www.npmjs.com/package/lithium-sdk),
 but you are pointing at a Lithium Community server running version 15.6 or earlier.
 
