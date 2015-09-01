@@ -101,7 +101,7 @@ last SDK plugin uploaded to the stage server. Partial exports of an SDK plugin a
 
 [Back to top](/develop/customize#top)
 
-##Revoke a plugin token
+## Revoke a plugin token
 
 Plugin tokens expire after 30 days. If your plugin token expires or becomes compromised,
 go to **Studio > SDK** and click
@@ -110,7 +110,7 @@ with the new token value, and communicate with any team members sharing the toke
 
 [Back to top](/develop/customize#top)
 
-##Plugin structure and configuration<a id="serverConfJson"></a>
+## Plugin structure and configuration<a id="serverConfJson"></a>
 
 Your plugin project repository contains several sub-directories and files. Your customizations go in
  the `res` and `web` directories. The only file you'll use is `server.conf.json`. This

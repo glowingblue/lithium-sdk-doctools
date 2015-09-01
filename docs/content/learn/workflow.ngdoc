@@ -35,7 +35,7 @@ After the SDK project is created and placed under source control, other develope
 After setup is complete, the team is ready to customize and check in. Read {@link /develop/customize Customize}
 to learn about the plugin repository structure.
 
-###Continuous Integration Example
+### Continuous Integration Example
 The diagrams below illustrate the recommended workflow using a continuous integration
  service. You can find our [demo project](https://github.com/lithiumtech/linc-sdk-demo) in GitHub.
 
