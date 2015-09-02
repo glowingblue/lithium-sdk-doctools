@@ -109,6 +109,7 @@ For files in `res/endpoints`, validation ensures that:
 * Files use the `.endpoint.xml` extension
 * Files use valid XML syntax
 * There is an associated FTL file with the same name as the endpoint in `res/controllers`
+* Endpoint names can contain letters (a-z), numerals (1-9), hyphen (-), underscore ( _ ), and dot (.). An endpoint name cannot begin with '.'
 
 [Back to top](/refer/pluginvalidation#top)
 
@@ -123,6 +124,11 @@ For files in `res/controllers`, validation ensures that:
 For files in `res/macros`, validation ensures that:
 * Files use the `.ftl` extension
 * Files use valid FreeMarker syntax
+* Macro names can contain letters (a-z), numerals (1-9), hyphen (-), underscore ( _ ), and dot (.). A macro name cannot begin with '.'
+
+**Note:** Although the macro FTL file you add to the plugin can have a hypen in the name, FreeMarker does not supprt
+hyphens in the macro variable name. When creating your macro FreeMarker, be sure to follow
+the variable naming conventions defined by [FreeMarker.org](http://freemarker.org/docs/dgui_template_exp.html#dgui_template_exp_var_toplevel). 
 
 [Back to top](/refer/pluginvalidation#top)
 
