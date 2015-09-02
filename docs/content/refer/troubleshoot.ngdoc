@@ -5,6 +5,15 @@
 
 # Troubleshooting <a id="top"></a>
 
+## 401 HTTP error when submitting, exporting, or clearing a plugin
+
+<img src="img/401HttpError.png" width="500" align="middle"/>
+
+If you receive a 401 error when running one of the SDK `li` commands, most likely your stage server has
+IP restriction enabled. To resolve the error, contact Lithium Support and have them whitelist your IP address.
+Basic HTTP authentication is not supported for SDK endpoints, therefore passing a username/password with the
+`serverUrl` field in `server.conf.json` will not resolve the 401 error.
+
 
 ## Supported minimum version on server is 15.7
 This error message occurs when you have the latest SDK published on [npm](https://www.npmjs.com/package/lithium-sdk),

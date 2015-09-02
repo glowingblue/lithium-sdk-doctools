@@ -50,7 +50,7 @@ your plugin. The directory name can contain lower case characters, numbers, and 
 This directory structure should be committed into your source-controlled
 repository.
 
-**4**  Enter the URL of your stage environment community instance. Use `https` in the URL.
+**4**  Enter the URL of your stage environment community instance. Use `https` in the URL. **Note:** If your stage site has IP restriction enabled, you must contact Lithium Support and have your IP whitelisted.
 
 **5**  When asked, "Do you have a plugin token," enter the token value if you have it.
 
@@ -133,7 +133,7 @@ Let's look at `server.conf.json`.
 }
 ```
 
-* `serverUrl` - the url to the stage server hosting your community
+* `serverUrl` - the url to the stage server hosting your community. Passing a username and password for basic HTTP authentication is not supported.
 * `pluginToken` - the plugin token generated in **Studio > SDK**
 * `pluginUploadProtocol` - use "https"
 * `allowStudioOverrides` - when `false`,  the `li package-plugin`
