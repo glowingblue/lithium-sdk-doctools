@@ -59,6 +59,10 @@ module.exports = function generatePagesDataProcessor(log) {
             .tap(function(docTypes) {
               log.debug(moduleName, _.keys(docTypes));
               // Extract the module page from the collection
+              if (docTypes.module === undefined) {
+                console.log('If you added a new module \'' + moduleName + 
+                  '\', did you forget to add it to src/_ngdocs.js?');
+              }
               modulePage = docTypes.module[0];
               delete docTypes.module;
             })
