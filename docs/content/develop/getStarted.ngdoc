@@ -32,6 +32,11 @@ gets bundled with the node environment, but verify that you have it.
     * Run `node -v` at the command line to check whether node is installed
     * Run `npm` at the command line to check whether npm is installed
 
+    If you are installing node for the first time, do not install it using `sudo` or in administrator mode. Also, ensure that
+the directory where npm installs modules to is permissioned so that you do not need to use sudo or administrator mode
+when you run npm install.
+
+
 Windows-specific prerequisites:
 
 * While installing git, select **Use Git from the Windows Command Prompt** on the dialog window **Adjusting your PATH environment**
@@ -58,24 +63,7 @@ The `-g` flag denotes the package specified will be installed globally on your s
 `usr/local/lib/node_modules` and a symlink is put in `usr/local/bin`. When you run these
 commands as yourself (`$USER`), you will not have access to write to these locations, and
 you might get a permission error that looks something like this:
-`npm ERR! Please try running this command again as root/Administrator.`
-
-### Troubleshooting permission errors in Windows environments
-If you have permission issues when running the install scripts, run the installation commands in <a href ="https://technet.microsoft.com/en-us/library/Cc947813(v=WS.10).aspx">Administrator mode</a>.
-
-### Troubleshooting permission errors in Non-Windows environments
-If you have permission issues, use:
-```
-sudo npm install gulp -g
-sudo npm install lithium-sdk -g
-```
-
-If you are still having permission issues, change ownership of where the global
-packages are being installed:
- * `cd /usr/local/lib/`
- * `sudo chown -R $USER node_modules`
-* Give yourself write access to `/bin`:
- * `sudo chmod -R a+w /usr/bin`
+`npm ERR! Please try running this command again as root/Administrator.` See the troubleshooting instructions below if you see this error.
 
 **Note:** You might see warnings generated while installing `lithium-sdk` that look
 something like the following. They are a normal part of the installation process and you can ignore them.
@@ -89,4 +77,24 @@ something like the following. They are a normal part of the installation process
     SOLINK_MODULE(target) Release/node_expat.node: Finished
 ```
 
+### Troubleshooting permission errors in Windows environments
+If you have permission issues when running the install scripts, run the installation commands in <a href ="https://technet.microsoft.com/en-us/library/Cc947813(v=WS.10).aspx">Administrator mode</a>.
+
+### Troubleshooting permission errors in Non-Windows environments
+If you have permission issues, use change permission for the folders where global packages are being installed so
+that $USER can write to those directories and subdirectories.
+
+*For Mac and Linux:*
+
+ * `cd /usr/local/lib/`
+ * `sudo chown -R $USER node_modules`
+     * Give yourself write access to `/bin`:
+ * `sudo chmod -R a+w /usr/bin`
+
+
+If you are still getting permissions errors, use the following. If you use `sudo` you will have to run SDK scripts in sudo.
+```
+sudo npm install gulp -g
+sudo npm install lithium-sdk -g
+```
 ___
