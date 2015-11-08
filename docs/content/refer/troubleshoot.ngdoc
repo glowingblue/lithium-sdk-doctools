@@ -9,6 +9,7 @@ Running into problems? Let's look at a few troubleshooting tips for errors you m
 * [401 HTTP error](/refer/troubleshooting#410HttpError)
 * [Supported minimum version on server is 15.7](/refer/troubleshooting#supportedMinVersion)
 * [Error: Invalid response from server ](/refer/troubleshooting#invalidResponse)
+* [Error: Socket hang up](/refer/troubleshooting#socketHangUp)
 * [Nothing happens after running an SDK script](/refer/troubleshooting#nothingHappens)
 
 ## 401 HTTP error when submitting, exporting, or clearing a plugin <a id="401HttpError"></a>
@@ -57,6 +58,18 @@ Error: Invalid response from server. Check your server url and version.
     at TLSSocket.<anonymous> (_tls_wrap.js:942:18)
     at TLSSocket.emit (events.js:104:17)
 ```
+[Back to top](/refer/troubleshoot#top)
+
+## Error: Socket hang up <a id="socketHangUp"></a>
+If you encounter an error like the one below, your stage site might be down or unreachable (due to network issues).
+
+```
+[23:58:45] Error making request to upload plugin.
+[23:58:45] Possible SSL configuration issue, or the site may be down.
+[23:58:45] Check to make sure your stage community is up, and that you have the correct serverUrl property set in server.conf.json (should start with https://) and that SSL support has been configured correctly on your stage community.
+[23:58:45] Error: socket hang up
+```
+
 [Back to top](/refer/troubleshoot#top)
 
 ## Nothing happens after running an SDK script <a id="nothingHappens"></a>
