@@ -22,13 +22,14 @@ file, `server.conf.json`, manually.
 
 **1** Sign in to the community.
 
-**2** Go to **Studio > SDK** and click **Generate Upload Token**.
+**2** Go to **Studio > Advanced > SDK** and click **Generate Upload Token**.
 
 (If you can't access Studio, ask the community administrator for permission.)
 
-The token is valid for 30 days.
+The token is valid for 30 days. This token is specific to the current user logged in to Studio.
 
-<img src="img/plugin-developer.png" width="640px">
+**Note:** Do not share this token. If you post to the Lithium Community for troubleshooting help, be careful not to post you
+token in your message.
 
 [Back to top](/develop/customize#top)
 
@@ -104,7 +105,7 @@ last SDK plugin uploaded to the stage server. Partial exports of an SDK plugin a
 ## Revoke a plugin token
 
 Plugin tokens expire after 30 days. If your plugin token expires or becomes compromised,
-go to **Studio > SDK** and click
+go to **Studio > Advanced > SDK** and click
 **Revoke Token** to generate a new one. Remember to update `server.conf.json`
 with the new token value, and communicate with any team members sharing the token.
 
