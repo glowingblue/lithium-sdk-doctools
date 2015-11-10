@@ -6,7 +6,7 @@
 # Troubleshooting <a id="top"></a>
 Running into problems? Let's look at a few troubleshooting tips for errors you might encounter.
 
-* [401 HTTP error](/refer/troubleshooting#410HttpError)
+* [401 HTTP error](/refer/troubleshoot#410HttpError)
 * [Supported minimum version on server is 15.7](/refer/troubleshoot#supportedMinVersion)
 * [Error: Invalid response from server (SSL)](/refer/troubleshoot#invalidResponse)
 * [Error: Socket hang up](/refer/troubleshoot#socketHangUp)
