@@ -14,6 +14,9 @@ server is running 15.6 or earlier and you download the latest version of the SDK
 a "Supported minimum version on server is 15.7" error. See {@link /refer/troubleshoot Troubleshooting}
 to resolve.
 
+* SSL must be configured for your community. Contact Lithium Support if you are unsure whether this configuration
+set.
+
 * If your stage site has IP restriction turned on, you must whitelist IPs that will interact with the stage server using the SDK.
 Contact Lithium Support to whitelist IP addresses as needed.
 

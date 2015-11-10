@@ -35,6 +35,7 @@ plugin. To force this behavior, set `allowStudioOverrides` in `server.conf.json`
 * [Controller validation](/refer/pluginvalidation#controller)
 * [Macro validation](/refer/pluginvalidation#macro)
 * [Other validation requirements](/refer/pluginvalidation#other)
+* [Validation errors](/refer/pluginvalidation#otherErrors)
 
 
 ## Asset validation <a id="asset"></a>
@@ -128,14 +129,15 @@ For files in `res/macros`, validation ensures that:
 
 **Note:** Although the macro FTL file you add to the plugin can have a hypen in the name, FreeMarker does not supprt
 hyphens in the macro variable name. When creating your macro FreeMarker, be sure to follow
-the variable naming conventions defined by [FreeMarker.org](http://freemarker.org/docs/dgui_template_exp.html#dgui_template_exp_var_toplevel). 
+the variable naming conventions defined by [FreeMarker.org](http://freemarker.org/docs/dgui_template_exp.html#dgui_template_exp_var_toplevel).
 
 [Back to top](/refer/pluginvalidation#top)
 
 ## Other plugin validation requirements<a id="other"></a>
 Here are a few more validation requirements when you run the `li` scripts:
 
-* The plugin cannot be empty when you submit it.
+* The plugin cannot be empty when you submit it. If you submit an empty plugin directory, you will see errors like
+"Rule file or plugin directory can't be null" or "Plugin has too few files".
 
 * When using the `pluginPoints` setting in `server.conf.json` or the `--points` flag when
 exporting or clearing plugin points from the Studio plugin, files for the plugin points
@@ -143,5 +145,27 @@ specified must exist in the Studio plugin. Otherwise you will receive an error. 
 `-- points 'macro'` to `li export-studio-plugin` but there are no macros in Studio, you will
 recieve a PLUGIN_POINT_DOWNLOAD_FAILURE error.
 
+[Back to top](/refer/pluginvalidation#top)
+
+## Validation errors <a id="otherErrors"></a>
+
+**A file in the plugin has a possible issue:**
+
+If you encounter an error like this, review the
+code in the file named in the error message. This error is a soft failure and indicates there
+are potential problems with the file. In some cases, the code might be valid and the warning might not apply.
+For example, FreeMarker code that accesses and processes request parameters could trigger this error.
+
+**Not a valid text group**
+
+This error indicates you are adding or customizing a text string that is not allowed via the SDK. Try adding the text
+string in Studio instead.
+
+**Other errors**
+
+If you encounter any of these error messages, contact Lithium Support for details:
+
+* Error creating document builder
+* Error parsing rule file
 
 [Back to top](/refer/pluginvalidation#top)
