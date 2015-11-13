@@ -83,6 +83,6 @@ version of the SDK (`li update-project`). If this does not solve your problem, c
 
 ## Uninstall the SDK <a id="uninstall"></a>
 
-To uninstall the SDK run `npm remove lithium-sdk -g` from any directory.
+To uninstall the SDK run `npm remove lithium-sdk -g` from any directory. You'll need administrator privileges to perform the action.
 
 [Back to top](/refer/troubleshoot#top)
