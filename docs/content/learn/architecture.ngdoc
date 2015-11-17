@@ -11,7 +11,7 @@ is displayed using widgets called [components](http://community.lithium.com/t5/P
 (created with a templating language called [FreeMarker](http://freemarker.org/)), [custom content](http://community.lithium.com/t5/Custom-Content/About-custom-content/ta-p/108551),
 and [endpoints](http://community.lithium.com/t5/Components-endpoints-and-the/About-endpoints/ta-p/108971) to interact with third-party applications and your company website.
 
-Community ships with core pages, layouts, components, text, CSS, images, and more. Developers, designers, and
+Community ships with core pages, layouts, components, text, CSS, SCSS, images, and more. Developers, designers, and
 other members of your community team can customize, add, and override our core resources.
 There are two ways to create customizations:
 * Using the Lithium-Klout SDK
@@ -50,8 +50,9 @@ the SDK is only supported on the stage environment that is connected via Studio 
 Using the SDK you can submit:
 * Assets, badge icons, and rank icons
 * Components
-* CSS
+* CSS and SCSS
 * Endpoints
+* Images
 * Layouts
 * Macros
 * Page Initialization script (common.init)
@@ -68,7 +69,7 @@ like skins, components, endpoints, text strings, and image assets. They are the 
 community unique.
 
 Your community uses a variety of plugin resources. Some control core Lithium Community features and
-functionality, others contain customizations created for you by Lithium Professional Services, but most
+functionality, others contain customizations created for you by Lithium Services, but most
 important to developers, the SDK plugin is for your own use in your local IDE. Ideally, your development team
 will have a source-controlled plugin project that you will pull from and commit to. Read {@link /learn/workflow Developer
 Workflow} for our recommended developer environment setup and deployment workflow.
@@ -97,7 +98,7 @@ how they interact, and how to override and revert files in
 The diagram below illustrates the tool chain we use to run our
 development environment. From the bottom up:
 
-* [node.js](http://nodejs.org/) is the JavaScript runtime environment for the SDK
+* [node.js](http://nodejs.org/) is the JavaScript runtime environment for the SDK  
 * [gulp.js](http://gulpjs.com/) is a streaming build system and task runner
 * The Lithium-Klout SDK provides the structure and mechanism to build your
  community customizations

@@ -18,7 +18,8 @@ The upload token is required for all SDK command line options. Alternatively, yo
 later and add it to the plugin configuration
 file, `server.conf.json`, manually.
 
-**Note:** In a multi-developer environment, developers share the same token.
+**Note:** Each developer crates a separate upload token using a separate, unique login in Studio to ensure that SDK submissions
+that appear in the Studio Versions tab are attributed to the correct developer account.
 
 **1** Sign in to the community.
 
@@ -86,7 +87,7 @@ stage server or select up to five plugin points to export into your SDK plugin. 
 export using the `--points` flag, you must also pass the `--force` flag.
 
 ```
-li export-studio-plugin --points "component", "endpoint", "controller, ""macro" --force
+li export-studio-plugin --points "component", "endpoint", "controller, "macro" --force
 ```
 
 [Back to top](/develop/customize#top)
@@ -116,6 +117,8 @@ with the new token value, and communicate with any team members sharing the toke
 Your plugin project repository contains several sub-directories and files. Your customizations go in
  the `res` and `web` directories. The only file you'll use is `server.conf.json`. This
  is configuration file contains plugin settings and your plugin upload token.
+
+ **Note:** Do not check server.conf.json into your source repository. The plugin token should not be shared. It should remain secret.
 
 <img src="img/pluginStructure.png" width="600px" align="middle"/>
 

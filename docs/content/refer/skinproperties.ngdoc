@@ -13,59 +13,59 @@ Studio users can edit skin properties in **Studio > Community Style > Properties
 Read [Edit skin properties](https://community.lithium.com/t5/Skins-and-assets/Edit-skin-properties/ta-p/40322)
 for more information.
 
- The sections below list the properties and default values for the Base skin.
+The list below shows the default skin properties.
 
-## Base skin properties
+## Skin properties
 ```
-title                         = Community Base Skin
-groups                        = community
-color.foreground              = 333333
-color.background              = ffffff
-color.midtone                 = 808080
-color.rollover								= 24478f
-color.selection								= ffffcc
-color.alert										= cc0000
-color.safe										= 669966
-color.warn                    = 8a6d3b
-color.primary_01							= cc8b33
-color.primary_02							= 3366cc
-color.primary_03							= 808080
-color.primary_04							= 808080
-type.title_01									= font-family:Arial; font-weight:bold;
-type.title_02									= font-family:Arial; font-weight:bold;
-type.title_03									= font-family:Arial; font-weight:bold;
-type.title_04									= font-family:Arial; font-weight:bold;
-type.body_01									 = font-family:Arial; font-weight:normal;
-type.small_01									 = font-family:Arial; font-weight:normal;
-type.font_size.title_01				 = 30
-type.font_size.title_02				 = 20
-type.font_size.title_03								= 14
-type.font_size.title_04								= 11
-type.font_size.body_01								= 12
-type.font_size.small_01								= 10
-type.line_height.title_01							= 36
-type.line_height.title_02							= 24
-type.line_height.title_03							= 17
-type.line_height.title_04							= 13
-type.line_height.body_01							= 15
-type.line_height.small_01							= 12
-size.pixel.spacing_slim								= 5
-size.pixel.spacing_medium							= 10
-size.pixel.spacing_wide								= 20
-size.pixel.spacing_xwide							= 40
-size.pixel.input_h								  	= 20
-size.pixel.icon_mini							  	= 12
-size.pixel.icon_small							  	= 16
-size.pixel.icon_medium								= 24
-size.pixel.avatar_message_w						= 64
-size.pixel.avatar_message_h						= 36
-size.pixel.avatar_profile_w						= 128
-size.pixel.avatar_profile_h						= 72
-size.pixel.avatar_inline_w						= 16
-size.pixel.avatar_inline_h						= 9
-size.pixel.grid.width							  	= 231
-size.pixel.grid.height								= 154
-size.page_width_min							  		= 960px
-size.page_width_max							  		= 90%
+title
+groups
+color.foreground
+color.background
+color.midtone
+color.rollover
+color.selection
+color.alert
+color.safe
+color.warn
+color.primary_01
+color.primary_02
+color.primary_03
+color.primary_04
+type.title_01
+type.title_02
+type.title_03
+type.title_04
+type.body_01
+type.small_01
+type.font_size.title_01
+type.font_size.title_02
+type.font_size.title_03
+type.font_size.title_04
+type.font_size.body_01
+type.font_size.small_01
+type.line_height.title_01
+type.line_height.title_02
+type.line_height.title_03
+type.line_height.title_04
+type.line_height.body_01
+type.line_height.small_01
+size.pixel.spacing_slim
+size.pixel.spacing_medium
+size.pixel.spacing_wide
+size.pixel.spacing_xwide
+size.pixel.input_h
+size.pixel.icon_mini
+size.pixel.icon_small
+size.pixel.icon_medium
+size.pixel.avatar_message_w
+size.pixel.avatar_message_h
+size.pixel.avatar_profile_w
+size.pixel.avatar_profile_h
+size.pixel.avatar_inline_w
+size.pixel.avatar_inline_h
+size.pixel.grid.width
+size.pixel.grid.height
+size.page_width_min
+size.page_width_max
 
 ```

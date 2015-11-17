@@ -3,7 +3,7 @@
 @sortOrder 100
 @description
 
-# Get Started
+# Get Started <a id="top"></a>
 
 ## Prerequisites
 
@@ -22,9 +22,11 @@ Contact Lithium Support to whitelist IP addresses as needed.
 
 * Access to the SDK tab in Studio. This tab generates an
 upload token needed to run SDK scripts and deploy your plugin to the stage environment.
-Developers in a multi-developer environment share a single token.
+Each developer uses a separate account to log into Studio and generates a separate upload token. This ensures that
+SDK plugin submissions are attributed to the a specific user account in the Versions tab in Studio, which
+helps track with developer submitted which version of the SDK plugin to the stage environment.
 
-* A Mac, Linux, or Windows 7+ environment
+* A Mac (10.8+), Linux (CentOS 6.5+), or Windows (7+) environment
 
 * [git](https://git-scm.com/). After you install git, run `git` from a new command line to check that it is available
 * [node.js](http://nodejs.org/) version 4.x.x and [npm](https://www.npmjs.org/). Our developer
@@ -100,4 +102,10 @@ If you are still getting permissions errors, use the following. If you use `sudo
 sudo npm install gulp -g
 sudo npm install lithium-sdk -g
 ```
+
+## Uninstall the SDK
+
+To uninstall the SDK run `npm remove lithium-sdk -g` from any directory. You'll need administrator privileges to perform the action.
+
+[Back to top](/develop/getStarted#top)
 ___

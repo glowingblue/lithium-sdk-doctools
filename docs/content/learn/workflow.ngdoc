@@ -3,22 +3,30 @@
 @sortOrder 300
 @description
 
-# Developer Workflow
+# Developer Workflow <a id="top"></a>
 
 The Lithium-Klout SDK supports a developer-friendly "choose your own IDE" experience
 that enables you to develop locally with the tools of your choice, collaborate with your
 own team in your own source control system, and test on your stage environment.
 
-## Developer Environment Recommendations
+* [Developer Environment Recommendations](/learn/workflow#devEnv)
+* [Deployment](/learn/workflow#deployment)
+* [Collaborating with Lithium Services](/learn/workflow#collabWithServices)
+
+## Developer Environment Recommendations <a id="devEnv"></a>
 
 We recommend that developers commit to a shared repository and be in close communication to ensure
 that their customization contributions to not override one another's. Lithium does not provide
 a central build solution to combine all customizations from all developers into a single plugin
-to deploy to the stage environment. We strongly recommend implementing your own source control
-system and CI service to build and submit the SDK plugin from your source control system to the stage
+to deploy to the stage environment. Consider implementing a CI service to build and submit
+the SDK plugin from your source control system to the stage
 environment. We provide an example using GitHub and Travis CI below.
 
-### Setting up the Plugin Project
+* [Setting up the Plugin Project](/learn/workflow#setup)
+* [Continuous Integration](/learn/workflow#continuousIntegration)
+* [Non-continuous Integration](/learn/workflow#nonCI)
+
+### Setting up the Plugin Project <a id="setup"></a>
 This diagram illustrates the recommended way to set up an SDK plugin project in a development environment.
 
 <img src="img/SDK_DevEnvSetup.png" width="420 px"/>
@@ -29,13 +37,16 @@ the plugin token and executes the instructions to {@link /develop/create create 
 This task creates the directory
 structure to place under your preferred source control system.
 
+**Note:** Do not place the SDK configuration file (server.conf.json) located in
+the root directory of your plugin project under source control. 
+
 After the SDK project is created and placed under source control, other developers
  pull the plugin project to replicate the SDK plugin directory structure on their local machines.
 
 After setup is complete, the team is ready to customize and check in. Read {@link /develop/customize Customize}
 to learn about the plugin repository structure.
 
-### Continuous Integration Example
+### Continuous Integration <a id="continuousIntegration"></a>
 The diagrams below illustrate the recommended workflow using a continuous integration
  service. You can find our [demo project](https://github.com/lithiumtech/linc-sdk-demo) in GitHub.
 
@@ -48,12 +59,19 @@ We encrypted server.conf.json using the instructions in [Encrypting Files](http:
 Whatever source control/CI environment you decide to implement, always encrypt server.conf.json, the plugin configuration file described in {@link /develop/create Create}, to
 protect the security of the plugin token.
 
-### Non-Continuous Integration
+### Non-Continuous Integration <a id="nonCI"></a>
 This diagram illustrates a simple workflow if you cannot implement continuous integration.
 
 <img src="img/DevWorkflowNoCI.png" width="600 px"/>
 
-### Before you Deploy to Stage
+## Deployment <a id="deployment"></a>
+
+* [Before you Deploy to Stage](/learn/workflow#beforeDeployment)
+* [Deploying to Stage](/learn/workflow#deployToStage)
+* [Reverting to a Previous Plugin](/learn/workflow#revert)
+* [Pushing to Production](/learn/workflow#pushToProd)
+
+### Before you Deploy to Stage <a id="beforeDeployment"></a>
 If you work in a multi-developer customization team, communicate closely with team
 members about which files you are working with and when you are going to submit them
 to stage. If two developers submit a plugin with conflicting changes, the last plugin
@@ -73,7 +91,8 @@ For more information about how plugins interact, read
 [About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) and
 [More about plugins](https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316) on the Lithium Community
 and {@link /learn/architecture Understanding Plugins} in {@link /learn/architecture Customization Framework}.
-### Deploying to stage
+
+### Deploying to stage <a id="deployToStage"></a>
 When you deploy the SDK plugin to the stage server, you submit the _entire_ plugin as a whole package.
 You do not upload individual plugin points, such as a single component, or a subset of images.
 
@@ -92,16 +111,54 @@ After a successful upload, the plugin appears in **Studio > Versions**. Look for
  an entry in the Versions tab that says
 "Plugin Checkin."
 
-### Reverting to a Previous Plugin Version
+### Reverting to a Previous Plugin Version <a id="revert"></a>
 If needed, you can roll back to the previous plugin version in the Studio Versions tab. Hover over
 the version to stage and click the "Stage this version" link.
 
 **Important:** In the Versions tab, you will see both Studio and SDK plugins. When reverting
 to a previous SDK plugin, be sure re-stage another SDK plugin version, not a Studio plugin.
 
-### Pushing to production
+### Pushing to production <a id="pushToProd"></a>
 Push plugins to production using Studio Publish. If you must roll back your live Community version
 to a previous version, you also use Studio Publish. See [Studio Publish Overview](https://community.lithium.com/t5/Previewing-and-publishing/Studio-Publish-overview/ta-p/81728)
 and [The Studio Publish Workflow](https://community.lithium.com/t5/Previewing-and-publishing/The-Studio-Publish-workflow/ta-p/109037)
 for details.
+
+[Back to top](/learn/workflow#top)
+
+##Collaborating with Lithium Services <a id="collabWithServices"></a>
+Most Lithium Community customers hire Lithium Services at some point for customization work whether
+during launch, redesign, and integration, or for consultation and debugging for a specific issue.
+
+In an SDK environment, regardless of the customization needs, when in-house or partner
+development teams works in conjunction or in parallel with Lithium Services, both the in-house/partner
+development team and the Services team might need to collaborate on the same source code outside of Studio.
+Further, an environment must exist where Services and the in-house/partner team can contribute and
+collaborate in a way that prevents overwrites in the SDK plugin and provides the greatest efficiency f
+or all developers.
+
+###Collaboration Workflow
+In this workflow, in-house or partner developers use the Lithium-Klout SDK for Community
+development and Lithium Services are hired to do additional Community customization.
+The workflow assumes:
+
+* Lithium Services will need access to the customer’s Community code base
+* Additional code changes made by in-house or partner developers are necessary during the
+Lithium Services engagement. (For example, Lithium Services is working on new customizations
+for a Community redesign, while in-house developers need to make changes to custom code
+used on the current Community.)
+* Codes changes by either team (in-house/partner and Lithium Services) cannot conflict or interfere with the other team’s development work.
+
+For this scenario:
+
+* If the customer does not already have one, Lithium will create a temporary shared repository
+on GitHub. Both teams (in-house/partner and Lithium Services) will work in that repository
+and coordinate check-ins and changes. Your development team will transfer the code from
+your SDK plugin to the shared repository. (Lithium Services will provide instructions.)
+* Lithium Services will create a new plugin project based off of your SDK plugin.
+* Lithium Services and in-house/partner developers will sync the Github repository to their local environments. (Lithium Services will provide instructions.)
+* Both teams will contribute their customization work in the new shared plugin project on Github and then deploy to stage as needed.
+
+[Back to top](/learn/workflow#top)
+
 ___
