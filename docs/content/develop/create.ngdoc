@@ -14,7 +14,8 @@ After {@link /develop/getStarted setting up your SDK development environment}:
 * Download the [Studio plugin](/develop/create#downloadStudio), an [SDK plugin](/develop/create#downloadSdk) (if one exists), or just get started creating new customizations
 
 ### Generate the upload token<a id="GenerateUploadToken"></a>
-The upload token is required for all SDK command line options. Alternatively, you can generate this token
+The upload token is required for all SDK command line options. To generate the token, you'll need the "Use the SDK" permission in
+Community Admin. Alternatively, you can generate this token
 later and add it to the plugin configuration
 file, `server.conf.json`, manually.
 
