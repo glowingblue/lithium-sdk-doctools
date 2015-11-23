@@ -95,7 +95,7 @@ unless `strictMode` is set to false in `server.conf.json`.
 ## Text validation <a id="text"></a>
 For files in `res/lang`, validation ensures that:
 * The text properties file name uses only supported language codes. See [Languages that Lithium supports](https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566).
-* The text properties file uses the correct file name: text._language_code_.properties
+* The text properties file uses the correct file name: text.__language_code__.properties (examples: text.en.properties, text.de.properties)
 * Subdirectories under `res/lang` exist only for supported languages
 
 [Back to top](/refer/pluginvalidation#top)

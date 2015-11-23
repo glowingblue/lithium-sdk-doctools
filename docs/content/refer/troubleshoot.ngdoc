@@ -10,6 +10,7 @@ Running into problems? Let's look at a few troubleshooting tips for errors you m
 * [Supported minimum version on server is 15.7](/refer/troubleshoot#supportedMinVersion)
 * [Error: Invalid response from server (SSL)](/refer/troubleshoot#invalidResponse)
 * [Error: Socket hang up](/refer/troubleshoot#socketHangUp)
+* [TypeError: object is not a function](/refer/troubleshoot#objectNotFunction)
 * [Nothing happens after running an SDK script](/refer/troubleshoot#nothingHappens)
 * [Uninstall the SDK](/refer/troubleshoot#uninstall)
 
@@ -78,6 +79,33 @@ If you encounter an error like the one below, your stage site might be down or u
 If you run an SDK command or answer a question during plugin setup and there is no response,
 check that the version of the SDK installed (`npm ls -g lithium-sdk --depth=0`). If it is not current than the [SDK version on npm](https://www.npmjs.com/package/lithium-sdk), update to the latest
 version of the SDK (`li update-project`). If this does not solve your problem, contact Lithium Support.
+
+[Back to top](/refer/troubleshoot#top
+
+## TypeError: Object is not a Function <a id="objectNotFunction"></a>
+
+If you run an SDK script and receive an error like this:
+
+```
+LT5578:ldnqa user.login$ li export-plugin
+/Users/user.login/lia/lithium-sdk/gulp/includes.js:16
+  var gulp = req('gulp');
+             ^
+TypeError: object is not a function
+    at module.exports (/Users/user.login/lia/lithium-sdk/gulp/includes.js:16:14)
+    at Object.<anonymous> (/Users/user.login/lia/ldnqa/gulpfile.js:3:40)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+    at Module.require (module.js:365:17)
+    at require (module.js:384:17)
+    at Liftoff.handleArguments (/Users/user.login/lia/lithium-sdk/node_modules/gulp/bin/gulp.js:108:3)
+    at Liftoff.launch (/Users/user.login/lia/lithium-sdk/node_modules/gulp/node_modules/liftoff/index.js:143:6)
+```
+
+Run `li update-project` and answer the script questions. Then retry your original command.
+If this does not solve your problem, contact Lithium Support.
 
 [Back to top](/refer/troubleshoot#top)
 
