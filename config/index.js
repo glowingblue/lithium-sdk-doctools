@@ -43,8 +43,8 @@ module.exports = function (opts) {
         basePath: 'src'
       },
       { 
-        include: path.resolve(process.cwd(), 'docs/content/**/*.ngdoc'), 
-        basePath: path.resolve(process.cwd(), 'docs/content')
+        include: path.resolve(process.cwd(), 'docs/ngdoc/content/**/*.ngdoc'),
+        basePath: path.resolve(process.cwd(), 'docs/ngdoc/content')
       }
     ];
 
@@ -64,7 +64,7 @@ module.exports = function (opts) {
   })
 
   .config(function(templateFinder) {
-    templateFinder.templateFolders.unshift('./docs/templates');
+    templateFinder.templateFolders.unshift('./docs/ngdoc/templates');
   })
 
   .config(function(computePathsProcessor, computeIdsProcessor) {

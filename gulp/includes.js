@@ -14,6 +14,8 @@ var del = require('del');
 var through = require('through2').obj;
 var exec = require('child_process').exec;
 var modrewrite = require('connect-modrewrite');
+var open = require('open');
+
 var sdkConf;
 try {
   sdkConf = require(path.resolve(process.cwd(), 'sdk.conf.json'));
@@ -37,13 +39,13 @@ var HTML2JS_TEMPLATE = 'angular.module(\'<%= moduleName %>\').run([\'$templateCa
 // See clean and bower for async tasks, and see assets and doc-gen for dependent tasks below
 module.exports = function(gulp, gutil) {
 
-  var docJsCombined = 'docs/js/combined/**/*.js';
-  var docJsStandalone = 'docs/js/standalone/**/*.js';
-  var docCss = 'docs/css/**/*.css';
-  var docImg = 'docs/images/**/*';
+  var docJsCombined = 'docs/ngdoc/js/combined/**/*.js';
+  var docJsStandalone = 'docs/ngdoc/js/standalone/**/*.js';
+  var docCss = 'docs/ngdoc/css/**/*.css';
+  var docImg = 'docs/ngdoc/images/**/*';
   var gitBranch = 'master';
   var pathPrefix = '';
-  var outputFolder = 'dist-ngdoc';
+  var outputFolder = 'docs/build/ngdoc';
 
   var copyComponent = function(component, pattern, sourceFolder, packageFile) {
     pattern = pattern || '/**/*';
@@ -93,7 +95,7 @@ module.exports = function(gulp, gutil) {
         dependencies[key].forEach(function (dep) {
           appSrc.push(path.join('bower_components', dep));
         });
-      })
+      });
       appSrc.push('src/**/!(*.demo|*.spec|*.mock).js');
       appSrc.push('src/directives/**/!(*.demo).tpl.html');
       return gulp.src(appSrc)
@@ -200,7 +202,7 @@ module.exports = function(gulp, gutil) {
       gutil.log(gutil.colors.yellow('Live reload port is not set in sdk.conf.json, ' +
           'using default port 35729'));
     }
-    connect.server({
+    var server = connect.server({
       root: outputFolder,
       port: serverPort,
       livereload: {
@@ -224,6 +226,9 @@ module.exports = function(gulp, gutil) {
         return middlewares;
       }
     });
-    gulp.watch(['docs/**/*','src/**/*.js'], ['ngdoc-reload']);
+    open('http://localhost:' + serverPort);
+    gulp.watch(['docs/ngdoc/**/*','src/**/*.js'], ['ngdoc-reload']);
   });
+
+  gulp.task('ngdoc', ['ngdoc-server']);
 };
