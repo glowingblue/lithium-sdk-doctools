@@ -14,7 +14,7 @@ var path = require('canonical-path');
 module.exports = function generateKeywordsProcessor(log, readFilesProcessor) {
   return {
     ignoreWordsFile: undefined,
-    areasToSearch: fs.readdirSync(path.join(process.cwd(), 'docs/content')),
+    areasToSearch: fs.readdirSync(path.join(process.cwd(), 'docs/ngdoc/content')),
     propertiesToIgnore: [],
     $validate: {
       ignoreWordsFile: { },
