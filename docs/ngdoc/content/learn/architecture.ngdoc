@@ -28,7 +28,7 @@ which is accessed through our platform and API. Our customers use Studio and the
   and much more. Integrations with a corporate website, native mobile apps, or third-party applications
  can interact with the plugin, administration, and API layers of the stack.
 
-  <img src="img/LithiumCommunityTechStackOpenBeta.png" width="750" align="middle"/>
+  <img src="img/LithiumCommunityTechStackOpenGA.png" width="750" align="middle"/>
 
 The horizontal rectangles in the diagram represent the layers of the Community platform that create
 a Lithium community. The blue squares represent the tools we provide for our customers to
@@ -98,7 +98,7 @@ how they interact, and how to override and revert files in
 The diagram below illustrates the tool chain we use to run our
 development environment. From the bottom up:
 
-* [node.js](http://nodejs.org/) is the JavaScript runtime environment for the SDK  
+* [node.js](http://nodejs.org/) is the JavaScript runtime environment for the SDK
 * [gulp.js](http://gulpjs.com/) is a streaming build system and task runner
 * The Lithium-Klout SDK provides the structure and mechanism to build your
  community customizations
