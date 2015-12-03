@@ -28,7 +28,7 @@ which is accessed through our platform and API. Our customers use Studio and the
   and much more. Integrations with a corporate website, native mobile apps, or third-party applications
  can interact with the plugin, administration, and API layers of the stack.
 
-  <img src="img/LithiumCommunityTechStackOpenGA.png" width="750" align="middle"/>
+  <img src="img/LithiumCommunityTechStackGA.png" width="750" align="middle"/>
 
 The horizontal rectangles in the diagram represent the layers of the Community platform that create
 a Lithium community. The blue squares represent the tools we provide for our customers to
