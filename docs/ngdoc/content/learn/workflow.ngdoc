@@ -38,7 +38,7 @@ This task creates the directory
 structure to place under your preferred source control system.
 
 **Note:** Do not place the SDK configuration file (server.conf.json) located in
-the root directory of your plugin project under source control. 
+the root directory of your plugin project under source control.
 
 After the SDK project is created and placed under source control, other developers
  pull the plugin project to replicate the SDK plugin directory structure on their local machines.
@@ -126,7 +126,7 @@ for details.
 
 [Back to top](/learn/workflow#top)
 
-##Collaborating with Lithium Services <a id="collabWithServices"></a>
+## Collaborating with Lithium Services <a id="collabWithServices"></a>
 Most Lithium Community customers hire Lithium Services at some point for customization work whether
 during launch, redesign, and integration, or for consultation and debugging for a specific issue.
 
@@ -137,7 +137,7 @@ Further, an environment must exist where Services and the in-house/partner team 
 collaborate in a way that prevents overwrites in the SDK plugin and provides the greatest efficiency f
 or all developers.
 
-###Collaboration Workflow
+### Collaboration Workflow
 In this workflow, in-house or partner developers use the Lithium-Klout SDK for Community
 development and Lithium Services are hired to do additional Community customization.
 The workflow assumes:
