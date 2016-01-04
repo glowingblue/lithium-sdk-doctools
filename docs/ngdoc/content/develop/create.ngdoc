@@ -75,7 +75,7 @@ in [Plugin structure and configuration](/develop/create#serverConfJson).
 
 ---
 
-### Download the Studio Plugin<a id="downloadStudio"></a>
+### Download the Studio plugin<a id="downloadStudio"></a>
 You can export your community's entire Studio plugin from your stage server to your SDK plugin, or pull specific
 plugin points. When doing a partial export, you may specify up to five plugin points at a time.
 
@@ -94,7 +94,7 @@ li export-studio-plugin --points "component", "endpoint", "controller, "macro" -
 [Back to top](/develop/customize#top)
 Create the plugin project
 
-### Download the SDK Plugin<a id="downloadSdk"></a>
+### Download the SDK plugin<a id="downloadSdk"></a>
 If your company has already created an SDK plugin, you can populate your plugin project from the
 last SDK plugin uploaded to the stage server. Partial exports of an SDK plugin are not supported at this time.
 

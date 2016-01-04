@@ -3,7 +3,7 @@
 @sortOrder 300
 @description
 
-# Developer Workflow <a id="top"></a>
+# Developer workflow <a id="top"></a>
 
 The Lithium-Klout SDK supports a developer-friendly "choose your own IDE" experience
 that enables you to develop locally with the tools of your choice, collaborate with your
@@ -13,7 +13,7 @@ own team in your own source control system, and test on your stage environment.
 * [Deployment](/learn/workflow#deployment)
 * [Collaborating with Lithium Services](/learn/workflow#collabWithServices)
 
-## Developer Environment Recommendations <a id="devEnv"></a>
+## Developer environment recommendations <a id="devEnv"></a>
 
 We recommend that developers commit to a shared repository and be in close communication to ensure
 that their customization contributions to not override one another's. Lithium does not provide
@@ -22,11 +22,11 @@ to deploy to the stage environment. Consider implementing a CI service to build 
 the SDK plugin from your source control system to the stage
 environment. We provide an example using GitHub and Travis CI below.
 
-* [Setting up the Plugin Project](/learn/workflow#setup)
-* [Continuous Integration](/learn/workflow#continuousIntegration)
-* [Non-continuous Integration](/learn/workflow#nonCI)
+* [Setting up the plugin project](/learn/workflow#setup)
+* [Continuous integration](/learn/workflow#continuousIntegration)
+* [Non-continuous integration](/learn/workflow#nonCI)
 
-### Setting up the Plugin Project <a id="setup"></a>
+### Setting up the plugin project <a id="setup"></a>
 This diagram illustrates the recommended way to set up an SDK plugin project in a development environment.
 
 <img src="img/SDK_DevEnvSetup.png" width="420 px"/>
@@ -46,7 +46,7 @@ After the SDK project is created and placed under source control, other develope
 After setup is complete, the team is ready to customize and check in. Read {@link /develop/customize Customize}
 to learn about the plugin repository structure.
 
-### Continuous Integration <a id="continuousIntegration"></a>
+### Continuous integration <a id="continuousIntegration"></a>
 The diagrams below illustrate the recommended workflow using a continuous integration
  service. You can find our <a href="https://github.com/lithiumtech/linc-sdk-demo" target="_blank">demo project</a> in GitHub.
 
@@ -59,7 +59,7 @@ We encrypted server.conf.json using the instructions in <a href="http://docs.tra
 Whatever source control/CI environment you decide to implement, always encrypt server.conf.json, the plugin configuration file described in {@link /develop/create Create}, to
 protect the security of the plugin token.
 
-### Non-Continuous Integration <a id="nonCI"></a>
+### Non-continuous integration <a id="nonCI"></a>
 This diagram illustrates a simple workflow if you cannot implement continuous integration.
 
 <img src="img/DevWorkflowNoCI.png" width="600 px"/>
@@ -71,7 +71,7 @@ This diagram illustrates a simple workflow if you cannot implement continuous in
 * [Reverting to a Previous Plugin](/learn/workflow#revert)
 * [Pushing to Production](/learn/workflow#pushToProd)
 
-### Before you Deploy to Stage <a id="beforeDeployment"></a>
+### Before you deploy to stage <a id="beforeDeployment"></a>
 If you work in a multi-developer customization team, communicate closely with team
 members about which files you are working with and when you are going to submit them
 to stage. If two developers submit a plugin with conflicting changes, the last plugin
@@ -137,7 +137,7 @@ Further, an environment must exist where Services and the in-house/partner team 
 collaborate in a way that prevents overwrites in the SDK plugin and provides the greatest efficiency f
 or all developers.
 
-### Collaboration Workflow
+### Collaboration workflow
 In this workflow, in-house or partner developers use the Lithium-Klout SDK for Community
 development and Lithium Services are hired to do additional Community customization.
 The workflow assumes:

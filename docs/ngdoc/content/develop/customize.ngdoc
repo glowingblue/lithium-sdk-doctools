@@ -40,7 +40,7 @@ plugin repository. All customizations go in the `res` and `web` directories.
 | badge icons | `web/html/badge_icons` | various | Badge icons  appear in the **Studio > Community Style > Badges** tab in the Asset Library. They are identified in Studio with a special SDK icon. |
 | rank icons | `web/html/rank_icons` | various | Rank icons appear in the **Studio > Community Style > Rank Icons** tab in the Asset Library. They are identified in Studio with a special SDK icon. |
 
-## Customizing Plugin Points <a id="tutorials"></a>
+## Customizing plugin points <a id="tutorials"></a>
 The sections below provide instructions and examples for plugin point customizations.
 See our {@link develop/tutorial Tutorial} and {@link refer/pluginvalidation Plugin Validation} documentation for additional customization details.
 

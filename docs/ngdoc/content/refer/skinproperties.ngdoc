@@ -3,7 +3,7 @@
 @sortOrder 100
 @description
 
-# Skin Properties
+# Skin properties
 
 We recommend that you define skin properties in `skin.properties` when you create a new skin.
 It provides an easy way to  quickly define things such as, "all links should be blue," or
