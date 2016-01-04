@@ -11,8 +11,8 @@ Once you've {@link /develop/customize written customizations} in your local envi
 deploy the SDK plugin to stage. If you are working in a multi-developer team, be
 sure to coordinate with team members so you don't accidentally override another team
 member's work. See {@link /learn/workflow Developer Workflow} for development environment
-recommendations. Also see {@link /learn/architecture#plugins Understanding plugins}, the sections on plugins in [About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320),
-and [More about plugins](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) for
+recommendations. Also see {@link /learn/architecture#plugins Understanding plugins}, the sections on plugins in <a href="https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320" target="_blank">About Studio</a>,
+and <a href="https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320" target="_blank">More about plugins</a> for
 more information.
 
 Before you can upload your customizations, you will need an upload token from Studio.

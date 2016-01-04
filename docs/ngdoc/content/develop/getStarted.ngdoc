@@ -15,7 +15,7 @@ a "Supported minimum version on server is 15.7" error. See {@link /refer/trouble
 to resolve.
 
 * Your Studio/Admin account must have the "Use the SDK" permission in order to generate an upload token to use SDK commands.
-If you cannot access **Studio > Advanced > SDK**, contact the community administrator. 
+If you cannot access **Studio > Advanced > SDK**, contact the community administrator.
 
 * SSL must be configured for your community. Contact Lithium Support if you are unsure whether this configuration
 set.
@@ -31,8 +31,8 @@ helps track with developer submitted which version of the SDK plugin to the stag
 
 * A Mac (10.8+), Linux (CentOS 6.5+), or Windows (7+) environment
 
-* [git](https://git-scm.com/). After you install git, run `git` from a new command line to check that it is available
-* [node.js](http://nodejs.org/) version 4.x.x and [npm](https://www.npmjs.org/). Our developer
+* <a href="https://git-scm.com/" target="_blank">git</a>. After you install git, run `git` from a new command line to check that it is available
+* <a href="http://nodejs.org/" target="_blank">node.js</a> version 4.x.x and <a href="https://www.npmjs.org/" target="_blank">npm</a>. Our developer
 environment runs on top of node.js. When you do local development, it is on a node.js
 server that we proxy to a Lithium community instance. Usually, npm (Node Package Manager)
 gets bundled with the node environment, but verify that you have it.
@@ -49,16 +49,16 @@ Windows-specific prerequisites:
 
 * While installing git, select **Use Git from the Windows Command Prompt** on the dialog window **Adjusting your PATH environment**
 
-* [Python v2.7.3](https://www.python.org/downloads/windows/). Be sure that you have a PYTHON environment variable and that it is set to
+* <a href="https://www.python.org/downloads/windows/" target ="_blank">Python v2.7.3</a>. Be sure that you have a PYTHON environment variable and that it is set to
 `drive:\path\to\python.exe`, not to a folder.
     ** After you have installed Python, run `python` from a new command line to check that it is available.
 
-* [Microsoft Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx). **Note:** Visual Studio
+* <a href="https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx" target="_blank">Microsoft Visual Studio Community 2013</a>. **Note:** Visual Studio
 2015 is not supported at this time.
 
 ## Installing the SDK and dependencies
-We use two npm packages in all of our project repositories: [gulp](http://gulpjs.com/) and
-[lithium-sdk](https://www.npmjs.com/package/lithium-sdk). Install them by issueing
+We use two npm packages in all of our project repositories: <a href="http://gulpjs.com/" target="_blank">gulp</a> and
+<a href="https://www.npmjs.com/package/lithium-sdk" target="_blank">lithium-sdk</a>. Install them by issuing
 the following statements in a command line:
 
 ```

@@ -12,7 +12,7 @@ let's talk about plugin points and how to contribute customizations with the SDK
 * [Customize plugin points](/develop/customize#tutorials)
 
 Be sure that you have read the Understand Plugins section in {@link learn/architecture Customization Framework}, as well as
-[About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) and [More About Plugins](https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316/message-revision/194316:3)
+<a href="https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320" target="_blank">About Studio</a> and <a href="https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316" target="_blank">More About Plugins</a>
 before you begin. Remember that SDK contributions are visible in Studio . Assets with
 versions existing in SDK are indicated in Studio with a special icon.
 
@@ -64,12 +64,14 @@ version.
 [Back to top](/develop/customize#top)
 
 ### Customize components<a id="components"></a>
-You write components in FreeMarker, a templating language. You can learn about FreeMarker at [FreeMarker.org](http://freemarker.org/).
-Lithium provides our own [FreeMarker context objects and directives](http://community.lithium.com/t5/Developers-Knowledge-Base/FreeMarker-context-objects-and-directives/ta-p/9217)
-that work specifically with the Lithium Community product.
+You write components in FreeMarker, a templating language. You can learn about FreeMarker at <a href="http://freemarker.org/" target="_blank">FreeMarker.org</a>.
+Lithium provides our own FreeMarker context objects and directives that work
+specifically with the Lithium Community product. To learn more, select **UI Customization > FreeMarker** from the
+Developer Documentation Portal menu.
 
 Here is some sample FreeMarker code that prints out details about the node (the community,
-category, or board) in context using the coreNode FreeMarker context object. We use this code in our customization tutorial.
+category, or board) in context using the coreNode FreeMarker context object. We use
+this code in our customization tutorial.
 
 ```
 Node Details</br>
@@ -81,13 +83,13 @@ ${coreNode.title}
 ```
 
 If you're new to FreeMarker and Lithium Communities, see these articles on the Lithium Community to get started with custom components:
-* [Component Tutorial: Building your first custom component](https://community.lithium.com/t5/Developers-Knowledge-Base/Component-tutorial-Building-your-first-custom-component-with/ta-p/122991)
-* [Component Tutorial: Update a component from Community API v1 to v2](https://community.lithium.com/t5/Community-API-v2/Tutorial-Update-a-FreeMarker-component-from-Community-REST-API/ta-p/178887)
-* [Adding JavaScript to components](https://community.lithium.com/t5/Developers-Knowledge-Base/Adding-JavaScript-to-components-with-liaAddScript/ta-p/197594)
-* [Component Caching](https://community.lithium.com/t5/Developers-Knowledge-Base/Component-Caching-with-liaMarkupCache/ta-p/200921)
-* [Calling an Endpoint from a Component](https://community.lithium.com/t5/Developers-Knowledge-Base/Calling-an-endpoint-from-a-custom-component/ta-p/197595)
-* [Passing parameters to a Component](https://community.lithium.com/t5/Developers-Knowledge-Base/Passing-Parameters-to-a-Custom-Component/ta-p/88704)
-* [Creating Modal Dialogs](https://community.lithium.com/t5/Developers-Knowledge-Base/Creating-Modal-Dialogs/ta-p/77986)
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Component-tutorial-Building-your-first-custom-component-with/ta-p/122991" target="_blank">Component Tutorial: Building your first custom component</a>
+* <a href="https://community.lithium.com/t5/Community-API-v2/Tutorial-Update-a-FreeMarker-component-from-Community-REST-API/ta-p/178887" target="_blank">Component Tutorial: Update a component from Community API v1 to v2</a>
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Adding-JavaScript-to-components-with-liaAddScript/ta-p/197594" target="_blank">Adding JavaScript to components</a>
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Component-Caching-with-liaMarkupCache/ta-p/200921" target="_blank">Component Caching</a>
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Calling-an-endpoint-from-a-custom-component/ta-p/197595" target="_blank">Calling an Endpoint from a Component</a>
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Passing-Parameters-to-a-Custom-Component/ta-p/88704" target="_blank">Passing parameters to a Component</a>
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Creating-Modal-Dialogs/ta-p/77986" target="_blank">Creating Modal Dialogs</a>
 
 [Back to top](/develop/customize#top)
 
@@ -164,7 +166,7 @@ You contribute quilts in one of two ways:
 Quilts go in `PLUGIN_REPO/res/quilts/custom` in your local plugin. Unique custom quilts use
 the file name structure `<quilt_name>.quilt.xml`, for example MyCustomPage.quilt.xml.
 
-See [this article](http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page/ta-p/110639)
+See <a href="http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page/ta-p/110639" target="_blank">this article</a>
 in the Lithium Community for more information about creating custom pages.
 
 [Back to top](/develop/customize#top)
@@ -175,7 +177,7 @@ file name structure <br />`<core_quilt_name>.<descriptive_identifier>.quilt.xml`
 BlogPage.custom.quilt.xml.
 
 Here are simple instructions for overriding core Lithium quilts.
-For more detailed information, read [this article](http://community.lithium.com/t5/Pages-and-layouts/Override-a-default-page/ta-p/108961)
+For more detailed information, read <a href="http://community.lithium.com/t5/Pages-and-layouts/Override-a-default-page/ta-p/108961)" target="_blank">this article</a>
 on the Lithium Community.
 
 To override a core Lithium quilt:
@@ -209,7 +211,7 @@ components to place within each of the layout's columns. The layout contains any
 one or more columns. Each column has a width and an ID. The total width of the columns in a row must add up to 24. Lithium comes with a large set of layouts to choose from. You can find a list of default layouts in
 **Studio > Layouts**.
 
-Learn about layouts in [this article](http://community.lithium.com/t5/Pages-and-layouts/About-page-layouts/ta-p/108951) in
+Learn about layouts in <a href="http://community.lithium.com/t5/Pages-and-layouts/About-page-layouts/ta-p/108951" target="_blank">this article</a> in
 the Lithium community.
 
 Layouts use the file extension `layout.xml`. Put them in the `/res/layouts` directory in your plugin project.
@@ -232,7 +234,7 @@ Layouts use the file extension `layout.xml`. Put them in the `/res/layouts` dire
 
 Here are the elements used in layouts.
 
-[This article](http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page-layout/ta-p/108959) contains
+<a href="http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page-layout/ta-p/108959" target="_blank">This article</a> contains
 useful examples for editing and creating the layout XML.
 
 | Element | Description | Attributes | Child Attributes |
@@ -300,7 +302,7 @@ After you have submitted to stage, apply the skin to the community in **Communit
 
 #### Basic skin styling with skin properties <a id="skinProperties"></a>
 We described earlier that skin.properties defines some basic styles used by your skin.
-You can read more about [skin properties](https://community.lithium.com/t5/Skins-and-assets/Edit-skin-properties/ta-p/40322) on the Lithium Community.
+You can read more about <a href="https://community.lithium.com/t5/Skins-and-assets/Edit-skin-properties/ta-p/40322" target="_blank">skin properties</a> on the Lithium Community.
 See {@link refer/skinproperties Skin Properties} for additional skin
 properties you can add to the file.
 
@@ -318,8 +320,8 @@ name as the image currently used by the skin. Then place the image in PLUGIN_HOM
 The page wrapper for a skin provides an additional layer or styling above and below the main
 content of the page (anything above and below `li-body` when looking at a the code for a community page.)
 
-See [Edit the page wrapper](https://community.lithium.com/t5/Skins-and-assets/Edit-the-page-wrapper/ta-p/109069) and
- [Community Wrapper Guidelines](http://community.lithium.com/t5/Developers-Knowledge-Base/Launch-Community-Wrapper-Guidelines/ta-p/6411)
+See <a href="https://community.lithium.com/t5/Skins-and-assets/Edit-the-page-wrapper/ta-p/109069" target="_blank">Edit the page wrapper</a> and
+ <a href="http://community.lithium.com/t5/Developers-Knowledge-Base/Launch-Community-Wrapper-Guidelines/ta-p/6411" target ="_blank">Community Wrapper Guidelines</a>
   for more details about how the wrapper works in communities.
 
 You can upload wrapper content to the stage server using the SDK. The wrapper contents you
@@ -396,7 +398,7 @@ Text used in your customizations go in a file called text._language_code_.proper
 _language_code_ represents a language, such as "en" for English or "de" for German.
 Create a separate text properties file for each language used in your community.
 Supported languages and the associated language code are described in
-[Languages that Lithium supports](https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566).
+<a href="https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566" target="_blank">Languages that Lithium supports</a>.
 
 Put your text properties files in `PLUGIN_REPO/res/lang`.
 
@@ -431,7 +433,7 @@ components and endpoints using FreeMarker's `include` statement:
 
 Macro names can contain letters (a-z), numerals (1-9), hyphen (-), underscore ( _ ), and dot (.). A macro name cannot begin with '.'
 
-**Note:** Although the macro FTL file you add to the plugin can have a hypen in the name, FreeMarker does not supprt hyphens in the macro variable name. When creating your macro FreeMarker, be sure to follow the variable naming conventions defined by [FreeMarker.org](http://freemarker.org/docs/dgui_template_exp.html#dgui_template_exp_var_toplevel).
+**Note:** Although the macro FTL file you add to the plugin can have a hypen in the name, FreeMarker does not supprt hyphens in the macro variable name. When creating your macro FreeMarker, be sure to follow the variable naming conventions defined by <a href="http://freemarker.org/docs/dgui_template_exp.html#dgui_template_exp_var_toplevel" target="_blank">FreeMarker.org</a>.
 
 This example macro "recurse_response" recursively outputs the contents of a response. Recurse_response calls to a separate macro to include a user avatar in the response
 if the node name is "author."
@@ -464,8 +466,8 @@ as well as have its own styling. You can use endpoints to:
 
 * Make AJAX requests from custom components
 * Syndicate community content on other websites
-* [Condense REST API requests](https://community.lithium.com/t5/Developers-Knowledge-Base/Using-Endpoints-to-Condense-REST-API-Requests/ta-p/88908)
-* [Make server-to-server REST API calls](https://community.lithium.com/t5/Developers-Knowledge-Base/Using-the-http-client-Context-Object-to-Integrate-with-a-Third/ta-p/91640)
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Using-Endpoints-to-Condense-REST-API-Requests/ta-p/88908" target="_blank">Condense REST API requests</a>
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Using-the-http-client-Context-Object-to-Integrate-with-a-Third/ta-p/91640" target="_blank">Make server-to-server REST API calls</a>
 
 Endpoints are written in FreeMarker. When contributing an endpoint using the SDK, each endpoint consists
 of two files:
@@ -544,7 +546,7 @@ The page initialization script (common.init.ftl) enables you to execute business
 FreeMarker early in a request prior to any HTML being rendered. The script runs once each request,
 server side, and is often used for redirecting to a different page and reskinning pages in the community.
 
-Read [this article](https://community.lithium.com/t5/Developers-Knowledge-Base/Using-a-FreeMarker-Page-Initialization-Script/ta-p/125767) on the Lithium Community for more information about how to use the script.
+Read <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Using-a-FreeMarker-Page-Initialization-Script/ta-p/125767" target="_blank">this article</a> on the Lithium Community for more information about how to use the script.
 
 The page initialization script is called `common.init.ftl`. Place this file in `res/init`.
 

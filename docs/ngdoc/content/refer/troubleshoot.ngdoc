@@ -26,7 +26,7 @@ Basic HTTP authentication is not supported for SDK endpoints, therefore passing 
 [Back to top](/refer/troubleshoot#top)
 
 ## Supported minimum version on server is 15.7 <a id="supportedMinVersion"></a>
-This error message occurs when you have the latest SDK published on [npm](https://www.npmjs.com/package/lithium-sdk),
+This error message occurs when you have the latest SDK published on <a href="https://www.npmjs.com/package/lithium-sdk" target="_blank">npm</a>,
 but you are pointing at a Lithium Community server running version 15.6 or earlier.
 
 <img src="img/sdkNpmMismatch.png" width="900" align="middle"/>
@@ -77,7 +77,7 @@ If you encounter an error like the one below, your stage site might be down or u
 ## Nothing happens after running an SDK script <a id="nothingHappens"></a>
 
 If you run an SDK command or answer a question during plugin setup and there is no response,
-check that the version of the SDK installed (`npm ls -g lithium-sdk --depth=0`). If it is not current than the [SDK version on npm](https://www.npmjs.com/package/lithium-sdk), update to the latest
+check that the version of the SDK installed (`npm ls -g lithium-sdk --depth=0`). If it is not current than the <a href="https://www.npmjs.com/package/lithium-sdk" target="_blank">SDK version on npm</a>, update to the latest
 version of the SDK (`li update-project`). If this does not solve your problem, contact Lithium Support.
 
 [Back to top](/refer/troubleshoot#top

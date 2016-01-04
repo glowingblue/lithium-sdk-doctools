@@ -27,8 +27,10 @@ name and file extension as a customization you submit using the SDK override the
 version.
 
 ## Write a component<a id="components"></a>
-Using [FreeMarker](http://freemarker.org/) and Lithium's [coreNode](http://community.lithium.com/t5/Developers-Knowledge-Base/FreeMarker-context-objects-and-directives/ta-p/9217) FreeMarker context object,
-we've created this sample code that prints out details about the node (the community, category, or board) in context.
+Using <a href="http://freemarker.org/" target="_blank">FreeMarker</a> and Lithium's coreNode FreeMarker context object,
+we've created this sample code that prints out details about the node (the community, category, or board) in context. You can
+learn more about FreeMarker by selecting **UI Customization > FreeMarker** in the main Developer
+Documentation Portal menu.
 
 ```
 Node Details</br>
@@ -67,7 +69,7 @@ component from a quilt.
 Quilts go in `PLUGIN_REPO/res/quilts/custom` in your local plugin. Unique custom quilts use
 the file name structure `<quilt_name>.quilt.xml`, for example MyCustomPage.quilt.xml.
 
-See [this article](http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page/ta-p/110639)
+See <a href="http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page/ta-p/110639" target="_blank">this article</a>
 in the Lithium Community for more information about creating custom pages.
 
 Here is a simple quilt (MyCustomPage.quilt.xml). You can see the coreNodeDetails component in the `side-content` section.
@@ -290,7 +292,7 @@ Text used in your customizations go in a file called text._language_code_.proper
 _language_code_ represents a language, such as "en" for English or "de" for German.
 Your community will have a separate text properties file for each language used in your community.
 Supported languages and the associated language code are described in
-[Languages that Lithium supports](https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566).
+<a href="https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566" target="_blank">Languages that Lithium supports</a>.
 
 Let's change our coreNodeDetails component so that it uses a text key
 value for the title instead of hard-coding the text within the component.

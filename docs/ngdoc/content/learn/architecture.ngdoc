@@ -6,10 +6,10 @@
 # Customization Framework <a id="arch"></a>
 
 When you start with Lithium Community, you start with our standard out-of-the-box experience.
-The look and feel of your community is controlled through your community [skin](http://community.lithium.com/t5/Skins-and-assets/About-skins/ta-p/109067). The content
-is displayed using widgets called [components](http://community.lithium.com/t5/Pages-and-layouts/About-components/ta-p/134343)
-(created with a templating language called [FreeMarker](http://freemarker.org/)), [custom content](http://community.lithium.com/t5/Custom-Content/About-custom-content/ta-p/108551),
-and [endpoints](http://community.lithium.com/t5/Components-endpoints-and-the/About-endpoints/ta-p/108971) to interact with third-party applications and your company website.
+The look and feel of your community is controlled through your community <a href="http://community.lithium.com/t5/Skins-and-assets/About-skins/ta-p/109067" target="_blank">skin</a>. The content
+is displayed using widgets called <a href="http://community.lithium.com/t5/Pages-and-layouts/About-components/ta-p/134343" target="_blank">components</a>
+(created with a templating language called <a href="http://freemarker.org/" target="_blank">FreeMarker</a>, <a href="http://community.lithium.com/t5/Custom-Content/About-custom-content/ta-p/108551" target="_blank">custom content</a>,
+and <a href="http://community.lithium.com/t5/Components-endpoints-and-the/About-endpoints/ta-p/108971" target="_blank">endpoints</a> to interact with third-party applications and your company website.
 
 Community ships with core pages, layouts, components, text, CSS, SCSS, images, and more. Developers, designers, and
 other members of your community team can customize, add, and override our core resources.
@@ -91,15 +91,15 @@ local plugin customizations to stage.
 
 You can learn more about plugins,
 how they interact, and how to override and revert files in
-[About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320).
+<a href="http://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320" target="_blank">About Studio</a>.
 
 ## SDK tool chain <a id="tool-chain"></a>
 
 The diagram below illustrates the tool chain we use to run our
 development environment. From the bottom up:
 
-* [node.js](http://nodejs.org/) is the JavaScript runtime environment for the SDK
-* [gulp.js](http://gulpjs.com/) is a streaming build system and task runner
+* <a href="http://nodejs.org/" target="_blank">node.js</a> is the JavaScript runtime environment for the SDK
+* <a href="http://gulpjs.com/" target="_blank">gulp.js</a> is a streaming build system and task runner
 * The Lithium-Klout SDK provides the structure and mechanism to build your
  community customizations
 

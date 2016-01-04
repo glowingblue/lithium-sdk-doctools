@@ -13,7 +13,7 @@ own team in your own source control system, and test on your stage environment.
 * [Deployment](/learn/workflow#deployment)
 * [Collaborating with Lithium Services](/learn/workflow#collabWithServices)
 
-## Developer Environment Recommendations(trying test for job run) <a id="devEnv"></a>
+## Developer Environment Recommendations <a id="devEnv"></a>
 
 We recommend that developers commit to a shared repository and be in close communication to ensure
 that their customization contributions to not override one another's. Lithium does not provide
@@ -48,14 +48,14 @@ to learn about the plugin repository structure.
 
 ### Continuous Integration <a id="continuousIntegration"></a>
 The diagrams below illustrate the recommended workflow using a continuous integration
- service. You can find our [demo project](https://github.com/lithiumtech/linc-sdk-demo) in GitHub.
+ service. You can find our <a href="https://github.com/lithiumtech/linc-sdk-demo" target="_blank">demo project</a> in GitHub.
 
 <img src="img/MultiSDKDevWorkflow.png" width="640 px"/>
 
-For this continuous integration example, we used GitHub, and then hoooked the project into Travis CI using their
-guides for [Getting Started](http://docs.travis-ci.com/user/getting-started/)
-(see the JavaScript with Node.js section) and [Customizing the Build](http://docs.travis-ci.com/user/customizing-the-build/).
-We encrypted server.conf.json using the instructions in [Encrypting Files](http://docs.travis-ci.com/user/encrypting-files/).
+For this continuous integration example, we used GitHub, and then hooked the project into Travis CI using their
+guides for <a href="http://docs.travis-ci.com/user/getting-started/" target="_blank">Getting Started</a>
+(see the JavaScript with Node.js section) and <a href="http://docs.travis-ci.com/user/customizing-the-build/" target="_blank">Customizing the Build</a>.
+We encrypted server.conf.json using the instructions in <a href="http://docs.travis-ci.com/user/encrypting-files/" target="_blank">Encrypting Files</a>.
 Whatever source control/CI environment you decide to implement, always encrypt server.conf.json, the plugin configuration file described in {@link /develop/create Create}, to
 protect the security of the plugin token.
 
@@ -88,8 +88,8 @@ the customization originated in the SDK. We have added visual cues and warnings 
 working on a file that was contributed in the SDK and are potentially overriding SDK contributions.
 
 For more information about how plugins interact, read
-[About Studio](https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320) and
-[More about plugins](https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316) on the Lithium Community
+<a href="https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320" target="_blank">About Studio</a> and
+<a href="https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316" target="_blank">More about plugins</a> on the Lithium Community
 and {@link /learn/architecture Understanding Plugins} in {@link /learn/architecture Customization Framework}.
 
 ### Deploying to stage <a id="deployToStage"></a>
@@ -120,8 +120,8 @@ to a previous SDK plugin, be sure re-stage another SDK plugin version, not a Stu
 
 ### Pushing to production <a id="pushToProd"></a>
 Push plugins to production using Studio Publish. If you must roll back your live Community version
-to a previous version, you also use Studio Publish. See [Studio Publish Overview](https://community.lithium.com/t5/Previewing-and-publishing/Studio-Publish-overview/ta-p/81728)
-and [The Studio Publish Workflow](https://community.lithium.com/t5/Previewing-and-publishing/The-Studio-Publish-workflow/ta-p/109037)
+to a previous version, you also use Studio Publish. See <a href="https://community.lithium.com/t5/Previewing-and-publishing/Studio-Publish-overview/ta-p/81728" target="_blank">Studio Publish Overview</a>
+and <a href="https://community.lithium.com/t5/Previewing-and-publishing/The-Studio-Publish-workflow/ta-p/109037" target="_blank">The Studio Publish Workflow</a>
 for details.
 
 [Back to top](/learn/workflow#top)
