@@ -10,7 +10,7 @@ It provides an easy way to  quickly define things such as, "all links should be 
 "all non-link text should be grey." `skin.properties` is also where you can set
 the background color for info messages, set custom fonts and font sizes, and so on.
 Studio users can edit skin properties in **Studio > Community Style > Properties**.
-Read [Edit skin properties](https://community.lithium.com/t5/Skins-and-assets/Edit-skin-properties/ta-p/40322)
+Read <a href="https://community.lithium.com/t5/Skins-and-assets/Edit-skin-properties/ta-p/40322" target="_blank">Edit skin properties</a>
 for more information.
 
 The list below shows the default skin properties.
