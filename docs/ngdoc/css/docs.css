@@ -9,6 +9,14 @@ html, body {
   vertical-align: top;
 }
 
+.container {
+  width: 900px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 #wrapper {
   min-height:100%;
   position:relative;
@@ -38,6 +46,8 @@ html, body {
 
 .header-branding {
   min-height:41px!important;
+  width:70%;
+  float:left;
 }
 
 .docs-navbar-primary {
@@ -74,13 +84,18 @@ h1,h2,h3,h4,h5,h6 {
   background:white;
   border-radius:20px;
   vertical-align:middle;
+  width:30%;
+  float:left;
 }
 
 .docs-search > .search-query {
   font-size:14px;
-  border:0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
   width:80%;
   color:#555;
+
 }
 
 .docs-search > .search-icon {
@@ -109,7 +124,7 @@ h1,h2,h3,h4,h5,h6 {
 .naked-list li {
   list-style:none;
   margin:0;
-  padding:0;
+  padding:10px 0 0;
 }
 
 .nav-index-section a {
@@ -436,10 +451,10 @@ iframe.example {
 }
 
 .sup-header {
-  padding-top:5px;
+  padding-top:0px;
   padding-bottom:5px;
 /*  background:rgba(245,245,245,0.88); */
-  background:rgba(51, 122, 183, 0.1);
+  background:transparent;
 
 }
 
@@ -661,10 +676,10 @@ ul.events > li {
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
   .main-body-grid {
-    margin-top: 160px;
+    margin-top: 30px;
   }
   .main-body-grid > .grid-left {
-    top: 160px;
+    top: 1600px;
   }
 }
 
@@ -768,6 +783,11 @@ ul.events > li {
     content:", ";
   }
   #wrapper {
-    padding-bottom:0px; width="100%"
+    padding-bottom:0px;
   }
+
 }
+
+.navbar-nav .dropdown-menu {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 1px #bbb;}
