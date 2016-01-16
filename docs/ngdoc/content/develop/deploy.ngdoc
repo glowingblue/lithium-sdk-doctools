@@ -1,6 +1,6 @@
 @ngdoc overview
 @name Deploy
-@sortOrder 600
+@sortOrder 400
 @description
 
 #Deploying your plugin to stage
