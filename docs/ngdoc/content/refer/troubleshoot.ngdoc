@@ -4,15 +4,21 @@
 @description
 
 # Troubleshooting <a id="top"></a>
+<a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
+
 Running into problems? Let's look at a few troubleshooting tips for errors you might encounter.
 
 * [401 HTTP error](/refer/troubleshoot#410HttpError)
-* [Supported minimum version on server is 15.7](/refer/troubleshoot#supportedMinVersion)
-* [Error: Invalid response from server (SSL)](/refer/troubleshoot#invalidResponse)
-* [Error: Socket hang up](/refer/troubleshoot#socketHangUp)
-* [TypeError: object is not a function](/refer/troubleshoot#objectNotFunction)
+* [Compile Error on install (Linux)](/refer/troubleshoot#compileErrorLinux)
+* [Find the SDK version](/refer/troubleshoot#findSdkVersion)
+* [Invalid response from server (SSL)](/refer/troubleshoot#invalidResponse)
+* [Invalid response from server (npm)](/refer/troubleshoot#invalidResponseNpm)
+* [No LAR (SDK) plugin found](/refer/troubleshoot#noLar)
 * [Nothing happens after running an SDK script](/refer/troubleshoot#nothingHappens)
-* [Uninstalling the SDK](/refer/troubleshoot#uninstall)
+* [Object is not a function](/refer/troubleshoot#objectNotFunction)
+* [Socket hang up](/refer/troubleshoot#socketHangUp)
+* [Supported minimum version on server is 15.7](/refer/troubleshoot#supportedMinVersion)
+* [Validation errors](/refer/troubleshoot#validationErrors)
 
 ## 401 HTTP error when submitting, exporting, or clearing a plugin <a id="401HttpError"></a>
 
@@ -62,6 +68,45 @@ Error: Invalid response from server. Check your server url and version.
 ```
 [Back to top](/refer/troubleshoot#top)
 
+## Error: Invalide response from servier (npm)<a id="invalidResponseNpm"></a>
+
+If you get an error like the following after running `li create-project script` and answering the questions:
+
+```
+[13:09:57] Invalid response from server. Check your server url and version.
+/usr/lib/node_modules/lithium-sdk/lib/version-check.js:77
+throw error;
+^
+ 
+Error: Invalid response from server. Check your server url and version.
+at parseResponse (/usr/lib/node_modules/lithium-sdk/lib/version-check.js:94:13)
+at Request._callback (/usr/lib/node_modules/lithium-sdk/lib/version-check.js:31:17)
+at Request.self.callback (/usr/lib/node_modules/lithium-sdk/node_modules/request/request.js:199:22)
+at emitTwo (events.js:87:13)
+at Request.emit (events.js:172:7)
+at Request.<anonymous> (/usr/lib/node_modules/lithium-sdk/node_modules/request/request.js:1160:14)
+at emitOne (events.js:82:20)
+at Request.emit (events.js:169:7)
+at IncomingMessage.<anonymous> (/usr/lib/node_modules/lithium-sdk/node_modules/request/request.js:1111:12)
+at emitNone (events.js:72:20)
+sosdfag@adama(2.0.0p247):~/lithium$
+```
+
+Check to see which versions of node and npm you have installed using:
+
+```
+node -v
+npm -v
+```
+
+Try upgrading node.js to the 4.x.x version, and then re-install gulp and the lithium-sdk modules:
+```
+npm install gulp -g
+npm install lithium-sdk -g
+```
+[Back to top](/refer/troubleshoot#top)
+
+
 ## Error: Socket hang up <a id="socketHangUp"></a>
 If you encounter an error like the one below, your stage site might be down or unreachable (due to network issues).
 
@@ -109,8 +154,136 @@ If this does not solve your problem, contact Lithium Support.
 
 [Back to top](/refer/troubleshoot#top)
 
-## Uninstalling the SDK <a id="uninstall"></a>
+## Validation errors<a id="validationErrors"></a>
 
-To uninstall the SDK run `npm remove lithium-sdk -g` from any directory. You'll need administrator privileges to perform the action.
+You might receive validation errors after running the `li submit-plugin` script. Use the information in {@link /refer/pluginvalidation Plugin Validation} to determine how to fix the errors so that your plugin directories and files use the proper structure and format.  
+
+```
+C:\Lithium\devplugin>li submit-plugin
+ 
+[13:09:54] Loaded gulp tasks in: 256 ms
+[13:09:54] Using gulpfile C:\Lithium\devplugin\gulpfile.js
+[13:09:54] Starting 'clean-tmp'...
+[13:09:54] Starting 'clean-plugin'...
+[13:09:54] Starting 'clean-plugin-zip'...
+[13:09:54] Finished 'clean-tmp' after 53 ms
+[13:09:54] Finished 'clean-plugin-zip' after 21 ms
+[13:09:55] Finished 'clean-plugin' after 139 ms
+[13:09:55] Starting 'clean'...
+[13:09:55] Finished 'clean' after 24 �s
+[13:09:55] Starting 'plugin-init'...
+[13:09:55] Finished 'plugin-init' after 28 ms
+[13:09:55] Starting 'plugin-res'...
+[13:09:55] Starting 'plugin-web'...
+[13:09:55] Starting 'plugin-git-version'...
+[13:09:55] Finished 'plugin-git-version' after 14 �s
+[13:09:55] Finished 'plugin-web' after 749 ms
+[13:09:55] Finished 'plugin-res' after 780 ms
+[13:09:55] Starting 'plugin-build'...
+[13:09:55] Finished 'plugin-build' after 18 �s
+[13:09:55] Starting 'plugin-verify'...
+[13:09:56] Tested 388 tests, 388 passes, 0 failures: PASS
+[13:09:56] Tested 30 tests, 30 passes, 0 failures: PASS
+[13:09:56] Tested 31 tests, 31 passes, 0 failures: PASS
+[13:09:56] Finished 'plugin-verify' after 860 ms
+[13:09:56] Starting 'plugin-ready'...
+[13:09:56] Done compiling plugin: C:\Lithium\devplugin\plugin
+[13:09:56] Finished 'plugin-ready' after 532 �s
+[13:09:56] Starting 'plugin-upload'...
+[13:09:56] Finished 'plugin-upload' after 20 ms
+[13:09:56] Starting 'plugin'...
+[13:09:56] Finished 'plugin' after 17 �s
+? Would you like to upload plugin to server? Yes
+[13:10:02] Uploading plugin
+[13:10:19] [gulp] Error in plugin 'submit-plugin': Error: [UPLOAD_FAIL] Plug-in-validatiefout op de server.
+ 
+Failure Code: SKIN_INVALID_FREEMARKER_FAILURE
+Failure Rule: CUSTOM_RULE
+Failure Message: Skin ing_nl in the plugin has a possible issue
+Failure Details: CSS file skin.css did not parse through freemarker; error was: Bij de ingediende skin-CSS header_special is het volgende probleem opgetreden: The follo
+wing has evaluated to null or missing:==>images.bg_message_header_safe  [in template "header_special" at line 1807, column 23]Tip: If the failing expression is kno
+wn to be legally null/missing, either specify a default value with myOptionalVar!myDefault, or use<#if myOptionalVar??>when-present<#else>when-missing</#if>. (T
+hese only cover the last step of the expression; to cover the whole expression, use parenthessis: (myOptionVar.foo)!myDefault, (myOptionVar.foo)??The failing in
+struction:==>${images.bg_message_header_safe...  [in template "header_special" at line 1807, column 21]
+Suggestion: Look at failing CSS file for invalid freemarker
+ 
+Failure Code: UNWANTED_DIRECTORY
+Failure Rule: DIRECTORY_RULE
+Failure Message: foo cannot be in this directory path
+Failure Details: You cannot add directory foo to /web/html
+Suggestion: Delete the above mentioned directory
+ 
+Failure Code: INVALID_FILENAME
+Failure Rule: FILENAME_RULE
+Failure Message: File in plug-in has invalid name.
+Failure Details: The name for file invalid-image//name.png is invalid. String validation error was: invalid-image//name.png
+Suggestion: Change the file name
+ 
+[13:10:19] Plugin upload failed
+```
+[Back to top](/refer/troubleshoot#top)
+
+## No LAR (SDK) plugin found<a id="noLar"></a>
+
+If your SDK plugin is not displaying on the community, contact Lithium Support. They can check to ensure that your community config is set correctly. 
+
+**Note:** LAR is a legacy term for the SDK plugin.
 
 [Back to top](/refer/troubleshoot#top)
+
+## Compiler Error when installing SDK on Linux after upgrading to Node 4.x.x <a id="compileErrorLinux"></a>
+
+If you encounter an error on Linux like the one below after upgrading node.js to 4.x.x:
+
+```
+> ws@0.4.32 install /usr/local/lib/node_modules/lithium-sdk/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/ws
+> (node-gyp rebuild 2> builderror.log) || (exit 0)
+make: Entering directory `/usr/local/lib/node_modules/lithium-sdk/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/ws/build'
+  CXX(target) Release/obj.target/bufferutil/src/bufferutil.o
+make: Leaving directory `/usr/local/lib/node_modules/lithium-sdk/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/ws/build'
+npm ERR! Linux 2.6.32-358.2.1.el6.x86_64
+npm ERR! argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "lithium-sdk" "-g"
+npm ERR! node v4.2.2
+npm ERR! npm  v2.14.7
+npm ERR! code ELIFECYCLE
+npm ERR! node-expat@2.3.12 install: `node-gyp rebuild`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the node-expat@2.3.12 install script 'node-gyp rebuild'.
+npm ERR! This is most likely a problem with the node-expat package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node-gyp rebuild
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls node-expat
+npm ERR! There is likely additional logging output above.
+npm ERR! Please include the following file with any support request:
+npm ERR!     /home/my.username/npm-debug.log
+```
+This issue seems to occur when upgrading to node.js when the [nan](https://github.com/nodejs/nan) module is a dependency. We've found a fix that requires you install an updated gcc compiler, such as [Devtoolset-3](https://www.softwarecollections.org/en/scls/rhscl/devtoolset-3/), thanks to this article: [Compile Node.js 4.0 on CentOS 6](http://krisreeves.com/code/compile-node-js-4-0-on-centos-6/). 
+
+```
+cd /etc/yum.repos.d/slc6-scl.repo 
+sudo wget http://linuxsoft.cern.ch/cern/scl/slc6-scl.repo
+cd ~
+sudo rpm --import http://ftp.mirrorservice.org/sites/ftp.scientificlinux.org/linux/scientific/51/i386/RPM-GPG-KEYs/RPM-GPG-KEY-cern
+sudo yum install -y devtoolset-3
+```
+
+After we installed Devtoolset-3, we ran the following command to set up our environment to use the new compiler:
+
+```
+scl enable devtoolset-3 bash
+```
+And then we re-ran `npm install lithium-sdk -g` and successfully installed the SDK.
+
+[Back to top](/refer/troubleshoot#top)
+
+## Find the SDK version<a id="findSdkVersion"></a>
+
+To find the version of your SDK, run the following from a command prompt:  `npm ls -g lithium-sdk --depth=0`
+
+[Back to top](/refer/troubleshoot#top)
+
+
+

@@ -4,6 +4,8 @@
 @description
 
 # Tutorial  <a id="top"></a>
+<a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
+
 Let's try a few customizations. We'll go through a short tutorial where you will create
 a custom page, add a custom component, move components around on the quilt, add custom
 text strings, and do some simple skin properties and CSS customizations. We'll create the

@@ -4,6 +4,8 @@
 @description
 
 # Plugin Validation <a id="top"></a>
+<a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
+
 Plugin validation occurs when you run any of the following commands from the root
 of your plugin repository:
 

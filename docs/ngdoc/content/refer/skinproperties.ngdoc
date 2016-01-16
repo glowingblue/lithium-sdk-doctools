@@ -4,6 +4,7 @@
 @description
 
 # Skin properties
+<a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
 We recommend that you define skin properties in `skin.properties` when you create a new skin.
 It provides an easy way to  quickly define things such as, "all links should be blue," or

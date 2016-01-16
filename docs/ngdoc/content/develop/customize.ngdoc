@@ -4,6 +4,7 @@
 @description
 
 # Customize <a id="top"></a>
+<a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
 Now that you have {@link develop/create created} your local SDK plugin repository,
 let's talk about plugin points and how to contribute customizations with the SDK.

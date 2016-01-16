@@ -4,6 +4,7 @@
 @description
 
 # Get Started <a id="top"></a>
+<a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
 ## Prerequisites
 
@@ -105,10 +106,6 @@ If you are still getting permissions errors, use the following. If you use `sudo
 sudo npm install gulp -g
 sudo npm install lithium-sdk -g
 ```
-
-## Uninstall the SDK
-
-To uninstall the SDK run `npm remove lithium-sdk -g` from any directory. You'll need administrator privileges to perform the action.
 
 [Back to top](/develop/getStarted#top)
 ___

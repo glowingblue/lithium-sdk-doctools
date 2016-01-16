@@ -1,0 +1,10 @@
+@ngdoc overview
+@name Uninstall
+@sortOrder 800
+@description
+
+# Uninstalling the SDK <a id="uninstall"></a>
+
+To uninstall the SDK run `npm remove lithium-sdk -g` from any directory. You'll need administrator privileges to perform the action.
+
+___
