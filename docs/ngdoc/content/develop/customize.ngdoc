@@ -417,6 +417,8 @@ Put your text properties files in `PLUGIN_REPO/res/lang`.
 
 #### Submitting customized email templates
 
+Email templates use the Velocity template language. To customize your email templates, you use context objects as variables to tailor the content to the correct user and situation without hard coding URLs and other dynamic data. See <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Email-template-context-objects/ta-p/75924">Email template context objects</a> for a comprehensive list of Velocity context objects supported by Lithium. Note that these context objects are different than FreeMarker context objects used in components and endpoints.
+
 Custom email templates go in `res/lang/text.<language code>`.
 
 For example: 
@@ -433,7 +435,7 @@ Use the same email template name for every language you want to support.
 
 Custom email templates submitted using the SDK appear in **Studio > Text Editor > Email Text**. You will not see the SDK icon next to these email templates in Studio signaling that a version exists in the SDK. Also, there are no warnings if a Studio user attempts to edit an email template that exists in the SDK plugin.
 
-Email template files use the following format. You can use FreeMarker context objects to add dynamic content to the email as needed. 
+Email template files use the following format. 
 
 ```
 == .html_content =========================================
