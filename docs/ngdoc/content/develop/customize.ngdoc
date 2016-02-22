@@ -28,18 +28,20 @@ plugin repository. All customizations go in the `res` and `web` directories.
 
 | Plugin Point | Location | Files Extension | Notes |
 | ------- | ----------- | ---------- | ---------------- |
-| components | `res/components` | .ftl | Components placed here appear in the **Studio > Components** tab. They are identified with a special SDK icon. Component names are case-sensitive. |
-| endpoint metadata  | `res/endpoint` | .endpoint.xml| Endpoint metadata definition files do not appear in Studio. The name is case-sensitive and must match the associated controller FTL file. |
-| endpoint controllers | `res/controllers` | .ftl | Controllers appear in **Studio > Endpoints**. They are identified with a special SDK icon. Controller names are case-sensitive and must match the associated endpoint XML file. |
-| page initialization <br /> (common.init) | `res/init` | .ftl | Content from this file appears in **Studio > Advanced > Page Intialization**. Page initialization scripts contributed with the SDK _are not_ indicated by the SDK icon. |
-| text properties | `res/lang` | .properties | Text strings contributed with the SDK _are not_ indicated by the SDK icon in the **Studio > Text Editor** tab. |
-| layouts | `res/layouts` | .layout.xml | Layouts appear in **Studio > Layouts**. They are identified with a special SDK icon. Layout names are case-sensitive. |
-| macros | `res/macros` | .ftl | Marcos appear in the **Macros** section of **Studio > Endpoints**. They are identified with a special SDK icon. Macro names are case-sensitive. |
-| quilts | `res/quilts/custom` | .quilt.xml | Quilts files appear in the Custom section in the page selection modal **Studio > Page**. They are identified in Studio with a special SDK icon.  |
-| skins | `res/skins` | See [Skins](/develop/customize#skins) | Skin assets include CSS, SCSS, skin properties, and wrapper content. Custom skin files appear in **Studio > Community Style**. They are identified in Studio with a special SDK icon. |
 | assets | `web/html/assets` | various | Asset files appear in **Studio > Community Style > Other Assets** in the Asset Library. They are identified in Studio with a special SDK icon. |
 | badge icons | `web/html/badge_icons` | various | Badge icons  appear in the **Studio > Community Style > Badges** tab in the Asset Library. They are identified in Studio with a special SDK icon. |
+| components | `res/components` | .ftl | Components placed here appear in the **Studio > Components** tab. They are identified with a special SDK icon. Component names are case-sensitive. |
+| email templates | `res/lang/text.en`</br></br>`res/lang/text.<language code>.(UTF-8)` | .text | Email templates are grouped within their associated language folder under `res/lang` |
+| endpoint metadata  | `res/endpoint` | .endpoint.xml| Endpoint metadata definition files do not appear in Studio. The name is case-sensitive and must match the associated controller FTL file. |
+| endpoint controllers | `res/controllers` | .ftl | Controllers appear in **Studio > Endpoints**. They are identified with a special SDK icon. Controller names are case-sensitive and must match the associated endpoint XML file. |
+| layouts | `res/layouts` | .layout.xml | Layouts appear in **Studio > Layouts**. They are identified with a special SDK icon. Layout names are case-sensitive. |
+| macros | `res/macros` | .ftl | Marcos appear in the **Macros** section of **Studio > Endpoints**. They are identified with a special SDK icon. Macro names are case-sensitive. |
+| page initialization <br /> (common.init) | `res/init` | .ftl | Content from this file appears in **Studio > Advanced > Page Intialization**. Page initialization scripts contributed with the SDK _are not_ indicated by the SDK icon. |
+| quilts | `res/quilts/custom` | .quilt.xml | Quilts files appear in the Custom section in the page selection modal **Studio > Page**. They are identified in Studio with a special SDK icon.  |
 | rank icons | `web/html/rank_icons` | various | Rank icons appear in the **Studio > Community Style > Rank Icons** tab in the Asset Library. They are identified in Studio with a special SDK icon. |
+| skins | `res/skins` | See [Skins](/develop/customize#skins) | Skin assets include CSS, SCSS, skin properties, and wrapper content. Custom skin files appear in **Studio > Community Style**. They are identified in Studio with a special SDK icon. |
+| text properties | `res/lang` | .properties | Text strings contributed with the SDK _are not_ indicated by the SDK icon in the **Studio > Text Editor** tab. |
+
 
 ## Customizing plugin points <a id="tutorials"></a>
 The sections below provide instructions and examples for plugin point customizations.
@@ -51,6 +53,7 @@ See our {@link develop/tutorial Tutorial} and {@link refer/pluginvalidation Plug
 * [Customize skins](/develop/customize#skins)
 * [Customize styles](/develop/customize#stylesheets)
 * [Customize text](/develop/customize#text)
+* [Customize email templates](/develop/customize#emailTemplates)
 * [Add images, icons, and other assets](/develop/customize#assets)
 * [Create macros](/develop/customize#macros)
 * [Create endpoints and controllers](/develop/customize#endpoints)
@@ -402,6 +405,63 @@ Supported languages and the associated language code are described in
 <a href="https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566" target="_blank">Languages that Lithium supports</a>.
 
 Put your text properties files in `PLUGIN_REPO/res/lang`.
+
+[Back to top](/develop/customize#top)
+
+<hr/>
+### Customize email templates <a id="emailTemplates"></a>
+
+**Added 16.2. This feature is in Open Beta.**
+
+**Note:** Icons, alerts, and confirmations used to identify email templates in the SDK plugin and prevent Studio overrides are not implemented at this time. 
+
+#### Submitting customized email templates
+
+Email templates use the Velocity template language. To customize your email templates, you use context objects as variables to tailor the content to the correct user and situation without hard coding URLs and other dynamic data. See <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Email-template-context-objects/ta-p/75924">Email template context objects</a> for a comprehensive list of Velocity context objects supported by Lithium. Note that these context objects are different than FreeMarker context objects used in components and endpoints.
+
+Custom email templates go in `res/lang/text.<language code>`.
+
+For example: 
+
+`res/lang/text.en` for English email templates
+
+`res/lang/text.fr.(UTF-8)` for French templates
+
+Note the .(UTF-8) naming convention appended to email template folders for non-English-based languages.
+
+Email templates use this naming convention: `email_content.template.<template name>.text`
+
+Use the same email template name for every language you want to support.
+
+Custom email templates submitted using the SDK appear in **Studio > Text Editor > Email Text**. You will not see the SDK icon next to these email templates in Studio signaling that a version exists in the SDK. Also, there are no warnings if a Studio user attempts to edit an email template that exists in the SDK plugin.
+
+Email template files use the following format. 
+
+```
+== .html_content =========================================
+ 
+HTML version of email content goes here
+ 
+== .subject =========================================
+ 
+Subject line text goes here (used for both HTML and Plain Text versions)
+ 
+== .text_content =========================================
+ 
+Plain text version of email content goes here
+```
+
+If you're creating a new email template (as opposed to overriding one), create two text keys in the appropriate text properties file (such as `text.en.properties`):
+
+* `email.template.<template name>.description` - This is a description that appears in Studio that describes how the template is used and what triggers it to be sent
+* `email.template.<template name>.title` - This is the title of the email template that appears in the **Select Email Template** drop-down in **Studio > Text Editor > Email Text**
+
+Supported languages and the associated language code are described in
+<a href="https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566" target="_blank">Languages that Lithium supports</a>.
+
+#### Deleting customized email templates
+
+Deleting email templates is not recommended at this time.
 
 [Back to top](/develop/customize#top)
 
