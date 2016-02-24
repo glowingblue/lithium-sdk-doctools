@@ -42,7 +42,8 @@ Using the Lithium-Klout SDK you can:
   * Skins
   * Text strings
 
-**Note:** The SDK does not support Mobile v2 customization.
+**Note:** At this time, components that use the @override naming convention are not supported by the SDK.
+Use Studio to create and edit these components. The SDK does not support Mobile v2 customization.
 
 When you contribute customizations via the SDK, you upload them to the _stage_ server, not to a local
 developer sandbox. While each developer can have a local version of the SDK plugin on his or her own environment,

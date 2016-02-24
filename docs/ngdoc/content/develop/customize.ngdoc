@@ -41,6 +41,7 @@ plugin repository. All customizations go in the `res` and `web` directories.
 | rank icons | `web/html/rank_icons` | various | Rank icons appear in the **Studio > Community Style > Rank Icons** tab in the Asset Library. They are identified in Studio with a special SDK icon. |
 | skins | `res/skins` | See [Skins](/develop/customize#skins) | Skin assets include CSS, SCSS, skin properties, and wrapper content. Custom skin files appear in **Studio > Community Style**. They are identified in Studio with a special SDK icon. |
 | text properties | `res/lang` | .properties | Text strings contributed with the SDK _are not_ indicated by the SDK icon in the **Studio > Text Editor** tab. |
+| value analytics images | `web/html/survey_icons` | various | Value Analytics survey images appear in the **Studio > Community Style > Value Analytics** tab in the Asset Library. They are identified in Studio with a special SDK icon. |
 
 
 ## Customizing plugin points <a id="tutorials"></a>
@@ -413,7 +414,7 @@ Put your text properties files in `PLUGIN_REPO/res/lang`.
 
 **Added 16.2. This feature is in Open Beta.**
 
-**Note:** Icons, alerts, and confirmations used to identify email templates in the SDK plugin and prevent Studio overrides are not implemented at this time. 
+**Note:** Icons, alerts, and confirmations used to identify email templates in the SDK plugin and prevent Studio overrides are not implemented at this time.
 
 #### Submitting customized email templates
 
@@ -421,7 +422,7 @@ Email templates use the Velocity template language. To customize your email temp
 
 Custom email templates go in `res/lang/text.<language code>`.
 
-For example: 
+For example:
 
 `res/lang/text.en` for English email templates
 
@@ -435,19 +436,19 @@ Use the same email template name for every language you want to support.
 
 Custom email templates submitted using the SDK appear in **Studio > Text Editor > Email Text**. You will not see the SDK icon next to these email templates in Studio signaling that a version exists in the SDK. Also, there are no warnings if a Studio user attempts to edit an email template that exists in the SDK plugin.
 
-Email template files use the following format. 
+Email template files use the following format.
 
 ```
 == .html_content =========================================
- 
+
 HTML version of email content goes here
- 
+
 == .subject =========================================
- 
+
 Subject line text goes here (used for both HTML and Plain Text versions)
- 
+
 == .text_content =========================================
- 
+
 Plain text version of email content goes here
 ```
 
@@ -467,14 +468,15 @@ Deleting email templates is not recommended at this time.
 
 <hr/>
 ### Customize images, icons, and other assets <a id="assets"></a>
-With the SDK, you can contribute images, badge and rank icons, and other assets to the Asset Library.
+With the SDK, you can contribute images, badge and rank icons, Value Analytics images, and other assets to the Asset Library.
 These assets might be image assets like
 your community logo, but they could also be other files such as PDFs, CSS, and JavaScript.
 The files here are often included in wrapper content, custom components, and endpoints.
 
 * Custom assets go in `web/html/assets`
 * Custom badge icons go in `web/html/badge_icons`
-* Custom rank icons go in `web/html/rank_icons`.
+* Custom rank icons go in `web/html/rank_icons`
+* Custom Value Analytics images go in `web/html/survey_icons`
 
 **Note:** Image files should not include hyphens. Underscores are permitted.
 
