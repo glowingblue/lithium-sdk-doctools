@@ -8,7 +8,7 @@
 
 Running into problems? Let's look at a few troubleshooting tips for errors you might encounter.
 
-* [401 HTTP error](/refer/troubleshoot#410HttpError)
+* [401 HTTP error](/refer/troubleshoot#401HttpError)
 * [Compile Error on install (Linux)](/refer/troubleshoot#compileErrorLinux)
 * [Find the SDK version](/refer/troubleshoot#findSdkVersion)
 * [Invalid response from server (SSL)](/refer/troubleshoot#invalidResponse)
@@ -68,7 +68,7 @@ Error: Invalid response from server. Check your server url and version.
 ```
 
 This error indicates that your stage site might not be set up for
-SSL. 
+SSL.
 
 **Solution:** Contact Lithium Support to verify the SSL configuration for your community.
 
@@ -83,7 +83,7 @@ SSL.
 /usr/lib/node_modules/lithium-sdk/lib/version-check.js:77
 throw error;
 ^
- 
+
 Error: Invalid response from server. Check your server url and version.
 at parseResponse (/usr/lib/node_modules/lithium-sdk/lib/version-check.js:94:13)
 at Request._callback (/usr/lib/node_modules/lithium-sdk/lib/version-check.js:31:17)
@@ -98,7 +98,7 @@ at emitNone (events.js:72:20)
 sosdfag@adama(2.0.0p247):~/lithium$
 ```
 
-**Solution:** 
+**Solution:**
 
 Check to see which versions of node and npm you have installed using:
 
@@ -190,11 +190,11 @@ If this does not solve your problem, contact Lithium Support.
 
 ## Validation errors<a id="validationErrors"></a>
 
-**Problem:** You receive validation errors after running the `li submit-plugin` script. 
+**Problem:** You receive validation errors after running the `li submit-plugin` script.
 
 ```
 C:\Lithium\devplugin>li submit-plugin
- 
+
 [13:09:54] Loaded gulp tasks in: 256 ms
 [13:09:54] Using gulpfile C:\Lithium\devplugin\gulpfile.js
 [13:09:54] Starting 'clean-tmp'...
@@ -230,7 +230,7 @@ C:\Lithium\devplugin>li submit-plugin
 ? Would you like to upload plugin to server? Yes
 [13:10:02] Uploading plugin
 [13:10:19] [gulp] Error in plugin 'submit-plugin': Error: [UPLOAD_FAIL] Plug-in-validatiefout op de server.
- 
+
 Failure Code: SKIN_INVALID_FREEMARKER_FAILURE
 Failure Rule: CUSTOM_RULE
 Failure Message: Skin ing_nl in the plugin has a possible issue
@@ -240,23 +240,23 @@ wn to be legally null/missing, either specify a default value with myOptionalVar
 hese only cover the last step of the expression; to cover the whole expression, use parenthessis: (myOptionVar.foo)!myDefault, (myOptionVar.foo)??The failing in
 struction:==>${images.bg_message_header_safe...  [in template "header_special" at line 1807, column 21]
 Suggestion: Look at failing CSS file for invalid freemarker
- 
+
 Failure Code: UNWANTED_DIRECTORY
 Failure Rule: DIRECTORY_RULE
 Failure Message: foo cannot be in this directory path
 Failure Details: You cannot add directory foo to /web/html
 Suggestion: Delete the above mentioned directory
- 
+
 Failure Code: INVALID_FILENAME
 Failure Rule: FILENAME_RULE
 Failure Message: File in plug-in has invalid name.
 Failure Details: The name for file invalid-image//name.png is invalid. String validation error was: invalid-image//name.png
 Suggestion: Change the file name
- 
+
 [13:10:19] Plugin upload failed
 ```
 
-**Solution:** Use the information in {@link /refer/pluginvalidation Plugin Validation} to determine how to fix the errors so that your plugin directories and files use the proper structure and format.  
+**Solution:** Use the information in {@link /refer/pluginvalidation Plugin Validation} to determine how to fix the errors so that your plugin directories and files use the proper structure and format.
 
 [Back to top](/refer/troubleshoot#top)
 
@@ -264,7 +264,7 @@ Suggestion: Change the file name
 
 **Problem:** Your SDK plugin is not displaying on the community.
 
-**Solution:** Contact Lithium Support. They can check to ensure that your community config is set correctly. 
+**Solution:** Contact Lithium Support. They can check to ensure that your community config is set correctly.
 
 **Note:** LAR is a legacy term for the SDK plugin.
 
@@ -299,12 +299,12 @@ npm ERR! There is likely additional logging output above.
 npm ERR! Please include the following file with any support request:
 npm ERR!     /home/my.username/npm-debug.log
 ```
-This issue seems to occur when upgrading to node.js when the [nan](https://github.com/nodejs/nan) module is a dependency. 
+This issue seems to occur when upgrading to node.js when the [nan](https://github.com/nodejs/nan) module is a dependency.
 
-**Solution:** We've found a fix that requires you install an updated gcc compiler, such as [Devtoolset-3](https://www.softwarecollections.org/en/scls/rhscl/devtoolset-3/), thanks to this article: [Compile Node.js 4.0 on CentOS 6](http://krisreeves.com/code/compile-node-js-4-0-on-centos-6/). 
+**Solution:** We've found a fix that requires you install an updated gcc compiler, such as [Devtoolset-3](https://www.softwarecollections.org/en/scls/rhscl/devtoolset-3/), thanks to this article: [Compile Node.js 4.0 on CentOS 6](http://krisreeves.com/code/compile-node-js-4-0-on-centos-6/).
 
 ```
-cd /etc/yum.repos.d/slc6-scl.repo 
+cd /etc/yum.repos.d/slc6-scl.repo
 sudo wget http://linuxsoft.cern.ch/cern/scl/slc6-scl.repo
 cd ~
 sudo rpm --import http://ftp.mirrorservice.org/sites/ftp.scientificlinux.org/linux/scientific/51/i386/RPM-GPG-KEYs/RPM-GPG-KEY-cern
@@ -324,9 +324,6 @@ And then we re-ran `npm install lithium-sdk -g` and successfully installed the S
 
 **Problem:** You need to find the version of your SDK.
 
-**Solution:** Run `npm ls -g lithium-sdk --depth=0` from a command prompt. 
+**Solution:** Run `npm ls -g lithium-sdk --depth=0` from a command prompt.
 
 [Back to top](/refer/troubleshoot#top)
-
-
-

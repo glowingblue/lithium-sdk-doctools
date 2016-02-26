@@ -12,7 +12,7 @@ text strings, and do some simple skin properties and CSS customizations. We'll c
 custom files, put them in the proper location in your local repository, and then upload the
 plugin to the stage server using `li submit-plugin`.
 
-* [Write a component](#components)
+* [Write a component](/develop/tutorial#components)
 * [Create a quilt](/develop/tutorial#quilts)
 * [Create a skin](/develop/tutorial#skins)
 * [Add CSS](/develop/tutorial#stylesheets)
@@ -61,8 +61,7 @@ a quilt file that you create and upload to the stage server with the SDK.
 [Back to top](/develop/tutorial#top)
 
 ## Create a quilt <a id="quilts"></a>
-The building blocks of any Lithium page are a quilt and a layout. We'll talk about layouts in a [later step](/develop/tutorial#layouts).
-First, we'll create a quilt.
+The building blocks of any Lithium page are a quilt and a layout. 
 
 Building on our last example, let's put that custom component on a new custom quilt. Next we'll show you how to move and remove a
 component from a quilt.
