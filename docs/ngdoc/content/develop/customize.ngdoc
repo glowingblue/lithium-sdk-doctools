@@ -53,7 +53,7 @@ See our {@link develop/tutorial Tutorial} and {@link refer/pluginvalidation Plug
 * [Customize layouts](/develop/customize#layouts)
 * [Customize skins](/develop/customize#skins)
 * [Customize styles](/develop/customize#stylesheets)
-* [Customize text](/develop/customize#text)
+* [Customize text and Terms of Service](/develop/customize#text)
 * [Customize email templates](/develop/customize#emailTemplates)
 * [Add images, icons, and other assets](/develop/customize#assets)
 * [Create macros](/develop/customize#macros)
@@ -398,7 +398,7 @@ Place your CSS in a file called in  `skin.css` in `PLUGIN_REPO/res/skins/[skinid
 [Back to top](/develop/customize#top)
 
 <hr/>
-### Customize text properties <a id="text"></a>
+### Customize text and Terms of Service <a id="text"></a>
 Text used in your customizations go in a file called text._language_code_.properties where
 _language_code_ represents a language, such as "en" for English or "de" for German.
 Create a separate text properties file for each language used in your community.
@@ -406,6 +406,13 @@ Supported languages and the associated language code are described in
 <a href="https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566" target="_blank">Languages that Lithium supports</a>.
 
 Put your text properties files in `PLUGIN_REPO/res/lang`.
+
+A community's Terms of Service is stored in the text key: `page.user_signup.terms_of_service`.
+Simply edit that text key to update. If you want to pull your Terms of Service into a
+custom component, reference that text key in your custom component using the `text`
+FreeMarker context object like this:
+
+`${text.format('page.user_signup.terms_of_service')}`
 
 [Back to top](/develop/customize#top)
 
