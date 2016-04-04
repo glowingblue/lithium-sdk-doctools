@@ -68,6 +68,6 @@ You'll continue to use Studio for the following tasks:
 * [Create the spellcheck dictionary](https://community.lithium.com/t5/General-system-setup/Enable-and-use-spellcheck-and-create-a-custom-dictionary/ta-p/57492)
 * [Manage feature versions](https://community.lithium.com/t5/General-system-setup/Set-the-version-of-a-community-feature/ta-p/115429)
 * [Edit the Robot Exclusion Protocol](https://community.lithium.com/t5/Operating-systems-browsers-and/Robots-txt/ta-p/42752)
-* {@link /develop/create#GenerateUploadToken Generate the SDK upload token}
+* {@link /develop/create Generate the SDK upload token}
 * <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=commv2&v2.main=gettingstarted#apiBrowser" target="_blank">Test LiQL queries</a>
 ___

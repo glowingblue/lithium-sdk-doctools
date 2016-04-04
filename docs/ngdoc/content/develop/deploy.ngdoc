@@ -3,7 +3,7 @@
 @sortOrder 400
 @description
 
-#Deploying your plugin to stage
+# Deploying your plugin to stage
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
 Once you've {@link /develop/customize written customizations} in your local environment, you are ready to
