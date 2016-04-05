@@ -261,7 +261,7 @@ This section includes:
 * [Skin directory structure](/develop/customize#structure)
 * [Basic styling with skin properties](/develop/customize#skinProperties)
 * [Overriding skin images](/develop/customize#skinImages)
-* [Customizing the page wrapper](/develop/customize#wrapper)
+* [Customizing the page wrapper](/develop/customize#pagewrapper)
 
 Using the SDK, you can contribute skin properties, CSS, and
 wrappers for desktop and mobile v1 communities. Put skin customizations in `res/skins`.
@@ -321,7 +321,7 @@ name as the image currently used by the skin. Then place the image in PLUGIN_HOM
 
 [Back to top](/develop/customize#top)
 
-#### Customizing the page wrapper <a id="wrapper"></a>
+#### Customizing the page wrapper <a id="pagewrapper"></a> 
 The page wrapper for a skin provides an additional layer or styling above and below the main
 content of the page (anything above and below `li-body` when looking at a the code for a community page.)
 
