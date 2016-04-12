@@ -10,7 +10,7 @@ The Lithium-Klout SDK supports a developer-friendly "choose your own IDE" experi
 that enables you to develop locally with the tools of your choice, collaborate with your
 own team in your own source control system, and test on your stage environment.
 
-* [Developer Environment Recommendations](/learn/workflow#devEnv)
+* [Developer environment recommendations](/learn/workflow#devEnv)
 * [Deployment](/learn/workflow#deployment)
 * [Collaborating with Lithium Services](/learn/workflow#collabWithServices)
 
@@ -24,6 +24,7 @@ the SDK plugin from your source control system to the stage
 environment. We provide an example using GitHub and Travis CI below.
 
 * [Setting up the plugin project](/learn/workflow#setup)
+* [Creating a development strategy](/learn/workflow#strategy)
 * [Continuous integration](/learn/workflow#continuousIntegration)
 * [Non-continuous integration](/learn/workflow#nonCI)
 
@@ -46,6 +47,43 @@ After the SDK project is created and placed under source control, other develope
 
 After setup is complete, the team is ready to customize and check in. Read {@link /develop/customize Customize}
 to learn about the plugin repository structure.
+
+### Creating a development strategy <a id="strategy"></a>
+Create a development strategy with your Community team that determines which customization path you'll use. We recommend using either Studio or the SDK, and using that tool throughout development. Collaboration with Studio users for customization is possible, but it requires execellent communication and comes with the risk of Studio users overriding SDK contributions. 
+
+If you're a current Lithium customer you'll have customizations in Studio. We provide a script that exports customizations for all plugin points (components, endpoints, quilts, skins, and so on) or lets you choose specific plugin points to export. 
+
+When you export a specific plugin point, you export _all_ files for that plugin point. For example, you export _all_ components, not individual ones. When you submit a plugin, you submit the entire plugin, meaning all files from all plugin points.
+
+#### SDK-only strategry
+
+Here is an example of the simplest development scenario. Both plugins (Studio and the SDK) exist on the stage server. You export all customizations from Studio into the SDK, and then clear the Studio plugin. We have a script for this, or you can delete customizations from Studio manually. From this point on, you contribute customizations to stage using an SDK script and no development occurs in Studio.
+
+Staging versions for production, reverting to previous versions, versioning features, and editing the robots exclusion protocol still occurs in Studio.  
+
+<img src="img/clearPlugin.png" width="640 px"/>
+
+#### Studio collaboration strategy
+
+In this next scenario, a subset of plugin points are exported. The yellow plugin point remains in the Studio plugin. Let's say the yellow plugin point represents skins. Maybe you have a designer, for example, who is more comfortable adding CSS in Studio than checking in files from the command line. You could leave skins in the Studio plugin, but export components and quilts to the SDK. 
+
+<img src="img/clearPluginOverride.png" width="640 px"/>
+
+Developers contribute component and quilt code using the SDK, and the designer contributes through Studio. In this scenario, you want to avoid having any skin files in the SDK plugin. 
+
+#### Clearing a plugin
+
+We have scripts that clear the Studio plugin and the SDK plugin. The `clear-studio-plugin` script lets you choose to select specific plugin points to clear or choose to clear the entire Studio pluign. (If you accidentally clear the entire Studio pluign, you can revert to a previous version and revert your mistake in the Studio Versions tab.) 
+
+You might find that you don't want to clear an entire plugin point. In this case, you can export a pluign point, and then manually delete files in either Studio or the SDK plugin so that the correct files exist in the correct location. 
+
+Let's look at an example. Suppose that you're company is reskinning the community. Your company is using existing skins (B and C) for your current mobile and desktop communities. Your designer or community manager need to be able to make small changes in Studio to these skins. You've created a new skin (A) for your community refresh project, and you'll be doing your development in the SDK.
+
+Say you've exported all skins to the SDK using our `export-studio-plugin` script. You've now got two options. You can clear the entire Studio skin plugin point or you can manually delete specific skins from Studio and the SDK. Clearing all skins with the `clear-studio-plugin` script removes all skins from Studio, making them inaccessible to Studio users.
+
+<img src="img/clearPluginSkinExample.png" width="640 px"/>
+
+Alternatively, you can manually delete skins B and C from the SDK plugin, and manually delete skin A from Studio. This lets each group access the skins they need without risk of override. In addition, you won't receieve validation errors when you submit your SDK plugin to stage warning you files in your SDK plugin will be overridden in Studio. 
 
 ### Continuous integration <a id="continuousIntegration"></a>
 The diagrams below illustrate the recommended workflow using a continuous integration

@@ -6,24 +6,27 @@
 # Customize <a id="top"></a>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-Now that you have {@link develop/create created} your local SDK plugin repository,
-let's talk about plugin points and how to contribute customizations with the SDK.
+Once have {@link develop/create created} your local SDK plugin repository,
+you're ready to learn about plugin points and how to contribute Community customizations with the SDK. 
+We're going to cover two main concepts in this guide:
 
-* [Where to put your custom assets](/develop/customize#whereToPut)
-* [Customize plugin points](/develop/customize#tutorials)
+* [Where to put your code](/develop/customize#whereToPut)
+* [How to customize plugin points](/develop/customize#tutorials)
 
-Be sure that you have read the Understand Plugins section in {@link learn/architecture Customization Framework}, as well as
+Be sure that you have read the Understanding Plugins section in {@link learn/architecture Customization Framework}, as well as
 <a href="https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320" target="_blank">About Studio</a> and <a href="https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316" target="_blank">More About Plugins</a>
-before you begin. Remember that SDK contributions are visible in Studio . Assets with
+before you begin. Remember that SDK contributions are visible in Studio. Assets with
 versions existing in SDK are indicated in Studio with a special icon.
 
 <img src="img/sdkVsStudioAssetsInTab.png" width="600">
 
-## Where to put your custom assets <a id="whereToPut"></a>
+## Where to put your code <a id="whereToPut"></a>
 
-Let's look at where to place different plugin assets. When you created your plugin project,
+Let's look at the SDK plugin structure. When you created your plugin project,
 the script created several folders in your local
-plugin repository. All customizations go in the `res` and `web` directories.
+plugin repository. Customizations go in the `res` and `web` directories. 
+
+We use the term _plugin point_ to refer to a type of community customization. Components are a pluign point, skins are a plugin point, and so on. The table below lists Community plugin points, where to put the code, and where the customizations appear in Studio when you submit the plugin to the stage server.   
 
 
 | Plugin Point | Location | Files Extension | Notes |
@@ -39,7 +42,7 @@ plugin repository. All customizations go in the `res` and `web` directories.
 | page initialization <br /> (common.init) | `res/init` | .ftl | Content from this file appears in **Studio > Advanced > Page Intialization**. Page initialization scripts contributed with the SDK _are not_ indicated by the SDK icon. |
 | quilts | `res/quilts/custom` | .quilt.xml | Quilts files appear in the Custom section in the page selection modal **Studio > Page**. They are identified in Studio with a special SDK icon.  |
 | rank icons | `web/html/rank_icons` | various | Rank icons appear in the **Studio > Community Style > Rank Icons** tab in the Asset Library. They are identified in Studio with a special SDK icon. |
-| skins | `res/skins` | See [Skins](/develop/customize#skins) | Skin assets include CSS, SCSS, skin properties, and wrapper content. Custom skin files appear in **Studio > Community Style**. They are identified in Studio with a special SDK icon. |
+| skins | `res/skins` | various | Skin assets include CSS, SCSS, skin properties, and wrapper content. Custom skin files appear in **Studio > Community Style**. They are identified in Studio with a special SDK icon. |
 | text properties | `res/lang` | .properties | Text strings contributed with the SDK _are not_ indicated by the SDK icon in the **Studio > Text Editor** tab. |
 | value analytics images | `web/html/survey_icons` | various | Value Analytics survey images appear in the **Studio > Community Style > Value Analytics** tab in the Asset Library. They are identified in Studio with a special SDK icon. |
 
@@ -252,9 +255,6 @@ useful examples for editing and creating the layout XML.
 <hr/>
 
 ### Customize skins <a id="skins"></a>
-**Note:** This section does not cover how to customize Lithium Responsive skins. If your
-community is using Lithium Responsive, contact your Lithium Services
-representative for details and documentation about Lithium Responsive skin customization.
 
 This section includes:
 
@@ -262,12 +262,15 @@ This section includes:
 * [Basic styling with skin properties](/develop/customize#skinProperties)
 * [Overriding skin images](/develop/customize#skinImages)
 * [Customizing the page wrapper](/develop/customize#pagewrapper)
+* [Customizing CSS](/develop/customize#stylesheets)
 
 Using the SDK, you can contribute skin properties, CSS, and
 wrappers for desktop and mobile v1 communities. Put skin customizations in `res/skins`.
  Each skin is a separate subdirectory under `res/skins`. Each skin folder needs
 subdirectories to hold skin properties and wrappers for
- mobile and desktop as needed. We'll look at that subdirectory structure in the next section
+ mobile and desktop as needed. We'll look at that subdirectory structure in the next section.
+
+ **Note:** Responsive skins are covered in the Lithium Reponsive Developer Documentation. Lithium Responsive is currently only available to customers through a Services-led engagement. Responsive for Developers will be in open beta for all customers in a future release. The information in this section applies to non-responsive skins only.
 
 #### Skin directory structure <a id="structure"></a>
 
@@ -383,18 +386,12 @@ ${settings.name.get("layout.urlfetcher_header")}
 ${settings.name.get("layout.urlfetcher_footer")}
 ```
 
-[Back to top](/develop/customize#top)
+#### Customize CSS <a id="stylesheets"></a>
 
-<hr/>
-### Customize CSS <a id="stylesheets"></a>
+Many visual elements aren't defined by skin properties. This is where CSS comes in.
 
-Some visual elements aren't defined by skin properties,
-but you might still want to style differently. This is where CSS comes in.
+Place your CSS in a file called in  `skin.css`, and put it in `PLUGIN_REPO/res/skins/[skinid]/css`.
 
-**Note:** Responsive skins use Sass SCSS. If your community is using Lithium Responsive, contact
-your Lithium Services representative for customizing responsive skins using the SDK.
-
-Place your CSS in a file called in  `skin.css` in `PLUGIN_REPO/res/skins/[skinid]/css`.
 [Back to top](/develop/customize#top)
 
 <hr/>
