@@ -76,9 +76,9 @@ in [Plugin structure and configuration](/develop/create#serverConfJson).
 
 ---
 
-### Download the Studio plugin<a id="downloadStudio"></a>
+### Export the Studio plugin<a id="downloadStudio"></a>
 You can export your community's entire Studio plugin from your stage server to your SDK plugin, or pull specific
-plugin points. When doing a partial export, you may specify up to five plugin points at a time.
+plugin points. When doing a partial export, you may specify up to five plugin points at a time. Before you export the Studio plugin, read through the Creating a development strategry section of {@link /learn/workflow Developer Workflow}.
 
 **Note:** Components that use the @override naming convention are not supported by the SDK at this time. If you have
 components with @override in their names, they will not be exported to the SDK plugin. Continue to use Studio to create and edit
@@ -99,7 +99,7 @@ li export-studio-plugin --points "component", "endpoint", "controller, "macro" -
 [Back to top](/develop/create#top)
 Create the plugin project
 
-### Download the SDK plugin<a id="downloadSdk"></a>
+### Export the SDK plugin<a id="downloadSdk"></a>
 If your company has already created an SDK plugin, you can populate your plugin project from the
 last SDK plugin uploaded to the stage server. Partial exports of an SDK plugin are not supported at this time.
 
@@ -172,14 +172,14 @@ build system runs `li submit-plugin`.  We do not recommend individual developers
 
   When `true`, these commands work in the following way:
 
-  * `clear-plugin` automatically clears the entire SDK plugin without manual confirmation
+  * `clear-plugin` automatically clears the entire SDK plugin without manual confirmation. Learn more about clearing the SDK plugin in the Creating a development strategry section of {@link /learn/workflow Developer Workflow}.
 
   * `clear-studio-plugin` automatically clears the entire Studio plugin (unless you have specific plugin
-    points defined in the `pluginPoints` field in `server.conf.json`) without manual confirmation
+    points defined in the `pluginPoints` field in `server.conf.json`) without manual confirmation. Learn more about clearing the Studio plugin in the Creating a development strategry section of {@link /learn/workflow Developer Workflow}.
 
   * `export-plugin` automatically exports the entire SDK plugin without manual confirmation
 
-  * `export-studio-plugin` automatically exports the entire Studio plugin (unless you have plugin points defined in the `pluginPoints`
+  * `export-studio-plugin` automatically exports the entire Studio plugin (unless you have plugin points defined in the `pluginPoints`. Learn more about exporting the Studio plugin in the Creating a development strategry section of {@link /learn/workflow Developer Workflow}.
 in `server.conf.json`) without manual confirmation
 
   * `submit-plugin` automatically uploads the plugin to the server without manual confirmation

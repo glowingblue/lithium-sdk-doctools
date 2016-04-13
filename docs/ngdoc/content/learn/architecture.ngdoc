@@ -48,19 +48,6 @@ stage server directly from the command line.
 **Note:** If you have more than one stage environment,
 the SDK is only supported on the stage environment that is connected via Studio Publish to your production site.
 
-Using the SDK you can submit:
-* Assets, badge icons, and rank icons
-* Components
-* CSS and SCSS
-* Endpoints
-* Images
-* Layouts
-* Macros
-* Page Initialization script (common.init)
-* Quilts (also referred to as Pages)
-* Skins
-* Text strings
-
 Our developer environment runs on top of node.js, using for its streaming build system.
 
 ## Understanding plugins <a id="plugins"></a>
