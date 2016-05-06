@@ -14,59 +14,69 @@ Studio users can edit skin properties in **Studio > Community Style > Properties
 Read <a href="https://community.lithium.com/t5/Skins-and-assets/Edit-skin-properties/ta-p/40322" target="_blank">Edit skin properties</a>
 for more information.
 
-The list below shows the default skin properties.
+The table below shows the default skin properties used with non-responsive skins. Skin properties are editable in Studio. The Studio Field column shows the fields in **Studio > Community Style > Properties** that maps to the skin property in the Property column.
 
-## Skin properties
-```
-title
-groups
-color.foreground
-color.background
-color.midtone
-color.rollover
-color.selection
-color.alert
-color.safe
-color.warn
-color.primary_01
-color.primary_02
-color.primary_03
-color.primary_04
-type.title_01
-type.title_02
-type.title_03
-type.title_04
-type.body_01
-type.small_01
-type.font_size.title_01
-type.font_size.title_02
-type.font_size.title_03
-type.font_size.title_04
-type.font_size.body_01
-type.font_size.small_01
-type.line_height.title_01
-type.line_height.title_02
-type.line_height.title_03
-type.line_height.title_04
-type.line_height.body_01
-type.line_height.small_01
-size.pixel.spacing_slim
-size.pixel.spacing_medium
-size.pixel.spacing_wide
-size.pixel.spacing_xwide
-size.pixel.input_h
-size.pixel.icon_mini
-size.pixel.icon_small
-size.pixel.icon_medium
-size.pixel.avatar_message_w
-size.pixel.avatar_message_h
-size.pixel.avatar_profile_w
-size.pixel.avatar_profile_h
-size.pixel.avatar_inline_w
-size.pixel.avatar_inline_h
-size.pixel.grid.width
-size.pixel.grid.height
-size.page_width_min
-size.page_width_max
+Responsive skins use only a limited set of skin properties to specify default cropping sizes for images and assets. For details about skin properties and responsive skins, see the Skin Architecture section of the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive">Responsive Developer Documentation</a>.
 
-```
+
+## Skin properties for non-responsive skins
+
+#### Color properties
+
+| Property | Description | Studio Field |
+| ---------| ----------- | ------------ |   
+| color.foreground | The default text color | Foreground color |
+| color.background | The background color for all pages | Background color |
+| color.midtone | A tone between foreground and background. Text on both foreground and background should also be readable on midtone. | Midtone color |
+| color.rollover | Color for links, such as navigation and breadcrumbs | Rollover color |
+| color.selection | A background color to highlight element selection | Selection color |
+| color.alert | Color for error/warning messages | Alert color |
+| color.safe | Color used for success and confirmation messages | Safe color |
+| color.primary_01 | The most prominent accent color used on a page for major dividers, title, and other important page elements| Primary color 1 |
+| color.primary_02 | A secondary accent color for less important elements, such as section dividers | Primary color 2 |
+
+
+#### Font properties
+
+| Property | Description | Studio Field |
+| ---------| ----------- | ------------ |
+| type.title_02 | The font used for secondary headings | Title 2 font |
+| type.title_03 | The font used for minor-level headings | Title 3 font |
+| type.title_04 | The font used for smallest-level headings, such as breadcrumb links and page navigation | Title 4 font |
+| type.body_01 | The font for body text | Body type font |
+| type.small_01 | The for the smallest body text used | Small type font |
+| type.font_size.title_01 | The font size for top-level headings | Title 1 font szie |
+| type.font_size.title_02 | The font size for secondary headings | Title 2 font szie |
+| type.font_size.title_03 | The font size for minor-level headings | Title 3 font szie |
+| type.font_size.title_04 | The font size for smallest-level headings | Title 4 font szie |
+| type.font_size.body_01 | The font size for body text | Body type font size |
+| type.font_size.small_01 | The font size for small body text | Small type font size |
+| type.line_height.title_01 | The line height for top-level headings | Title 1 line height |
+| type.line_height.title_02 | The line height for secondary-level headings | Title 2 line height |
+| type.line_height.title_03 | The line height for minor-level headings | Title 3 line height |
+| type.line_height.title_04 | The line height for smallest-level headings | Title 4 line height |
+| type.line_height.body_01 | The line height for body text | Body type line height |
+| type.line_height.small_01 | The line height for small text | Small type line height |
+
+#### Page element and image dimension properties
+
+| Property | Description | Studio Field |
+| ---------| ----------- | ------------ |
+| size.pixel.spacing_slim |The smallest amount of space between related elements | Slim spacing (pixels) |
+| size.pixel.spacing_medium | The tertiary-level of space between related elements | Medium spacing (pixels) |
+| size.pixel.spacing_wide | The second-largest level of space between related elements | Wide spacing (pixels) |
+| size.pixel.spacing_xwide | The largest level of space between related elements | Extra Wide spacing (pixels) |
+| size.pixel.input_h | The height of input boxes and buttons | Input Box / Button height (pixels) |
+| size.pixel.icon_mini | The size of the smallest icons | Mini icon size (pixels) |
+| size.pixel.icon_small | The size of small icons | Small icon size (pixels) |
+| size.pixel.icon_medium | The size of medium-sized icons | Medium icon size (pixels) |
+| size.pixel.avatar_message_w | The maximum width of avatar images used in messages | Max. Avatar width (Message (px)) |
+| size.pixel.avatar_message_h | The maximum height of avatar images used in messages | Max. Avatar height (Message (px)) |
+| size.pixel.avatar_profile_w | The maximum width of avatar images used in the user profile | Max. Avatar width (Profile (px)) |
+| size.pixel.avatar_profile_h | The maximum height of avatar images used in the user profile | Max. Avatar height (Profile (px)) |
+| size.pixel.avatar_inline_w | The maximum width of avatar images used in-line | Max. Avatar width (Inline (px)) |
+| size.pixel.avatar_inline_h | The maximum height of avatar images used in-line | Max. Avatar height (Inline (px)) |
+| size.page_width_min | The minimum page width in pixels. The browser will not resize smaller than this setting | Minimum page width |
+| size.page_width_max | The maximum page width in pixels or percentage. If pixels is specified, the minimum page width is ignored and the page is set at the maximum width specified here. | Maximum page width |
+
+

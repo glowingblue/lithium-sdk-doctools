@@ -181,61 +181,44 @@ The `side-content` section should look like this:
 ## Create a skin <a id="skins"></a>
 
 **Note:** This section does not cover how to customize Lithium Responsive skins. If your
-community is using Lithium Responsive, contact your Lithium Services
-representative for details and documentation about Lithium Responsive skin customization.
+community is using Lithium Responsive, see the Hello Responsive tutorial in the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Lithium Responsive developer documentation</a>.
 
-Using the SDK, you can contribute skin properties, CSS, and
+Using the SDK, you can contribute skin properties, CSS, SCSS, images, and
 wrappers for desktop and mobile v1 communities. Put skin customizations in `res/skins`.
 Each skin is a separate subdirectory under `res/skins`. Each skin folder needs
 subdirectories to hold skin properties and wrappers for mobile and desktop as needed.
 We'll look at that subdirectory structure in the next section
 
-The easiest way to create the skin structure for a new skin is to create the skin in Studio and then export skins to the SDK
-using `li export-studio-plugin --points "skin" --force`
+**1.** Create a skin using `li create-skin`
+* From your SDK plugin root directory, run `li create-skin --clearCode`.
+* Follow the prompts to create a non-responsive skin.
+* Select Community Base Skin as the parent skin.
+* Name the skin `mycustomskin`.
 
-**1.** Log into Studio and create a skin called `mycustomskin` and use the base skin as the parent.
-* Go to **Studio > Community Style**.
-* Select the Properties tab.
-* Click **New Skin**.
-* In the dialog, name the skin 'mycustomskin' and click **Create**.
-* Select "Community Base Skin" from the **Based on** drop-down.
-* Click **Save**.
-* From your SDK directory, run: `li export-studio-plugin --points "skin" --force`. You should see the subdirectory for your skin: `PLUGIN_HOME/res/skins/mycustomskin`
+You'll see the following directory structure in your plugin root directory
+* res/skins/mycustomskin
+* res/skins/mycustomskin/css
+* res/skins/mycustomskin/components
+* res/skins/[mycustomskin/images
+* res/skins/skin.properties
 
-Alternatively, create the skin directory structure manually:
-
-Create the following directories under `res/skins` where [skinid] is the name of
-your new skin. Skin IDs can contain letters, numbers, and underscores. For this tutorial,
-use the skin ID `mycustomskin`:
-* res/skins/[skinid]
-* res/skins/[skinid]/css
-* res/skins/[skinid]/desktop/components
-* res/skins/[skinid]/desktop/css
-* res/skins/[skinid]/desktop/images
-
-**2.** Make sure you have `skin.properties` under res/skins in the following locations:
-* res/skins/[skinid]/skin.properties
-* res/skins/[skinid]/desktop/skin.properties
-
-**3.** Make sure all skin.properites files must include the fields below.
+**2.** Make sure skin.properites includes the fields below.
 
 ```
 parent              = base
 title               = mycustomskin
 ```
 
-Your file structure should look similar to this:
-
-<img src="img/skinDir.png" width="520" align="middle"/>
-
-**4.** Change the background color of all community pages from white (FFFFFF) to gray (DEE3E3) by changing the value of
-`color.background` in `/mycustomskin/skin.properties`:
+**3.** In the text editor of your choice, change the background color of all community pages from white (FFFFFF) to gray (DEE3E3) by changing the value of
+`color.background` in `res/skins/mycustomskin/skin.properties`:
 
 ```
 parent              = base
 title               = mycustomskin
 color.background			= DEE3E3
 ```
+
+**4.** Save your changes.
 
 **5.** Run `li submit-plugin`.
 
@@ -254,8 +237,8 @@ the correct skin to your community in Community Admin.
 Some visual elements aren't defined by skin properties,
 but you might still want to style differently. This is where CSS comes in.
 
-**Note:** Responsive skins use Sass SCSS. If your community is using Lithium Responsive, contact
-your Lithium Services representative for customizing responsive skins using the SDK.
+**Note:** Responsive skins use Sass SCSS. If your
+community is using Lithium Responsive, see the Hello Responsive tutorial in the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Lithium Responsive developer documentation</a>.
 
 Let's add some simple styling to our coreNodeDetails component. We're going to add a
 Community API REST call to retrieve the name of the current user in session, and then

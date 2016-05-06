@@ -26,7 +26,7 @@ Let's look at the SDK plugin structure. When you created your plugin project,
 the script created several folders in your local
 plugin repository. Customizations go in the `res` and `web` directories. 
 
-We use the term _plugin point_ to refer to a type of community customization. Components are a pluign point, skins are a plugin point, and so on. The table below lists Community plugin points, where to put the code, and where the customizations appear in Studio when you submit the plugin to the stage server.   
+We use the term _plugin point_ to refer to a type of community customization. Components are a plugin point, skins are a plugin point, and so on. The table below lists Community plugin points, where to put the code, and where the customizations appear in Studio when you submit the plugin to the stage server.   
 
 
 | Plugin Point | Location | Files Extension | Notes |
@@ -159,7 +159,7 @@ Here are the elements used in quilts.
 | Element | Description | Attributes | Child Attributes |
 | ------- | ----------- | ---------- | ---------------- |
 | quilt   | The main container. Defines the layout and whether the quilt can be nested within other quilts. Define components to add or remove from the quilt | `layout` - the name of the layout<br />`nestable` - whether or not the quilt can be included within another quilt |` add`, `remove` |
-| add     | Defines a component to add to a column in the layout used by the quilt. You can add the component to a nested quilt within the current quilt using the `for` attribute. For example: `<add to="hero-content" for="Header"> <component id="quilt:CommunityHero"/>` adds the CommunityHero nested quilt into hero-content colulmn of the Header quilt | `to` - the column where the component will be added<br /> `for` - the ID of the nested quilt | `component` - the  ID of the component to add |
+| add     | Defines a component to add to a column in the layout used by the quilt. You can add the component to a nested quilt within the current quilt using the `for` attribute. For example: `<add to="hero-content" for="Header"> <component id="quilt:CommunityHero"/>` adds the CommunityHero nested quilt into hero-content column of the Header quilt | `to` - the column where the component will be added<br /> `for` - the ID of the nested quilt | `component` - the  ID of the component to add |
 | remove  | Defines components to remove from a nested quilt included in the current quilt (for example, the header). In the example above, we are removing the `common.widget.breadcrumb` component from the `breadcrumb` column in the `Header` quilt when Header is included in MyCustomPage.quilt.xml | `from` - the column from which to remove the component. The value must match a valid column name in a valid layout. <br />`for` - the ID of the nested quilt | `component` - the ID of the component to remove |
 | component | Defines a component being added or removed from the quilt | `id` - the component ID. The ID is the name of the component FTL file. <br />`mode` - used with core Lithium components only. Some Lithium components require the mode parameter to render the component property in a slim or wide content panel. The Lithium component hover cards in Studio detail which components use the mode parameter.<br />`interactionStyle` - used to scope a component to a particular interaction style. The Lithium component hover cards in Studio detail which components use the interactionStyle parameter.| . |
 
@@ -256,71 +256,86 @@ useful examples for editing and creating the layout XML.
 
 ### Customize skins <a id="skins"></a>
 
+Using the SDK, you can contribute skin properties, CSS, SCSS, images, and
+wrappers for desktop, mobile v1, and responsive communities. 
+
+Put skin customizations in `res/skins`. Each skin is a separate subdirectory under `res/skins`. We'll look at that [subdirectory structure](/develop/customize#structure) later in this section.
+
 This section includes:
 
+* [Create a skin](/develop/customize#createSkin)
 * [Skin directory structure](/develop/customize#structure)
 * [Basic styling with skin properties](/develop/customize#skinProperties)
 * [Overriding skin images](/develop/customize#skinImages)
 * [Customizing the page wrapper](/develop/customize#pagewrapper)
 * [Customizing CSS](/develop/customize#stylesheets)
 
-Using the SDK, you can contribute skin properties, CSS, and
-wrappers for desktop and mobile v1 communities. Put skin customizations in `res/skins`.
- Each skin is a separate subdirectory under `res/skins`. Each skin folder needs
-subdirectories to hold skin properties and wrappers for
- mobile and desktop as needed. We'll look at that subdirectory structure in the next section.
+**Note:** Responsive skin architecture, Sass customization, and image overrides are covered in the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Responsive Developer Documentation</a>. Customer-led Lithium Responsive implementation and responsive skin customization is in open beta. Learn more about Lithium Responsive, our responsive Community UX feature, on the <a href="http://community.lithium.com/t5/Responsive-for-Developers/tkb-p/responsivetkb" target="_blank">Lithium Community</a>. The sections [Create a skin](/develop/customize#createSkin) and [Customizing the page wrapper](/develop/customize#pagewrapper) sections apply to both responsive and non-responsive skins. 
 
- **Note:** Responsive skins are covered in the Lithium Reponsive Developer Documentation. Lithium Responsive is currently only available to customers through a Services-led engagement. Responsive for Developers will be in open beta for all customers in a future release. The information in this section applies to non-responsive skins only.
+After you have submitted to stage, apply the skin to the community in **Community Admin > Display > Skins** to see the changes.
 
-#### Skin directory structure <a id="structure"></a>
+#### Create a skin <a id="createSkin"></a>
 
-**Tip:** The easiest way to create the skin structure for a new skin is to create the skin in Studio and then export skins to the SDK
-using `li export-studio-plugin --points "skin" --force`.
-When you export the skin from Studio into the SDK plugin, the skin structure is created for you automatically.
+Use `li create-skin` to create a new skin in the SDK plugin. The script requires SDK version 1.2.0 and Community version 16.4. 
 
-If you don't export a skin from Studio, create the following directories under `res/skins` where [skinid] is the name of
-your new skin. Skin IDs can contain letters, numbers, and underscores:
+Run the script with `--clearCore` to get the most recent versions of parent skins from the server. Running without `--clearCore` is faster, but you will be using the cached versions of the core skins, not necessarily the latest versions. With Lithium Responsive, use the flag when creating a new skin after upgrading to a new version of Responsive Peak or Responsive Base in **Studio > Features**.  
+
+**Note:** For customers using SDK version 1.1.0 and earlier, create a script in Studio and then export skins to the SDK using `li export-studio-plugin --points "skin" --force`. 
+
+The script asks whether you are creating a responsive or non-responsive skin, and then prompts you name the skin and select a parent skin from which the skin inherits CSS, SCSS, and skin properties. Most customers select WhiteUI as their parent for non-responsive skins. Selecting Responsive Peak (or a skin that inherits from Responsive Peak) as the parent for responsive skins.
+
+The script creates a directory for your skin under `/res/skins`. It also creates subdirectories and a skin.properties file that defines the parent skin, the skin ID, and some basic styling. We'll talk to you about the directory structure and skin properties in the next sections. 
+
+```
+parent              = [skin ID of any existing skin in the SDK or Studio plugin]
+title               = [skin ID of this skin]
+```
+
+[Back to top](/develop/customize#top)
+
+#### Skin directory structure (non-responsive skins) <a id="structure"></a>
+
+Your skin directory structure for non-responsive skins includes the following files and subdirectories. See Skin Architecture in the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank
+ ">Reponsive Developer Documentation</a> for the responsive skin directory structure.
+
 * res/skins/[skinid]
+* res/skins/[skinid]/skin.properties
 * res/skins/[skinid]/css
+* res/skins/[skinid]/css/skin.css
 * res/skins/[skinid]/desktop/components
 * res/skins/[skinid]/desktop/css
 * res/skins/[skinid]/desktop/images
+* res/skins/[skinid]/desktop/skin.properties
+
+If you have mobile v1 enabled, you'll also see a /mobile subdirectory:
+
 * res/skins/[skinid]/mobile/components (optional if not using mobile v1)
 * res/skins/[skinid]/mobile/css (optional if not using mobile v1)
 * res/skins/[skinid]/mobile/images (optional if not using mobile v1)
-
-Create new files called `skin.properties` under res/skins in the following locations:
-* res/skins/[skinid]/skin.properties
-* res/skins/[skinid]/desktop/skin.properties
 * res/skins/[skinid]/mobile/skin.properties (optional unless overriding properties for mobile)
 
-This file defines the parent skin for your new skin, as well as some basic styling.
-```
-parent              = [any existing skin in the SDK or Studio plugin]
-title               = [skinid]
-```
-
-Your skin folder structure should look something like this:
+Here is an example with both /desktop and /mobile subdirectories.
 
 <img src="img/skinDir.png" width="520" align="middle"/>
-
-After you have submitted to stage, apply the skin to the community in **Community Admin > Display > Skins** to see the changes.
 
 [Back to top](/develop/customize#top)
 
 #### Basic skin styling with skin properties <a id="skinProperties"></a>
 We described earlier that skin.properties defines some basic styles used by your skin.
-You can read more about <a href="https://community.lithium.com/t5/Skins-and-assets/Edit-skin-properties/ta-p/40322" target="_blank">skin properties</a> on the Lithium Community.
-See {@link refer/skinproperties Skin Properties} for additional skin
-properties you can add to the file.
+You can read more about <a href="https://community.lithium.com/t5/Skins-and-assets/Customize-skin-properties-colors-fonts-and-dimensions/ta-p/109055" target="_blank">skin properties</a> on the Lithium Community.
+See {@link refer/skinproperties Skin Properties} for property definitions.
 
-If you want to use different properties in the mobile and desktop versions of the skin, you would
- create additional `skin.properties` files within the `desktop` and `mobile` directories
- for the the `mycustomskin` directory, as shown in the image above.
+If you want to use different property values in the mobile and desktop versions of the skin, create put those properties and values in the `skin.properties` files within the `desktop` and `mobile` directories for your skin.
+
+Responsive skins use only a small subset of skin properties. See the Skin Architecture in the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Responsive Developer Documentation</a> for details.
+
+[Back to top](/develop/customize#top)
 
 #### Overriding skin images <a id="skinImages"></a>
 To override an image used in a skin, create a new image asset and give it the same
 name as the image currently used by the skin. Then place the image in PLUGIN_HOME/res/skins/[skinid]/images.
+
+Image overrides for responsive skins is done differently. See the Developer Guide in the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Responsive Developer Documentation</a> for details.
 
 [Back to top](/develop/customize#top)
 
@@ -340,12 +355,15 @@ When you customize the wrapper, edit `<skinid>/desktop/skin.properties` so that 
 looks like this:
 
 ```
-parent = [skinid]
-title = [skinid]
+parent = [parent skin ID goes here]
+title = [skin ID goes here]
 ```
 
 Wrapper content is put into FTL (FreeMarker) files. Place the in
   `PLUGIN_HOME/res/skins/<skinid>/components/desktop` or `PLUGIN_HOME/res/skins/<skinid>/components/mobile`.
+
+**Note:** If you are working with a responsive skin created in the SDK, put the wrapper files in `PLUGIN_HOME/res/skins/<skinid>/components/`.
+  
   Use theses file names for wrapper elements:
 * head_top.ftl - Used to add browser compatibility tags. This maps to the **Page Head Top Content** section of the Studio **Wrapper** tab.
 * head.ftl - HTML to add meta tags, links to external CSS or JavaScript files, styling,
@@ -355,11 +373,13 @@ Wrapper content is put into FTL (FreeMarker) files. Place the in
 * hitbox.ftl - for HTML content to add below the footer, such as Google Analytics or Omniture metrics collection,
 or additional JavaScript. This maps to the **Hitbox** section of the Studio **Wrapper** tab.
 
-##### Example head_top.ftl
+**Example head_top.ftl**
+
 ```
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
 ```
-##### Example head.ftl
+**Example head.ftl**
+
 This example adds some styling and adds some navigation logic based on whether a user is
 anonymous or not.
 ```
@@ -374,7 +394,8 @@ anonymous or not.
 </#if>
 ```
 
-##### Example content_wrapper.ftl
+**Example content_wrapper.ftl**
+
  This retrieves header and footer content and inserts it into the page as it is rendered
  and displays custom content.
  ```
@@ -391,6 +412,8 @@ ${settings.name.get("layout.urlfetcher_footer")}
 Many visual elements aren't defined by skin properties. This is where CSS comes in.
 
 Place your CSS in a file called in  `skin.css`, and put it in `PLUGIN_REPO/res/skins/[skinid]/css`.
+
+Responsive skins use Sass SCSS. See the Skin Architecture and Developer Guide sections in the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Responsive Developer Documentation</a> for details.
 
 [Back to top](/develop/customize#top)
 
@@ -617,11 +640,11 @@ Read <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Using-a
 
 The page initialization script is called `common.init.ftl`. Place this file in `res/init`.
 
-During your community launch, Lithium's Professional Services technical consultants or a Lithium partner
+During your community launch, a Lithium Service technical consultants or a Lithium partner
 might have already
 customized the script. We recommend downloading the script from the Studio plugin if you see script
 content in **Studio > Page Initialization**. We recommending not altering existing script content that might
-have been added by Lithium Professional Services or by a Lithium partner.
+have been added by Lithium Services or by a Lithium partner.
 
 [Back to top](/develop/customize#top)
 ___
