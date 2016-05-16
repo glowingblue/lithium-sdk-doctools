@@ -25,7 +25,7 @@ angular.module('directives', [])
       var match = /lang-(\S+)/.exec(element[0].className);
       var lang = match && match[1];
       var html = element.html();
-      element.html(window.prettyPrintOne(html, lang, linenums));
+      element.html(window.PR.prettyPrintOne(html, lang, linenums));
     }
   };
 })

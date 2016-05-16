@@ -23,7 +23,7 @@ module.exports = function (opts) {
       name: 'default',
       examples: {
         commonFiles: {
-          scripts: [ 
+          scripts: [
             cdnUrl + '/angular.min.js',
             '/' + opts.pathPrefix + 'js/app.js'
           ],
@@ -41,8 +41,9 @@ module.exports = function (opts) {
         cdnUrl + '/angular-sanitize.min.js',
         cdnUrl + '/angular-touch.min.js',
         cdnUrl + '/angular-animate.min.js',
-        'https://google-code-prettify.googlecode.com/svn/loader/prettify.js',
-        'https://google-code-prettify.googlecode.com/svn/loader/lang-css.js',
+        // 'https://google-code-prettify.googlecode.com/svn/loader/prettify.js',
+        // 'https://google-code-prettify.googlecode.com/svn/loader/lang-css.js',
+        'https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js',
         '/' + opts.pathPrefix + 'components/' + getComponentWithVersion('marked') + '/marked.js',
         '/' + opts.pathPrefix + 'components/' + getComponentWithVersion('lunr') + '/lunr.min.js',
         '/' + opts.pathPrefix + 'js/angular-bootstrap/bootstrap.min.js',
