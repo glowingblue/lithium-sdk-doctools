@@ -23,16 +23,20 @@
     window.addEventListener('hashchange', postUrlMessage);
     
     if (window.angular) {
-      var $body = angular.element(document.body);
-      if ($body.injector) {
-        var $injector = $body.injector();
-        
-        $injector.invoke(['$rootScope', function ($rootScope) {
-          $rootScope.$on('$locationChangeSuccess', function () {
-            postUrlMessage();
-          });
-        }]);
-      }
+      setTimeout(function () {
+        var $body = angular.element(document.body);
+        if ($body.injector) {
+          var $injector = $body.injector();
+          
+          if ($injector.invoke) {
+            $injector.invoke(['$rootScope', function ($rootScope) {
+              $rootScope.$on('$locationChangeSuccess', function () {
+                postUrlMessage();
+              });
+            }]);
+          }
+        }
+      });
     }
   }
 })();
