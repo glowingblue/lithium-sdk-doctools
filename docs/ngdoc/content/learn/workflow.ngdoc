@@ -87,7 +87,7 @@ The `clear-studio-plugin` script clears _all_ plugin points from Studio. (If you
 
 `li clear-studio-plugin --points component,skins -- force` 
 
-But what if you don't want to clear an entire plugin point? You can export a pluign point and then manually delete files in either Studio or the SDK plugin so that the correct files exist in the correct location. 
+But what if you don't want to clear an entire plugin point? You can export a plugin point and then manually delete files in either Studio or the SDK plugin so that the correct files exist in the correct location. 
 
 Let's look at an example. Suppose that you're company is reskinning the community. The community currently uses skins B and C for the mobile and desktop versions of the site. Your designer and community manager want to make small changes in Studio to these skins when needed, so they want these skins to remain in the Studio plugin -- their preferred development tool. Meanwhile the development team created a new skin (A) for the community refresh project, and the team will do their development in the SDK.
 
