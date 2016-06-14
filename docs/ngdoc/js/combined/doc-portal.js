@@ -1,9 +1,11 @@
-;(function () {
-  function postUrlMessage() {
+angular.module('deeplink', [])
+
+.run(['$rootScope', function ($rootScope) {
+  function postUrlMessage(e) {
     var messageObj = {
       event: 'urlChange',
       data: {}
-    }
+    };
 
     if (window.location.pathname.length > 1) {
       messageObj.data.p = window.location.pathname;
@@ -21,22 +23,6 @@
   if (window.JSON) {
     window.addEventListener('load', postUrlMessage);
     window.addEventListener('hashchange', postUrlMessage);
-    
-    if (window.angular) {
-      setTimeout(function () {
-        var $body = angular.element(document.body);
-        if ($body.injector) {
-          var $injector = $body.injector();
-          
-          if ($injector.invoke) {
-            $injector.invoke(['$rootScope', function ($rootScope) {
-              $rootScope.$on('$locationChangeSuccess', function () {
-                postUrlMessage();
-              });
-            }]);
-          }
-        }
-      });
-    }
+    $rootScope.$on('$locationChangeSuccess', postUrlMessage);
   }
-})();
+}]);

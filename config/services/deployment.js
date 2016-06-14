@@ -1,6 +1,6 @@
 "use strict";
 
-var cdnUrl = "//ajax.googleapis.com/ajax/libs/angularjs/1.2.19";
+var cdnUrl = "//ajax.googleapis.com/ajax/libs/angularjs/1.5.6";
 
 var path = require('canonical-path');
 var basePath = path.resolve(__dirname, '../..');

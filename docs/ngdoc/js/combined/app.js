@@ -13,7 +13,8 @@ angular.module('docsApp', [
   'tutorials',
   'bootstrap',
   'versions',
-  'ui.bootstrap.dropdown'
+  'ui.bootstrap.dropdown',
+  'deeplink'
 ])
 
 .config(['$locationProvider', function($locationProvider) {
