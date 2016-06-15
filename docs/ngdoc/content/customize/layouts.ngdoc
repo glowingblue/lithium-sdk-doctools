@@ -1,0 +1,48 @@
+@ngdoc overview
+@name Layouts
+@sortOrder 600
+@description
+
+
+## Layouts <a id="top"></a>
+
+Layouts define the structure of a page using are rows and columns. Each quilt specifies a layout and the quilt defines which
+components to place within each of the layout's columns. The layout contains any number of rows and each row contains
+one or more columns. Each column has a width and an ID. The total width of the columns in a row must add up to 24. Lithium comes with a large set of layouts to choose from. You can find a list of default layouts in
+**Studio > Layouts**.
+
+Learn about layouts in <a href="http://community.lithium.com/t5/Pages-and-layouts/About-page-layouts/ta-p/108951" target="_blank">this article</a> in
+the Lithium community.
+
+Layouts use the file extension `layout.xml`. Put them in `/res/layouts` in your plugin project.
+
+## The layout XML
+
+```
+<layout>
+  <row id="header">
+    <column id="common-header" width="24"/>
+  </row>
+  <row id="main">
+    <column id="main-content" width="18"/>
+    <column id="side-content" width="6"/>
+  </row>
+  <row id="footer">
+    <column id="common-footer" width="24"/>
+  </row>
+</layout>
+```
+
+Here are the elements used in layouts.
+
+<a href="http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page-layout/ta-p/108959" target="_blank">This article</a> contains
+useful examples for editing and creating the layout XML.
+
+| Element | Description | Attributes | Child Attributes |
+| ------- | ----------- | ---------- | ---------------- |
+| layout  | The main container | NONE | `row` |
+| row     | A row in the layout. | `id` - the ID of the row | `column` - columns in the row |
+| column  | The column definition | `id` - the ID of the columns <br /> `width` - width of the column. The width of columns in a row must add up to 24. | . |
+
+[Top](/customize/layouts#top)
+___

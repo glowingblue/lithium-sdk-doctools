@@ -3,7 +3,7 @@
 @sortOrder 100
 @description
 
-# Welcome to the Lithium-Klout SDK
+# Welcome to the Lithium SDK
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
 At Lithium Technologies, we help you reinvent ways to connect, build, and maintain trusted connections with
@@ -17,18 +17,18 @@ using your favorite tools and common workflows.
 
 ## Before you Begin
 
-As you begin to develop on the Lithium-Klout Platform, you'll want to understand:
+As you begin to develop on the Lithium Platform, you'll want to understand:
 
 * Lithium's {@link /learn/architecture customization and plugin framework}
 * The {@link /learn/workflow workflow} from local development through publishing to production
 * How to {@link /develop/getStarted set up your development environment}
 * How to {@link /develop/create create your project repository}
-* How to {@link /develop/customize contribute customizations}
+* How to {@link /customize/customize contribute customizations}
 * How to develop in conjunction with {@link /learn/workflow#collabWithServices Lithium Services}
 
 ## What the SDK supports
 
-Using the Lithium-Klout SDK you can:
+Using the SDK you can:
 * Choose to develop in Windows 7+, Mac, or Linux environments
 * Export existing customizations from Studio (components, endpoints, skins, and so on) into the SDK plugin for easier development and source control
 * Clear assets created in Studio from the Studio plugin to keep source code for more technical customizations such as components, endpoints, and macros in the SDK plugin
@@ -63,11 +63,9 @@ that is connected via Studio Publish to your production site.
 
 You'll continue to use Studio for the following tasks:
 
-* [Create a new skin](https://community.lithium.com/t5/Skins-and-assets/Create-a-skin/ta-p/109065)
 * [Edit FAQ text](https://community.lithium.com/t5/FAQs-email-templates-and-text/Manage-the-FAQ-structure/ta-p/109015)
 * [Create the spellcheck dictionary](https://community.lithium.com/t5/General-system-setup/Enable-and-use-spellcheck-and-create-a-custom-dictionary/ta-p/57492)
 * [Manage feature versions](https://community.lithium.com/t5/General-system-setup/Set-the-version-of-a-community-feature/ta-p/115429)
-* [Edit the Robot Exclusion Protocol](https://community.lithium.com/t5/Operating-systems-browsers-and/Robots-txt/ta-p/42752)
 * {@link /develop/create Generate the SDK upload token}
 * <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=commv2&v2.main=gettingstarted#apiBrowser" target="_blank">Test LiQL queries</a>
 ___

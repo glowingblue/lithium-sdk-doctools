@@ -6,7 +6,7 @@
 # Developer workflow <a id="top"></a>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-The Lithium-Klout SDK supports a developer-friendly "choose your own IDE" experience
+The Lithium SDK supports a developer-friendly "choose your own IDE" experience
 that enables you to develop locally with the tools of your choice, collaborate with your
 own team in your own source control system, and test on your stage environment.
 
@@ -45,7 +45,7 @@ the root directory of your plugin project under source control.
 After the SDK project is created and placed under source control, other developers
  pull the plugin project to replicate the SDK plugin directory structure on their local machines.
 
-After setup is complete, the team is ready to customize and check in. Read {@link /develop/customize Customize}
+After setup is complete, the team is ready to customize and check in. Read {@link /customize/customize Customize}
 to learn about the plugin repository structure.
 
 ### Creating a development strategy <a id="strategy"></a>
@@ -181,7 +181,7 @@ to a previous version, you also use Studio Publish. See <a href="https://communi
 and <a href="https://community.lithium.com/t5/Previewing-and-publishing/The-Studio-Publish-workflow/ta-p/109037" target="_blank">The Studio Publish Workflow</a>
 for details.
 
-[Back to top](/learn/workflow#top)
+[Top](/learn/workflow#top)
 
 ## Collaborating with Lithium Services <a id="collabWithServices"></a>
 Most Lithium Community customers hire Lithium Services at some point for customization work whether
@@ -195,7 +195,7 @@ collaborate in a way that prevents overwrites in the SDK plugin and provides the
 or all developers.
 
 ### Collaboration workflow
-In this workflow, in-house or partner developers use the Lithium-Klout SDK for Community
+In this workflow, in-house or partner developers use the Lithium SDK for Community
 development and Lithium Services are hired to do additional Community customization.
 The workflow assumes:
 
@@ -216,6 +216,6 @@ your SDK plugin to the shared repository. (Lithium Services will provide instruc
 * Lithium Services and in-house/partner developers will sync the Github repository to their local environments. (Lithium Services will provide instructions.)
 * Both teams will contribute their customization work in the new shared plugin project on Github and then deploy to stage as needed.
 
-[Back to top](/learn/workflow#top)
+[Top](/learn/workflow#top)
 
 ___

@@ -1,0 +1,98 @@
+@ngdoc overview
+@name Skins
+@sortOrder 1200
+@description
+
+# Skins <a id="top"></a>
+
+Using the SDK, you can contribute skin properties, CSS, SCSS, images, and
+wrappers for desktop, mobile v1, and responsive communities. 
+
+Put skin customizations in `res/skins`. Each skin is a separate subdirectory under `res/skins`. We'll look at that [subdirectory structure](/customize/skins#structure) later in this section.
+
+**Note:** Responsive skin customization is covered in the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Responsive Developer Documentation</a>. Customer-led Lithium Responsive implementation and customization is closed beta. Learn more about Lithium Responsive, our responsive Community UX feature, on the <a href="http://community.lithium.com/t5/Responsive-for-Developers/tkb-p/responsivetkb" target="_blank">Lithium Community</a>. [Create a skin](/customize/skins#createSkin)applies to both responsive and non-responsive skins. 
+
+This document includes:
+
+* [Creating a skin](/customize/skins#createSkin)
+* [Skin directory structure](/customize/skins#structure)
+* [Styling with skin properties](/customize/skins#skinProperties)
+* [Overriding skin images](/customize/skins#skinImages)
+* [Customizing CSS](/customize/skins#stylesheets)
+
+After you have submitted to stage, apply the skin to the community in **Community Admin > Display > Skins**.
+
+## Creating a skin <a id="createSkin"></a>
+
+Use `li create-skin` to create a new skin. The script requires SDK version 1.2.1 and Community version 16.4. 
+
+Run the script with `--clearCore` to get the most recent versions of parent skins from the server. Running without `--clearCore` is faster, but you will be using the cached versions of the core skins, not necessarily the latest versions. With Lithium Responsive, always use the flag when creating a new skin after upgrading to a new version of Responsive Peak or Responsive Base in **Studio > Features**.  
+
+**Note:** For customers using SDK version 1.1.0 and earlier, create a script in Studio and then export skins to the SDK using `li export-studio-plugin --points "skin" --force`. 
+
+The script asks whether you are creating a responsive or non-responsive skin, and then prompts you to name the skin and select a parent skin. (The skin inherits CSS, SCSS, and skin properties from its parent.) Most customers select WhiteUI as their parent for non-responsive skins. Select Responsive Peak (or a skin that inherits from Responsive Peak) as the parent for responsive skins.
+
+`li create-skin` creates a directory for your skin under `/res/skins/<skin ID>`. It also creates subdirectories and a skin.properties file that defines the parent skin, the skin ID, and some basic styling. We'll talk to you about the directory structure and skin properties in the next sections. 
+
+```
+parent              = [skin ID of any existing skin in the SDK or Studio plugin]
+title               = [skin ID of this skin]
+```
+
+[Top](/customize/skins#top)
+
+## Skin directory structure (non-responsive skins) <a id="structure"></a>
+
+Your skin directory structure for non-responsive skins includes the following files and subdirectories. See <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive#l::{"p":"/section-architecture.html"}" target="_blank">Skin Architecture</a> in the Reponsive Developer Documentation for the responsive skin structure.
+
+* res/skins/[skinid]
+* res/skins/[skinid]/skin.properties
+* res/skins/[skinid]/css
+* res/skins/[skinid]/css/skin.css
+* res/skins/[skinid]/desktop/components
+* res/skins/[skinid]/desktop/css
+* res/skins/[skinid]/desktop/images
+* res/skins/[skinid]/desktop/skin.properties
+
+If you have Mobile v1 enabled, you'll also see a /mobile subdirectory with these files:
+
+* res/skins/[skinid]/mobile/components
+* res/skins/[skinid]/mobile/css
+* res/skins/[skinid]/mobile/images
+* res/skins/[skinid]/mobile/skin.properties
+
+Here is an example with both /desktop and /mobile subdirectories.
+
+<img src="img/skinDir.png" width="520" align="middle"/>
+
+[Top](/customize/skins#top)
+
+## Styling with skin properties <a id="skinProperties"></a>
+Skin properties define basic styles used by your skin. 
+You can read more about <a href="https://community.lithium.com/t5/Skins-and-assets/Customize-skin-properties-colors-fonts-and-dimensions/ta-p/109055" target="_blank">skin properties</a> on the Lithium Community.
+See {@link refer/skinproperties Skin Properties} for property definitions.
+
+If you want to use different property values in the mobile and desktop versions of the skin, put those properties and values in the `skin.properties` files within the `desktop` and `mobile` directories for your skin.
+
+Responsive skins use only a small subset of skin properties. See <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive#l::{"p":"/section-architecture.html"}" target="_blank">Skin Architecture</a> in the Responsive Developer Documentation for details.
+
+[Top](/customize/skins#top)
+
+## Overriding skin images <a id="skinImages"></a>
+To override an image used in a skin, create a new image asset and give it the same
+name as the image currently used by the skin. Place the image in PLUGIN_HOME/res/skins/[skinid]/images.
+
+Image override for responsive skins is done differently. See the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive#l::{"p":"/section-developerguide.html"}" target="_blank">Developer Guide</a> in the Responsive Developer Documentation for details.
+
+[Top](/customize/skins#top)
+
+## Customizing CSS <a id="stylesheets"></a>
+
+Many visual elements aren't defined by skin properties. This is where CSS comes in.
+
+Place your CSS in a file called in  `skin.css`, and put it in `PLUGIN_REPO/res/skins/[skinid]/css`.
+
+Responsive skins use Sass SCSS. See the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive#l::{"p":"/section-developerguide.html"}" target="_blank">Developer Guide</a> and <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive#l::{"p":"/section-architecture.html"}" target="_blank">Skin Architecture</a>in the Responsive Developer Documentation for details.
+
+[Top](/customize/skins#top)
+___

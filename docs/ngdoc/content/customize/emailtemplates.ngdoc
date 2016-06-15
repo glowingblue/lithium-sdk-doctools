@@ -1,0 +1,69 @@
+@ngdoc overview
+@name Email Templates
+@sortOrder 400
+@description
+
+
+# Email templates <a id="top"></a>
+
+**Added 16.2. This feature is in Open Beta.**
+
+**Note:** Icons, alerts, and confirmations used to identify email templates in the SDK plugin and prevent Studio overrides are not implemented at this time.
+
+Export customized email templates in Studio using `li export-studio-plugin --email --force`. 
+
+Once you customize an email template, you will no longer see updates to the template upon future release upgrades.
+
+* [Submit a custom email template](/customize/emailtemplates#submit)
+* [Delete a custom email template](/customize/emailtemplates#delete)
+
+## Submitting customized email templates<a id="submit"></a>
+
+Email templates use the Velocity template language. To customize your email templates, you use context objects as variables to tailor the content to the correct user and situation without hard coding URLs and other dynamic data. See <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Email-template-context-objects/ta-p/75924" target="_blank">Email template context objects</a> for a comprehensive list of Velocity context objects supported by Lithium. Note that these context objects are different than FreeMarker context objects used in components and endpoints.
+
+Custom email templates go in `res/lang/text.<language code>`.
+
+For example:
+
+`res/lang/text.en` for English email templates
+
+`res/lang/text.fr.(UTF-8)` for French templates
+
+Note the .(UTF-8) naming convention appended to email template folders for non-English-based languages.
+
+Email templates use this naming convention: `email_content.template.<template name>.text`
+
+Use the same email template name for every language you want to support.
+
+Custom email templates submitted using the SDK appear in **Studio > Text Editor > Email Text**. You will not see the SDK icon next to these email templates in Studio signaling that a version exists in the SDK. Also, there are no warnings if a Studio user attempts to edit an email template that exists in the SDK plugin.
+
+Email template files use the following format.
+
+```
+== .html_content =========================================
+
+HTML version of email content goes here
+
+== .subject =========================================
+
+Subject line text goes here (used for both HTML and Plain Text versions)
+
+== .text_content =========================================
+
+Plain text version of email content goes here
+```
+
+If you're creating a new email template (as opposed to overriding one), create two text keys in the appropriate text properties file (such as `text.en.properties`):
+
+* `email.template.<template name>.description` - This is a description that appears in Studio that describes how the template is used and what triggers it to be sent
+* `email.template.<template name>.title` - This is the title of the email template that appears in the **Select Email Template** drop-down in **Studio > Text Editor > Email Text**
+
+Supported languages and the associated language code are described in
+<a href="https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566" target="_blank">Languages that Lithium supports</a>.
+
+## Deleting customized email templates <a id="delete"></a>
+
+Deleting email templates is not recommended at this time.
+
+[Top](/customize/emailtemplates#top)
+___

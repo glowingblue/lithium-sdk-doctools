@@ -1,0 +1,32 @@
+@ngdoc overview
+@name Where to put your code
+@sortOrder 150
+@description
+
+# Where to put your code <a id="top"></a>
+<a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
+
+Your plugin project contains several folders in your local repository. Customizations go in the `res` and `web` directories. 
+
+The term _plugin point_ refers to a type of community customization. Components, skins, assets are examples of plugin points. The table below lists Community plugin points, where to put the code, and where the customizations appear in Studio when you submit the plugin to the stage server.   
+
+
+| Plugin Point | Location | Files Extension | Notes |
+| ------- | ----------- | ---------- | ---------------- |
+| assets | `web/html/assets` | various | Asset files appear in **Studio > Community Style > Other Assets** in the Asset Library. They are identified in Studio with a special SDK icon. |
+| badge icons | `web/html/badge_icons` | various | Badge icons  appear in the **Studio > Community Style > Badges** tab in the Asset Library. They are identified in Studio with a special SDK icon. |
+| components | `res/components` | .ftl | Components placed here appear in the **Studio > Components** tab. They are identified with a special SDK icon. Component names are case-sensitive. |
+| email templates | `res/lang/text.en`</br></br>`res/lang/text.<language code>.(UTF-8)` | .text | Email templates are grouped within their associated language folder under `res/lang` |
+| endpoint metadata  | `res/endpoint` | .endpoint.xml| Endpoint metadata definition files do not appear in Studio. The name is case-sensitive and must match the associated controller FTL file. |
+| endpoint controllers | `res/controllers` | .ftl | Controllers appear in **Studio > Endpoints**. They are identified with a special SDK icon. Controller names are case-sensitive and must match the associated endpoint XML file. |
+| layouts | `res/layouts` | .layout.xml | Layouts appear in **Studio > Layouts**. They are identified with a special SDK icon. Layout names are case-sensitive. |
+| macros | `res/macros` | .ftl | Marcos appear in the **Macros** section of **Studio > Endpoints**. They are identified with a special SDK icon. Macro names are case-sensitive. |
+| page initialization <br /> (common.init) | `res/init` | .ftl | Content from this file appears in **Studio > Advanced > Page Intialization**. Page initialization scripts contributed with the SDK _are not_ indicated by the SDK icon. |
+| quilts | `res/quilts/custom` | .quilt.xml | Quilts files appear in the Custom section in the page selection modal **Studio > Page**. They are identified in Studio with a special SDK icon.  |
+| rank icons | `web/html/rank_icons` | various | Rank icons appear in the **Studio > Community Style > Rank Icons** tab in the Asset Library. They are identified in Studio with a special SDK icon. |
+| skins | `res/skins` | various | Skin assets include CSS, SCSS, skin properties, and wrapper content. Custom skin files appear in **Studio > Community Style**. They are identified in Studio with a special SDK icon. |
+| text properties | `res/lang` | .properties | Text strings contributed with the SDK _are not_ indicated by the SDK icon in the **Studio > Text Editor** tab. |
+| value analytics images | `web/html/survey_icons` | various | Value Analytics survey images appear in the **Studio > Community Style > Value Analytics** tab in the Asset Library. They are identified in Studio with a special SDK icon. |
+
+[Top](/customize/pluginstructure#top)
+___

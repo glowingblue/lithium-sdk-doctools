@@ -6,7 +6,7 @@
 # Deploying your plugin to stage
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-Once you've {@link /develop/customize written customizations} in your local environment, you are ready to
+Once you've {@link /customize/customize written customizations} in your local environment, you are ready to
 deploy the SDK plugin to stage. If you are working in a multi-developer team, be
 sure to coordinate with team members so you don't accidentally override another team
 member's work. See {@link /learn/workflow Developer Workflow} for development environment

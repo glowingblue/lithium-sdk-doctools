@@ -1,0 +1,70 @@
+@ngdoc overview
+@name Page Wrapper
+@sortOrder 900
+@description
+
+
+# Page wrapper <a id="top"></a>
+The page wrapper for a skin provides an additional layer or styling above and below the main
+content of the page (anything above and below `li-body` when looking at a the code for a community page.)
+
+See <a href="https://community.lithium.com/t5/Skins-and-assets/Edit-the-page-wrapper/ta-p/109069" target="_blank">Edit the page wrapper</a> and
+ <a href="http://community.lithium.com/t5/Developers-Knowledge-Base/Launch-Community-Wrapper-Guidelines/ta-p/6411" target ="_blank">Community Wrapper Guidelines</a>
+  for more details about how the wrapper works in communities.
+
+You can upload wrapper content to the stage server using the SDK. The wrapper contents you
+ contribute using the SDK map to the content areas in **Studio > Community Style > Community
+ Skins > Wrapper**.
+
+Wrapper content is put into FTL (FreeMarker) files. 
+  
+Use theses file names for wrapper elements:
+
+* head_top.ftl - Used to add browser compatibility tags. This maps to the **Page Head Top Content** section of the Studio **Wrapper** tab.
+* head.ftl - HTML to add meta tags, links to external CSS or JavaScript files, styling,
+ API keys, and so on to the `<head>` code on each page. This maps to the **Page Head Bottom Content** section of the Studio **Wrapper** tab.
+* content_wrapper.ftl - HTML to add header and footer content above and below the `<@liaBody />` tag in a community page.
+ This content maps to content you would could add to the **Page Header** and **Page Footer** sections of the Studio **Wrapper** tab.
+* hitbox.ftl - for HTML content to add below the footer, such as Google Analytics or Omniture metrics collection,
+or additional JavaScript. This maps to the **Hitbox** section of the Studio **Wrapper** tab.
+
+For responsive communities, put wrapper content in `PLUGIN_HOME/res/skins/<skinid>/components/`
+
+For non-responsive communities, put wrapper content in: `PLUGIN_HOME/res/skins/<skinid>/components/desktop` or `PLUGIN_HOME/res/skins/<skinid>/components/mobile`.
+
+**Example head_top.ftl**
+
+```
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+```
+**Example head.ftl**
+
+This example adds some styling and adds some navigation logic based on whether a user is
+anonymous or not.
+```
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=cyrillic,cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+<link href="${asset.get("/html/assets/favicon.ico")}" rel="shortcut icon" />
+
+<#if user.anonymous>
+<style>
+#lia-body .lia-content .lia-component-common-widget-user-navigation .lia-component-users-action-registration { display: none; }
+#lia-body .lia-content .lia-component-common-widget-user-navigation li:first-child + li { display: none; }
+</style>
+</#if>
+```
+
+**Example content_wrapper.ftl**
+
+ This retrieves header and footer content and inserts it into the page as it is rendered
+ and displays custom content.
+ ```
+${settings.name.get("layout.urlfetcher_header")}
+<@component id="common.widget.custom-content" name="1" panel="false"/>
+<@liaBody />
+
+
+${settings.name.get("layout.urlfetcher_footer")}
+```
+
+[Top](/customize/pagewrapper#top)
+___

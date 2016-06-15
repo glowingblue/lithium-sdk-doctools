@@ -12,7 +12,7 @@ After {@link /develop/getStarted setting up your SDK development environment}:
 * [Generate an upload token](/develop/create#GenerateUploadToken)
 * [Create the local plugin project repository](/develop/create#createPluginRepo)
 * Learn about the plugin structure and [set plugin configurations](/develop/create#serverConfJson) server.conf.json
-* Download the [Studio plugin](/develop/create#downloadStudio), an [SDK plugin](/develop/create#downloadSdk) (if one exists), or just get started creating new customizations
+* Download the [Studio plugin](/develop/create#downloadStudio), an [SDK plugin](/develop/create#downloadSdk) (if one exists), or just get started [creating new customizations](/customize/customize)
 
 ### Generate the upload token<a id="GenerateUploadToken"></a>
 The upload token is required for all SDK command line options. To generate the token, you'll need the "Use the SDK" permission in
@@ -34,7 +34,7 @@ The token is valid for 30 days. This token is specific to the current user logge
 **Note:** Do not share this token. If you post to the Lithium Community for troubleshooting help, be careful not to post you
 token in your message.
 
-[Back to top](/develop/create#top)
+[Top](/develop/create#top)
 
 ---
 
@@ -72,7 +72,7 @@ add the token for the value of `pluginToken`.
 We'll talk about the other configuration options in `server.conf.json` later
 in [Plugin structure and configuration](/develop/create#serverConfJson).
 
-[Back to top](/develop/create#top)
+[Top](/develop/create#top)
 
 ---
 
@@ -96,7 +96,7 @@ export using the `--points` flag, you must also pass the `--force` flag.
 li export-studio-plugin --points "component", "endpoint", "controller, "macro" --force
 ```
 
-[Back to top](/develop/create#top)
+[Top](/develop/create#top)
 Create the plugin project
 
 ### Export the SDK plugin<a id="downloadSdk"></a>
@@ -107,7 +107,7 @@ last SDK plugin uploaded to the stage server. Partial exports of an SDK plugin a
 
 **2** Enter `li export-plugin`.
 
-[Back to top](/develop/create#top)
+[Top](/develop/create#top)
 
 ## Revoke a plugin token
 
@@ -116,7 +116,7 @@ go to **Studio > Advanced > SDK** and click
 **Revoke Token** to generate a new one. Remember to update `server.conf.json`
 with the new token value, and communicate with any team members sharing the token.
 
-[Back to top](/develop/create#top)
+[Top](/develop/create#top)
 
 ## Plugin structure and configuration<a id="serverConfJson"></a>
 
@@ -193,8 +193,8 @@ download the entire plugin.
   **Note:** You cannot define a subset of plugin points to export when exporting an existing SDK plugin.
 
 Read {@link /develop/deploy Deploy} to learn more about packaging the plugin for deployment
- to stage. Read {@link /develop/customize Customize} to learn how to contribute customizations
+ to stage. Read {@link /customize/customize Customize} to learn how to contribute customizations
 using the SDK.
 
-[Back to top](/develop/create#top)
+[Top](/develop/create#top)
 ___

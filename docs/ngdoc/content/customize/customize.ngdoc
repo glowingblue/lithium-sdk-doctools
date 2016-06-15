@@ -1,0 +1,44 @@
+@ngdoc overview
+@name Customize
+@sortOrder 100
+@description
+
+# Customize <a id="top"></a>
+<a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
+
+After {@link develop/create creating your local SDK pluign repository},
+you're ready to learn about plugin points and how to contribute Community customizations with the SDK.
+
+Before you begin:
+* Learn [where to put your code](/customize/pluginstructure)
+* Run through our [tutorial](/develop/tutorial)
+
+See these sections for instructions and examples for plugin point customizations.
+
+* [Add images, icons, and other assets](/customize/assets)
+* [Customize components](/customize/components)
+* [Customize email templates](/customize/emailtemplates)
+* [Create endpoints and controllers](/customize/endpoints)
+* [Customize layouts](/customize/layouts)
+* [Create macros](/customize/macros)
+* [Customize the page initialization script](/customize/pageinitscript)
+* [Create macros](/customize/pagewrapper)
+* [Customize quilts](/customize/quilts)
+* [Customize skins](/customize/skins)
+* [Customize text and Terms of Service](/customize/termsofservice)
+
+All instructions assume you're working in your plugin repository (PLUGIN_REPO).
+
+**Note:** Remember that any customizations that exist in Studio that have the same
+name and file extension as a customization you submit using the SDK override the SDK
+version.
+
+Be sure that you have read the Understanding Plugins section in {@link learn/architecture Customization Framework}, as well as
+<a href="https://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320" target="_blank">About Studio</a> and <a href="https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316" target="_blank">More About Plugins</a>
+before you begin. Remember that SDK contributions are visible in Studio. Assets with
+versions existing in SDK are indicated in Studio with a special icon.
+
+<img src="img/sdkVsStudioAssetsInTab.png" width="600">
+
+[Top](/customize/customize#top)
+___

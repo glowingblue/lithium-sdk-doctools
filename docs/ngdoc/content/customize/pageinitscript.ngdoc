@@ -1,0 +1,23 @@
+@ngdoc overview
+@name Page Initialization Script
+@sortOrder 800
+@description
+
+## Page initialization script <a id="top"></a>
+
+The page initialization script (common.init.ftl) enables you to execute business logic using
+FreeMarker early in a request prior to any HTML being rendered. The script runs once each request,
+server side, and is often used for redirecting to a different page and reskinning pages in the community.
+
+Read <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Using-a-FreeMarker-Page-Initialization-Script/ta-p/125767" target="_blank">this article</a> on the Lithium Community for more information about how to use the script.
+
+The page initialization script is called `common.init.ftl`. Place this file in `res/init`.
+
+During your community launch, a Lithium Service technical consultants or a Lithium partner
+might have already
+customized the script. We recommend downloading the script from the Studio plugin if you see script
+content in **Studio > Page Initialization**. We recommending not altering existing script content that might
+have been added by Lithium Services or by a Lithium partner.
+
+[Top](/customize/pageinitscript#top)
+___

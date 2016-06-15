@@ -1,0 +1,37 @@
+@ngdoc overview
+@name Components
+@sortOrder 300
+@description
+
+
+# Components<a id="top"></a>
+You write components in FreeMarker, a templating language. Learn about FreeMarker at <a href="http://freemarker.org/" target="_blank">FreeMarker.org</a>.
+
+Lithium provides our own <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=freemarker#l::{"p":"/learn/aboutFreeMarker"}" target="_blank">FreeMarker context objects and directives</a> that work specifically with the Lithium Community product.
+
+Custom component code goes in `res/components`.
+
+Here is some sample FreeMarker code that prints out details about the node (the community,
+category, or board) in context using the coreNode FreeMarker context object. We use
+this code in our [customization tutorial](/develop/tutorial).
+
+```
+Node Details</br>
+${coreNode.id}</br>
+${coreNode.nodeId}</br>
+${coreNode.nodeType}</br>
+${coreNode.shortTitle}</br>
+${coreNode.title}
+```
+
+If you're new to FreeMarker and Lithium Communities, see these articles on the Lithium Community to get started with custom components:
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Component-tutorial-Building-your-first-custom-component-with/ta-p/122991" target="_blank">Component Tutorial: Building your first custom component</a>
+* <a href="https://community.lithium.com/t5/Community-API-v2/Tutorial-Update-a-FreeMarker-component-from-Community-REST-API/ta-p/178887" target="_blank">Component Tutorial: Update a component from Community API v1 to v2</a>
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Adding-JavaScript-to-components-with-liaAddScript/ta-p/197594" target="_blank">Adding JavaScript to components</a>
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Component-Caching-with-liaMarkupCache/ta-p/200921" target="_blank">Component Caching</a>
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Calling-an-endpoint-from-a-custom-component/ta-p/197595" target="_blank">Calling an Endpoint from a Component</a>
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Passing-Parameters-to-a-Custom-Component/ta-p/88704" target="_blank">Passing parameters to a Component</a>
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Creating-Modal-Dialogs/ta-p/77986" target="_blank">Creating Modal Dialogs</a>
+
+[Top](/customize/components#top)
+___

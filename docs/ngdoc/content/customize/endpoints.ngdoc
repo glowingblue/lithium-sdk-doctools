@@ -1,0 +1,89 @@
+@ngdoc overview
+@name Endpoints
+@sortOrder 500
+@description
+
+# Endpoints and controllers<a id="top"></a>
+While custom components blend into the look and feel of the community to extend the
+functionality of a core component or provide an entirely new module, endpoints are independent
+of the community. An endpoint can gather and manipulate data from a series of REST calls,
+as well as have its own styling. You can use endpoints to:
+
+* Make AJAX requests from custom components
+* Syndicate community content on other websites
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Using-Endpoints-to-Condense-REST-API-Requests/ta-p/88908" target="_blank">Condense REST API requests</a>
+* <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Using-the-http-client-Context-Object-to-Integrate-with-a-Third/ta-p/91640" target="_blank">Make server-to-server REST API calls</a>
+
+Endpoints are written in <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=freemarker#l::{"p":"/learn/aboutFreeMarker"}" target="_blank">FreeMarker</a>. When contributing an endpoint using the SDK, each endpoint consists
+of two files:
+
+* an XML file defining metadata for the endpoint. Place this file in `/res/endpoints` and use the file extension `endpoint.xml`.
+* an FTL controller file containing the endpoint FreeMarker code. Place this file in `/res/controllers` and use the file extension `.ftl`.
+
+This is different than when you contribute an endpoint using Studio. When you create an endpoint in Studio,
+you create the controller and Studio automatically creates the endpoint metadata XML file.
+
+**Note:** The endpoint and controller file must use the same name.
+
+**Tip:** To create the endpoint XML, create the endpoint in Studio and export the endpoint
+into the SDK using `li export-studio-plugin --points "endpoint" --force`.
+
+## Endpoint XML example and parameters
+This example defines the meta data for an endpoint called ideaStatusCount.
+
+```
+<endpoint version="1.0.0" key="ideaStatusCount" feature="sandbox.myplugin">
+  <model/>
+  <view type="freemarker" contenttype="text/html" macro="false"/>
+  <controller id="basic" path="/ideaStatusCount"/>
+</endpoint>
+```
+endpoint parameters:
+* `version` - always "1.0.0"
+* `key` - the name of the endpoint, without the `.endpoint.xml` extension
+* `feature` - must match the fully-qualified name of the studio plugin, without the phase
+view parameters
+* `type` - always "freemarker"
+* `content/type` - the content type of the response. This corresponds to the types listed in the **View Content Type**
+drop down in **Studio > Endpoints**.
+
+* `macro` - deprecated (set to `false`)
+controller parameters
+* `id` - always "basic"
+* `path` - the path to the controller.  Set this to the same as the `key`, but with a leading forward-slash, such as `/ideaStatusCount`
+
+## Controller example
+Here is an example controller `ideaStatusCount.ftl` that contains the ideaStatusCount endpoint FreeMarker logic.
+It retrieves a list of idea statuses defined for a community and then returns the count of how many ideas have each status, condensing
+the response from two calls into a single response in order to save an additional HTTP request.
+
+```
+<#include "objecttojson" />
+<#setting url_escaping_charset='ISO-8859-1'>
+<#assign query = http.request.parameters.name.get("q", "select status from messages where conversation.style=\"idea\" and depth=0 limit 300") />
+<#assign result = rest("2.0","/search?q=" + query?url) />
+<@compress>
+{
+<#if result.status = "success">
+  "result": "success",
+  <#assign statusKeys = {} />
+
+  <#list result.data.items as message>
+    <#if message.status??>
+		<#if !statusKeys?keys?seq_contains(message.status.key)>
+		  <#assign statusKeys = statusKeys + {message.status.key: 1} />
+		<#else>
+		  <#assign statusKeys = statusKeys + {message.status.key: (statusKeys[message.status.key] + 1)} />
+		</#if>
+	</#if>
+  </#list>
+  "ideaKeys": ${objectToJsonFunction(statusKeys)}
+<#else>
+"result": "error"
+</#if>
+}
+</@compress>
+```
+
+[Top](/customize/endpoints#top)
+___

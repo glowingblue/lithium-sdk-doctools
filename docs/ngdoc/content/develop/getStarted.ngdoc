@@ -8,7 +8,7 @@
 
 ## Prerequisites
 
-You need these prerequisites before installing the Lithium-Klout SDK:
+You need these prerequisites before installing the SDK:
 * A functional Lithium community on release 15.4 or higher. Check the
 version on the version page located at _stage_url_/status/version. **Note:** If your Community stage
 server is running 15.6 or earlier and you download the latest version of the SDK, you might encounter
@@ -107,5 +107,5 @@ sudo npm install gulp -g
 sudo npm install lithium-sdk -g
 ```
 
-[Back to top](/develop/getStarted#top)
+[Top](/develop/getStarted#top)
 ___

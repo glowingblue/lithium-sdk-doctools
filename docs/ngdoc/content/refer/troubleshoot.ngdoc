@@ -30,7 +30,7 @@ Running into problems? Let's look at a few troubleshooting tips for errors you m
 
 **Solution:** Most likely your stage server has IP restriction enabled. Contact Lithium Support and have them whitelist your IP address. Basic HTTP authentication is not supported for SDK endpoints, therefore passing a username/password with the `serverUrl` field in `server.conf.json` will not resolve the 401 error.
 
-[Back to top](/refer/troubleshoot#top)
+[Top](/refer/troubleshoot#top)
 
 ## Compiler Error when installing SDK on Linux after upgrading to Node 4.x.x <a id="compileErrorLinux"></a>
 
@@ -80,7 +80,7 @@ scl enable devtoolset-3 bash
 ```
 And then we re-ran `npm install lithium-sdk -g` and successfully installed the SDK.
 
-[Back to top](/refer/troubleshoot#top)
+[Top](/refer/troubleshoot#top)
 
 ## Error: Invalid response from server (SDK version) <a id="sdkVersionError"></a>
 
@@ -120,7 +120,7 @@ If necessary, downgrade your SDK using the following command, putting the approp
 npm install -g lithium-sdk@1.0.2
 ```
 
-[Back to top](/refer/troubleshoot#top)
+[Top](/refer/troubleshoot#top)
 
 ## Error: Invalid response from server (SSL)<a id="invalidResponse"></a>
 
@@ -147,7 +147,7 @@ SSL.
 
 **Solution:** Contact Lithium Support to verify the SSL configuration for your community.
 
-[Back to top](/refer/troubleshoot#top)
+[Top](/refer/troubleshoot#top)
 
 ## Error: Invalid response from server (npm)<a id="invalidResponseNpm"></a>
 
@@ -187,7 +187,7 @@ Try upgrading node.js to the 4.x.x version, and then re-install gulp and the lit
 npm install gulp -g
 npm install lithium-sdk -g
 ```
-[Back to top](/refer/troubleshoot#top)
+[Top](/refer/troubleshoot#top)
 
 ## No LAR (SDK) plugin found<a id="noLar"></a>
 
@@ -197,7 +197,7 @@ npm install lithium-sdk -g
 
 **Solution:** Contact Lithium Support to ensure that your community is configured correctly for SDK support.
 
-[Back to top](/refer/troubleshoot#top)
+[Top](/refer/troubleshoot#top)
 
 ## Nothing happens after running an SDK script <a id="nothingHappens"></a>
 
@@ -206,7 +206,7 @@ npm install lithium-sdk -g
 **Solution:** Check the version of the SDK installed using `npm ls -g lithium-sdk --depth=0`. If it is not current with the <a href="https://www.npmjs.com/package/lithium-sdk" target="_blank">SDK version on npm</a>, update to the latest
 version of the SDK using `li update-project`. If this does not solve your problem, contact Lithium Support.
 
-[Back to top](/refer/troubleshoot#top)
+[Top](/refer/troubleshoot#top)
 
 ## NPM fails when installing SDK with "operation not permitted, rename" error (Windows only) <a id="operationNotPermittedRename"></a>
 
@@ -227,7 +227,7 @@ npm install lithium-sdk -g --force
 
 For more information see [this document](https://github.com/Microsoft/vso-agent-tasks/issues/323).
 
-[Back to top](/refer/troubleshoot#top
+[Top](/refer/troubleshoot#top
 
 ## TypeError: Object is not a function <a id="objectNotFunction"></a>
 
@@ -254,7 +254,7 @@ TypeError: object is not a function
 **Solution:** Run `li update-project` and answer the script questions. Then retry your original command.
 If this does not solve your problem, contact Lithium Support.
 
-[Back to top](/refer/troubleshoot#top)
+[Top](/refer/troubleshoot#top)
 
 ## Error: Socket hang up <a id="socketHangUp"></a>
 
@@ -270,7 +270,7 @@ This error indicates that your stage site might be down or unreachable due to ne
 
 **Solution:** Verify that your stage site is up and running.
 
-[Back to top](/refer/troubleshoot#top)
+[Top](/refer/troubleshoot#top)
 
 ## Supported minimum version on server is 15.7 <a id="supportedMinVersion"></a>
 
@@ -286,7 +286,7 @@ This error message occurs when you have the latest SDK published on <a href="htt
 
 1. Downgrade your SDK to version 0.0.5 using `npm install lithium-sdk@0.0.5`.
 
-[Back to top](/refer/troubleshoot#top)
+[Top](/refer/troubleshoot#top)
 
 ## Find the SDK version<a id="findSdkVersion"></a>
 
@@ -294,7 +294,7 @@ This error message occurs when you have the latest SDK published on <a href="htt
 
 **Solution:** Run `npm ls -g lithium-sdk --depth=0` from a command prompt.
 
-[Back to top](/refer/troubleshoot#top)
+[Top](/refer/troubleshoot#top)
 
 ## Validation errors<a id="validationErrors"></a>
 
@@ -366,4 +366,4 @@ Suggestion: Change the file name
 
 **Solution:** Use the information in {@link /refer/pluginvalidation Plugin Validation} to determine how to fix the errors so that your plugin directories and files use the proper structure and format.
 
-[Back to top](/refer/troubleshoot#top)
+[Top](/refer/troubleshoot#top)

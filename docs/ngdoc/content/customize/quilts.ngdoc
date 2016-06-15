@@ -1,0 +1,139 @@
+@ngdoc overview
+@name Quilts
+@sortOrder 1100
+@description
+
+
+# Quilts <a id="top"></a>
+Lithium comes with a set of default pages like the View Profile Page and the Forum Page. A page is a
+combination of a quilt and layout. In our Studio documentation, you will see the terms _quilt_ and _page_
+used interchangeably, but under the covers, the building blocks of a page (the quilt and the layout) are two separate
+pieces of code.
+
+We talk about layouts in a [separate document](/customize/layouts). For now, understand that your custom quilts must always reference a layout. For example `<quilt layout="two-column.main-side" nestable="false">`.
+
+Quilts use the file extension `quilt.xml`. 
+Quilt files go in `/res/quilts`.
+
+* [An example quilt](/customize/quilts#exampleQuilt)
+* [Quilt XML](/customize/quilts#quiltXml)
+* [Create a custom quilt](/customize/quilts#newQuilt)
+* [Override a core quilt](/customize/quilts#overrideQuilt)
+
+## Basic quilt structure
+
+The most basic quilt XML includes these XML elements:
+
+* layout - the ID of the layout to use with the quilt
+* nestable - whether or not the quilt can be included in another quilt
+* add to - the sections of the quilt as defined in the layout XML
+* component - the components to use in each of the columns in the layout
+
+Optional elements are described in [The quilt XML](/customize/quilts#quiltXml).
+
+```
+<quilt layout="<layout ID>" nestable="<true or fals>">
+   <add to="<column ID">
+    <component id="<component or quilt ID>"/>
+    <component id="<component or quilt ID>"/>
+    <component id="<component or quilt ID>"/>
+  </add>
+  <add to="<column ID>">
+    <component id="<component or quilt ID>"/>
+    <component id="<component or quilt ID>"/>
+  </add>
+</quilt> 
+```
+
+## Nested quilts
+
+You can "nest" (or include) one quilt within another quilt. The Header and Footer quilts are often nested. All components in a nested quilt are included in the parent quilt, but using XML elements in the parent quilt, you can add or remove components from the nested quilt when the nested quilt appears in that page. Nested quilts use the syntax <component id="quilt:<quilt ID>"/>
+
+## An example quilt <a id="exampleQuilt"></a>
+
+Here is a simple quilt - MyCustomPage.quilt.xml. It
+adds the coreNodeDetails component in the `side-content` section.
+
+```xml
+<quilt layout="two-column.main-side" nestable="false">
+  <add to="common-footer">
+    <component id="quilt:Footer"/>
+  </add>
+  <add to="side-content">
+    <component id="coreNodeDetails"/>
+    <component id="community.widget.admin-links"/>
+    <component id="common.widget.announcement"/>
+    <component id="forums.widget.users-online"/>
+    <component id="community.widget.quick-links"/>
+  </add>
+  <add to="main-content">
+    <component id="qanda.widget.ask-an-expert" discussionStyle="forum"/>
+    <component id="forums.widget.recent-threads"/>
+    <component id="forums.widget.recent-messages"/>
+  </add>
+  <add to="common-header">
+    <component id="quilt:Header"/>
+  </add>
+  <remove from="breadcrumb" for="Header">
+    <component id="common.widget.breadcrumb"/>
+  </remove>
+</quilt>
+```
+The rendered quilt looks like this:
+
+<img src="img/sdkQuiltTutorialComponents.png" width="700 px"/>
+
+## Quilt XML <a id="quiltXml"></a>
+
+These are the elements used in quilts.
+
+| Element | Description | Attributes | Child Attributes |
+| ------- | ----------- | ---------- | ---------------- |
+| quilt   | The main container. Defines the layout and whether the quilt can be nested within other quilts. Define components to add or remove from the quilt. <br/><br/>For example:</br>`<quilt extends="HeroCommon" layout="two-column.main-side" nestable="false">` | `layout` - the name of the layout<br />`nestable` - whether or not the quilt can be included within another quilt <br/>`extends` - defines a quilt from which the current quilt inherits layout and components.|` add`, `remove` |
+| add     | Defines a component to add to a column in the layout used by the quilt. You can add the component to a nested quilt within the current quilt using the `for` attribute. For example: `<add to="hero-content" for="Header"> <component id="quilt:CommunityHero"/>` adds the CommunityHero nested quilt into hero-content column of the Header quilt | `to` - the column where the component will be added<br /> `for` - the ID of the nested quilt | `component` - the  ID of the component to add |
+| remove  | Defines components to remove from a nested quilt included in the current quilt (for example, the header). In the example above, we are removing the `common.widget.breadcrumb` component from the `breadcrumb` column in the `Header` quilt when Header is included in MyCustomPage.quilt.xml | `from` - the column from which to remove the component. The value must match a valid column name in a valid layout. <br />`for` - the ID of the nested quilt | `component` - the ID of the component to remove |
+| component | Defines a component being added or removed from the quilt | `id` - the component ID. The ID is the name of the component FTL file. <br />`mode` - used with core Lithium components only. Some Lithium components require the mode parameter to render the component property in a slim or wide content panel. The Lithium component hover cards in Studio detail which components use the mode parameter.<br />`interactionStyle` - used to scope a component to a particular interaction style. The Lithium component hover cards in Studio detail which components use the interactionStyle parameter.| . |
+
+To add or rearrange components, simply add or move the reference to the component (such as `<component id=“coreNodeDetails”/>`)
+from one section of the quilt XML to another.
+
+##  Create a custom quilt <a id="newQuilt"></a>
+Custom quilts go in `PLUGIN_REPO/res/quilts/custom`. Unique custom quilts use
+the file name structure `<quilt_name>.quilt.xml`, for example MyCustomPage.quilt.xml.
+
+See <a href="http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page/ta-p/110639" target="_blank">this article</a>
+in the Lithium Community for more information about creating custom pages.
+
+[Top](/customize/quilts#top)
+
+## Override a core quilt <a id="overrideQuilt"></a>
+Custom quilts that override Lithium core quilts use the
+file name structure <br />`<core_quilt_name>.<descriptive_identifier>.quilt.xml`, for example
+BlogPage.custom.quilt.xml. Put the file in `PLUGIN_REPO/res/quilts/custom`
+
+Here are simple instructions for overriding core Lithium quilts.
+For more detailed information, read <a href="http://community.lithium.com/t5/Pages-and-layouts/Override-a-default-page/ta-p/108961)" target="_blank">this article</a>
+on the Lithium Community.
+
+To override a core Lithium quilt:
+
+**1.** Go to **Studio > Page**.
+
+**2.** Click **Choose** to select the quilt to override.
+
+**3.** Click **Switch to XML View**.
+
+**4.** Copy the quilt XML.
+
+**5.** In a text editor, paste the quilt XML and name your quilt file `<core_quilt_name>.<descriptive_identifier>.quilt.xml`.
+
+**6.** Save your file to `PLUGIN_REPO/res/quilts/custom`.
+
+**7.** Make your changes to the quilt (add, remove, move components, or change the page layout).
+
+**8.** Run `li submit-plugin`.
+
+**9.** Override the core community quilt in **Community Admin > Content > Custom Pages**.
+
+[Top](/customize/quilts#top)
+___

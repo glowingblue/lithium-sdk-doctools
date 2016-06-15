@@ -17,5 +17,5 @@ The script asks for the community URL and plugin upload token to use. You can ad
 values if needed, or use the ones in your existing `server.conf.json` file.
 
 After the script finishes, your plugin project is updated and is compatible with the new
-version the the SDK. You can continue {@link develop/create customizing} your community.
+version the the SDK. You can continue {@link customize/customize customizing} your community.
 ___

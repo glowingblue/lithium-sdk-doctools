@@ -1,0 +1,19 @@
+@ngdoc overview
+@name Customize
+@description
+
+# Customize
+
+- {@link customize/customize Customize}
+- {@link customize/pluginstructure Where to Put Your Code}
+- {@link customize/assets Assets}
+- {@link customize/components Components}
+- {@link customize/emailtemplates Email Templates}
+- {@link customize/endpoints Endpoints and Controllers}
+- {@link customize/layouts Layouts}
+- {@link customize/macros Macros}
+- {@link customize/pageinitscript Page Initialization Script}
+- {@link customize/pagewrapper Page Wrapper}
+- {@link customize/quilts Quilts}
+- {@link customize/skins Skins}
+- {@link customize/termsofservice Text and Terms of Service}
