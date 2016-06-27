@@ -21,7 +21,7 @@
     // before the base attribute is added, causing 404 and terribly slow loading of the docs app.
     (function() {
       var indexFile = (location.pathname.match(/\/(index[^\.]*\.html)/) || ['', ''])[1],
-          rUrl = /(#!\/|learn|develop|refer|discuss|index[^\.]*\.html).*$/,
+          rUrl = /(#!\/|learn|develop|refer|discuss|customize|index[^\.]*\.html).*$/,
           baseUrl = location.href.replace(rUrl, indexFile),
           production = location.hostname === 'cx-docs.dev.lithium.com',
           headEl = document.getElementsByTagName('head')[0],
