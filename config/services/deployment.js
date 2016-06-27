@@ -53,11 +53,11 @@ module.exports = function (opts) {
         '/' + opts.pathPrefix + 'js/docs.min.js'
       ],
       stylesheets: [
-        'components/' + getComponentWithVersion('bootstrap') + '/css/bootstrap.min.css',
-        'components/' + getComponentWithVersion('open-sans-fontface') + '/open-sans.css',
-        'css/prettify-theme.css',
-        'css/docs.css',
-        'css/animations.css'
+        '/components/' + getComponentWithVersion('bootstrap') + '/css/bootstrap.min.css',
+        '/components/' + getComponentWithVersion('open-sans-fontface') + '/open-sans.css',
+        '/css/prettify-theme.css',
+        '/css/docs.css',
+        '/css/animations.css'
       ]
     };
   };
