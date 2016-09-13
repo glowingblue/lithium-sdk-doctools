@@ -16,7 +16,6 @@ Running into problems? Let's look at a few troubleshooting tips for errors you m
 * [Invalid response from server (npm)](/refer/troubleshoot#invalidResponseNpm)
 * [No LAR (SDK) plugin found](/refer/troubleshoot#noLar)
 * [Nothing happens after running an SDK script](/refer/troubleshoot#nothingHappens)
-* [NPM fails when installing SDK with "operation not permitted, rename" error - Windows only](/refer/troubleshoot#operationNotPermittedRename)
 * [Object is not a function](/refer/troubleshoot#objectNotFunction)
 * [Socket hang up](/refer/troubleshoot#socketHangUp)
 * [Supported minimum version on server is 15.7]()
@@ -207,27 +206,6 @@ npm install lithium-sdk -g
 version of the SDK using `li update-project`. If this does not solve your problem, contact Lithium Support.
 
 [Top](/refer/troubleshoot#top)
-
-## NPM fails when installing SDK with "operation not permitted, rename" error (Windows only) <a id="operationNotPermittedRename"></a>
-
-**Problem:** You run npm `install gulp -g` without issues, but encounter the following error from NPM when you run `npm install lithium-sdk -g`:
-
-```
-npm ERR! Error: EPERM: operation not permitted, rename 'C:\Users\ndn572\AppData\Roaming\npm-cache\inherits\2.0.1\package\package.json.67059cc77c2ac83ca337e288bf4c03f3' -> 'C:\Users\ndn572\AppData\Roam
-```
-**Solution:**
-
-Clear the NPM cache, then reinstall gulp and the lithium-sdk, but pass the `--force` flag to the command to install the lithium-sdk:
-
-```
-npm cache clean -f
-npm install gulp -g
-npm install lithium-sdk -g --force
-```
-
-For more information see [this document](https://github.com/Microsoft/vso-agent-tasks/issues/323).
-
-[Top](/refer/troubleshoot#top
 
 ## TypeError: Object is not a function <a id="objectNotFunction"></a>
 

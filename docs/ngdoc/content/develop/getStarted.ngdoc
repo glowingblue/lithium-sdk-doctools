@@ -6,6 +6,10 @@
 # Get Started <a id="top"></a>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
+## Developing on Windows
+
+If you need SDK support in a Windows environment please contact <a href="https://community.lithium.com/t5/Contact-Lithium-Support/bd-p/contact-support" target="_blank">Lithium Support</a> for access to our Windows VM.
+
 ## Prerequisites
 
 You need these prerequisites before installing the SDK:
@@ -30,7 +34,7 @@ Each developer uses a separate account to log into Studio and generates a separa
 SDK plugin submissions are attributed to the a specific user account in the Versions tab in Studio, which
 helps track with developer submitted which version of the SDK plugin to the stage environment.
 
-* A Mac (10.8+), Linux (CentOS 6.5+), or Windows (7+) environment
+* A Mac (10.8+) or Linux (CentOS 6.5+) environment, or access to our Windows VM
 
 * <a href="https://git-scm.com/" target="_blank">git</a>. After you install git, run `git` from a new command line to check that it is available
 * <a href="http://nodejs.org/" target="_blank">node.js</a> version 4.x.x and <a href="https://www.npmjs.org/" target="_blank">npm</a>. Our developer
@@ -44,18 +48,6 @@ gets bundled with the node environment, but verify that you have it.
     If you are installing node for the first time, do not install it using `sudo` or in administrator mode. Also, ensure that
 the directory where npm installs modules to is permissioned so that you do not need to use sudo or administrator mode
 when you run npm install.
-
-
-Windows-specific prerequisites:
-
-* While installing git, select **Use Git from the Windows Command Prompt** on the dialog window **Adjusting your PATH environment**
-
-* <a href="https://www.python.org/downloads/windows/" target ="_blank">Python v2.7.3</a>. Be sure that you have a PYTHON environment variable and that it is set to
-`drive:\path\to\python.exe`, not to a folder.
-    ** After you have installed Python, run `python` from a new command line to check that it is available.
-
-* <a href="https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx" target="_blank">Microsoft Visual Studio Community 2013</a>. **Note:** Visual Studio
-2015 is not supported at this time.
 
 ## Installing the SDK and dependencies
 We use two npm packages in all of our project repositories: <a href="http://gulpjs.com/" target="_blank">gulp</a> and
@@ -85,9 +77,6 @@ something like the following. They are a normal part of the installation process
     SOLINK_MODULE(target) Release/node_expat.node
     SOLINK_MODULE(target) Release/node_expat.node: Finished
 ```
-
-### Troubleshooting permission errors in Windows environments
-If you have permission issues when running the install scripts, run the installation commands in <a href ="https://technet.microsoft.com/en-us/library/Cc947813(v=WS.10).aspx">Administrator mode</a>.
 
 ### Troubleshooting permission errors in Non-Windows environments
 If you have permission issues, use change permission for the folders where global packages are being installed so
