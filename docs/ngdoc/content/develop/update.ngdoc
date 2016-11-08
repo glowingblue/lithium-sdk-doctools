@@ -11,7 +11,8 @@
 When Lithium releases a new version of the SDK, you will need to update your SDK project
 and plugin.
 
-To do this, run `li update-project`.
+* Run `npm update -g lithium-sdk`
+* Run `li update-project`
 
 The script asks for the community URL and plugin upload token to use. You can add new
 values if needed, or use the ones in your existing `server.conf.json` file.
