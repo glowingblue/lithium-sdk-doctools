@@ -60,6 +60,8 @@ npm install lithium-sdk -g
 ```
 The `-g` flag denotes the package specified will be installed globally on your system.
 
+Continue with the steps in [Create](/develop/create) to create your plugin project repository.
+
 **Tip:** When you install a node package globally, the package is put in
 `usr/local/lib/node_modules` and a symlink is put in `usr/local/bin`. When you run these
 commands as yourself (`$USER`), you will not have access to write to these locations, and
@@ -77,6 +79,7 @@ something like the following. They are a normal part of the installation process
     SOLINK_MODULE(target) Release/node_expat.node
     SOLINK_MODULE(target) Release/node_expat.node: Finished
 ```
+
 
 ### Troubleshooting permission errors in Non-Windows environments
 If you have permission issues, use change permission for the folders where global packages are being installed so

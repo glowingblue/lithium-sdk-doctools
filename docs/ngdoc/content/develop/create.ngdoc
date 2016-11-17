@@ -11,8 +11,8 @@
 After {@link /develop/getStarted setting up your SDK development environment}:
 * [Generate an upload token](/develop/create#GenerateUploadToken)
 * [Create the local plugin project repository](/develop/create#createPluginRepo)
-* Learn about the plugin structure and [set plugin configurations](/develop/create#serverConfJson) server.conf.json
 * Download the [Studio plugin](/develop/create#downloadStudio), an [SDK plugin](/develop/create#downloadSdk) (if one exists), or just get started [creating new customizations](/customize/customize)
+* Learn about the [plugin structure](/develop/create#pluginStructure)
 
 ### Generate the upload token<a id="GenerateUploadToken"></a>
 The upload token is required for all SDK command line options. To generate the token, you'll need the "Use the SDK" permission in
@@ -67,10 +67,9 @@ defined earlier. **Tip:** Type `li` to see the full list of SDK commands. We'll 
 
 **7**  (Optional) If you did not enter the token value, generate the token in Studio, open
 `server.conf.json` at the top level of your plugin repository, and
-add the token for the value of `pluginToken`.
+add the token for the value of `pluginToken`. 
 
-We'll talk about the other configuration options in `server.conf.json` later
-in [Plugin structure and configuration](/develop/create#serverConfJson).
+**8** Continue with [Configure](/develop/configure) to set optional plugin configurations or jump to [Plugin Structure](/develop/create#pluginStructure) to learn more about the plugin directory.
 
 [Top](/develop/create#top)
 
@@ -118,83 +117,16 @@ with the new token value, and communicate with any team members sharing the toke
 
 [Top](/develop/create#top)
 
-## Plugin structure and configuration<a id="serverConfJson"></a>
+## Plugin structure<a id="pluginStructure"></a>
 
-Your plugin project repository contains several sub-directories and files. Your customizations go in
- the `res` and `web` directories. The only file you'll use is `server.conf.json`. This
- is configuration file contains plugin settings and your plugin upload token.
+Your plugin project repository contains several sub-directories and files. Customizations go into folders under `res` and `web`. See [Where to put your code](/customize/pluginstructure) to learn about each folder.
+
+ Outside of those directories, the only file you'll use is `server.conf.json`. This
+ is the configuration file that contains plugin settings and your plugin upload token. See [Configure](/develop/configure) for discriptions of `server.conf.json` options.
 
  **Note:** Do not check server.conf.json into your source repository. The plugin token should not be shared. It should remain secret.
 
 <img src="img/pluginStructure.png" width="600px" align="middle"/>
-
-Let's look at `server.conf.json`.
-
-```
-{
-  "serverUrl": "https://mystagecommunity.lithium.com",
-  "pluginToken": "esdlkf09827-7905-39dks-8e48-9e8lkjf093",
-  "allowStudioOverrides": false,
-  "strictMode": true,
-  "dryRun": false
-  "verbose": false
-  "force": false
-  "pluginPoints": ["skin", "endpoint"]
-}
-```
-
-* `serverUrl` - the url to the stage server hosting your community. Passing a username and password for basic HTTP authentication is not supported.
-* `pluginToken` - the plugin token generated in **Studio > SDK**
-* `pluginUploadProtocol` - use "https"
-* `allowStudioOverrides` - when `false`,  the `li package-plugin`
-and `li submit-plugin` commands won't allow plugin upload if a file in the Studio plugin will
-override a file in the SDK plugin. We recommend setting to `false`.
-
-  when `true`:
-  * plugin upload is allowed even if files exist in the Studio plugin with identical names to files in the SDK plugin
-  * the commands ignore validation errors that prevent Studio plugin overrides
-  * the Studio plugin version of a file will be used in the community.
-
-* `strictMode` - when `true`, FreeMarker syntax failures block plugin upload to the server
-when you run `li submit-plugin`.
-
-  We recommend setting to `true`.
-
-* `dryRun` - when `true`, `li submit-plugin` validates the plugin on the client side,
-uploads the plugin to the server and performs server-side validation, but
-does not save the plugin to the server. Generally you will set `dryRun` to `false` in `server.conf.json`
-and instead pass the `dryrun` option with `li submit-plugin`. Learn more about validation rules in {@link refer/pluginvalidation Plugin Validation}.
-
-* `verbose` - when `true`, automatically prints a log for each file added to
-the SDK plugin from Studio when you run `li export-studio-plugin`
-* `force` - Automatically adds the `force` flag to commands requiring manual confirmation. **Tip:** This flag is intended to be used in a continuous integration environment where an automated
-build system runs `li submit-plugin`.  We do not recommend individual developers set this to true.
-
-  When `true`, these commands work in the following way:
-
-  * `clear-plugin` automatically clears the entire SDK plugin without manual confirmation. Learn more about clearing the SDK plugin in the Creating a development strategry section of {@link /learn/workflow Developer Workflow}.
-
-  * `clear-studio-plugin` automatically clears the entire Studio plugin (unless you have specific plugin
-    points defined in the `pluginPoints` field in `server.conf.json`) without manual confirmation. Learn more about clearing the Studio plugin in the Creating a development strategry section of {@link /learn/workflow Developer Workflow}.
-
-  * `export-plugin` automatically exports the entire SDK plugin without manual confirmation
-
-  * `export-studio-plugin` automatically exports the entire Studio plugin (unless you have plugin points defined in the `pluginPoints`. Learn more about exporting the Studio plugin in the Creating a development strategry section of {@link /learn/workflow Developer Workflow}.
-in `server.conf.json`) without manual confirmation
-
-  * `submit-plugin` automatically uploads the plugin to the server without manual confirmation
-
-* `pluginPoints` - optionally define a subset to of up to five plugin points to download when you run `li export-studio-plugin`.
-When you have plugin points defined in `server.conf.json`, use the `--force` flag to skip the prompt asking whether you want to
-download the entire plugin.
-
-  Defining plugin points in the config file is equivalent to passing `--points --force` to `li export-studio-plugin`.
-
-  **Note:** You cannot define a subset of plugin points to export when exporting an existing SDK plugin.
-
-Read {@link /develop/deploy Deploy} to learn more about packaging the plugin for deployment
- to stage. Read {@link /customize/customize Customize} to learn how to contribute customizations
-using the SDK.
 
 [Top](/develop/create#top)
 ___
