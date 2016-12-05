@@ -29,7 +29,7 @@ As you begin to develop on the Lithium Platform, you'll want to understand:
 ## What the SDK supports
 
 Using the SDK you can:
-* Choose to develop in a Mac or Linux environment, or on our Windows VM 
+* Choose to develop in a Mac or Linux environment
 * Export existing customizations from Studio (components, endpoints, skins, and so on) into the SDK plugin for easier development and source control
 * Clear assets created in Studio from the Studio plugin to keep source code for more technical customizations such as components, endpoints, and macros in the SDK plugin
 * Develop independently of Studio in your preferred IDE and upload customizations to the stage server via the command line
