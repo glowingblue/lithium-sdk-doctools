@@ -33,7 +33,7 @@ helps track with developer submitted which version of the SDK plugin to the stag
 * A Mac (10.8+) or Linux (CentOS 6.5+) environment, or access to our Windows VM
 
 * <a href="https://git-scm.com/" target="_blank">git</a>. After you install git, run `git` from a new command line to check that it is available
-* <a href="http://nodejs.org/" target="_blank">node.js</a> version 4.x.x and <a href="https://www.npmjs.org/" target="_blank">npm</a>. Our developer
+* <a href="http://nodejs.org/" target="_blank">node.js</a> version 4.x.x or 6.x.x and <a href="https://www.npmjs.org/" target="_blank">npm</a>. Our developer
 environment runs on top of node.js. When you do local development, it is on a node.js
 server that we proxy to a Lithium community instance. Usually, npm (Node Package Manager)
 gets bundled with the node environment, but verify that you have it.
