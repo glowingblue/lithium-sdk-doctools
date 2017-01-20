@@ -21,6 +21,7 @@ Running into problems? Let's look at a few troubleshooting tips for errors you m
 * [Supported minimum version on server is 15.7]()
 * [Validation errors](/refer/troubleshoot#validationErrors)
 * [Slow plugin submission time](/refer/troubleshoot#slowSubmission)
+* [Minimum SDK requirements for 16.10+](/refer/troubleshoot#minReq1610)
 
 ## 401 HTTP error when submitting, exporting, or clearing a plugin <a id="401HttpError"></a>
 
@@ -91,14 +92,14 @@ And then we re-ran `npm install lithium-sdk -g` and successfully installed the S
 /usr/local/lib/node_modules/lithium-sdk/lib/version-check.js:78
             throw error;
             ^
-  
+
 Error: Invalid response from server. Check your server url and version.
     at Request._callback (/usr/local/lib/node_modules/lithium-sdk/lib/version-check.js:58:17)
     at Request.self.callback (/usr/local/lib/node_modules/lithium-sdk/node_modules/request/request.js:199:22)
     at emitTwo (events.js:100:13)
 ```
 
-**Solution:** This error can indicate a version mismatch between the SDK and Community. 
+**Solution:** This error can indicate a version mismatch between the SDK and Community.
 
 First, run this command to find which version of the SDK you are running:
 ```
@@ -114,7 +115,7 @@ Compare those versions against this compatibility chart.
 | 1.1.0 | 16.2+ |
 | 1.0.2 | 15.12+ |
 
-If necessary, downgrade your SDK using the following command, putting the appropriate SDK version number after the @ symbol: 
+If necessary, downgrade your SDK using the following command, putting the appropriate SDK version number after the @ symbol:
 
 ```
 npm install -g lithium-sdk@1.0.2
@@ -349,9 +350,12 @@ Suggestion: Change the file name
 
 **Problem:** You are experiencing exceptionally slow validation and submission times when submitting the plugin.
 
-**Tip:** If your plugin is slow to submit or validate, review your plugin for unused skins, components, and endpoints. Large plugins can slow validation and delay submission to the stage server. Plugins that generate errors can further slow validation. 
+**Tip:** If your plugin is slow to submit or validate, review your plugin for unused skins, components, and endpoints. Large plugins can slow validation and delay submission to the stage server. Plugins that generate errors can further slow validation.
 
 You can set `skiptemplatevalidation` to `true` in `server.conf.json` to force submission of a plugin; however, Lithium does not recommend use of this property on an ongoing basis. The better, long-term solution is to address the root causes of long submission times instead of skipping plugin validation.
 
+## Minimum SDK requirements for Community release 16.10<a id="minReq1610"></a>
+
+When using Community 16.10 or later, you must use SDK version 1.3 or higher.
 
 [Top](/refer/troubleshoot#top)
