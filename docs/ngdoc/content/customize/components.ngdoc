@@ -7,7 +7,7 @@
 # Components<a id="top"></a>
 You write components in FreeMarker, a templating language. Learn about FreeMarker at <a href="http://freemarker.org/" target="_blank">FreeMarker.org</a>.
 
-Lithium provides our own <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=freemarker#l::{"p":"/learn/aboutFreeMarker"}" target="_blank">FreeMarker context objects and directives</a> that work specifically with the Lithium Community product.
+Lithium provides our own <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=freemarker#l::{"p":"/learn/aboutFreeMarker"}" target="_blank">FreeMarker context objects and directives</a> that work specifically with Lithium Community.
 
 Custom component code goes in `res/components`.
 
@@ -24,7 +24,7 @@ ${coreNode.shortTitle}</br>
 ${coreNode.title}
 ```
 
-If you're new to FreeMarker and Lithium Communities, see these articles on the Lithium Community to get started with custom components:
+If you're new to FreeMarker and Community, see these articles to get started with custom components:
 * <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Component-tutorial-Building-your-first-custom-component-with/ta-p/122991" target="_blank">Component Tutorial: Building your first custom component</a>
 * <a href="https://community.lithium.com/t5/Community-API-v2/Tutorial-Update-a-FreeMarker-component-from-Community-REST-API/ta-p/178887" target="_blank">Component Tutorial: Update a component from Community API v1 to v2</a>
 * <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Adding-JavaScript-to-components-with-liaAddScript/ta-p/197594" target="_blank">Adding JavaScript to components</a>

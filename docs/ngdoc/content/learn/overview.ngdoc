@@ -3,21 +3,17 @@
 @sortOrder 100
 @description
 
-# Welcome to the Lithium SDK
+# Welcome to the Community Plugin SDK
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-At Lithium Technologies, we help you reinvent ways to connect, build, and maintain trusted connections with
-your customers.
-Innovation like this includes customizing, extending, and integrating your community
-in ways that provide maximum benefits.
-To help you succeed in this mission, we give developers direct access to their community's
-Studio and SDK plugins (the directory structures containing
+Lithium products help you reinvent ways to connect, build, and maintain trusted connections with
+your customers. Innovation like this includes customizing, extending, and integrating your community
+in ways that provide maximum benefits. To help you succeed in this mission, we give developers direct access to their community's Studio and SDK plugins (the directory structures containing
 customization resources), and let you build on the Lithium Community platform
 using your favorite tools and common workflows.
 
 ## Before you Begin
-
-As you begin to develop on the Lithium Platform, you'll want to understand:
+Before you begin Community development, you'll want to understand:
 
 * Lithium's {@link /learn/architecture customization and plugin framework}
 * The {@link /learn/workflow workflow} from local development through publishing to production

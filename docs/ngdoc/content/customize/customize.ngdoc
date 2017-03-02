@@ -7,7 +7,7 @@
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
 After {@link develop/create creating your local SDK pluign repository},
-you're ready to learn about plugin points and how to contribute Community customizations with the SDK.
+you're ready to learn about plugin points and how to contribute Community customizations with the Community Plugin SDK.
 
 Before you begin:
 * Learn [where to put your code](/customize/pluginstructure)

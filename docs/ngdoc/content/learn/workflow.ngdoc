@@ -6,7 +6,7 @@
 # Developer workflow <a id="top"></a>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-The Lithium SDK supports a developer-friendly "choose your own IDE" experience
+The Community Plugin SDK supports a developer-friendly "choose your own IDE" experience
 that enables you to develop locally with the tools of your choice, collaborate with your
 own team in your own source control system, and test on your stage environment.
 
@@ -195,7 +195,7 @@ collaborate in a way that prevents overwrites in the SDK plugin and provides the
 or all developers.
 
 ### Collaboration workflow
-In this workflow, in-house or partner developers use the Lithium SDK for Community
+In this workflow, in-house or partner developers use the Community Plugin SDK for Community
 development and Lithium Services are hired to do additional Community customization.
 The workflow assumes:
 

@@ -15,7 +15,7 @@ and <a href="http://community.lithium.com/t5/Components-endpoints-and-the/About-
 Community ships with core pages, layouts, components, text, CSS, SCSS, images, and more. Developers, designers, and
 other members of your community team can customize, add, and override our core resources.
 There are two ways to create customizations:
-* Using the SDK
+* Using the Community Plugin SDK
 * Using Studio, our customization GUI
 
 Customizations created in either environment are bundled into a _plugin_ and published to the stage server where
@@ -39,9 +39,9 @@ a Lithium community. The blue squares represent the tools we provide for our cus
  contributed by customers. Customers are responsible for upgrading
 customizations and integration points from release to release.
 
-## The Lithium SDK <a id="sdk"></a>
+## The Community Plugin SDK <a id="sdk"></a>
 
-The Lithium software development kit (SDK) enables developers to create customizations in their preferred IDE
+The Community Plugin software development kit (SDK) enables developers to create customizations in their preferred IDE
 or text editor (e.g. Eclipse, IntelliJ, Sublime) and to submit their customizations to the
 stage server directly from the command line.
 
@@ -88,7 +88,7 @@ development environment. From the bottom up:
 
 * <a href="http://nodejs.org/" target="_blank">node.js</a> is the JavaScript runtime environment for the SDK
 * <a href="http://gulpjs.com/" target="_blank">gulp.js</a> is a streaming build system and task runner
-* The Lithium SDK provides the structure and mechanism to build your
+* The Community Plugin SDK provides the structure and mechanism to build your
  community customizations
 
 <img src="img/SDKToolChain.png" width="300px" align="middle"/>
