@@ -6,7 +6,16 @@
 # Create <a id="top"></a>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-## Create your plugin
+* [Create your plugin](/develop/create#createPlugin)
+    * [Generate the upload token](/develop/create#GenerateUploadToken)
+    * [Create the plugin project repository](/develop/create#createPluginRepo)
+    * [Export the Studio plugin](/develop/create#downloadStudio)
+    * [Export the SDK plugin](/develop/create#downloadSdk)
+* [Revoke a plugin token](/develop/create#revokeToken)
+* [Plugin structure](/develop/create#pluginStructure)
+
+
+## Create your plugin <a id="createPlugin"></a>
 
 After {@link /develop/getStarted setting up your SDK development environment}:
 * [Generate an upload token](/develop/create#GenerateUploadToken)
@@ -96,6 +105,7 @@ li export-studio-plugin --points "component", "endpoint", "controller, "macro" -
 ```
 
 [Top](/develop/create#top)
+
 Create the plugin project
 
 ### Export the SDK plugin<a id="downloadSdk"></a>
@@ -108,7 +118,7 @@ last SDK plugin uploaded to the stage server. Partial exports of an SDK plugin a
 
 [Top](/develop/create#top)
 
-## Revoke a plugin token
+## Revoke a plugin token <a id="revokeToken"></a>
 
 Plugin tokens expire after 30 days. If your plugin token expires or becomes compromised,
 go to **Studio > Advanced > SDK** and click

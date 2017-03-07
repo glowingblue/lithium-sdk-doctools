@@ -6,7 +6,10 @@
 # Get Started <a id="top"></a>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-## Prerequisites
+* [Prerequisites](/develop/getStarted#prereq)
+* [Installing the SDK and dependencies](/develop/getStarted#install)
+
+## Prerequisites <a id="prereq"></a>
 
 You need these prerequisites before installing the Community Plugin SDK:
 * A functional Lithium community on release 15.4 or higher. Check the
@@ -45,7 +48,7 @@ gets bundled with the node environment, but verify that you have it.
 the directory where npm installs modules to is permissioned so that you do not need to use sudo or administrator mode
 when you run npm install.
 
-## Installing the SDK and dependencies
+## Installing the SDK and dependencies <a id="install"></a>
 We use two npm packages in all of our project repositories: <a href="http://gulpjs.com/" target="_blank">gulp</a> and
 <a href="https://www.npmjs.com/package/lithium-sdk" target="_blank">lithium-sdk</a>. Install them by issuing
 the following statements in a command line:
