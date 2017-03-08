@@ -16,7 +16,7 @@ for more information.
 
 The table below shows the default skin properties used with non-responsive skins. Skin properties are editable in Studio. The Studio Field column shows the fields in **Studio > Community Style > Properties** that maps to the skin property in the Property column.
 
-Responsive skins use only a limited set of skin properties to specify default cropping sizes for images and assets. For details about skin properties and responsive skins, see the Skin Architecture section of the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive">Responsive Developer Documentation</a>.
+Responsive skins use only a limited set of skin properties to specify default cropping sizes for images and assets. For details about skin properties and responsive skins, see the Skin Architecture section of the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Responsive Developer Documentation</a>.
 
 
 ## Skin properties for non-responsive skins
