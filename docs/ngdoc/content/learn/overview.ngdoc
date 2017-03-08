@@ -63,9 +63,9 @@ that is connected via Studio Publish to your production site.
 
 You'll continue to use Studio for the following tasks:
 
-* [Edit FAQ text](https://community.lithium.com/t5/FAQs-email-templates-and-text/Manage-the-FAQ-structure/ta-p/109015 target="_blank")
-* [Create the spellcheck dictionary](https://community.lithium.com/t5/General-system-setup/Enable-and-use-spellcheck-and-create-a-custom-dictionary/ta-p/57492)
-* [Manage feature versions](https://community.lithium.com/t5/General-system-setup/Set-the-version-of-a-community-feature/ta-p/115429)
+* <a href="https://community.lithium.com/t5/FAQs-email-templates-and-text/Manage-the-FAQ-structure/ta-p/109015" target="_blank">Edit FAQ text</a>
+* <a href="https://community.lithium.com/t5/General-system-setup/Enable-and-use-spellcheck-and-create-a-custom-dictionary/ta-p/57492" target="_blank">Create the spellcheck dictionary</a>
+* <a href="https://community.lithium.com/t5/General-system-setup/Set-the-version-of-a-community-feature/ta-p/115429" target="_blank">Manage feature versions</a>
 * {@link /develop/create Generate the SDK upload token}
 * <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=commv2&v2.main=gettingstarted#apiBrowser" target="_blank">Test LiQL queries</a>
 
