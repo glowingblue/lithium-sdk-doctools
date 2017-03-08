@@ -63,7 +63,7 @@ that is connected via Studio Publish to your production site.
 
 You'll continue to use Studio for the following tasks:
 
-* [Edit FAQ text](https://community.lithium.com/t5/FAQs-email-templates-and-text/Manage-the-FAQ-structure/ta-p/109015)
+* [Edit FAQ text](https://community.lithium.com/t5/FAQs-email-templates-and-text/Manage-the-FAQ-structure/ta-p/109015 target="_blank")
 * [Create the spellcheck dictionary](https://community.lithium.com/t5/General-system-setup/Enable-and-use-spellcheck-and-create-a-custom-dictionary/ta-p/57492)
 * [Manage feature versions](https://community.lithium.com/t5/General-system-setup/Set-the-version-of-a-community-feature/ta-p/115429)
 * {@link /develop/create Generate the SDK upload token}
