@@ -12,41 +12,31 @@
 ## Prerequisites <a id="prereq"></a>
 
 You need these prerequisites before installing the Community Plugin SDK:
-* A functional Lithium community on release 15.4 or higher. Check the
-version on the version page located at _stage_url_/status/version. **Note:** If your Community stage
+* **Community 15.4 or higher** - Check the
+version on the version page located at your-stage-url/status/version (ex: community.lithium.com/status/version). **Note:** If your Community stage
 server is running 15.6 or earlier and you download the latest version of the SDK, you might encounter
 a "Supported minimum version on server is 15.7" error. See {@link /refer/troubleshoot Troubleshooting}
 to resolve.
 
-* Your Studio/Admin account must have the "Use the SDK" permission in order to generate an upload token to use SDK commands.
-If you cannot access **Studio > Advanced > SDK**, contact the community administrator.
-
-* SSL must be configured for your community. Contact Lithium Support if you are unsure whether this configuration
-set.
-
-* If your stage site has IP restriction turned on, you must whitelist IPs that will interact with the stage server using the SDK.
-Contact Lithium Support to whitelist IP addresses as needed.
-
-* Access to the SDK tab in Studio. This tab generates an
-upload token needed to run SDK scripts and deploy your plugin to the stage environment.
-Each developer uses a separate account to log into Studio and generates a separate upload token. This ensures that
-SDK plugin submissions are attributed to the a specific user account in the Versions tab in Studio, which
-helps track with developer submitted which version of the SDK plugin to the stage environment.
-
-* A Mac (10.8+) or Linux (CentOS 6.5+) environment, or access to our Windows VM
-
-* <a href="https://git-scm.com/" target="_blank">git</a>. After you install git, run `git` from a new command line to check that it is available
-* <a href="http://nodejs.org/" target="_blank">node.js</a> version 4.x.x and <a href="https://www.npmjs.org/" target="_blank">npm</a>. Our developer
-environment runs on top of node.js. When you do local development, it is on a node.js
-server that we proxy to a Lithium community instance. Usually, npm (Node Package Manager)
-gets bundled with the node environment, but verify that you have it.
+* **node.js version 4.x.x and npm** -  Usually, <a href="https://www.npmjs.org/" target="_blank">npm (Node Package Manager)</a>
+gets bundled with <a href="http://nodejs.org/" target="_blank">the node environment</a>, but verify that you have it.
 
     * Run `node -v` at the command line to check whether node is installed
     * Run `npm` at the command line to check whether npm is installed
 
-    If you are installing node for the first time, do not install it using `sudo` or in administrator mode. Also, ensure that
-the directory where npm installs modules to is permissioned so that you do not need to use sudo or administrator mode
-when you run npm install.
+    If you are installing node for the first time, do not install it using `sudo` or in administrator mode. Also, ensure that the directory where npm installs modules to is permissioned so that you do not need to use sudo or administrator mode when you run npm install.
+
+* **A Mac 10.8+ or Linux CentOS 6.5+ environment** - Or access to our Windows VM (contact Lithium Support)
+
+* **git** - After you install <a href="https://git-scm.com/" target="_blank">git</a>, run `git` from a new command line to check that it is available
+
+* **A Community accout with the "Use the SDK" permission"** 
+
+* **SSL configured for your community** - Contact Lithium Support if you are unsure whether this configuration
+set.
+
+* **Whitelisted IPs** - If your stage site has IP restriction turned on, you must whitelist IPs that will interact with the stage server using the SDK. Contact Lithium Support to whitelist IP addresses.
+
 
 ## Installing the SDK and dependencies <a id="install"></a>
 We use two npm packages in all of our project repositories: <a href="http://gulpjs.com/" target="_blank">gulp</a> and
