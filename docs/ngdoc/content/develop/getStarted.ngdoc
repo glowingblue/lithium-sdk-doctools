@@ -18,8 +18,9 @@ server is running 15.6 or earlier and you download the latest version of the SDK
 a "Supported minimum version on server is 15.7" error. See {@link /refer/troubleshoot Troubleshooting}
 to resolve.
 
-* **node.js version 4.x.x and npm** -  Usually, <a href="https://www.npmjs.org/" target="_blank">npm (Node Package Manager)</a>
-gets bundled with <a href="http://nodejs.org/" target="_blank">the node environment</a>, but verify that you have it.
+* **node.js** version 4.8.4 (Mac OSX and CentOS), 6.11.2 (Mac OSX and CentOS), or 8.3.0 (on Mac OSX)
+
+*  **npm** -  Usually, <a href="https://www.npmjs.org/" target="_blank">npm (Node Package Manager)</a> gets bundled with <a href="http://nodejs.org/" target="_blank">the node environment</a>, but verify that you have it.
 
     * Run `node -v` at the command line to check whether node is installed
     * Run `npm` at the command line to check whether npm is installed
