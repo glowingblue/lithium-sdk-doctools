@@ -801,3 +801,7 @@ ul.ng-scope li,
 p.ng-scope {
   font-size: 16px;
 }
+
+b, strong {
+  font-family: sans-serif;
+}
