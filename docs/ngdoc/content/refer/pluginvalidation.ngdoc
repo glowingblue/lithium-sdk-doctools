@@ -54,7 +54,7 @@ For files in `res/components`, validation ensures that:
 * Files use the `.ftl` extension
 * Files use valid FreeMarker syntax
 
-**Note:** If `strictMode` is set to `true` in `server.conf.json` in `PLUGIN_REPO/<plugin_name`>,
+> Note: If `strictMode` is set to `true` in `server.conf.json` in `PLUGIN_REPO/<plugin_name`>,
 FreeMarker syntax errors will block the plugin from being uploaded to the stage server. If `strictMode`
 is set to `false`, the plugin will be uploaded to stage despite the FreeMarker errors.
 
@@ -124,7 +124,7 @@ For files in `res/macros`, validation ensures that:
 * Files use valid FreeMarker syntax
 * Macro names can contain letters (a-z), numerals (1-9), hyphen (-), underscore ( _ ), and dot (.). A macro name cannot begin with '.'
 
-**Note:** Although the macro FTL file you add to the plugin can have a hypen in the name, FreeMarker does not supprt
+> Note: Although the macro FTL file you add to the plugin can have a hypen in the name, FreeMarker does not support
 hyphens in the macro variable name. When creating your macro FreeMarker, be sure to follow
 the variable naming conventions defined by
 <a href="http://freemarker.org/docs/dgui_template_exp.html#dgui_template_exp_var_toplevel" target="_blank">FreeMarker.org</a>.

@@ -53,7 +53,7 @@ the plugin token and executes the instructions to {@link /develop/create create 
 This task creates the directory
 structure to place under your preferred source control system.
 
-**Note:** Do not place the SDK configuration file (server.conf.json) located in
+> Note: Do not place the SDK configuration file (server.conf.json) located in
 the root directory of your plugin project under source control.
 
 After the SDK project is created and placed under source control, other developers
@@ -65,7 +65,7 @@ to learn about the plugin repository structure.
 [Top](/learn/workflow#top)
 
 ### Creating a development strategy <a id="strategy"></a>
-Create a development strategy with your Community team that includes which customization path you'll use. We recommend using either Studio or the SDK, and using that tool throughout development. Collaboration with Studio users is possible during development, but it requires execellent communication and comes with the risk of Studio users overriding SDK contributions if they do not understand the relationship between the Studio and SDK plugin described in <a href="http://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320" target="_blank">About Studio</a> and <a href="http://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316/message-revision/194316:3" target="_blank">More about plugins</a>. 
+Create a development strategy with your Community team that includes which customization path you'll use. We recommend using either Studio or the SDK, and using that tool throughout development. Collaboration with Studio users is possible during development, but it requires execellent communication and comes with the risk of Studio users overriding SDK contributions if they do not understand the relationship between the Studio and SDK plugin described in <a href="http://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320" target="_blank">About Studio</a> and <a href="http://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316/message-revision/194316:3" target="_blank">More about plugins</a>.
 
 If you're a current Lithium customer you'll have customizations in Studio. We provide a script that exports customizations into the SDK. You can export the entire Studio plugin or specific plugin points, such as components, skins, and layouts.
 
@@ -77,23 +77,23 @@ When you export a specific Studio plugin point, you export _all_ files for that 
 
 If you're brand new to Lithium, and choosing to do all development with the SDK, you can ignore the details about exporting from the Studio plugin. You'll start fresh with the SDK.
 
-Here is an example of the simplest development scenario for moving from Studio to SDK development. 
+Here is an example of the simplest development scenario for moving from Studio to SDK development.
 
-Both plugins (Studio and the SDK) exist on the stage server. You export all customizations from Studio into the SDK, and then clear the Studio plugin. We have a script for this, or you can delete customizations from Studio manually. From this point on, you contribute customizations to stage using an SDK script and no development occurs in Studio. 
+Both plugins (Studio and the SDK) exist on the stage server. You export all customizations from Studio into the SDK, and then clear the Studio plugin. We have a script for this, or you can delete customizations from Studio manually. From this point on, you contribute customizations to stage using an SDK script and no development occurs in Studio.
 
 <img src="img/clearPlugin.png" width="640 px"/>
 
-**Note:** Staging versions for production, reverting to previous versions, versioning features, and editing the robots exclusion protocol still occurs in Studio. 
+> Note: Staging versions for production, reverting to previous versions, versioning features, and editing the robots exclusion protocol still occurs in Studio.
 
 [Top](/learn/workflow#top)
 
 #### Studio collaboration strategy <a id="studioCollab"></a>
 
-In this next scenario, a subset of plugin points are exported. The yellow plugin point remains in the Studio plugin. Let's say the yellow plugin point represents skins. Maybe you have a designer, for example, who is more comfortable adding CSS in Studio than checking in files from the command line. You could leave skins in the Studio plugin, but export components and quilts to the SDK. 
+In this next scenario, a subset of plugin points are exported. The yellow plugin point remains in the Studio plugin. Let's say the yellow plugin point represents skins. Maybe you have a designer, for example, who is more comfortable adding CSS in Studio than checking in files from the command line. You could leave skins in the Studio plugin, but export components and quilts to the SDK.
 
 <img src="img/clearPluginOverride.png" width="640 px"/>
 
-Developers contribute component and quilt code using the SDK, and the designer contributes through Studio. In this scenario, you want to avoid having any skin files in the SDK plugin. 
+Developers contribute component and quilt code using the SDK, and the designer contributes through Studio. In this scenario, you want to avoid having any skin files in the SDK plugin.
 
 [Top](/learn/workflow#top)
 
@@ -101,7 +101,7 @@ Developers contribute component and quilt code using the SDK, and the designer c
 
 We have SDK scripts that clear the Studio plugin and the SDK plugin from the Stage environment. Before you use either script, read through this section to understand how the scripts work and when manually removing items from the Studio or SDK plugin might be a better option. When you clear a plugin, you'll see the change in the Versions tab in Studio. If you clear a plugin by mistake and need to <a href="https://community.lithium.com/t5/Previewing-and-publishing/About-versions-and-reverting/ta-p/109031" target="_blank">revert the action</a>, simply stage a previous version.
 
-<img src="img/revertClearedPlugin.png" width="640 px"/> 
+<img src="img/revertClearedPlugin.png" width="640 px"/>
 
 [Top](/learn/workflow#top)
 
@@ -109,25 +109,25 @@ We have SDK scripts that clear the Studio plugin and the SDK plugin from the Sta
 
 The `clear-studio-plugin` script clears _all_ plugin points from Studio. (If you have customizations in Studio, run this script _after_ you have exported the Studio pluign to the SDK.) If you want to move all development to the SDK, you'll use this script. For a more finely controlled experience, you can select specific plugin points to clear using the `--points` flag. For example, this clears all components and skins from Studio. To see a log of every file cleared, add the `--verbose` flag.
 
-`li clear-studio-plugin --points component,skins -- force` 
+`li clear-studio-plugin --points component,skins -- force`
 
-But what if you don't want to clear an entire plugin point? You can export a plugin point and then manually delete files in either Studio or the SDK plugin so that the correct files exist in the correct location. 
+But what if you don't want to clear an entire plugin point? You can export a plugin point and then manually delete files in either Studio or the SDK plugin so that the correct files exist in the correct location.
 
 Let's look at an example. Suppose that you're company is reskinning the community. The community currently uses skins B and C for the mobile and desktop versions of the site. Your designer and community manager want to make small changes in Studio to these skins when needed, so they want these skins to remain in the Studio plugin -- their preferred development tool. Meanwhile the development team created a new skin (A) for the community refresh project, and the team will do their development in the SDK.
 
-We show this collaboration scenario in the image below. Looking at the box on the left, you can see that all skins have been exported to the SDK using `export-studio-plugin --points skin`. At this point, skins A, B, and C exist in two places (Studio and the SDK). The skins in the Studio plugin will override the skins in the SDK plugin. We need to clear skin A from Studio so that when we submit our SDK plugin, we can see and test the SDK version in the stage environment. Alson, since we won't be customizing skins B and C with the SDK, we'll have a cleaner development environment if we clear those skins from the SDK plugin. 
+We show this collaboration scenario in the image below. Looking at the box on the left, you can see that all skins have been exported to the SDK using `export-studio-plugin --points skin`. At this point, skins A, B, and C exist in two places (Studio and the SDK). The skins in the Studio plugin will override the skins in the SDK plugin. We need to clear skin A from Studio so that when we submit our SDK plugin, we can see and test the SDK version in the stage environment. Alson, since we won't be customizing skins B and C with the SDK, we'll have a cleaner development environment if we clear those skins from the SDK plugin.
 
 <img src="img/clearPluginSkinExample.png" width="640 px"/>
 
  We've got two options to clear the plugins. We can clear the entire Studio skin plugin point (the middle box) or we can manually delete specific skins from Studio and the SDK (the box on the right). Clearing all skins with the `clear-studio-plugin` script removes all skins from Studio, making them inaccessible to Studio users until we submit the SDK plugin to stage. This doesn't meet our requirements for this collaboration scenario. We want skins B and C to remain in the Studio plugin.
 
-Alternatively, we can manually delete skins B and C from the SDK plugin in the local development environment and manually delete skin A from Studio. This lets each group access and edit the skins they need without risk of override. In addition, we won't receieve validation errors when we submit the SDK plugin warning us that files with the same name exist in Studio. 
+Alternatively, we can manually delete skins B and C from the SDK plugin in the local development environment and manually delete skin A from Studio. This lets each group access and edit the skins they need without risk of override. In addition, we won't receieve validation errors when we submit the SDK plugin warning us that files with the same name exist in Studio.
 
 [Top](/learn/workflow#top)
 
 #### Clearing the SDK plugin <a id="clearSdkPlugin"></a>
 
-The `clear-plugin` script removes all SDK contributions from the Stage server. Note that this does _not_ delete the files in your local environment. This script does not support the `--points` flag. It's an all-or-nothing action. This script is not part of the normal development workflow. The script provides a way to clear out files on stage contributed from the SDK plugin, if needed. As a general rule, you won't need to use this script unless instructed to by Lithium Support or Services. 
+The `clear-plugin` script removes all SDK contributions from the Stage server. Note that this does _not_ delete the files in your local environment. This script does not support the `--points` flag. It's an all-or-nothing action. This script is not part of the normal development workflow. The script provides a way to clear out files on stage contributed from the SDK plugin, if needed. As a general rule, you won't need to use this script unless instructed to by Lithium Support or Services.
 
 [Top](/learn/workflow#top)
 

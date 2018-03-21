@@ -23,7 +23,7 @@ of two files:
 This is different than when you contribute an endpoint using Studio. When you create an endpoint in Studio,
 you create the controller and Studio automatically creates the endpoint metadata XML file.
 
-**Note:** The endpoint and controller file must use the same name.
+> Note: The endpoint and controller file must use the same name.
 
 **Tip:** To create the endpoint XML, create the endpoint in Studio and export the endpoint
 into the SDK using `li export-studio-plugin --points "endpoint" --force`.

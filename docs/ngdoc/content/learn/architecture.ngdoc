@@ -12,7 +12,7 @@ is displayed using widgets called <a href="http://community.lithium.com/t5/Pages
 (created with a templating language called <a href="http://freemarker.org/" target="_blank">FreeMarker</a>, <a href="http://community.lithium.com/t5/Custom-Content/About-custom-content/ta-p/108551" target="_blank">custom content</a>,
 and <a href="http://community.lithium.com/t5/Components-endpoints-and-the/About-endpoints/ta-p/108971" target="_blank">endpoints</a> to interact with third-party applications and your company website.
 
-This guide incudes the following sections:
+This guide includes the following sections:
 
 * [The Community Plugin SDK](/learn/architecture#sdk)
 * [Understanding plugins](/learn/architecture#plugins)
@@ -54,7 +54,7 @@ The Community Plugin software development kit (SDK) enables developers to create
 or text editor (e.g. Eclipse, IntelliJ, Sublime) and to submit their customizations to the
 stage server directly from the command line.
 
-**Note:** If you have more than one stage environment,
+> Note: If you have more than one stage environment,
 the SDK is only supported on the stage environment that is connected via Studio Publish to your production site.
 
 Our developer environment runs on top of node.js, using for its streaming build system.

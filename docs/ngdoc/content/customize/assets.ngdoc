@@ -15,7 +15,7 @@ Assets in the Asset Library are often included in wrapper content, custom compon
 * Custom rank icons go in `web/html/rank_icons`
 * Custom Value Analytics images go in `web/html/survey_icons`
 
-**Note:** Image files should not include hyphens. Underscores are permitted.
+> Note: Image files should not include hyphens. Underscores are permitted.
 
 [Top](/customize/assets#top)
 ___

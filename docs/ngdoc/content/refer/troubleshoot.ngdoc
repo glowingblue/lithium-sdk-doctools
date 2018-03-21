@@ -192,7 +192,7 @@ npm install lithium-sdk -g
 
 ## No LAR (SDK) plugin found<a id="noLar"></a>
 
-**Note:** LAR is a legacy term for the SDK plugin.
+> Note: LAR is a legacy term for the SDK plugin.
 
 **Problem:** Your SDK plugin is not displaying on the community.
 

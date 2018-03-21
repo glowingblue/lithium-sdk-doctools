@@ -31,7 +31,7 @@ to resolve.
 
 * **git** - After you install <a href="https://git-scm.com/" target="_blank">git</a>, run `git` from a new command line to check that it is available
 
-* **A Community accout with the "Use the SDK" permission"** 
+* **A Community accout with the "Use the SDK" permission"**
 
 * **SSL configured for your community** - Contact Lithium Support if you are unsure whether this configuration
 set.
@@ -58,7 +58,7 @@ commands as yourself (`$USER`), you will not have access to write to these locat
 you might get a permission error that looks something like this:
 `npm ERR! Please try running this command again as root/Administrator.` See the troubleshooting instructions below if you see this error.
 
-**Note:** You might see warnings generated while installing `lithium-sdk` that look
+> Note: You might see warnings generated while installing `lithium-sdk` that look
 something like the following. They are a normal part of the installation process and you can ignore them.
 
 ```
