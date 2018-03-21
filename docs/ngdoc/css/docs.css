@@ -1,9 +1,9 @@
 html, body {
   position:relative;
   height:100%;
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: :16px;
+  font-size: :17.5px;
 }
 
 .definition-table td {
@@ -797,6 +797,10 @@ b,strong {
     font-weight: bolder;
 }
 
+strong,b {
+    font-weight: bolder;
+}
+
 blockquote {
-    font-size: 16px;
+    font-size: 17.5px;
 }
