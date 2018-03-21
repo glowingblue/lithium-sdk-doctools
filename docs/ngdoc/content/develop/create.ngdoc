@@ -74,7 +74,9 @@ do not have a token, press **Enter** to continue. You add the token into
 the configuration file manually after the `li create-project` script finishes.
 
 **6**  Let the script run to completion. You will see a new directory with the name you
-defined earlier. **Tip:** Type `li` to see the full list of SDK commands. We'll talk about them more later.
+defined earlier.
+
+> Tip: Type `li` to see the full list of SDK commands. We'll talk about them more later.
 
 **7**  (Optional) If you did not enter the token value, generate the token in Studio, open
 `server.conf.json` at the top level of your plugin repository, and

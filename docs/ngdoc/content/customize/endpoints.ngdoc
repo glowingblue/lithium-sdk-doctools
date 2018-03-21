@@ -25,7 +25,7 @@ you create the controller and Studio automatically creates the endpoint metadata
 
 > Note: The endpoint and controller file must use the same name.
 
-**Tip:** To create the endpoint XML, create the endpoint in Studio and export the endpoint
+> Tip: To create the endpoint XML, create the endpoint in Studio and export the endpoint
 into the SDK using `li export-studio-plugin --points "endpoint" --force`.
 
 ## Endpoint XML example and parameters
