@@ -222,7 +222,7 @@ module.exports = function(gulp, gutil) {
             }
           });
         }
-        middlewares.push(historyApiFallback);
+        middlewares.push(historyApiFallback());
         return middlewares;
       }
     });
