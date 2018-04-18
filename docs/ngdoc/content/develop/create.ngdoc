@@ -29,7 +29,7 @@ Community Admin. Alternatively, you can generate this token
 later and add it to the plugin configuration
 file, `server.conf.json`, manually.
 
-**Note:** Each developer crates a separate upload token using a separate, unique login in Studio to ensure that SDK submissions
+> Note: Each developer crates a separate upload token using a separate, unique login in Studio to ensure that SDK submissions
 that appear in the Studio Versions tab are attributed to the correct developer account.
 
 **1** Sign in to the community.
@@ -40,7 +40,7 @@ that appear in the Studio Versions tab are attributed to the correct developer a
 
 The token is valid for 30 days. This token is specific to the current user logged in to Studio.
 
-**Note:** Do not share this token. If you post to the Lithium Community for troubleshooting help, be careful not to post you
+> Note: Do not share this token. If you post to the Lithium Community for troubleshooting help, be careful not to post you
 token in your message.
 
 [Top](/develop/create#top)
@@ -52,7 +52,7 @@ token in your message.
 **1**  Move to a directory where you want to create your plugin repository. The plugin
 project will be created in this location.
 
-  **Note:** Do not create a project within a directory where `lithium-sdk` is installed.
+  > Note: Do not create a project within a directory where `lithium-sdk` is installed.
 
 **2**  Run `li create-project`. The command asks you a few questions.
 
@@ -63,7 +63,9 @@ your plugin. The directory name can contain lower case characters, numbers, and 
 This directory structure should be committed into your source-controlled
 repository.
 
-**4**  Enter the URL of your stage environment community instance. Use `https` in the URL. **Note:** If your stage site has IP restriction enabled, you must contact Lithium Support and have your IP whitelisted.
+**4**  Enter the URL of your stage environment community instance. Use `https` in the URL.
+
+> Note: If your stage site has IP restriction enabled, you must contact Lithium Support and have your IP whitelisted.
 
 **5**  When asked, "Do you have a plugin token," enter the token value if you have it.
 
@@ -72,11 +74,13 @@ do not have a token, press **Enter** to continue. You add the token into
 the configuration file manually after the `li create-project` script finishes.
 
 **6**  Let the script run to completion. You will see a new directory with the name you
-defined earlier. **Tip:** Type `li` to see the full list of SDK commands. We'll talk about them more later.
+defined earlier.
+
+> Tip: Type `li` to see the full list of SDK commands. We'll talk about them more later.
 
 **7**  (Optional) If you did not enter the token value, generate the token in Studio, open
 `server.conf.json` at the top level of your plugin repository, and
-add the token for the value of `pluginToken`. 
+add the token for the value of `pluginToken`.
 
 **8** Continue with [Configure](/develop/configure) to set optional plugin configurations or jump to [Plugin Structure](/develop/create#pluginStructure) to learn more about the plugin directory.
 
@@ -88,7 +92,7 @@ add the token for the value of `pluginToken`.
 You can export your community's entire Studio plugin from your stage server to your SDK plugin, or pull specific
 plugin points. When doing a partial export, you may specify up to five plugin points at a time. Before you export the Studio plugin, read through the Creating a development strategry section of {@link /learn/workflow Developer Workflow}.
 
-**Note:** Components that use the @override naming convention are not supported by the SDK at this time. If you have
+> Note: Components that use the @override naming convention are not supported by the SDK at this time. If you have
 components with @override in their names, they will not be exported to the SDK plugin. Continue to use Studio to create and edit
 these components.
 
@@ -134,7 +138,7 @@ Your plugin project repository contains several sub-directories and files. Custo
  Outside of those directories, the only file you'll use is `server.conf.json`. This
  is the configuration file that contains plugin settings and your plugin upload token. See [Configure](/develop/configure) for discriptions of `server.conf.json` options.
 
- **Note:** Do not check server.conf.json into your source repository. The plugin token should not be shared. It should remain secret.
+ > Note: Do not check server.conf.json into your source repository. The plugin token should not be shared. It should remain secret.
 
 <img src="img/pluginStructure.png" width="600px" align="middle"/>
 

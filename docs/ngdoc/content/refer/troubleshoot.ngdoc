@@ -192,7 +192,7 @@ npm install lithium-sdk -g
 
 ## No LAR (SDK) plugin found<a id="noLar"></a>
 
-**Note:** LAR is a legacy term for the SDK plugin.
+> Note: LAR is a legacy term for the SDK plugin.
 
 **Problem:** Your SDK plugin is not displaying on the community.
 
@@ -350,7 +350,7 @@ Suggestion: Change the file name
 
 **Problem:** You are experiencing exceptionally slow validation and submission times when submitting the plugin.
 
-**Tip:** If your plugin is slow to submit or validate, review your plugin for unused skins, components, and endpoints. Large plugins can slow validation and delay submission to the stage server. Plugins that generate errors can further slow validation.
+> Tip: If your plugin is slow to submit or validate, review your plugin for unused skins, components, and endpoints. Large plugins can slow validation and delay submission to the stage server. Plugins that generate errors can further slow validation.
 
 You can set `skiptemplatevalidation` to `true` in `server.conf.json` to force submission of a plugin; however, Lithium does not recommend use of this property on an ongoing basis. The better, long-term solution is to address the root causes of long submission times instead of skipping plugin validation.
 

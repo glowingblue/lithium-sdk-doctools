@@ -24,7 +24,7 @@ to understand naming conventions and directory structure requirements for your p
 
 These instructions assume you're working in your plugin repository (PLUGIN_REPO).
 
-**Note:** Remember that any customizations that exist in Studio that have the same
+> Note: Remember that any customizations that exist in Studio that have the same
 name and file extension as a customization you submit using the SDK override the SDK
 version.
 
@@ -61,7 +61,7 @@ a quilt file that you create and upload to the stage server with the SDK.
 [Top](/develop/tutorial#top)
 
 ## Create a quilt <a id="quilts"></a>
-The building blocks of any Lithium page are a quilt and a layout. 
+The building blocks of any Lithium page are a quilt and a layout.
 
 Building on our last example, let's put that custom component on a new custom quilt. Next we'll show you how to move and remove a
 component from a quilt.
@@ -115,7 +115,7 @@ You will see MyCustomPage in the list of custom quilts.
 
 **6.**  Go to the page using this URL: `<your_stage_url>/t5/custom/Page/page-id/MyCustomPage`.
 
-   **Note:** The "t5" in the URL might be different for your community. If the page does not
+   > Note: The "t5" in the URL might be different for your community. If the page does not
    render for you, go to your community and see what displays directly after your stage site
    domain name.
 
@@ -180,7 +180,7 @@ The `side-content` section should look like this:
 
 ## Create a skin <a id="skins"></a>
 
-**Note:** This section does not cover how to customize Lithium Responsive skins. If your
+> Note: This section does not cover how to customize Lithium Responsive skins. If your
 community is using Lithium Responsive, see the Hello Responsive tutorial in the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Lithium Responsive developer documentation</a>.
 
 Using the SDK, you can contribute skin properties, CSS, SCSS, images, and
@@ -237,7 +237,7 @@ the correct skin to your community in Community Admin.
 Some visual elements aren't defined by skin properties,
 but you might still want to style differently. This is where CSS comes in.
 
-**Note:** Responsive skins use Sass SCSS. If your
+> Note: Responsive skins use Sass SCSS. If your
 community is using Lithium Responsive, see the Hello Responsive tutorial in the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Lithium Responsive developer documentation</a>.
 
 Let's add some simple styling to our coreNodeDetails component. We're going to add a

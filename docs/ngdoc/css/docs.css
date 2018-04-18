@@ -3,6 +3,7 @@ html, body {
   height:100%;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
+  font-size: :16px;
 }
 
 .definition-table td {
@@ -791,3 +792,16 @@ ul.events > li {
 .navbar-nav .dropdown-menu {
     border-top: 1px solid rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 1px #bbb;}
+
+blockquote {
+    font-size: 16px;
+}
+
+ul.ng-scope li,
+p.ng-scope {
+  font-size: 16px;
+}
+
+b, strong {
+  font-family: sans-serif;
+}

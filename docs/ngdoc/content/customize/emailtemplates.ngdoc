@@ -8,9 +8,9 @@
 
 **Added 16.2. This feature is in Open Beta.**
 
-**Note:** Icons, alerts, and confirmations used to identify email templates in the SDK plugin and prevent Studio overrides are not implemented at this time.
+> Note: Icons, alerts, and confirmations used to identify email templates in the SDK plugin and prevent Studio overrides are not implemented at this time.
 
-Export customized email templates in Studio using `li export-studio-plugin --email --force`. 
+Export customized email templates in Studio using `li export-studio-plugin --email --force`.
 
 Once you customize an email template, you will no longer see updates to the template upon future release upgrades.
 

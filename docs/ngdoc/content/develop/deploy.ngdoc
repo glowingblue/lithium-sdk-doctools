@@ -29,7 +29,7 @@ stage site. Enter `y` or `n`.
 * `li submit-plugin --force` runs client and server-side validation on the plugin, uploads, and saves the
 plugin to the stage server. The `force` option skips the prompt to confirm upload to the server.
 
-**Tip:** If you encounter errors on your upload, review {@link refer/pluginvalidation Plugin Validation}
+> Tip: If you encounter errors on your upload, review {@link refer/pluginvalidation Plugin Validation}
 to help resolve any upload issues.
 
 
