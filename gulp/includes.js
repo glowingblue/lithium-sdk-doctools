@@ -1,6 +1,10 @@
 "use strict";
 
-var log = require('gulp-util').log;
+var log = require('fancy-log');
+var colors = require('ansi-colors');
+var template = require('lodash.template');
+var replaceExt = require('replace-ext');
+var argv = require('minimist')(process.argv.slice(2));
 var concat = require('gulp-concat');
 var Dgeni = require('dgeni');
 var merge = require('event-stream').merge;
@@ -37,7 +41,7 @@ var HTML2JS_TEMPLATE = 'angular.module(\'<%= moduleName %>\').run([\'$templateCa
 // We indicate to gulp that tasks are async by returning the stream.
 // Gulp can then wait for the stream to close before starting dependent tasks.
 // See clean and bower for async tasks, and see assets and doc-gen for dependent tasks below
-module.exports = function(gulp, gutil) {
+module.exports = function(gulp) {
 
   var docJsCombined = 'docs/ngdoc/js/combined/**/*.js';
   var docJsStandalone = 'docs/ngdoc/js/standalone/**/*.js';
@@ -66,13 +70,13 @@ module.exports = function(gulp, gutil) {
   gulp.task('ngdoc-git-branch', function (cb) {
     exec('git rev-parse --abbrev-ref HEAD', function (error, stdout, stderror) {
       if (error) {
-        gutil.log(gutil.colors.yellow(stderror));
-        gutil.log(gutil.colors.yellow('Using \'master\' ' + 
+        log(colors.yellow(stderror));
+        log(colors.yellow('Using \'master\' ' + 
           'branch as branch could not be determined.'));
       } else {
         gitBranch = stdout.trim();
       }
-      if (gutil.env['include-git-branch']) {
+      if (argv['include-git-branch']) {
         var cwd = process.cwd().split('/').pop();
         pathPrefix = path.join(cwd, gitBranch) + '/';
         outputFolder = path.join(outputFolder, pathPrefix);
@@ -101,11 +105,11 @@ module.exports = function(gulp, gutil) {
       return gulp.src(appSrc)
         .pipe(through(function (file, enc, cb) {
           if(/\.tpl\.html$/.test(file.relative)) {
-            file.contents = new Buffer(gutil.template(HTML2JS_TEMPLATE)({
+            file.contents = new Buffer(template(HTML2JS_TEMPLATE)({
               moduleName: (function () {
                 var parts = file.path.split('/');
                 return [
-                  gutil.env.ng.module,
+                  argv.ng.module,
                   'directives',
                   parts[parts.length - 3],
                   parts[parts.length - 2]
@@ -115,7 +119,7 @@ module.exports = function(gulp, gutil) {
               file: file,
               url: file.path.substr(path.join(file.cwd, 'src', 'directives').length + 1)
             }));
-            file.path = gutil.replaceExtension(file.path, '.js');
+            file.path = replaceExt(file.path, '.js');
             file.base = path.join(file.cwd, 'src');
           }
           this.push(file);
@@ -189,7 +193,7 @@ module.exports = function(gulp, gutil) {
     } catch (err) {}
     if (!serverPort) {
       serverPort = 9100;
-      gutil.log(gutil.colors.yellow('Docserver port is not set in sdk.conf.json, ' +
+      log(colors.yellow('Docserver port is not set in sdk.conf.json, ' +
           'using default port 9100'));
     }
     var lrPort;
@@ -199,7 +203,7 @@ module.exports = function(gulp, gutil) {
     } catch (err) {}
     if (!lrPort) {
       lrPort = 35729;
-      gutil.log(gutil.colors.yellow('Live reload port is not set in sdk.conf.json, ' +
+      log(colors.yellow('Live reload port is not set in sdk.conf.json, ' +
           'using default port 35729'));
     }
     var server = connect.server({
@@ -210,7 +214,7 @@ module.exports = function(gulp, gutil) {
       },
       middleware: function(connect, opt) {
         var middlewares = [];
-        if (gutil.env['include-git-branch']) {
+        if (argv['include-git-branch']) {
           middlewares.push(function (req, res, next) {
             if (req.url.indexOf(pathPrefix) >= 0) {
               req.url = req.url.replace(new RegExp(pathPrefix), '');
