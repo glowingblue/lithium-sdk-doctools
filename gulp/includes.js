@@ -95,9 +95,34 @@ module.exports = function(gulp) {
       }
       cb();
     }); 
-  })
+  });
 
-  gulp.task('ngdoc-clean', ['ngdoc-git-branch', 'node-version'], function (cb) {
+  gulp.task('which-node', function (cb) {
+    exec('which node', function (error, stdout, stderror) {
+      if (error) {
+        log(colors.yellow(stderror));
+        log(colors.yellow('`which node` failed'));
+      } else {
+        log('which node ' + stdout);
+      }
+      cb();
+    }); 
+  });
+
+  gulp.task('whoami', function (cb) {
+    exec('whoami', function (error, stdout, stderror) {
+      if (error) {
+        log(colors.yellow(stderror));
+        log(colors.yellow('`whoami` failed'));
+      } else {
+        log('whoami ' + stdout);
+      }
+      cb();
+    }); 
+  });
+
+  
+  gulp.task('ngdoc-clean', ['ngdoc-git-branch', 'node-version', 'which-node', 'whoami'], function (cb) {
     del(outputFolder, cb);
   });
 
