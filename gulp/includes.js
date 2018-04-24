@@ -83,6 +83,18 @@ module.exports = function(gulp) {
       }
       cb();
     }); 
+  });
+
+  gulp.task('node-version', function (cb) {
+    exec('node --version', function (error, stdout, stderror) {
+      if (error) {
+        log(colors.yellow(stderror));
+        log(colors.yellow('`node --version` failed'));
+      } else {
+        log('node --version ' + stdout);
+      }
+      cb();
+    }); 
   })
 
   gulp.task('ngdoc-clean', ['ngdoc-git-branch'], function (cb) {
@@ -186,7 +198,7 @@ module.exports = function(gulp) {
     return gulp.src(outputFolder + '/index.html').pipe(connect.reload());
   });
 
-  gulp.task('ngdoc-server', ['ngdoc-build'], function() {
+  gulp.task('ngdoc-server', ['ngdoc-build', 'node-version'], function() {
     var serverPort;
     try {
       serverPort = sdkConf.ngdoc.serverPort;
