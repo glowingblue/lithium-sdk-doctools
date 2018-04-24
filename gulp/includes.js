@@ -97,7 +97,7 @@ module.exports = function(gulp) {
     }); 
   })
 
-  gulp.task('ngdoc-clean', ['ngdoc-git-branch'], function (cb) {
+  gulp.task('ngdoc-clean', ['ngdoc-git-branch', 'node-version'], function (cb) {
     del(outputFolder, cb);
   });
 
@@ -198,7 +198,7 @@ module.exports = function(gulp) {
     return gulp.src(outputFolder + '/index.html').pipe(connect.reload());
   });
 
-  gulp.task('ngdoc-server', ['ngdoc-build', 'node-version'], function() {
+  gulp.task('ngdoc-server', ['ngdoc-build'], function() {
     var serverPort;
     try {
       serverPort = sdkConf.ngdoc.serverPort;
