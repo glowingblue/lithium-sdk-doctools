@@ -61,6 +61,9 @@ module.exports = function(gulp) {
           .resolve(__dirname, '..', sourceFolder,component,packageFile)).version;
     } catch (err) {
     }
+    console.log('copyComponent : ' + component + ' -> ' 
+                + outputFolder + '/components/' + component + (version ? '-' + version : ''));
+
     return gulp
       .src(path.join(__dirname, '..', sourceFolder, component, pattern))
       .pipe(gulp.dest(outputFolder + '/components/' + 
