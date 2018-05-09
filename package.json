@@ -1,7 +1,6 @@
 {
   "name": "lithium-sdk-doctools",
   "version": "0.0.1",
-  "author": "nikhilmodak",
   "engines": {
     "node": ">=0.8.0"
   },
@@ -14,7 +13,6 @@
     "bootstrap": "^3.3.7",
     "canonical-path": "0.0.2",
     "connect-history-api-fallback": "^1.5.0",
-    "connect-modrewrite": "^0.8.5",
     "del": "^1.2.1",
     "dgeni": "^0.4.9",
     "dgeni-packages": "^0.26.0",
@@ -23,6 +21,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.5.0",
     "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
     "gulp-sourcemaps": "^1.12.1",
     "gulp-uglify": "^3.0.0",
     "lodash": "^2.4.2",
@@ -33,7 +32,6 @@
     "node-html-encoder": "0.0.2",
     "open": "0.0.5",
     "open-sans-fontface": "^1.4.0",
-    "replace-ext": "^1.0.0",
     "through2": "^0.6.5",
     "uglify-js": "^2.8.29"
   },

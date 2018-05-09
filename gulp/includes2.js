@@ -15,7 +15,7 @@ const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 const sourcemaps = require('gulp-sourcemaps');
 const through = require('through2').obj;
-const webpack = require('webpack-stream');
+// const webpack = require('webpack-stream');
 const uglify = require('gulp-uglify');
 
 module.exports = (gulp) => {
