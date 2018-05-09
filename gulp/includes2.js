@@ -20,7 +20,7 @@ const uglify = require('gulp-uglify');
 
 module.exports = (gulp) => {
 
-  const DOC_OUTPUT_FOLDER = 'docs/buildTest/ngdoc';
+  const DOC_OUTPUT_FOLDER = 'docs/build/ngdoc';
 
   var copyComponent = function(component, 
                                pattern = '/**/*', 
