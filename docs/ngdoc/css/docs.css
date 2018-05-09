@@ -805,3 +805,8 @@ p.ng-scope {
 b, strong {
   font-family: sans-serif;
 }
+
+#git-revision {
+  font-size: 9px;
+  visibility: hidden;
+}
