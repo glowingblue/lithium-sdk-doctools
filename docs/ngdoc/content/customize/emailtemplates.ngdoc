@@ -4,11 +4,11 @@
 @description
 
 
-# Email templates <a id="top"></a>
+<h1 class = "title">Email templates <a id="top"></a></h1>
 
 **Added 16.2. This feature is in Open Beta.**
 
-> Note: Icons, alerts, and confirmations used to identify email templates in the SDK plugin and prevent Studio overrides are not implemented at this time.
+> **Note:** Icons, alerts, and confirmations used to identify email templates in the SDK plugin and prevent Studio overrides are not implemented at this time.
 
 Export customized email templates in Studio using `li export-studio-plugin --email --force`.
 
@@ -17,7 +17,7 @@ Once you customize an email template, you will no longer see updates to the temp
 * [Submit a custom email template](/customize/emailtemplates#submit)
 * [Delete a custom email template](/customize/emailtemplates#delete)
 
-## Submitting customized email templates<a id="submit"></a>
+# Submitting customized email templates<a id="submit"></a>
 
 Email templates use the Velocity template language. To customize your email templates, you use context objects as variables to tailor the content to the correct user and situation without hard coding URLs and other dynamic data. See <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Email-template-context-objects/ta-p/75924" target="_blank">Email template context objects</a> for a comprehensive list of Velocity context objects supported by Lithium. Note that these context objects are different than FreeMarker context objects used in components and endpoints.
 
@@ -61,7 +61,7 @@ If you're creating a new email template (as opposed to overriding one), create t
 Supported languages and the associated language code are described in
 <a href="https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566" target="_blank">Languages that Lithium supports</a>.
 
-## Deleting customized email templates <a id="delete"></a>
+# Deleting customized email templates <a id="delete"></a>
 
 Deleting email templates is not recommended at this time.
 

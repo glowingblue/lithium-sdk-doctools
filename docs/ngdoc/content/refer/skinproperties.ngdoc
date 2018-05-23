@@ -3,7 +3,7 @@
 @sortOrder 100
 @description
 
-# Skin properties
+<h1 class = "title">Skin properties <a id="top"></a></h1>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
 We recommend that you define skin properties in `skin.properties` when you create a new skin.
@@ -19,12 +19,12 @@ The table below shows the default skin properties used with non-responsive skins
 Responsive skins use only a limited set of skin properties to specify default cropping sizes for images and assets. For details about skin properties and responsive skins, see the Skin Architecture section of the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Responsive Developer Documentation</a>.
 
 
-## Skin properties for non-responsive skins
+# Skin properties for non-responsive skins
 
 #### Color properties
 
 | Property | Description | Studio Field |
-| ---------| ----------- | ------------ |   
+| ---------| ----------- | ------------ |
 | color.foreground | The default text color | Foreground color |
 | color.background | The background color for all pages | Background color |
 | color.midtone | A tone between foreground and background. Text on both foreground and background should also be readable on midtone. | Midtone color |
@@ -78,5 +78,3 @@ Responsive skins use only a limited set of skin properties to specify default cr
 | size.pixel.avatar_inline_h | The maximum height of avatar images used in-line | Max. Avatar height (Inline (px)) |
 | size.page_width_min | The minimum page width in pixels. The browser will not resize smaller than this setting | Minimum page width |
 | size.page_width_max | The maximum page width in pixels or percentage. If pixels is specified, the minimum page width is ignored and the page is set at the maximum width specified here. | Maximum page width |
-
-

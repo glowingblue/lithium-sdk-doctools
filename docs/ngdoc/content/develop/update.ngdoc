@@ -3,10 +3,10 @@
 @sortOrder 500
 @description
 
-# Update
+<h1 class = "title">Update<a id="top"></a></h1>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-## Update your plugin
+# Update your plugin
 
 When Lithium releases a new version of the SDK, you will need to update your SDK project
 and plugin.

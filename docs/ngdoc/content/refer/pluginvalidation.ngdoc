@@ -3,7 +3,7 @@
 @sortOrder 150
 @description
 
-# Plugin Validation <a id="top"></a>
+<h1 class = "title">Plugin Validation <a id="top"></a></h1>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
 Plugin validation occurs when you run any of the following commands from the root
@@ -40,7 +40,7 @@ plugin. To force this behavior, set `allowStudioOverrides` in `server.conf.json`
 * [Validation errors](/refer/pluginvalidation#otherErrors)
 
 
-## Asset validation <a id="asset"></a>
+# Asset validation <a id="asset"></a>
 For files in `web/html`, validation ensures that:
 
 * `web/html/assets` can have subdirectories, but only five levels deep
@@ -49,18 +49,18 @@ For files in `web/html`, validation ensures that:
 
 [Top](/refer/pluginvalidation#top)
 
-## Component validation <a id="component"></a>
+# Component validation <a id="component"></a>
 For files in `res/components`, validation ensures that:
 * Files use the `.ftl` extension
 * Files use valid FreeMarker syntax
 
-> Note: If `strictMode` is set to `true` in `server.conf.json` in `PLUGIN_REPO/<plugin_name`>,
+> **Note:** If `strictMode` is set to `true` in `server.conf.json` in `PLUGIN_REPO/<plugin_name`>,
 FreeMarker syntax errors will block the plugin from being uploaded to the stage server. If `strictMode`
 is set to `false`, the plugin will be uploaded to stage despite the FreeMarker errors.
 
 [Top](/refer/pluginvalidation#top)
 
-## Layout validation <a id="layout"></a>
+# Layout validation <a id="layout"></a>
 For files in `res/layouts`, validation ensures that:
 * The layout uses the `.layout.xml` file extension
 * The layout file is not empty
@@ -68,7 +68,7 @@ For files in `res/layouts`, validation ensures that:
 
 [Top](/refer/pluginvalidation#top)
 
-## Quilt validation <a id="quilt"></a>
+# Quilt validation <a id="quilt"></a>
 For files in `res/quilts`, validation ensures that:
 * The quilt uses the `.quilt.xml` file extension
 * The quilt references a single layout and that layout exists
@@ -77,7 +77,7 @@ For files in `res/quilts`, validation ensures that:
 
 [Top](/refer/pluginvalidation#top)
 
-## Skin validation <a id="skin"></a>
+# Skin validation <a id="skin"></a>
 For files in `res/skins`, validation ensures that:
 * Files in `res/skins/<skin_id>/images` have extensions `.png`, `.gif`, `.jpeg`, `.jpg` or `.svg`
 * Files in `res/skins/<skin_id>/images` do not use dashes (-) in their names. Underscores (_) are permitted
@@ -94,7 +94,7 @@ unless `strictMode` is set to false in `server.conf.json`.
 
 [Top](/refer/pluginvalidation#top)
 
-## Text validation <a id="text"></a>
+# Text validation <a id="text"></a>
 For files in `res/lang`, validation ensures that:
 * The text properties file name uses only supported language codes. See <a href="https://community.lithium.com/t5/Community-display/Languages-that-Lithium-supports/ta-p/6566" target="_blank">Languages that Lithium supports</a>.
 * The text properties file uses the correct file name: text.__language_code__.properties (examples: text.en.properties, text.de.properties)
@@ -102,7 +102,7 @@ For files in `res/lang`, validation ensures that:
 
 [Top](/refer/pluginvalidation#top)
 
-## Endpoint validation <a id="endpoint"></a>
+# Endpoint validation <a id="endpoint"></a>
 For files in `res/endpoints`, validation ensures that:
 * Files use the `.endpoint.xml` extension
 * Files use valid XML syntax
@@ -111,27 +111,27 @@ For files in `res/endpoints`, validation ensures that:
 
 [Top](/refer/pluginvalidation#top)
 
-## Controller validation<a id="controller"></a>
+# Controller validation<a id="controller"></a>
 For files in `res/controllers`, validation ensures that:
 * Files use the `.ftl` extension
 * Files use valid FreeMarker syntax
 
 [Top](/refer/pluginvalidation#top)
 
-## Macro validation<a id="macro"></a>
+# Macro validation<a id="macro"></a>
 For files in `res/macros`, validation ensures that:
 * Files use the `.ftl` extension
 * Files use valid FreeMarker syntax
 * Macro names can contain letters (a-z), numerals (1-9), hyphen (-), underscore ( _ ), and dot (.). A macro name cannot begin with '.'
 
-> Note: Although the macro FTL file you add to the plugin can have a hypen in the name, FreeMarker does not support
+> **Note:** Although the macro FTL file you add to the plugin can have a hyphen in the name, FreeMarker does not support
 hyphens in the macro variable name. When creating your macro FreeMarker, be sure to follow
 the variable naming conventions defined by
 <a href="http://freemarker.org/docs/dgui_template_exp.html#dgui_template_exp_var_toplevel" target="_blank">FreeMarker.org</a>.
 
 [Top](/refer/pluginvalidation#top)
 
-## Other plugin validation requirements<a id="other"></a>
+# Other plugin validation requirements<a id="other"></a>
 Here are a few more validation requirements when you run the `li` scripts:
 
 * The plugin cannot be empty when you submit it. If you submit an empty plugin directory, you will see errors like
@@ -145,7 +145,7 @@ recieve a PLUGIN_POINT_DOWNLOAD_FAILURE error.
 
 [Top](/refer/pluginvalidation#top)
 
-## Validation errors <a id="otherErrors"></a>
+# Validation errors <a id="otherErrors"></a>
 
 **A file in the plugin has a possible issue:**
 

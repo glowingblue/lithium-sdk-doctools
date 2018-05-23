@@ -3,7 +3,7 @@
 @sortOrder 800
 @description
 
-## Page initialization script <a id="top"></a>
+<h1 class = "title">Page initialization script <a id="top"></a></h1>
 
 The page initialization script (common.init.ftl) enables you to execute business logic using
 FreeMarker early in a request prior to any HTML being rendered. The script runs once each request,

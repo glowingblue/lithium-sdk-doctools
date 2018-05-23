@@ -3,10 +3,10 @@
 @sortOrder 1300
 @description
 
-# Text and Terms of Service <a id="top"></a>
+<h1 class = "title">Text and Terms of Service <a id="top"></a></h1>
 
-Text used in your customizations go in a file called text._language_code_.properties where
-_language_code_ represents a language, such as "en" for English or "de" for German.
+Text used in your customizations go in a file called `text.<language_code>.properties` where
+`language_code` represents a language, such as "en" for English or "de" for German.
 
 Create a separate text properties file for each language used in your community.
 Supported languages and the associated language code are described in
@@ -16,7 +16,7 @@ We have <a href="https://community.lithium.com/t5/FAQs-email-templates-and-text/
 
 Put text properties files in `PLUGIN_REPO/res/lang`.
 
-## Terms of Service
+# Terms of Service
 
 A community's Terms of Service is stored in the text key: `page.user_signup.terms_of_service`.
 Simply edit that text key to update. If you want to pull your Terms of Service into a

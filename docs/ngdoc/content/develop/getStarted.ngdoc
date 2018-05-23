@@ -3,13 +3,13 @@
 @sortOrder 100
 @description
 
-# Get Started <a id="top"></a>
+<h1 class = "title">Get Started <a id="top"></a></h1>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
 * [Prerequisites](/develop/getStarted#prereq)
 * [Installing the SDK and dependencies](/develop/getStarted#install)
 
-## Prerequisites <a id="prereq"></a>
+# Prerequisites <a id="prereq"></a>
 
 You need these prerequisites before installing the Community Plugin SDK:
 * **Community 15.4 or higher** - Check the
@@ -39,7 +39,7 @@ set.
 * **Whitelisted IPs** - If your stage site has IP restriction turned on, you must whitelist IPs that will interact with the stage server using the SDK. Contact Lithium Support to whitelist IP addresses.
 
 
-## Installing the SDK and dependencies <a id="install"></a>
+# Installing the SDK and dependencies <a id="install"></a>
 We use two npm packages in all of our project repositories: <a href="http://gulpjs.com/" target="_blank">gulp</a> and
 <a href="https://www.npmjs.com/package/lithium-sdk" target="_blank">lithium-sdk</a>. Install them by issuing
 the following statements in a command line:
@@ -52,13 +52,13 @@ The `-g` flag denotes the package specified will be installed globally on your s
 
 Continue with the steps in [Create](/develop/create) to create your plugin project repository.
 
-> Tip: When you install a node package globally, the package is put in
+> **Tip:** When you install a node package globally, the package is put in
 `usr/local/lib/node_modules` and a symlink is put in `usr/local/bin`. When you run these
 commands as yourself (`$USER`), you will not have access to write to these locations, and
 you might get a permission error that looks something like this:
 `npm ERR! Please try running this command again as root/Administrator.` See the troubleshooting instructions below if you see this error.
 
-> Note: You might see warnings generated while installing `lithium-sdk` that look
+> **Note:** You might see warnings generated while installing `lithium-sdk` that look
 something like the following. They are a normal part of the installation process and you can ignore them.
 
 ```
@@ -71,7 +71,7 @@ something like the following. They are a normal part of the installation process
 ```
 
 
-### Troubleshooting permission errors in Non-Windows environments
+## Troubleshooting permission errors in Non-Windows environments
 If you have permission issues, use change permission for the folders where global packages are being installed so
 that $USER can write to those directories and subdirectories.
 

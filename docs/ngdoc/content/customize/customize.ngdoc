@@ -3,7 +3,7 @@
 @sortOrder 100
 @description
 
-# Customize <a id="top"></a>
+<h1 class = "title">Customize <a id="top"></a></h1>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
 After {@link develop/create creating your local SDK pluign repository},
@@ -29,7 +29,7 @@ See these sections for instructions and examples for plugin point customizations
 
 All instructions assume you're working in your plugin repository (PLUGIN_REPO).
 
-> Note: Remember that any customizations that exist in Studio that have the same
+> **Note:** Remember that any customizations that exist in Studio that have the same
 name and file extension as a customization you submit using the SDK override the SDK
 version.
 

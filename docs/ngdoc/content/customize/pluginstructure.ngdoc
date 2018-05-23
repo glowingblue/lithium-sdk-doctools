@@ -3,12 +3,12 @@
 @sortOrder 150
 @description
 
-# Where to put your code <a id="top"></a>
+<h1 class = "title">Where to put your code <a id="top"></a></h1>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-Your plugin project contains several folders in your local repository. Customizations go in the `res` and `web` directories. 
+Your plugin project contains several folders in your local repository. Customizations go in the `res` and `web` directories.
 
-The term _plugin point_ refers to a type of community customization. Components, skins, assets are examples of plugin points. The table below lists Community plugin points, where to put the code, and where the customizations appear in Studio when you submit the plugin to the stage server.   
+The term _plugin point_ refers to a type of community customization. Components, skins, assets are examples of plugin points. The table below lists Community plugin points, where to put the code, and where the customizations appear in Studio when you submit the plugin to the stage server.
 
 
 | Plugin Point | Location | Files Extension | Notes |

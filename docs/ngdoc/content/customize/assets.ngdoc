@@ -4,7 +4,7 @@
 @description
 
 
-# Assets: Images, icons, and more <a id="top"></a>
+<h1 class = "title">Assets: Images, icons, and more <a id="top"></a></h1>
 You can contribute images, badge and rank icons, Value Analytics images, and other assets to the Asset Library with the SDK.
 
 These assets might be image assets like your community logo, but they can also be other files such as PDFs and JavaScript.
@@ -15,7 +15,7 @@ Assets in the Asset Library are often included in wrapper content, custom compon
 * Custom rank icons go in `web/html/rank_icons`
 * Custom Value Analytics images go in `web/html/survey_icons`
 
-> Note: Image files should not include hyphens. Underscores are permitted.
+> **Note:** Image files should not include hyphens. Underscores are permitted.
 
 [Top](/customize/assets#top)
 ___

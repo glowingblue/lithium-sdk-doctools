@@ -4,7 +4,7 @@
 @description
 
 
-## Layouts <a id="top"></a>
+<h1 class = "title">Layouts <a id="top"></a></h1>
 
 Layouts define the structure of a page using are rows and columns. Each quilt specifies a layout and the quilt defines which
 components to place within each of the layout's columns. The layout contains any number of rows and each row contains
@@ -16,7 +16,7 @@ the Lithium community.
 
 Layouts use the file extension `layout.xml`. Put them in `/res/layouts` in your plugin project.
 
-## The layout XML
+# The layout XML
 
 ```
 <layout>

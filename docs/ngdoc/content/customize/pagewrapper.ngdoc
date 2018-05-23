@@ -4,7 +4,7 @@
 @description
 
 
-# Page wrapper <a id="top"></a>
+<h1 class = "title">Page wrapper <a id="top"></a></h1>
 The page wrapper for a skin provides an additional layer or styling above and below the main
 content of the page (anything above and below `li-body` when looking at a the code for a community page.)
 
@@ -16,8 +16,8 @@ You can upload wrapper content to the stage server using the SDK. The wrapper co
  contribute using the SDK map to the content areas in **Studio > Community Style > Community
  Skins > Wrapper**.
 
-Wrapper content is put into FTL (FreeMarker) files. 
-  
+Wrapper content is put into FTL (FreeMarker) files.
+
 Use theses file names for wrapper elements:
 
 * head_top.ftl - Used to add browser compatibility tags. This maps to the **Page Head Top Content** section of the Studio **Wrapper** tab.

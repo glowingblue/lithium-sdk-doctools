@@ -3,14 +3,14 @@
 @sortOrder 300
 @description
 
-# Configure <a id="top"></a>
+<h1 class = "title">Configure <a id="top"></a></h1>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
 When you [created the local plugin project repository](/develop/create#createPluginRepo), the `li create-project` command created the `server.conf.json` configuration file.
 
 This file contains plugin settings and your plugin upload token.
 
-> Note: Do not check `server.conf.json` into your source repository. The plugin token should not be shared. It should remain secret.
+> **Note:** Do not check `server.conf.json` into your source repository. The plugin token should not be shared. It should remain secret.
 
 Let's look at an example `server.conf.json`.
 
@@ -40,7 +40,7 @@ Let's look at an example `server.conf.json`.
 | dryRun | When `true`, `li submit-plugin` validates the plugin on the client side, uploads the plugin to the server and performs server-side validation, but does not save the plugin to the server.</br/></br/>Generally you will set `dryRun` to `false` in `server.conf.json` and instead pass the `dryrun` option with `li submit-plugin`.</br/></br/>Learn more about validation rules in {@link refer/pluginvalidation Plugin Validation}. |
 | verbose | When `true`, automatically prints a log for each file added to the SDK plugin from Studio when you run `li export-studio-plugin` |
 | force | Automatically adds the `force` flag to commands requiring manual confirmation. **Tip:** This flag is intended to be used in a continuous integration environment where an automated build system runs `li submit-plugin`.  We **do not recommend** individual developers set this to true.<br/></br/>When `true`:<br/>`clear-plugin` automatically clears the entire SDK plugin without manual confirmation. Learn more about clearing the SDK plugin in the Creating a development strategry section of {@link /learn/workflow Developer Workflow}.<br/></br/>`clear-studio-plugin` automatically clears the entire Studio plugin (unless you have specific plugin points defined in the `pluginPoints` field in `server.conf.json`) without manual confirmation. Learn more about clearing the Studio plugin in the Creating a development strategry section of {@link /learn/workflow Developer Workflow}.<br/></br/>`export-plugin` automatically exports the entire SDK plugin without manual confirmation<br/></br/>`export-studio-plugin` automatically exports the entire Studio plugin (unless you have plugin points defined in the `pluginPoints` in `server.conf.json`) without manual confirmation. Learn more about exporting the Studio plugin in the Creating a development strategry section of {@link /learn/workflow Developer Workflow}.<br/></br/>`submit-plugin` automatically uploads the plugin to the server without manual confirmation |
-| pluginPoints | Optionally define a subset to of up to five plugin points to download when you run `li export-studio-plugin`. When you have plugin points defined in `server.conf.json`, use the `--force` flag to skip the prompt asking whether you want to download the entire plugin.<br/></br/>Defining plugin points in the config file is equivalent to passing `--points --force` to `li export-studio-plugin`.<br/></br/>**Note:** You cannot define a subset of plugin points to export when exporting an existing SDK plugin. |  
+| pluginPoints | Optionally define a subset to of up to five plugin points to download when you run `li export-studio-plugin`. When you have plugin points defined in `server.conf.json`, use the `--force` flag to skip the prompt asking whether you want to download the entire plugin.<br/></br/>Defining plugin points in the config file is equivalent to passing `--points --force` to `li export-studio-plugin`.<br/></br/>**Note:** You cannot define a subset of plugin points to export when exporting an existing SDK plugin. |
 | skipTemplateValidation | Added with Community Plugin SDK v1.3.<br/></br/>When `true`, skips validation that warns when part or all of the plugin might generate exceptions or fail to run properly when submitted to the stage server.<br/></br/>We recommend leaving this set to `false`. |
 
 Read {@link /develop/deploy Deploy} to learn more about packaging the plugin for deployment

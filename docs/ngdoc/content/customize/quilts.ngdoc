@@ -4,7 +4,7 @@
 @description
 
 
-# Quilts <a id="top"></a>
+<h1 class = "title">Quilts <a id="top"></a></h1>
 Lithium comes with a set of default pages like the View Profile Page and the Forum Page. A page is a
 combination of a quilt and layout. In our Studio documentation, you will see the terms _quilt_ and _page_
 used interchangeably, but under the covers, the building blocks of a page (the quilt and the layout) are two separate
@@ -12,7 +12,7 @@ pieces of code.
 
 We talk about layouts in a [separate document](/customize/layouts). For now, understand that your custom quilts must always reference a layout. For example `<quilt layout="two-column.main-side" nestable="false">`.
 
-Quilts use the file extension `quilt.xml`. 
+Quilts use the file extension `quilt.xml`.
 Quilt files go in `/res/quilts`.
 
 * [An example quilt](/customize/quilts#exampleQuilt)
@@ -20,7 +20,7 @@ Quilt files go in `/res/quilts`.
 * [Create a custom quilt](/customize/quilts#newQuilt)
 * [Override a core quilt](/customize/quilts#overrideQuilt)
 
-## Basic quilt structure
+# Basic quilt structure
 
 The most basic quilt XML includes these XML elements:
 
@@ -42,14 +42,14 @@ Optional elements are described in [The quilt XML](/customize/quilts#quiltXml).
     <component id="<component or quilt ID>"/>
     <component id="<component or quilt ID>"/>
   </add>
-</quilt> 
+</quilt>
 ```
 
-## Nested quilts
+# Nested quilts
 
 You can "nest" (or include) one quilt within another quilt. The Header and Footer quilts are often nested. All components in a nested quilt are included in the parent quilt, but using XML elements in the parent quilt, you can add or remove components from the nested quilt when the nested quilt appears in that page. Nested quilts use the syntax <component id="quilt:<quilt ID>"/>
 
-## An example quilt <a id="exampleQuilt"></a>
+# An example quilt <a id="exampleQuilt"></a>
 
 Here is a simple quilt - MyCustomPage.quilt.xml. It
 adds the coreNodeDetails component in the `side-content` section.
@@ -83,7 +83,7 @@ The rendered quilt looks like this:
 
 <img src="img/sdkQuiltTutorialComponents.png" width="700 px"/>
 
-## Quilt XML <a id="quiltXml"></a>
+# Quilt XML <a id="quiltXml"></a>
 
 These are the elements used in quilts.
 
@@ -97,7 +97,7 @@ These are the elements used in quilts.
 To add or rearrange components, simply add or move the reference to the component (such as `<component id=“coreNodeDetails”/>`)
 from one section of the quilt XML to another.
 
-##  Create a custom quilt <a id="newQuilt"></a>
+#  Create a custom quilt <a id="newQuilt"></a>
 Custom quilts go in `PLUGIN_REPO/res/quilts/custom`. Unique custom quilts use
 the file name structure `<quilt_name>.quilt.xml`, for example MyCustomPage.quilt.xml.
 
@@ -106,7 +106,7 @@ in the Lithium Community for more information about creating custom pages.
 
 [Top](/customize/quilts#top)
 
-## Override a core quilt <a id="overrideQuilt"></a>
+# Override a core quilt <a id="overrideQuilt"></a>
 Custom quilts that override Lithium core quilts use the
 file name structure <br />`<core_quilt_name>.<descriptive_identifier>.quilt.xml`, for example
 BlogPage.custom.quilt.xml. Put the file in `PLUGIN_REPO/res/quilts/custom`

@@ -4,10 +4,10 @@
 @description
 
 
-# Components<a id="top"></a>
+<h1 class = "title">Components<a id="top"></a></h1>
 You write components in FreeMarker, a templating language. Learn about FreeMarker at <a href="http://freemarker.org/" target="_blank">FreeMarker.org</a>.
 
-Lithium provides our own <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=freemarker#l::{"p":"/learn/aboutFreeMarker"}" target="_blank">FreeMarker context objects and directives</a> that work specifically with Lithium Community.
+Lithium provides our own [FreeMarker context objects and directives](https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=freemarker#l::{"p":"/learn/aboutFreeMarker"}) that work specifically with Lithium Community.
 
 Custom component code goes in `res/components`.
 
