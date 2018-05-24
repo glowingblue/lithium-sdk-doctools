@@ -61,6 +61,9 @@ module.exports = function(gulp) {
           .resolve(__dirname, '..', sourceFolder,component,packageFile)).version;
     } catch (err) {
     }
+    console.log('copyComponent : ' + component + ' -> ' 
+                + outputFolder + '/components/' + component + (version ? '-' + version : ''));
+
     return gulp
       .src(path.join(__dirname, '..', sourceFolder, component, pattern))
       .pipe(gulp.dest(outputFolder + '/components/' + 
@@ -83,9 +86,46 @@ module.exports = function(gulp) {
       }
       cb();
     }); 
-  })
+  });
 
-  gulp.task('ngdoc-clean', ['ngdoc-git-branch'], function (cb) {
+  gulp.task('node-version', function (cb) {
+    exec('node --version', function (error, stdout, stderror) {
+      if (error) {
+        log(colors.yellow(stderror));
+        log(colors.yellow('`node --version` failed'));
+      } else {
+        log('node --version ' + stdout);
+      }
+      cb();
+    }); 
+  });
+
+  gulp.task('which-node', function (cb) {
+    exec('which node', function (error, stdout, stderror) {
+      if (error) {
+        log(colors.yellow(stderror));
+        log(colors.yellow('`which node` failed'));
+      } else {
+        log('which node ' + stdout);
+      }
+      cb();
+    }); 
+  });
+
+  gulp.task('whoami', function (cb) {
+    exec('whoami', function (error, stdout, stderror) {
+      if (error) {
+        log(colors.yellow(stderror));
+        log(colors.yellow('`whoami` failed'));
+      } else {
+        log('whoami ' + stdout);
+      }
+      cb();
+    }); 
+  });
+
+  
+  gulp.task('ngdoc-clean', ['ngdoc-git-branch', 'node-version', 'which-node', 'whoami'], function (cb) {
     del(outputFolder, cb);
   });
 
