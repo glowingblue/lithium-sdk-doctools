@@ -26,6 +26,7 @@ to resolve.
     * Run `npm` at the command line to check whether npm is installed
 
     If you are installing node for the first time, do not install it using `sudo` or in administrator mode. Also, ensure that the directory where npm installs modules to is permissioned so that you do not need to use sudo or administrator mode when you run npm install.
+* **rsync** - Many systems come with rsync already installed. However, we recommend running `rsync -v` to verify that it exists. If you don't have it, download it [here](https://rsync.samba.org/?).
 
 * **A Mac 10.8+ or Linux CentOS 6.5+ environment** - Or access to our Windows VM (contact Lithium Support)
 

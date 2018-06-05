@@ -18,6 +18,7 @@ Running into problems? Let's look at a few troubleshooting tips for errors you m
 * [Nothing happens after running an SDK script](/refer/troubleshoot#nothingHappens)
 * [Object is not a function](/refer/troubleshoot#objectNotFunction)
 * [Socket hang up](/refer/troubleshoot#socketHangUp)
+* ['stream-sync' and ‘gulp-expect-file’ errors with plugin package or submit commands](/refer/troubleshoot#rsync)
 * [Supported minimum version on server is 15.7]()
 * [Validation errors](/refer/troubleshoot#validationErrors)
 * [Slow plugin submission time](/refer/troubleshoot#slowSubmission)
@@ -249,6 +250,32 @@ If this does not solve your problem, contact Lithium Support.
 This error indicates that your stage site might be down or unreachable due to network issues.
 
 **Solution:** Verify that your stage site is up and running.
+
+[Top](/refer/troubleshoot#top)
+
+# 'stream-sync' and ‘gulp-expect-file’ errors with plugin package or submit commands <a id="rsync"></a>
+
+If you see an error like the following, you might need to install [rsync](https://rsync.samba.org/?).
+
+```
+[16:33:49] Starting 'plugin-git-version'...
+[16:33:49] Finished 'plugin-git-version' after 68 μs
+[16:33:49] Failed to sync files:
+[16:33:49] Finished 'plugin-build-res' after 19 ms
+[16:33:49] Failed to sync files:
+[16:33:49] Finished 'plugin-build-web' after 38 ms
+[16:33:49] Finished 'plugin-build' after 56 ms
+[16:33:49] Starting 'plugin-verify'...
+[16:33:49] Tested 0 tests, 0 passes, 0 failures: PASS
+[16:33:49] Tested 0 tests, 0 passes, 0 failures: PASS
+[16:33:49] ✗ FAIL: Missing 2 expected files: res, res/**
+[16:33:49] Tested 1 tests, 0 passes, 1 failures: FAIL
+[16:33:49] 'plugin-verify' errored after 39 ms
+[16:33:49] [gulp] Error in plugin 'stream-sync': Errors
+[Stream 2] Error in script 'gulp-expect-file': Failed 1 expectations
+```
+
+Many systems come with rsync installed. However, customers occasionally encounter issues like the one above. If you encounter this issue, verify whether rsync is installed. If not, download and install it.
 
 [Top](/refer/troubleshoot#top)
 
