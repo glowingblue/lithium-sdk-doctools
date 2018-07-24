@@ -20,6 +20,9 @@ var exec = require('child_process').exec;
 var modrewrite = require('connect-modrewrite');
 var open = require('open');
 
+const confirm = require('gulp-confirm');
+const fs = require('fs');
+
 var sdkConf;
 try {
   sdkConf = require(path.resolve(process.cwd(), 'sdk.conf.json'));
@@ -27,11 +30,22 @@ try {
   sdkConf = {};
 }
 
+var docsConf;
+try {
+  docsConf = require(path.resolve(__dirname, '../doctools.config.json'));
+} catch (err) {
+  docsConf = {};
+}
+
 function getPrettyEscapedContent(templateContent) {
   return templateContent
     .replace(/\\/g, '\\\\')
     .replace(/'/g, '\\\'')
     .replace(/\r?\n/g, '\\n\' +\n    \'');
+}
+
+function getDocsPluginSvnLocation() {
+  return path.join(docsConf.docPluginLocation, 'stage/web/html/docs');
 }
 
 var HTML2JS_TEMPLATE = 'angular.module(\'<%= moduleName %>\').run([\'$templateCache\', function($templateCache) {\n' +
@@ -124,7 +138,45 @@ module.exports = function(gulp) {
     }); 
   });
 
-  
+  // this task just copies the files from the build (output) folder
+  // to the svn location of the plugin to be checked in
+  gulp.task('svn-copy', [], function () {
+
+    let docDest = getDocsPluginSvnLocation();
+    
+    // determine where we should put the finished docs
+    fs.readdir(docDest, (err, files) => {
+      // check current directory so we know what repo we are in
+      let docFolder = files.filter((directory) => {
+        return process.cwd().includes(directory);
+      });
+
+      docDest = path.join(docDest, docFolder[0]);
+
+      return gulp.src(outputFolder + '/**/*')
+      .pipe(confirm({
+        question: `Confirm copy \nsource: ${outputFolder}  \ndest: ${docDest}? \n(y/n)`,
+        input: '_key:y'
+      }))
+      .pipe(gulp.dest(docDest));
+    });
+  });
+
+  // run svn status so we know what to commit and where
+  gulp.task('svn-prepare', ['svn-copy'], function (cb) {
+    let docDest = getDocsPluginSvnLocation();
+    exec('/usr/local/bin/svn st', {cwd: docDest}, function (error, stdout, stderror) {
+      if (error) {
+        log(colors.yellow(stderror));
+        log(colors.yellow('`svn st` failed'));
+      } else {
+        log('Please commit the following files to your plugin:\n'
+            + docDest + '\n'+ stdout);
+      }
+      cb();
+    }); 
+  });
+
   gulp.task('ngdoc-clean', ['ngdoc-git-branch', 'node-version', 'which-node', 'whoami'], function (cb) {
     del(outputFolder, cb);
   });
