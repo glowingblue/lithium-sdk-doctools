@@ -140,7 +140,7 @@ module.exports = function(gulp) {
 
   // this task just copies the files from the build (output) folder
   // to the svn location of the plugin to be checked in
-  gulp.task('svn-copy', [], function () {
+  gulp.task('svn-copy', ['ngdoc-build'], function () {
 
     let docDest = getDocsPluginSvnLocation();
     
