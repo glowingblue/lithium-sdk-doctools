@@ -165,7 +165,7 @@ module.exports = function(gulp) {
   // run svn status so we know what to commit and where
   gulp.task('svn-prepare', ['svn-copy'], function (cb) {
     let docDest = getDocsPluginSvnLocation();
-    exec('/usr/local/bin/svn st', {cwd: docDest}, function (error, stdout, stderror) {
+    exec(`${docsConf.svnBinary} st`, {cwd: docDest}, function (error, stdout, stderror) {
       if (error) {
         log(colors.yellow(stderror));
         log(colors.yellow('`svn st` failed'));

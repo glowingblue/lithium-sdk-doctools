@@ -1,3 +1,4 @@
 {
-  "docPluginLocation": "PATH_TO_PLUGINS/plugins/custom/lithium/docportal"
+  "docPluginLocation": "PATH_TO_PLUGINS/plugins/custom/lithium/docportal",
+  "svnBinary": "/usr/local/bin/svn"
 }
