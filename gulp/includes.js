@@ -78,6 +78,8 @@ module.exports = function(gulp) {
       fs.readdir(docDest, (err, files) => {
         if (err) {
           reject(err);
+          log(colors.red(err.message), err);
+          return;
         }
 
         // check current directory so we know what repo we are in
