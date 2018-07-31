@@ -41,6 +41,7 @@ module.exports = function (opts) {
         cdnUrl + '/angular-sanitize.min.js',
         cdnUrl + '/angular-touch.min.js',
         cdnUrl + '/angular-animate.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.1/iframeResizer.contentWindow.min.js',
         // 'https://google-code-prettify.googlecode.com/svn/loader/prettify.js',
         // 'https://google-code-prettify.googlecode.com/svn/loader/lang-css.js',
         'https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js',
@@ -53,11 +54,11 @@ module.exports = function (opts) {
         '/' + opts.pathPrefix + 'js/docs.min.js'
       ],
       stylesheets: [
-        '/components/' + getComponentWithVersion('bootstrap') + '/css/bootstrap.min.css',
-        '/components/' + getComponentWithVersion('open-sans-fontface') + '/open-sans.css',
-        '/css/prettify-theme.css',
-        '/css/docs.css',
-        '/css/animations.css'
+        '/' + opts.pathPrefix + '/components/' + getComponentWithVersion('bootstrap') + '/css/bootstrap.min.css',
+        '/' + opts.pathPrefix + '/components/' + getComponentWithVersion('open-sans-fontface') + '/open-sans.css',
+        '/' + opts.pathPrefix + '/css/prettify-theme.css',
+        '/' + opts.pathPrefix + '/css/docs.css',
+        '/' + opts.pathPrefix + '/css/animations.css'
       ]
     };
   };

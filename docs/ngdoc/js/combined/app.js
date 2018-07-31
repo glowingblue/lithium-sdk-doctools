@@ -18,5 +18,5 @@ angular.module('docsApp', [
 ])
 
 .config(['$locationProvider', function($locationProvider) {
-  $locationProvider.html5Mode(true).hashPrefix('!');
+  $locationProvider.html5Mode(false).hashPrefix('!');
 }]);

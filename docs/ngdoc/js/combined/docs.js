@@ -6,18 +6,19 @@ angular.module('DocsController', [])
   function($scope, $rootScope, $location, $window, $cookies, openPlunkr,
               NG_PAGES, NG_NAVIGATION) {
   var NG_VERSION  = {};
+  var defaultPage = 'learn/overview';
+  var lastPage;
+
   $scope.openPlunkr = openPlunkr;
 
   $scope.docsVersion = NG_VERSION.isSnapshot ? 'snapshot' : NG_VERSION.version;
 
   $scope.navClass = function(navItem) {
     return {
-      active: navItem.href && this.currentPage && this.currentPage.path,
+      active: navItem.href && $scope.currentPage && $scope.currentPage.path,
       'nav-index-section': navItem.type === 'section'
     };
   };
-
-
 
   $scope.$on('$includeContentLoaded', function() {
     var pagePath = $scope.currentPage ? $scope.currentPage.path : $location.path();
@@ -25,29 +26,39 @@ angular.module('DocsController', [])
     $window._gaq.push(['_trackPageview', pagePath]);
   });
 
-  $scope.$watch(function docsPathWatch() {return $location.path(); }, function docsPathWatchAction(path) {
+  $scope.$on('$locationChangeStart', gotoPage);
 
+  function gotoPage() {
+    path = $location.path();
+    path = path !== '' ? path : defaultPage;
     path = path.replace(/^\/?(.+?)(\/index)?\/?$/, '$1');
 
-    currentPage = $scope.currentPage = NG_PAGES[path];
+    $scope.currentPage = NG_PAGES[path];
 
-    if ( currentPage ) {
-      $scope.partialPath = 'partials/' + path + '.html';
-      $scope.currentArea = NG_NAVIGATION[currentPage.area];
-      var pathParts = currentPage.path.split('/');
-      var breadcrumb = $scope.breadcrumb = [];
-      var breadcrumbPath = '';
-      angular.forEach(pathParts, function(part) {
-        breadcrumbPath += part;
-        breadcrumb.push({ name: part, url: breadcrumbPath });
-        breadcrumbPath += '/';
-      });
-    } else {
-      $scope.currentArea = NG_NAVIGATION['api'];
-      $scope.breadcrumb = [];
-      $scope.partialPath = 'Error404.html';
+    if (lastPage !== $scope.currentPage) {
+      if ($scope.currentPage) {
+        $scope.partialPath = 'partials/' + path + '.html';
+        $scope.currentArea = NG_NAVIGATION[$scope.currentPage.area];
+        var pathParts = $scope.currentPage.path.split('/');
+        var breadcrumb = $scope.breadcrumb = [];
+        var breadcrumbPath = '';
+        angular.forEach(pathParts, function (part) {
+          breadcrumbPath += part;
+          breadcrumb.push({name: part, url: breadcrumbPath});
+          breadcrumbPath += '/';
+        });
+
+        if ($scope.currentPage.path !== defaultPage) {
+          $location.path(path);
+        }
+        lastPage = $scope.currentPage;
+      } else {
+        $scope.currentArea = NG_NAVIGATION['api'];
+        $scope.breadcrumb = [];
+        $scope.partialPath = 'Error404.html';
+      }
     }
-  });
+  }
 
   /**********************************
    Initialize
@@ -57,10 +68,5 @@ angular.module('DocsController', [])
   $scope.version = angular.version.full + "  " + angular.version.codeName;
   $scope.loading = 0;
 
-
-  var INDEX_PATH = /^(\/|\/index[^\.]*.html)$/;
-  if (!$location.path() || INDEX_PATH.test($location.path())) {
-    $location.path('/learn/overview').replace();
-  }
-
+  gotoPage($location.path());
 }]);

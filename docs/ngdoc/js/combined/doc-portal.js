@@ -1,6 +1,6 @@
 angular.module('deeplink', [])
 
-.run(['$rootScope', function ($rootScope) {
+.run(['$rootScope', '$location', function ($rootScope, $location) {
   function postUrlMessage(e) {
     var messageObj = {
       event: 'urlChange',
@@ -8,13 +8,13 @@ angular.module('deeplink', [])
     };
 
     if (window.location.pathname.length > 1) {
-      messageObj.data.p = window.location.pathname;
+      messageObj.data.p = $location.path();
     }
     if (window.location.search.length > 0) {
       messageObj.data.s = window.location.search;
     }
     if (window.location.hash.length > 1) {
-      messageObj.data.h = window.location.hash;
+      messageObj.data.h = $location.hash();
     }
 
     window.top.postMessage('l::' + JSON.stringify(messageObj), '*');

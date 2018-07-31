@@ -99,9 +99,9 @@
                     <i class="icon-eye-open icon-white"></i> Learn <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a href="learn/overview">SDK Overview</a></li>
-                    <li><a href="learn/architecture"> Customization Framework</a></li>
-                    <li><a href="learn/workflow">Developer Workflow</a></li>
+                    <li><a href="#!learn/overview" ng-click="gotoPage('learn/overview', $event)">SDK Overview</a></li>
+                    <li><a href="#!learn/architecture"> Customization Framework</a></li>
+                    <li><a href="#!learn/workflow" ng-click="gotoPage('learn/workflow', $event)">Developer Workflow</a></li>
                   </ul>
                 </li>
                 <li class="divider-vertical"></li>
@@ -110,14 +110,14 @@
                     <i class="icon-book icon-white"></i> Develop <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a href="develop/getStarted">Get Started</a></li>
+                    <li><a href="#!develop/getStarted">Get Started</a></li>
                     <li class="divider"></li>
-                    <li><a href="develop/create">Create</a></li>
-                    <li><a href="develop/configure">Configure</a></li>
-                    <li><a href="develop/deploy">Deploy</a></li>
-                    <li><a href="develop/update">Update</a></li>
-                    <li><a href="develop/tutorial">Tutorial</a></li>
-                    <li><a href="develop/uninstall">Uninstall</a></li>
+                    <li><a href="#!develop/create">Create</a></li>
+                    <li><a href="#!develop/configure">Configure</a></li>
+                    <li><a href="#!develop/deploy">Deploy</a></li>
+                    <li><a href="#!develop/update">Update</a></li>
+                    <li><a href="#!develop/tutorial">Tutorial</a></li>
+                    <li><a href="#!develop/uninstall">Uninstall</a></li>
 
                   </ul>
                 </li>
@@ -127,19 +127,19 @@
                     <i class="icon-comment icon-white"></i> Customize <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a href="customize/customize">Customize</a></li>
-                    <li><a href="customize/pluginstructure">Where to Put Your Code</a></li>
-                    <li><a href="customize/assets">Assets</a></li>
-                    <li><a href="customize/components">Components</a></li>
-                    <li><a href="customize/emailtemplates">Email Templates</a></li>
-                    <li><a href="customize/endpoints">Endpoints</a></li>
-                    <li><a href="customize/layouts">Layouts</a></li>
-                    <li><a href="customize/macros">Macros</a></li>
-                    <li><a href="customize/pageinitscript">Page Initialization Script</a></li>
-                    <li><a href="customize/pagewrapper">Page Wrapper</a></li>
-                    <li><a href="customize/quilts">Quilts</a></li>
-                    <li><a href="customize/skins">Skins</a></li>
-                    <li><a href="customize/termsofservice">Text and Terms of Service</a></li>
+                    <li><a href="#!customize/customize">Customize</a></li>
+                    <li><a href="#!customize/pluginstructure">Where to Put Your Code</a></li>
+                    <li><a href="#!customize/assets">Assets</a></li>
+                    <li><a href="#!customize/components">Components</a></li>
+                    <li><a href="#!customize/emailtemplates">Email Templates</a></li>
+                    <li><a href="#!customize/endpoints">Endpoints</a></li>
+                    <li><a href="#!customize/layouts">Layouts</a></li>
+                    <li><a href="#!customize/macros">Macros</a></li>
+                    <li><a href="#!customize/pageinitscript">Page Initialization Script</a></li>
+                    <li><a href="#!customize/pagewrapper">Page Wrapper</a></li>
+                    <li><a href="#!customize/quilts">Quilts</a></li>
+                    <li><a href="#!customize/skins">Skins</a></li>
+                    <li><a href="#!customize/termsofservice">Text and Terms of Service</a></li>
                   </ul>
                 </li>
                 <li class="divider-vertical"></li>
@@ -148,9 +148,9 @@
                     <i class="icon-comment icon-white"></i> Refer <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a href="refer/troubleshoot">Troubleshooting</a></li>
-                    <li><a href="refer/pluginvalidation">Plugin Validation</a></li>
-                    <li><a href="refer/skinproperties">Skin Properties</a></li>
+                    <li><a href="#!refer/troubleshoot">Troubleshooting</a></li>
+                    <li><a href="#!refer/pluginvalidation">Plugin Validation</a></li>
+                    <li><a href="#!refer/skinproperties">Skin Properties</a></li>
                   </ul>
                 </li>
                 <li class="divider-vertical"></li>
@@ -219,7 +219,7 @@
                     <a ng-if="navItem.extra.href" ng-class="navClass(navItem.extra)" href="{{navItem.extra.href}}">
                       {{navItem.extra.text}}<i ng-if="navItem.extra.icon" class="icon-{{navItem.extra.icon}}"></i>
                     </a>
-                    <a tabindex="2" ng-class="linkClass(navItem)" class="nav-type-{{navItem.name}}" href="{{navItem.href}}">{{navItem.name}}</a>
+                    <a tabindex="2" ng-class="linkClass(navItem)" class="nav-type-{{navItem.name}}" href="#!{{navItem.href}}">{{navItem.name}}</a>
                   </li>
                 </ul>
               </li>

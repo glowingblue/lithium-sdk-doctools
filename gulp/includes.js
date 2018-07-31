@@ -62,7 +62,7 @@ module.exports = function(gulp) {
   var docCss = 'docs/ngdoc/css/**/*.css';
   var docImg = 'docs/ngdoc/images/**/*';
   var gitBranch = 'master';
-  var pathPrefix = '';
+  var pathPrefix = docsConf.pathPrefix;
   var outputFolder = 'docs/build/ngdoc';
 
   var copyComponent = function(component, pattern, sourceFolder, packageFile) {
@@ -75,12 +75,12 @@ module.exports = function(gulp) {
           .resolve(__dirname, '..', sourceFolder,component,packageFile)).version;
     } catch (err) {
     }
-    console.log('copyComponent : ' + component + ' -> ' 
+    console.log('copyComponent : ' + component + ' -> '
                 + outputFolder + '/components/' + component + (version ? '-' + version : ''));
 
     return gulp
       .src(path.join(__dirname, '..', sourceFolder, component, pattern))
-      .pipe(gulp.dest(outputFolder + '/components/' + 
+      .pipe(gulp.dest(outputFolder + '/components/' +
           component + (version ? '-' + version : '')));
   };
 
@@ -88,7 +88,7 @@ module.exports = function(gulp) {
     exec('git rev-parse --abbrev-ref HEAD', function (error, stdout, stderror) {
       if (error) {
         log(colors.yellow(stderror));
-        log(colors.yellow('Using \'master\' ' + 
+        log(colors.yellow('Using \'master\' ' +
           'branch as branch could not be determined.'));
       } else {
         gitBranch = stdout.trim();
@@ -99,7 +99,7 @@ module.exports = function(gulp) {
         outputFolder = path.join(outputFolder, pathPrefix);
       }
       cb();
-    }); 
+    });
   });
 
   gulp.task('node-version', function (cb) {
@@ -111,7 +111,7 @@ module.exports = function(gulp) {
         log('node --version ' + stdout);
       }
       cb();
-    }); 
+    });
   });
 
   gulp.task('which-node', function (cb) {
@@ -123,7 +123,7 @@ module.exports = function(gulp) {
         log('which node ' + stdout);
       }
       cb();
-    }); 
+    });
   });
 
   gulp.task('whoami', function (cb) {
@@ -135,7 +135,7 @@ module.exports = function(gulp) {
         log('whoami ' + stdout);
       }
       cb();
-    }); 
+    });
   });
 
   // this task just copies the files from the build (output) folder
@@ -143,9 +143,14 @@ module.exports = function(gulp) {
   gulp.task('svn-copy', ['ngdoc-build'], function () {
 
     let docDest = getDocsPluginSvnLocation();
-    
+
     // determine where we should put the finished docs
     fs.readdir(docDest, (err, files) => {
+      if (err) {
+        log(colors.red(err.message), err);
+        return;
+      }
+
       // check current directory so we know what repo we are in
       let docFolder = files.filter((directory) => {
         return process.cwd().includes(directory);
@@ -174,7 +179,7 @@ module.exports = function(gulp) {
             + docDest + '\n'+ stdout);
       }
       cb();
-    }); 
+    });
   });
 
   gulp.task('ngdoc-clean', ['ngdoc-git-branch', 'node-version', 'which-node', 'whoami'], function (cb) {
@@ -262,8 +267,8 @@ module.exports = function(gulp) {
 
   gulp.task('ngdoc-dgeni', ['ngdoc-clean'], function() {
     var dgeni = new Dgeni([require('../config')({
-      outputFolder: outputFolder, 
-      gitBranch: gitBranch, 
+      outputFolder: outputFolder,
+      gitBranch: gitBranch,
       pathPrefix: pathPrefix
     })]);
     return dgeni.generate().catch(function(error) {
@@ -290,7 +295,7 @@ module.exports = function(gulp) {
     }
     var lrPort;
     try {
-      lrPort = require(path.resolve(process.cwd(), 
+      lrPort = require(path.resolve(process.cwd(),
           'sdk.conf.json')).ngdoc.lrPort;
     } catch (err) {}
     if (!lrPort) {
