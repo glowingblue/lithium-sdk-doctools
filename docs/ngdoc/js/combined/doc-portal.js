@@ -7,13 +7,13 @@ angular.module('deeplink', [])
       data: {}
     };
 
-    if (window.location.pathname.length > 1) {
+    if ($location.path().length > 1) {
       messageObj.data.p = $location.path();
     }
     if (window.location.search.length > 0) {
       messageObj.data.s = window.location.search;
     }
-    if (window.location.hash.length > 1) {
+    if ($location.hash().length > 1) {
       messageObj.data.h = $location.hash();
     }
 

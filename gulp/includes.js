@@ -62,8 +62,34 @@ module.exports = function(gulp) {
   var docCss = 'docs/ngdoc/css/**/*.css';
   var docImg = 'docs/ngdoc/images/**/*';
   var gitBranch = 'master';
-  var pathPrefix = docsConf.pathPrefix;
+  var pathPrefix = '';
   var outputFolder = 'docs/build/ngdoc';
+
+  function getPathPrefix() {
+    return getProjectName().then(path => {
+      return `html/docs/${path}/`;
+    });
+  }
+
+  function getProjectName() {
+    return new Promise(function (resolve, reject) {
+      let docDest = getDocsPluginSvnLocation();
+
+      fs.readdir(docDest, (err, files) => {
+        if (err) {
+          reject(err);
+        }
+
+        // check current directory so we know what repo we are in
+        let docFolder = files.filter((directory) => {
+          return process.cwd().includes(directory);
+        });
+
+        resolve(docFolder[0]);
+      });
+    });
+  }
+
 
   var copyComponent = function(component, pattern, sourceFolder, packageFile) {
     pattern = pattern || '/**/*';
@@ -95,8 +121,8 @@ module.exports = function(gulp) {
       }
       if (argv['include-git-branch']) {
         var cwd = process.cwd().split('/').pop();
-        pathPrefix = path.join(cwd, gitBranch) + '/';
-        outputFolder = path.join(outputFolder, pathPrefix);
+        var prefix = path.join(cwd, gitBranch) + '/';
+        outputFolder = path.join(outputFolder, prefix);
       }
       cb();
     });
@@ -266,13 +292,15 @@ module.exports = function(gulp) {
   });
 
   gulp.task('ngdoc-dgeni', ['ngdoc-clean'], function() {
-    var dgeni = new Dgeni([require('../config')({
-      outputFolder: outputFolder,
-      gitBranch: gitBranch,
-      pathPrefix: pathPrefix
-    })]);
-    return dgeni.generate().catch(function(error) {
-      process.exit(1);
+    return getPathPrefix().then(pathPrefix => {
+      var dgeni = new Dgeni([require('../config')({
+        outputFolder: outputFolder,
+        gitBranch: gitBranch,
+        pathPrefix: pathPrefix
+      })]);
+      return dgeni.generate().catch(function(error) {
+        process.exit(1);
+      });
     });
   });
 
