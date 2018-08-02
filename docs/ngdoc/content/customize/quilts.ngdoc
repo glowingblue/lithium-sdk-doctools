@@ -104,7 +104,7 @@ the file name structure `<quilt_name>.quilt.xml`, for example MyCustomPage.quilt
 See <a href="http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page/ta-p/110639" target="_blank">this article</a>
 in the Lithium Community for more information about creating custom pages.
 
-[Top](#!/customize/quilts#top)
+[Top](#top)
 
 # Override a core quilt <a id="overrideQuilt"></a>
 Custom quilts that override Lithium core quilts use the

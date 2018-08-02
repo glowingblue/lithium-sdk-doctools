@@ -10,24 +10,24 @@ The Community Plugin SDK supports a developer-friendly "choose your own IDE" exp
 that enables you to develop locally with the tools of your choice, collaborate with your
 own team in your own source control system, and test on your stage environment.
 
-* [Developer environment recommendations](/learn/workflow#devEnv)
-    * [Setting up the plugin project](/learn/workflow#setup)
-    * [Creating a development strategy](/learn/workflow#strategy)
-        * [SDK-only strategy](/learn/workflow#sdkOnly)
-        * [Studio collaboration strategy](/learn/workflow#studioCollab)
-        * [Clearing a plugin from the Stage environment](/learn/workflow#clearPluginFromStage)
-        * [Clearing the Studio plugin](/learn/workflow#clearStudioPlugin)
-        * [Clearing the SDK plugin](/learn/workflow#clearSdkPlugin)
-    * [Continuous integration](/learn/workflow#continuousIntegration)
-    * [Non-continuous integration](/learn/workflow#nonCI)
-* [Deployment](/learn/workflow#deployment)
+* [Developer environment recommendations](#!/learn/workflow#devEnv)
+    * [Setting up the plugin project](#!/learn/workflow#setup)
+    * [Creating a development strategy](#!/learn/workflow#strategy)
+        * [SDK-only strategy](#!/learn/workflow#sdkOnly)
+        * [Studio collaboration strategy](#!/learn/workflow#studioCollab)
+        * [Clearing a plugin from the Stage environment](#!/learn/workflow#clearPluginFromStage)
+        * [Clearing the Studio plugin](#!/learn/workflow#clearStudioPlugin)
+        * [Clearing the SDK plugin](#!/learn/workflow#clearSdkPlugin)
+    * [Continuous integration](#!/learn/workflow#continuousIntegration)
+    * [Non-continuous integration](#!/learn/workflow#nonCI)
+* [Deployment](#!/learn/workflow#deployment)
 
-    * [Before you Deploy to Stage](/learn/workflow#beforeDeployment)
-    * [Deploying to Stage](/learn/workflow#deployToStage)
-    * [Reverting to a Previous Plugin](/learn/workflow#revert)
-    * [Pushing to Production](/learn/workflow#pushToProd)
-    * [Collaborating with Lithium Services](/learn/workflow#collabWithServices)
-    * [Pushing to Production](/learn/workflow#collabWorkflow)
+    * [Before you Deploy to Stage](#!/learn/workflow#beforeDeployment)
+    * [Deploying to Stage](#!/learn/workflow#deployToStage)
+    * [Reverting to a Previous Plugin](#!/learn/workflow#revert)
+    * [Pushing to Production](#!/learn/workflow#pushToProd)
+    * [Collaborating with Lithium Services](#!/learn/workflow#collabWithServices)
+    * [Pushing to Production](#!/learn/workflow#collabWorkflow)
 
 # Developer environment recommendations <a id="devEnv"></a>
 
@@ -38,10 +38,10 @@ to deploy to the stage environment. Consider implementing a CI service to build 
 the SDK plugin from your source control system to the stage
 environment. We provide an example using GitHub and Travis CI below.
 
-* [Setting up the plugin project](/learn/workflow#setup)
-* [Creating a development strategy](/learn/workflow#strategy)
-* [Continuous integration](/learn/workflow#continuousIntegration)
-* [Non-continuous integration](/learn/workflow#nonCI)
+* [Setting up the plugin project](#!/learn/workflow#setup)
+* [Creating a development strategy](#!/learn/workflow#strategy)
+* [Continuous integration](#!/learn/workflow#continuousIntegration)
+* [Non-continuous integration](#!/learn/workflow#nonCI)
 
 ## Setting up the plugin project <a id="setup"></a>
 This diagram illustrates the recommended way to set up an SDK plugin project in a development environment.
@@ -63,7 +63,7 @@ After the SDK project is created and placed under source control, other develope
 After setup is complete, the team is ready to customize and check in. Read {@link /customize/customize Customize}
 to learn about the plugin repository structure.
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ## Creating a development strategy <a id="strategy"></a>
 Create a development strategy with your Community team that includes which customization path you'll use. We recommend using either Studio or the SDK, and using that tool throughout development. Collaboration with Studio users is possible during development, but it requires execellent communication and comes with the risk of Studio users overriding SDK contributions if they do not understand the relationship between the Studio and SDK plugin described in <a href="http://community.lithium.com/t5/Understanding-Studio/About-Studio/ta-p/60320" target="_blank">About Studio</a> and <a href="http://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316/message-revision/194316:3" target="_blank">More about plugins</a>.
@@ -72,7 +72,7 @@ If you're a current Lithium customer you'll have customizations in Studio. We pr
 
 When you export a specific Studio plugin point, you export _all_ files for that plugin point. For example, you export _all_ components, not individual ones. When you submit the SDK plugin, you submit the entire plugin, meaning all files for all plugin points.
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ### SDK-only strategy <a id="sdkOnly"></a>
 
@@ -86,7 +86,7 @@ Both plugins (Studio and the SDK) exist on the stage server. You export all cust
 
 > **Note:** Staging versions for production, reverting to previous versions, versioning features, and editing the robots exclusion protocol still occurs in Studio.
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ### Studio collaboration strategy <a id="studioCollab"></a>
 
@@ -96,7 +96,7 @@ In this next scenario, a subset of plugin points are exported. The yellow plugin
 
 Developers contribute component and quilt code using the SDK, and the designer contributes through Studio. In this scenario, you want to avoid having any skin files in the SDK plugin.
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ### Clearing a plugin from the Stage environment <a id="clearPluginFromStage"></a>
 
@@ -104,7 +104,7 @@ We have SDK scripts that clear the Studio plugin and the SDK plugin from the Sta
 
 <img src="img/revertClearedPlugin.png" width="640 px"/>
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ### Clearing the Studio plugin <a id="clearStudioPlugin"></a>
 
@@ -124,13 +124,13 @@ We show this collaboration scenario in the image below. Looking at the box on th
 
 Alternatively, we can manually delete skins B and C from the SDK plugin in the local development environment and manually delete skin A from Studio. This lets each group access and edit the skins they need without risk of override. In addition, we won't receieve validation errors when we submit the SDK plugin warning us that files with the same name exist in Studio.
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ### Clearing the SDK plugin <a id="clearSdkPlugin"></a>
 
 The `clear-plugin` script removes all SDK contributions from the Stage server. Note that this does _not_ delete the files in your local environment. This script does not support the `--points` flag. It's an all-or-nothing action. This script is not part of the normal development workflow. The script provides a way to clear out files on stage contributed from the SDK plugin, if needed. As a general rule, you won't need to use this script unless instructed to by Lithium Support or Services.
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ## Continuous integration <a id="continuousIntegration"></a>
 The diagrams below illustrate the recommended workflow using a continuous integration
@@ -145,22 +145,22 @@ We encrypted server.conf.json using the instructions in <a href="http://docs.tra
 Whatever source control/CI environment you decide to implement, always encrypt server.conf.json, the plugin configuration file described in {@link /develop/create Create}, to
 protect the security of the plugin token.
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ## Non-continuous integration <a id="nonCI"></a>
 This diagram illustrates a simple workflow if you cannot implement continuous integration.
 
 <img src="img/DevWorkflowNoCI.png" width="600 px"/>
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 # Deployment <a id="deployment"></a>
 This section describes steps to deploy your SDK plugin.
 
-  * [Before you Deploy to Stage](/learn/workflow#beforeDeployment)
-  * [Deploying to Stage](/learn/workflow#deployToStage)
-  * [Reverting to a Previous Plugin](/learn/workflow#revert)
-  * [Pushing to Production](/learn/workflow#pushToProd)
+  * [Before you Deploy to Stage](#!/learn/workflow#beforeDeployment)
+  * [Deploying to Stage](#!/learn/workflow#deployToStage)
+  * [Reverting to a Previous Plugin](#!/learn/workflow#revert)
+  * [Pushing to Production](#!/learn/workflow#pushToProd)
 
 ## Before you deploy to stage <a id="beforeDeployment"></a>
 If you work in a multi-developer customization team, communicate closely with team
@@ -183,7 +183,7 @@ For more information about how plugins interact, read
 <a href="https://community.lithium.com/t5/Understanding-Studio/More-about-plugins/ta-p/194316" target="_blank">More about plugins</a> on the Lithium Community
 and {@link /learn/architecture Understanding Plugins} in {@link /learn/architecture Customization Framework}.
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ## Deploying to stage <a id="deployToStage"></a>
 When you deploy the SDK plugin to the stage server, you submit the _entire_ plugin as a whole package.
@@ -204,7 +204,7 @@ After a successful upload, the plugin appears in **Studio > Versions**. Look for
  an entry in the Versions tab that says
 "Plugin Checkin."
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ## Reverting to a Previous Plugin Version <a id="revert"></a>
 If needed, you can roll back to the previous plugin version in the Studio Versions tab. Hover over
@@ -213,7 +213,7 @@ the version to stage and click the "Stage this version" link.
 > **Important:** In the **Versions** tab, you will see both Studio and SDK plugins. When reverting
 to a previous SDK plugin, be sure re-stage another SDK plugin version, not a Studio plugin.
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ## Pushing to production <a id="pushToProd"></a>
 Push plugins to production using Studio Publish. If you must roll back your live Community version
@@ -221,7 +221,7 @@ to a previous version, you also use Studio Publish. See <a href="https://communi
 and <a href="https://community.lithium.com/t5/Previewing-and-publishing/The-Studio-Publish-workflow/ta-p/109037" target="_blank">The Studio Publish Workflow</a>
 for details.
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 # Collaborating with Lithium Services <a id="collabWithServices"></a>
 Most Lithium Community customers hire Lithium Services at some point for customization work whether
@@ -234,7 +234,7 @@ Further, an environment must exist where Services and the in-house/partner team 
 collaborate in a way that prevents overwrites in the SDK plugin and provides the greatest efficiency f
 or all developers.
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ## Collaboration workflow <a id="collabWorkflow"></a>
 In this workflow, in-house or partner developers use the Community Plugin SDK for Community
@@ -258,6 +258,6 @@ your SDK plugin to the shared repository. (Lithium Services will provide instruc
 * Lithium Services and in-house/partner developers will sync the Github repository to their local environments. (Lithium Services will provide instructions.)
 * Both teams will contribute their customization work in the new shared plugin project on Github and then deploy to stage as needed.
 
-[Top](/learn/workflow#top)
+[Top](#top)
 
 ___

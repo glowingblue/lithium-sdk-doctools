@@ -39,7 +39,7 @@ parent              = [skin ID of any existing skin in the SDK or Studio plugin]
 title               = [skin ID of this skin]
 ```
 
-[Top](#!/customize/skins#top)
+[Top](#top)
 
 # Skin directory structure (non-responsive skins) <a id="structure"></a>
 
@@ -65,7 +65,7 @@ Here is an example with both /desktop and /mobile subdirectories.
 
 <img src="img/skinDir.png" width="520" align="middle"/>
 
-[Top](#!/customize/skins#top)
+[Top](#top)
 
 # Styling with skin properties <a id="skinProperties"></a>
 Skin properties define basic styles used by your skin.
@@ -76,7 +76,7 @@ If you want to use different property values in the mobile and desktop versions 
 
 Responsive skins use only a small subset of skin properties. See [Skin Architecture](https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive#l::{"p":"/section-architecture.html"}) in the Responsive Developer Documentation for details.
 
-[Top](#!/customize/skins#top)
+[Top](#top)
 
 # Overriding skin images <a id="skinImages"></a>
 To override an image used in a skin, create a new image asset and give it the same
@@ -84,7 +84,7 @@ name as the image currently used by the skin. Place the image in PLUGIN_HOME/res
 
 Image override for responsive skins is done differently. See the [Developer Guide](https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive#l::{"p":"/section-developerguide.html"}) in the Responsive Developer Documentation for details.
 
-[Top](#!/customize/skins#top)
+[Top](#top)
 
 # Customizing CSS <a id="stylesheets"></a>
 

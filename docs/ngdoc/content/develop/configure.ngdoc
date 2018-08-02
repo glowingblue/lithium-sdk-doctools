@@ -6,7 +6,7 @@
 <h1 class = "title">Configure <a id="top"></a></h1>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-When you [created the local plugin project repository](/develop/create#createPluginRepo), the `li create-project` command created the `server.conf.json` configuration file.
+When you [created the local plugin project repository](#!/develop/create#createPluginRepo), the `li create-project` command created the `server.conf.json` configuration file.
 
 This file contains plugin settings and your plugin upload token.
 
@@ -47,5 +47,5 @@ Read {@link /develop/deploy Deploy} to learn more about packaging the plugin for
  to stage. Read {@link /customize/customize Customize} to learn how to contribute customizations
 using the SDK.
 
-[Top](/develop/configure#top)
+[Top](#top)
 ___

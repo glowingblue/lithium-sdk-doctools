@@ -6,22 +6,22 @@
 <h1 class = "title">Create <a id="top"></a></h1>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-* [Create your plugin](/develop/create#createPlugin)
-    * [Generate the upload token](/develop/create#GenerateUploadToken)
-    * [Create the plugin project repository](/develop/create#createPluginRepo)
-    * [Export the Studio plugin](/develop/create#downloadStudio)
-    * [Export the SDK plugin](/develop/create#downloadSdk)
-* [Revoke a plugin token](/develop/create#revokeToken)
-* [Plugin structure](/develop/create#pluginStructure)
+* [Create your plugin](#!/develop/create#createPlugin)
+    * [Generate the upload token](#!/develop/create#GenerateUploadToken)
+    * [Create the plugin project repository](#!/develop/create#createPluginRepo)
+    * [Export the Studio plugin](#!/develop/create#downloadStudio)
+    * [Export the SDK plugin](#!/develop/create#downloadSdk)
+* [Revoke a plugin token](#!/develop/create#revokeToken)
+* [Plugin structure](#!/develop/create#pluginStructure)
 
 
 # Create your plugin <a id="createPlugin"></a>
 
 After {@link /develop/getStarted setting up your SDK development environment}:
-* [Generate an upload token](/develop/create#GenerateUploadToken)
-* [Create the local plugin project repository](/develop/create#createPluginRepo)
-* Download the [Studio plugin](/develop/create#downloadStudio), an [SDK plugin](/develop/create#downloadSdk) (if one exists), or just get started [creating new customizations](/customize/customize)
-* Learn about the [plugin structure](/develop/create#pluginStructure)
+* [Generate an upload token](#!/develop/create#GenerateUploadToken)
+* [Create the local plugin project repository](#!/develop/create#createPluginRepo)
+* Download the [Studio plugin](#!/develop/create#downloadStudio), an [SDK plugin](#!/develop/create#downloadSdk) (if one exists), or just get started [creating new customizations](#!/customize/customize)
+* Learn about the [plugin structure](#!/develop/create#pluginStructure)
 
 ## Generate the upload token<a id="GenerateUploadToken"></a>
 The upload token is required for all SDK command line options. To generate the token, you'll need the "Use the SDK" permission in
@@ -43,7 +43,7 @@ The token is valid for 30 days. This token is specific to the current user logge
 > **Note:** Do not share this token. If you post to the Lithium Community for troubleshooting help, be careful not to post you
 token in your message.
 
-[Top](/develop/create#top)
+[Top](#top)
 
 ---
 
@@ -82,9 +82,9 @@ defined earlier.
 `server.conf.json` at the top level of your plugin repository, and
 add the token for the value of `pluginToken`.
 
-**8** Continue with [Configure](/develop/configure) to set optional plugin configurations or jump to [Plugin Structure](/develop/create#pluginStructure) to learn more about the plugin directory.
+**8** Continue with [Configure](#!/develop/configure) to set optional plugin configurations or jump to [Plugin Structure](#!/develop/create#pluginStructure) to learn more about the plugin directory.
 
-[Top](/develop/create#top)
+[Top](#top)
 
 ---
 
@@ -108,7 +108,7 @@ export using the `--points` flag, you must also pass the `--force` flag.
 li export-studio-plugin --points "component", "endpoint", "controller, "macro" --force
 ```
 
-[Top](/develop/create#top)
+[Top](#top)
 
 ## Export the SDK plugin<a id="downloadSdk"></a>
 If your company has already created an SDK plugin, you can populate your plugin project from the
@@ -118,7 +118,7 @@ last SDK plugin uploaded to the stage server. Partial exports of an SDK plugin a
 
 **2** Enter `li export-plugin`.
 
-[Top](/develop/create#top)
+[Top](#top)
 
 # Revoke a plugin token <a id="revokeToken"></a>
 
@@ -127,18 +127,18 @@ go to **Studio > Advanced > SDK** and click
 **Revoke Token** to generate a new one. Remember to update `server.conf.json`
 with the new token value, and communicate with any team members sharing the token.
 
-[Top](/develop/create#top)
+[Top](#top)
 
 # Plugin structure<a id="pluginStructure"></a>
 
-Your plugin project repository contains several sub-directories and files. Customizations go into folders under `res` and `web`. See [Where to put your code](/customize/pluginstructure) to learn about each folder.
+Your plugin project repository contains several sub-directories and files. Customizations go into folders under `res` and `web`. See [Where to put your code](#!/customize/pluginstructure) to learn about each folder.
 
  Outside of those directories, the only file you'll use is `server.conf.json`. This
- is the configuration file that contains plugin settings and your plugin upload token. See [Configure](/develop/configure) for discriptions of `server.conf.json` options.
+ is the configuration file that contains plugin settings and your plugin upload token. See [Configure](#!/develop/configure) for discriptions of `server.conf.json` options.
 
  > **Note:** Do not check server.conf.json into your source repository. The plugin token should not be shared. It should remain secret.
 
 <img src="img/pluginStructure.png" width="600px" align="middle"/>
 
-[Top](/develop/create#top)
+[Top](#top)
 ___

@@ -12,11 +12,11 @@ text strings, and do some simple skin properties and CSS customizations. We'll c
 custom files, put them in the proper location in your local repository, and then upload the
 plugin to the stage server using `li submit-plugin`.
 
-* [Write a component](/develop/tutorial#components)
-* [Create a quilt](/develop/tutorial#quilts)
-* [Create a skin](/develop/tutorial#skins)
-* [Add CSS](/develop/tutorial#stylesheets)
-* [Add custom text](/develop/tutorial#text)
+* [Write a component](#!/develop/tutorial#components)
+* [Create a quilt](#!/develop/tutorial#quilts)
+* [Create a skin](#!/develop/tutorial#skins)
+* [Add CSS](#!/develop/tutorial#stylesheets)
+* [Add custom text](#!/develop/tutorial#text)
 
 To test your customizations on your stage server, you run `li submit-plugin` or `li package-plugin`
 as described in {@link develop/deploy Deploy}. Review {@link refer/pluginvalidation Plugin Validation}
@@ -58,7 +58,7 @@ be used on community pages.
 From here, the component can be added to a quilt using Studio or you can add it to
 a quilt file that you create and upload to the stage server with the SDK.
 
-[Top](/develop/tutorial#top)
+[Top](#top)
 
 # Create a quilt <a id="quilts"></a>
 The building blocks of any Lithium page are a quilt and a layout.
@@ -122,7 +122,7 @@ You will see MyCustomPage in the list of custom quilts.
    Your custom page will look similar to this:
    <img src="img/sdkQuiltTutorialComponents.png" width="700 px"/>
 
-[Top](/develop/tutorial#top)
+[Top](#top)
 
 <hr/>
 ## Remove a component
@@ -143,7 +143,7 @@ use this component again later, so let's put it back in MyCustomPage. Paste the 
 directly under `<add to="side-content">` and save the file. Submit the plugin to stage using
 `li submit-plugin`. Refresh the page to verify that the component displays correctly.
 
-[Top](/develop/tutorial#top)
+[Top](#top)
 
 <hr/>
 ## Move a component
@@ -176,7 +176,7 @@ The `side-content` section should look like this:
 
 **6.** Refresh your custom page.
 
-[Top](/develop/tutorial#top)
+[Top](#top)
 
 # Create a skin <a id="skins"></a>
 
@@ -230,7 +230,7 @@ want to skip this step if you do not want to change the skin used on stage. Afte
 skin, refresh your custom page in the browser. The background of the page should be grey. Reapply
 the correct skin to your community in Community Admin.
 
-[Top](/develop/tutorial#top)
+[Top](#top)
 
 # Add CSS <a id="stylesheets"></a>
 
@@ -269,7 +269,7 @@ add CSS to display the user name in blue.
 
   <img src="img/tutorialStylingCoreNodeDetails.png" width="150 px"/>
 
-[Top](/develop/tutorial#top)
+[Top](#top)
 
 # Add custom text <a id="text"></a>
 Text used in your customizations go in a file called `text.<language_code>.properties` where
@@ -295,6 +295,6 @@ value for the title instead of hard-coding the text within the component.
 
    The coreNodeDetails component now pulls the title from the text properties file.
 
-[Top](/develop/tutorial#top)
+[Top](#top)
 
 ___

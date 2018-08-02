@@ -27,17 +27,17 @@ the file added via the SDK.
 You can force the SDK plugin upload to fail when files in the SDK plugin also exist in the Studio
 plugin. To force this behavior, set `allowStudioOverrides` in `server.conf.json` to `false`.
 
-* [Asset validation](/refer/pluginvalidation#asset)
-* [Component validation](/refer/pluginvalidation#component)
-* [Layout validation](/refer/pluginvalidation#layout)
-* [Quilt validation](/refer/pluginvalidation#quilt)
-* [Skin validation](/refer/pluginvalidation#skin)
-* [Text validation](/refer/pluginvalidation#text)
-* [Endpoint validation](/refer/pluginvalidation#endpoint)
-* [Controller validation](/refer/pluginvalidation#controller)
-* [Macro validation](/refer/pluginvalidation#macro)
-* [Other validation requirements](/refer/pluginvalidation#other)
-* [Validation errors](/refer/pluginvalidation#otherErrors)
+* [Asset validation](#!/refer/pluginvalidation#asset)
+* [Component validation](#!/refer/pluginvalidation#component)
+* [Layout validation](#!/refer/pluginvalidation#layout)
+* [Quilt validation](#!/refer/pluginvalidation#quilt)
+* [Skin validation](#!/refer/pluginvalidation#skin)
+* [Text validation](#!/refer/pluginvalidation#text)
+* [Endpoint validation](#!/refer/pluginvalidation#endpoint)
+* [Controller validation](#!/refer/pluginvalidation#controller)
+* [Macro validation](#!/refer/pluginvalidation#macro)
+* [Other validation requirements](#!/refer/pluginvalidation#other)
+* [Validation errors](#!/refer/pluginvalidation#otherErrors)
 
 
 # Asset validation <a id="asset"></a>
@@ -47,7 +47,7 @@ For files in `web/html`, validation ensures that:
 * Files in `web/html/badge_icons` have only these files extensions: `.png`, `.gif`, `.jpeg`, `.jpg`, `.svg`
 * Files in `web/html/rank_icons` have only these files extensions: `.png`, `.gif`, `.jpeg`, `.jpg`, `.svg`
 
-[Top](/refer/pluginvalidation#top)
+[Top](#top)
 
 # Component validation <a id="component"></a>
 For files in `res/components`, validation ensures that:
@@ -58,7 +58,7 @@ For files in `res/components`, validation ensures that:
 FreeMarker syntax errors will block the plugin from being uploaded to the stage server. If `strictMode`
 is set to `false`, the plugin will be uploaded to stage despite the FreeMarker errors.
 
-[Top](/refer/pluginvalidation#top)
+[Top](#top)
 
 # Layout validation <a id="layout"></a>
 For files in `res/layouts`, validation ensures that:
@@ -66,7 +66,7 @@ For files in `res/layouts`, validation ensures that:
 * The layout file is not empty
 * The file contains valid layout XML
 
-[Top](/refer/pluginvalidation#top)
+[Top](#top)
 
 # Quilt validation <a id="quilt"></a>
 For files in `res/quilts`, validation ensures that:
@@ -75,7 +75,7 @@ For files in `res/quilts`, validation ensures that:
 * The file uses valid XML
 * `res/quilts` contains only one subdirectory, `custom`
 
-[Top](/refer/pluginvalidation#top)
+[Top](#top)
 
 # Skin validation <a id="skin"></a>
 For files in `res/skins`, validation ensures that:
@@ -92,7 +92,7 @@ unless `strictMode` is set to false in `server.conf.json`.
 * A `skin.properties` file exists and has the `parent` and `title` fields defined
 * The parent skin defined in `skin.properties` exists
 
-[Top](/refer/pluginvalidation#top)
+[Top](#top)
 
 # Text validation <a id="text"></a>
 For files in `res/lang`, validation ensures that:
@@ -100,7 +100,7 @@ For files in `res/lang`, validation ensures that:
 * The text properties file uses the correct file name: text.__language_code__.properties (examples: text.en.properties, text.de.properties)
 * Subdirectories under `res/lang` exist only for supported languages
 
-[Top](/refer/pluginvalidation#top)
+[Top](#top)
 
 # Endpoint validation <a id="endpoint"></a>
 For files in `res/endpoints`, validation ensures that:
@@ -109,14 +109,14 @@ For files in `res/endpoints`, validation ensures that:
 * There is an associated FTL file with the same name as the endpoint in `res/controllers`
 * Endpoint names can contain letters (a-z), numerals (1-9), hyphen (-), underscore ( _ ), and dot (.). An endpoint name cannot begin with '.'
 
-[Top](/refer/pluginvalidation#top)
+[Top](#top)
 
 # Controller validation<a id="controller"></a>
 For files in `res/controllers`, validation ensures that:
 * Files use the `.ftl` extension
 * Files use valid FreeMarker syntax
 
-[Top](/refer/pluginvalidation#top)
+[Top](#top)
 
 # Macro validation<a id="macro"></a>
 For files in `res/macros`, validation ensures that:
@@ -129,7 +129,7 @@ hyphens in the macro variable name. When creating your macro FreeMarker, be sure
 the variable naming conventions defined by
 <a href="http://freemarker.org/docs/dgui_template_exp.html#dgui_template_exp_var_toplevel" target="_blank">FreeMarker.org</a>.
 
-[Top](/refer/pluginvalidation#top)
+[Top](#top)
 
 # Other plugin validation requirements<a id="other"></a>
 Here are a few more validation requirements when you run the `li` scripts:
@@ -143,7 +143,7 @@ specified must exist in the Studio plugin. Otherwise you will receive an error. 
 `-- points 'macro'` to `li export-studio-plugin` but there are no macros in Studio, you will
 recieve a PLUGIN_POINT_DOWNLOAD_FAILURE error.
 
-[Top](/refer/pluginvalidation#top)
+[Top](#top)
 
 # Validation errors <a id="otherErrors"></a>
 
@@ -166,4 +166,4 @@ If you encounter any of these error messages, contact Lithium Support for detail
 * Error creating document builder
 * Error parsing rule file
 
-[Top](/refer/pluginvalidation#top)
+[Top](#top)

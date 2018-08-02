@@ -8,21 +8,21 @@
 
 Running into problems? Let's look at a few troubleshooting tips for errors you might encounter.
 
-* [401 HTTP error](/refer/troubleshoot#401HttpError)
-* [Compiler Error on install (Linux)](/refer/troubleshoot#compileErrorLinux)
-* [Find the SDK version](/refer/troubleshoot#findSdkVersion)
-* [Invalid response from server (SDK version)](/refer/troubleshoot#sdkVersionError)
-* [Invalid response from server (SSL)](/refer/troubleshoot#invalidResponse)
-* [Invalid response from server (npm)](/refer/troubleshoot#invalidResponseNpm)
-* [No LAR (SDK) plugin found](/refer/troubleshoot#noLar)
-* [Nothing happens after running an SDK script](/refer/troubleshoot#nothingHappens)
-* [Object is not a function](/refer/troubleshoot#objectNotFunction)
-* [Socket hang up](/refer/troubleshoot#socketHangUp)
-* ['stream-sync' and ‘gulp-expect-file’ errors with plugin package or submit commands](/refer/troubleshoot#rsync)
+* [401 HTTP error](#!/refer/troubleshoot#401HttpError)
+* [Compiler Error on install (Linux)](#!/refer/troubleshoot#compileErrorLinux)
+* [Find the SDK version](#!/refer/troubleshoot#findSdkVersion)
+* [Invalid response from server (SDK version)](#!/refer/troubleshoot#sdkVersionError)
+* [Invalid response from server (SSL)](#!/refer/troubleshoot#invalidResponse)
+* [Invalid response from server (npm)](#!/refer/troubleshoot#invalidResponseNpm)
+* [No LAR (SDK) plugin found](#!/refer/troubleshoot#noLar)
+* [Nothing happens after running an SDK script](#!/refer/troubleshoot#nothingHappens)
+* [Object is not a function](#!/refer/troubleshoot#objectNotFunction)
+* [Socket hang up](#!/refer/troubleshoot#socketHangUp)
+* ['stream-sync' and ‘gulp-expect-file’ errors with plugin package or submit commands](#!/refer/troubleshoot#rsync)
 * [Supported minimum version on server is 15.7]()
-* [Validation errors](/refer/troubleshoot#validationErrors)
-* [Slow plugin submission time](/refer/troubleshoot#slowSubmission)
-* [Minimum SDK requirements for 16.10+](/refer/troubleshoot#minReq1610)
+* [Validation errors](#!/refer/troubleshoot#validationErrors)
+* [Slow plugin submission time](#!/refer/troubleshoot#slowSubmission)
+* [Minimum SDK requirements for 16.10+](#!/refer/troubleshoot#minReq1610)
 
 # 401 HTTP error when submitting, exporting, or clearing a plugin <a id="401HttpError"></a>
 
@@ -32,7 +32,7 @@ Running into problems? Let's look at a few troubleshooting tips for errors you m
 
 **Solution:** Most likely your stage server has IP restriction enabled. Contact Lithium Support and have them whitelist your IP address. Basic HTTP authentication is not supported for SDK endpoints, therefore passing a username/password with the `serverUrl` field in `server.conf.json` will not resolve the 401 error.
 
-[Top](/refer/troubleshoot#top)
+[Top](#top)
 
 # Compiler Error when installing SDK on Linux after upgrading to Node 4.x.x <a id="compileErrorLinux"></a>
 
@@ -82,7 +82,7 @@ scl enable devtoolset-3 bash
 ```
 And then we re-ran `npm install lithium-sdk -g` and successfully installed the SDK.
 
-[Top](/refer/troubleshoot#top)
+[Top](#top)
 
 ## Error: Invalid response from server (SDK version) <a id="sdkVersionError"></a>
 
@@ -95,8 +95,8 @@ And then we re-ran `npm install lithium-sdk -g` and successfully installed the S
             ^
 
 Error: Invalid response from server. Check your server url and version.
-    at Request._callback (/usr/local/lib/node_modules/lithium-sdk/lib/version-check.js:58:17)
-    at Request.self.callback (/usr/local/lib/node_modules/lithium-sdk/node_modules/request/request.js:199:22)
+    at Request._callback (#!/usr/local/lib/node_modules/lithium-sdk/lib/version-check.js:58:17)
+    at Request.self.callback (#!/usr/local/lib/node_modules/lithium-sdk/node_modules/request/request.js:199:22)
     at emitTwo (events.js:100:13)
 ```
 
@@ -122,7 +122,7 @@ If necessary, downgrade your SDK using the following command, putting the approp
 npm install -g lithium-sdk@1.0.2
 ```
 
-[Top](/refer/troubleshoot#top)
+[Top](#top)
 
 # Error: Invalid response from server (SSL)<a id="invalidResponse"></a>
 
@@ -132,11 +132,11 @@ npm install -g lithium-sdk@1.0.2
             throw error;
                   ^
 Error: Invalid response from server. Check your server url and version.
-    at parseResponse (/usr/local/lib/node_modules/lithium-sdk/lib/version-check.js:86:13)
-    at Request._callback (/usr/local/lib/node_modules/lithium-sdk/lib/version-check.js:31:17)
-    at self.callback (/usr/local/lib/node_modules/lithium-sdk/node_modules/request/request.js:199:22)
+    at parseResponse (#!/usr/local/lib/node_modules/lithium-sdk/lib/version-check.js:86:13)
+    at Request._callback (#!/usr/local/lib/node_modules/lithium-sdk/lib/version-check.js:31:17)
+    at self.callback (#!/usr/local/lib/node_modules/lithium-sdk/node_modules/request/request.js:199:22)
     at Request.emit (events.js:107:17)
-    at ClientRequest.self.clientErrorHandler (/usr/local/lib/node_modules/lithium-sdk/node_modules/request/request.js:343:10)
+    at ClientRequest.self.clientErrorHandler (#!/usr/local/lib/node_modules/lithium-sdk/node_modules/request/request.js:343:10)
     at ClientRequest.emit (events.js:107:17)
     at TLSSocket.socketErrorListener (_http_client.js:271:9)
     at TLSSocket.emit (events.js:129:20)
@@ -149,7 +149,7 @@ SSL.
 
 **Solution:** Contact Lithium Support to verify the SSL configuration for your community.
 
-[Top](/refer/troubleshoot#top)
+[Top](#top)
 
 # Error: Invalid response from server (npm)<a id="invalidResponseNpm"></a>
 
@@ -162,15 +162,15 @@ throw error;
 ^
 
 Error: Invalid response from server. Check your server url and version.
-at parseResponse (/usr/lib/node_modules/lithium-sdk/lib/version-check.js:94:13)
-at Request._callback (/usr/lib/node_modules/lithium-sdk/lib/version-check.js:31:17)
-at Request.self.callback (/usr/lib/node_modules/lithium-sdk/node_modules/request/request.js:199:22)
+at parseResponse (#!/usr/lib/node_modules/lithium-sdk/lib/version-check.js:94:13)
+at Request._callback (#!/usr/lib/node_modules/lithium-sdk/lib/version-check.js:31:17)
+at Request.self.callback (#!/usr/lib/node_modules/lithium-sdk/node_modules/request/request.js:199:22)
 at emitTwo (events.js:87:13)
 at Request.emit (events.js:172:7)
-at Request.<anonymous> (/usr/lib/node_modules/lithium-sdk/node_modules/request/request.js:1160:14)
+at Request.<anonymous> (#!/usr/lib/node_modules/lithium-sdk/node_modules/request/request.js:1160:14)
 at emitOne (events.js:82:20)
 at Request.emit (events.js:169:7)
-at IncomingMessage.<anonymous> (/usr/lib/node_modules/lithium-sdk/node_modules/request/request.js:1111:12)
+at IncomingMessage.<anonymous> (#!/usr/lib/node_modules/lithium-sdk/node_modules/request/request.js:1111:12)
 at emitNone (events.js:72:20)
 sosdfag@adama(2.0.0p247):~/lithium$
 ```
@@ -189,7 +189,7 @@ Try upgrading node.js to the 4.x.x version, and then re-install gulp and the lit
 npm install gulp -g
 npm install lithium-sdk -g
 ```
-[Top](/refer/troubleshoot#top)
+[Top](#top)
 
 # No LAR (SDK) plugin found<a id="noLar"></a>
 
@@ -199,7 +199,7 @@ npm install lithium-sdk -g
 
 **Solution:** Contact Lithium Support to ensure that your community is configured correctly for SDK support.
 
-[Top](/refer/troubleshoot#top)
+[Top](#top)
 
 #Nothing happens after running an SDK script <a id="nothingHappens"></a>
 
@@ -208,7 +208,7 @@ npm install lithium-sdk -g
 **Solution:** Check the version of the SDK installed using `npm ls -g lithium-sdk --depth=0`. If it is not current with the <a href="https://www.npmjs.com/package/lithium-sdk" target="_blank">SDK version on npm</a>, update to the latest
 version of the SDK using `li update-project`. If this does not solve your problem, contact Lithium Support.
 
-[Top](/refer/troubleshoot#top)
+[Top](#top)
 
 # TypeError: Object is not a function <a id="objectNotFunction"></a>
 
@@ -220,22 +220,22 @@ LT5578:ldnqa user.login$ li export-plugin
   var gulp = req('gulp');
              ^
 TypeError: object is not a function
-    at module.exports (/Users/user.login/lia/lithium-sdk/gulp/includes.js:16:14)
-    at Object.<anonymous> (/Users/user.login/lia/ldnqa/gulpfile.js:3:40)
+    at module.exports (#!/Users/user.login/lia/lithium-sdk/gulp/includes.js:16:14)
+    at Object.<anonymous> (#!/Users/user.login/lia/ldnqa/gulpfile.js:3:40)
     at Module._compile (module.js:460:26)
     at Object.Module._extensions..js (module.js:478:10)
     at Module.load (module.js:355:32)
     at Function.Module._load (module.js:310:12)
     at Module.require (module.js:365:17)
     at require (module.js:384:17)
-    at Liftoff.handleArguments (/Users/user.login/lia/lithium-sdk/node_modules/gulp/bin/gulp.js:108:3)
-    at Liftoff.launch (/Users/user.login/lia/lithium-sdk/node_modules/gulp/node_modules/liftoff/index.js:143:6)
+    at Liftoff.handleArguments (#!/Users/user.login/lia/lithium-sdk/node_modules/gulp/bin/gulp.js:108:3)
+    at Liftoff.launch (#!/Users/user.login/lia/lithium-sdk/node_modules/gulp/node_modules/liftoff/index.js:143:6)
 ```
 
 **Solution:** Run `li update-project` and answer the script questions. Then retry your original command.
 If this does not solve your problem, contact Lithium Support.
 
-[Top](/refer/troubleshoot#top)
+[Top](#top)
 
 # Error: Socket hang up <a id="socketHangUp"></a>
 
@@ -251,7 +251,7 @@ This error indicates that your stage site might be down or unreachable due to ne
 
 **Solution:** Verify that your stage site is up and running.
 
-[Top](/refer/troubleshoot#top)
+[Top](#top)
 
 # 'stream-sync' and ‘gulp-expect-file’ errors with plugin package or submit commands <a id="rsync"></a>
 
@@ -277,7 +277,7 @@ If you see an error like the following, you might need to install [rsync](https:
 
 Many systems come with rsync installed. However, customers occasionally encounter issues like the one above. If you encounter this issue, verify whether rsync is installed. If not, download and install it.
 
-[Top](/refer/troubleshoot#top)
+[Top](#top)
 
 # Supported minimum version on server is 15.7 <a id="supportedMinVersion"></a>
 
@@ -293,7 +293,7 @@ This error message occurs when you have the latest SDK published on <a href="htt
 
 1. Downgrade your SDK to version 0.0.5 using `npm install lithium-sdk@0.0.5`.
 
-[Top](/refer/troubleshoot#top)
+[Top](#top)
 
 # Find the SDK version<a id="findSdkVersion"></a>
 
@@ -301,7 +301,7 @@ This error message occurs when you have the latest SDK published on <a href="htt
 
 **Solution:** Run `npm ls -g lithium-sdk --depth=0` from a command prompt.
 
-[Top](/refer/troubleshoot#top)
+[Top](#top)
 
 # Validation errors<a id="validationErrors"></a>
 
@@ -385,4 +385,4 @@ You can set `skiptemplatevalidation` to `true` in `server.conf.json` to force su
 
 When using Community 16.10 or later, you must use SDK version 1.3 or higher.
 
-[Top](/refer/troubleshoot#top)
+[Top](#top)

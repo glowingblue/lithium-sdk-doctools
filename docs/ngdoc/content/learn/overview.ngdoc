@@ -12,9 +12,9 @@ in ways that provide maximum benefits. To help you succeed in this mission, we g
 customization resources), and let you build on the Lithium Community platform
 using your favorite tools and common workflows.
 
-* [Before you begin](/learn/overview#begin)
-* [What the SDK supports](/learn/overview#sdk-supports)
-* [When to use Studio](/learn/overview#studio)
+* [Before you begin](#!/learn/overview#begin)
+* [What the SDK supports](#!/learn/overview#sdk-supports)
+* [When to use Studio](#!/learn/overview#studio)
 
 <h1> Before you Begin <a id="begin"></a></h1>
 Before you begin Community development, you'll want to understand:
@@ -69,5 +69,5 @@ You'll continue to use Studio for the following tasks:
 * {@link /develop/create Generate the SDK upload token}
 * <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=commv2&v2.main=gettingstarted#apiBrowser" target="_blank">Test LiQL queries</a>
 
-[Top](/learn/overview#top)
+[Top](#top)
 ___
