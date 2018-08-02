@@ -66,5 +66,5 @@ ${settings.name.get("layout.urlfetcher_header")}
 ${settings.name.get("layout.urlfetcher_footer")}
 ```
 
-[Top](/customize/pagewrapper#top)
+[Top](#top)
 ___

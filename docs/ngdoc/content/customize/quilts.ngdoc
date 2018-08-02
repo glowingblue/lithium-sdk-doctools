@@ -10,15 +10,15 @@ combination of a quilt and layout. In our Studio documentation, you will see the
 used interchangeably, but under the covers, the building blocks of a page (the quilt and the layout) are two separate
 pieces of code.
 
-We talk about layouts in a [separate document](/customize/layouts). For now, understand that your custom quilts must always reference a layout. For example `<quilt layout="two-column.main-side" nestable="false">`.
+We talk about layouts in a [separate document](#!/customize/layouts). For now, understand that your custom quilts must always reference a layout. For example `<quilt layout="two-column.main-side" nestable="false">`.
 
 Quilts use the file extension `quilt.xml`.
 Quilt files go in `/res/quilts`.
 
-* [An example quilt](/customize/quilts#exampleQuilt)
-* [Quilt XML](/customize/quilts#quiltXml)
-* [Create a custom quilt](/customize/quilts#newQuilt)
-* [Override a core quilt](/customize/quilts#overrideQuilt)
+* [An example quilt](#!/customize/quilts#exampleQuilt)
+* [Quilt XML](#!/customize/quilts#quiltXml)
+* [Create a custom quilt](#!/customize/quilts#newQuilt)
+* [Override a core quilt](#!/customize/quilts#overrideQuilt)
 
 # Basic quilt structure
 
@@ -29,7 +29,7 @@ The most basic quilt XML includes these XML elements:
 * add to - the sections of the quilt as defined in the layout XML
 * component - the components to use in each of the columns in the layout
 
-Optional elements are described in [The quilt XML](/customize/quilts#quiltXml).
+Optional elements are described in [The quilt XML](#!/customize/quilts#quiltXml).
 
 ```
 <quilt layout="<layout ID>" nestable="<true or fals>">
@@ -104,7 +104,7 @@ the file name structure `<quilt_name>.quilt.xml`, for example MyCustomPage.quilt
 See <a href="http://community.lithium.com/t5/Pages-and-layouts/Create-a-custom-page/ta-p/110639" target="_blank">this article</a>
 in the Lithium Community for more information about creating custom pages.
 
-[Top](/customize/quilts#top)
+[Top](#!/customize/quilts#top)
 
 # Override a core quilt <a id="overrideQuilt"></a>
 Custom quilts that override Lithium core quilts use the
@@ -135,5 +135,5 @@ To override a core Lithium quilt:
 
 **9.** Override the core community quilt in **Community Admin > Content > Custom Pages**.
 
-[Top](/customize/quilts#top)
+[Top](#top)
 ___

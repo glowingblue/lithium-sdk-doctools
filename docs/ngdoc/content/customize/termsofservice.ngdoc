@@ -25,5 +25,5 @@ FreeMarker context object like this:
 
 `${text.format('page.user_signup.terms_of_service')}`
 
-[Top](/customize/termsofservice#top)
+[Top](#top)
 ___

@@ -28,5 +28,5 @@ The term _plugin point_ refers to a type of community customization. Components,
 | text properties | `res/lang` | .properties | Text strings contributed with the SDK _are not_ indicated by the SDK icon in the **Studio > Text Editor** tab. |
 | value analytics images | `web/html/survey_icons` | various | Value Analytics survey images appear in the **Studio > Community Style > Value Analytics** tab in the Asset Library. They are identified in Studio with a special SDK icon. |
 
-[Top](/customize/pluginstructure#top)
+[Top](#top)
 ___

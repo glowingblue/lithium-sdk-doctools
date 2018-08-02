@@ -13,7 +13,7 @@ Custom component code goes in `res/components`.
 
 Here is some sample FreeMarker code that prints out details about the node (the community,
 category, or board) in context using the coreNode FreeMarker context object. We use
-this code in our [customization tutorial](/develop/tutorial).
+this code in our [customization tutorial](#!/develop/tutorial).
 
 ```
 Node Details</br>
@@ -33,5 +33,5 @@ If you're new to FreeMarker and Community, see these articles to get started wit
 * <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Passing-Parameters-to-a-Custom-Component/ta-p/88704" target="_blank">Passing parameters to a Component</a>
 * <a href="https://community.lithium.com/t5/Developers-Knowledge-Base/Creating-Modal-Dialogs/ta-p/77986" target="_blank">Creating Modal Dialogs</a>
 
-[Top](/customize/components#top)
+[Top](#top)
 ___

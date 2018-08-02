@@ -14,8 +14,8 @@ Export customized email templates in Studio using `li export-studio-plugin --ema
 
 Once you customize an email template, you will no longer see updates to the template upon future release upgrades.
 
-* [Submit a custom email template](/customize/emailtemplates#submit)
-* [Delete a custom email template](/customize/emailtemplates#delete)
+* [Submit a custom email template](#!/customize/emailtemplates#submit)
+* [Delete a custom email template](#!/customize/emailtemplates#delete)
 
 # Submitting customized email templates<a id="submit"></a>
 
@@ -65,5 +65,5 @@ Supported languages and the associated language code are described in
 
 Deleting email templates is not recommended at this time.
 
-[Top](/customize/emailtemplates#top)
+[Top](#top)
 ___

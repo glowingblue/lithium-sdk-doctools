@@ -10,22 +10,22 @@ After {@link develop/create creating your local SDK pluign repository},
 you're ready to learn about plugin points and how to contribute Community customizations with the Community Plugin SDK.
 
 Before you begin:
-* Learn [where to put your code](/customize/pluginstructure)
-* Run through our [tutorial](/develop/tutorial)
+* Learn [where to put your code](#!/customize/pluginstructure)
+* Run through our [tutorial](#!/develop/tutorial)
 
 See these sections for instructions and examples for plugin point customizations.
 
-* [Add images, icons, and other assets](/customize/assets)
-* [Customize components](/customize/components)
-* [Customize email templates](/customize/emailtemplates)
-* [Create endpoints and controllers](/customize/endpoints)
-* [Customize layouts](/customize/layouts)
-* [Create macros](/customize/macros)
-* [Customize the page initialization script](/customize/pageinitscript)
-* [Create macros](/customize/pagewrapper)
-* [Customize quilts](/customize/quilts)
-* [Customize skins](/customize/skins)
-* [Customize text and Terms of Service](/customize/termsofservice)
+* [Add images, icons, and other assets](#!/customize/assets)
+* [Customize components](#!/customize/components)
+* [Customize email templates](#!/customize/emailtemplates)
+* [Create endpoints and controllers](#!/customize/endpoints)
+* [Customize layouts](#!/customize/layouts)
+* [Create macros](#!/customize/macros)
+* [Customize the page initialization script](#!/customize/pageinitscript)
+* [Create macros](#!/customize/pagewrapper)
+* [Customize quilts](#!/customize/quilts)
+* [Customize skins](#!/customize/skins)
+* [Customize text and Terms of Service](#!/customize/termsofservice)
 
 All instructions assume you're working in your plugin repository (PLUGIN_REPO).
 
@@ -40,5 +40,5 @@ versions existing in SDK are indicated in Studio with a special icon.
 
 <img src="img/sdkVsStudioAssetsInTab.png" width="600">
 
-[Top](/customize/customize#top)
+[Top](#top)
 ___

@@ -44,5 +44,5 @@ useful examples for editing and creating the layout XML.
 | row     | A row in the layout. | `id` - the ID of the row | `column` - columns in the row |
 | column  | The column definition | `id` - the ID of the columns <br /> `width` - width of the column. The width of columns in a row must add up to 24. | . |
 
-[Top](/customize/layouts#top)
+[Top](#top)
 ___
