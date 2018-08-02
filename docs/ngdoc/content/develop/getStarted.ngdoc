@@ -6,8 +6,8 @@
 <h1 class = "title">Get Started <a id="top"></a></h1>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-* [Prerequisites](#!/develop/getStarted#prereq)
-* [Installing the SDK and dependencies](#!/develop/getStarted#install)
+* [Prerequisites](#prereq)
+* [Installing the SDK and dependencies](#install)
 
 # Prerequisites <a id="prereq"></a>
 

@@ -14,9 +14,9 @@ and <a href="http://community.lithium.com/t5/Components-endpoints-and-the/About-
 
 This guide includes the following sections:
 
-* [The Community Plugin SDK](#!/learn/architecture#sdk)
-* [Understanding plugins](#!/learn/architecture#plugins)
-* [SDK tool chain](#!/learn/architecture#tool-chain)
+* [The Community Plugin SDK](#sdk)
+* [Understanding plugins](#plugins)
+* [SDK tool chain](#tool-chain)
 
 
 Community ships with core pages, layouts, components, text, CSS, SCSS, images, and more. Developers, designers, and

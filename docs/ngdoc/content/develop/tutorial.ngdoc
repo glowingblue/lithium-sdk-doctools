@@ -12,11 +12,11 @@ text strings, and do some simple skin properties and CSS customizations. We'll c
 custom files, put them in the proper location in your local repository, and then upload the
 plugin to the stage server using `li submit-plugin`.
 
-* [Write a component](#!/develop/tutorial#components)
-* [Create a quilt](#!/develop/tutorial#quilts)
-* [Create a skin](#!/develop/tutorial#skins)
-* [Add CSS](#!/develop/tutorial#stylesheets)
-* [Add custom text](#!/develop/tutorial#text)
+* [Write a component](#components)
+* [Create a quilt](#quilts)
+* [Create a skin](#skins)
+* [Add CSS](#stylesheets)
+* [Add custom text](#text)
 
 To test your customizations on your stage server, you run `li submit-plugin` or `li package-plugin`
 as described in {@link develop/deploy Deploy}. Review {@link refer/pluginvalidation Plugin Validation}

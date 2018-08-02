@@ -15,10 +15,10 @@ We talk about layouts in a [separate document](#!/customize/layouts). For now, u
 Quilts use the file extension `quilt.xml`.
 Quilt files go in `/res/quilts`.
 
-* [An example quilt](#!/customize/quilts#exampleQuilt)
-* [Quilt XML](#!/customize/quilts#quiltXml)
-* [Create a custom quilt](#!/customize/quilts#newQuilt)
-* [Override a core quilt](#!/customize/quilts#overrideQuilt)
+* [An example quilt](#exampleQuilt)
+* [Quilt XML](#quiltXml)
+* [Create a custom quilt](#newQuilt)
+* [Override a core quilt](#overrideQuilt)
 
 # Basic quilt structure
 
@@ -29,7 +29,7 @@ The most basic quilt XML includes these XML elements:
 * add to - the sections of the quilt as defined in the layout XML
 * component - the components to use in each of the columns in the layout
 
-Optional elements are described in [The quilt XML](#!/customize/quilts#quiltXml).
+Optional elements are described in [The quilt XML](#quiltXml).
 
 ```
 <quilt layout="<layout ID>" nestable="<true or fals>">

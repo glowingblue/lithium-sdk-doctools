@@ -8,17 +8,17 @@
 Using the SDK, you can contribute skin properties, CSS, SCSS, images, and
 wrappers for desktop, mobile v1, and responsive communities.
 
-Put skin customizations in `res/skins`. Each skin is a separate subdirectory under `res/skins`. We'll look at that [subdirectory structure](#!/customize/skins#structure) later in this section.
+Put skin customizations in `res/skins`. Each skin is a separate subdirectory under `res/skins`. We'll look at that [subdirectory structure](#structure) later in this section.
 
-> **Note:** Responsive skin customization is covered in the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Responsive Developer Documentation</a>. Customer-led Lithium Responsive implementation and customization is closed beta. Learn more about Lithium Responsive, our responsive Community UX feature, on the <a href="http://community.lithium.com/t5/Responsive-for-Developers/tkb-p/responsivetkb" target="_blank">Lithium Community</a>. [Create a skin](#!/customize/skins#createSkin)applies to both responsive and non-responsive skins.
+> **Note:** Responsive skin customization is covered in the <a href="https://community.lithium.com/t5/Developer-Documentation/bd-p/dev-doc-portal?section=responsive" target="_blank">Responsive Developer Documentation</a>. Customer-led Lithium Responsive implementation and customization is closed beta. Learn more about Lithium Responsive, our responsive Community UX feature, on the <a href="http://community.lithium.com/t5/Responsive-for-Developers/tkb-p/responsivetkb" target="_blank">Lithium Community</a>. [Create a skin](#createSkin)applies to both responsive and non-responsive skins.
 
 This document includes:
 
-* [Creating a skin](#!/customize/skins#createSkin)
-* [Skin directory structure](#!/customize/skins#structure)
-* [Styling with skin properties](#!/customize/skins#skinProperties)
-* [Overriding skin images](#!/customize/skins#skinImages)
-* [Customizing CSS](#!/customize/skins#stylesheets)
+* [Creating a skin](#createSkin)
+* [Skin directory structure](#structure)
+* [Styling with skin properties](#skinProperties)
+* [Overriding skin images](#skinImages)
+* [Customizing CSS](#stylesheets)
 
 After you have submitted to stage, apply the skin to the community in **Community Admin > Display > Skins**.
 

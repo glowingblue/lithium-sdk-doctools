@@ -6,22 +6,22 @@
 <h1 class = "title">Create <a id="top"></a></h1>
 <a href="mailto:documentation@lithium.com?Subject=Developer Documentation Feedback" target="_top">Send feedback about this document</a>
 
-* [Create your plugin](#!/develop/create#createPlugin)
-    * [Generate the upload token](#!/develop/create#GenerateUploadToken)
-    * [Create the plugin project repository](#!/develop/create#createPluginRepo)
-    * [Export the Studio plugin](#!/develop/create#downloadStudio)
-    * [Export the SDK plugin](#!/develop/create#downloadSdk)
-* [Revoke a plugin token](#!/develop/create#revokeToken)
-* [Plugin structure](#!/develop/create#pluginStructure)
+* [Create your plugin](#createPlugin)
+    * [Generate the upload token](#GenerateUploadToken)
+    * [Create the plugin project repository](#createPluginRepo)
+    * [Export the Studio plugin](#downloadStudio)
+    * [Export the SDK plugin](#downloadSdk)
+* [Revoke a plugin token](#revokeToken)
+* [Plugin structure](#pluginStructure)
 
 
 # Create your plugin <a id="createPlugin"></a>
 
 After {@link /develop/getStarted setting up your SDK development environment}:
-* [Generate an upload token](#!/develop/create#GenerateUploadToken)
-* [Create the local plugin project repository](#!/develop/create#createPluginRepo)
-* Download the [Studio plugin](#!/develop/create#downloadStudio), an [SDK plugin](#!/develop/create#downloadSdk) (if one exists), or just get started [creating new customizations](#!/customize/customize)
-* Learn about the [plugin structure](#!/develop/create#pluginStructure)
+* [Generate an upload token](#GenerateUploadToken)
+* [Create the local plugin project repository](#createPluginRepo)
+* Download the [Studio plugin](#!/customize/customize)
+* Learn about the [plugin structure](#pluginStructure)
 
 ## Generate the upload token<a id="GenerateUploadToken"></a>
 The upload token is required for all SDK command line options. To generate the token, you'll need the "Use the SDK" permission in
@@ -82,7 +82,7 @@ defined earlier.
 `server.conf.json` at the top level of your plugin repository, and
 add the token for the value of `pluginToken`.
 
-**8** Continue with [Configure](#!/develop/configure) to set optional plugin configurations or jump to [Plugin Structure](#!/develop/create#pluginStructure) to learn more about the plugin directory.
+**8** Continue with [Configure](#pluginStructure) to learn more about the plugin directory.
 
 [Top](#top)
 

@@ -10,24 +10,24 @@ The Community Plugin SDK supports a developer-friendly "choose your own IDE" exp
 that enables you to develop locally with the tools of your choice, collaborate with your
 own team in your own source control system, and test on your stage environment.
 
-* [Developer environment recommendations](#!/learn/workflow#devEnv)
-    * [Setting up the plugin project](#!/learn/workflow#setup)
-    * [Creating a development strategy](#!/learn/workflow#strategy)
-        * [SDK-only strategy](#!/learn/workflow#sdkOnly)
-        * [Studio collaboration strategy](#!/learn/workflow#studioCollab)
-        * [Clearing a plugin from the Stage environment](#!/learn/workflow#clearPluginFromStage)
-        * [Clearing the Studio plugin](#!/learn/workflow#clearStudioPlugin)
-        * [Clearing the SDK plugin](#!/learn/workflow#clearSdkPlugin)
-    * [Continuous integration](#!/learn/workflow#continuousIntegration)
-    * [Non-continuous integration](#!/learn/workflow#nonCI)
-* [Deployment](#!/learn/workflow#deployment)
+* [Developer environment recommendations](#devEnv)
+    * [Setting up the plugin project](#setup)
+    * [Creating a development strategy](#strategy)
+        * [SDK-only strategy](#sdkOnly)
+        * [Studio collaboration strategy](#studioCollab)
+        * [Clearing a plugin from the Stage environment](#clearPluginFromStage)
+        * [Clearing the Studio plugin](#clearStudioPlugin)
+        * [Clearing the SDK plugin](#clearSdkPlugin)
+    * [Continuous integration](#continuousIntegration)
+    * [Non-continuous integration](#nonCI)
+* [Deployment](#deployment)
 
-    * [Before you Deploy to Stage](#!/learn/workflow#beforeDeployment)
-    * [Deploying to Stage](#!/learn/workflow#deployToStage)
-    * [Reverting to a Previous Plugin](#!/learn/workflow#revert)
-    * [Pushing to Production](#!/learn/workflow#pushToProd)
-    * [Collaborating with Lithium Services](#!/learn/workflow#collabWithServices)
-    * [Pushing to Production](#!/learn/workflow#collabWorkflow)
+    * [Before you Deploy to Stage](#beforeDeployment)
+    * [Deploying to Stage](#deployToStage)
+    * [Reverting to a Previous Plugin](#revert)
+    * [Pushing to Production](#pushToProd)
+    * [Collaborating with Lithium Services](#collabWithServices)
+    * [Pushing to Production](#collabWorkflow)
 
 # Developer environment recommendations <a id="devEnv"></a>
 
@@ -38,10 +38,10 @@ to deploy to the stage environment. Consider implementing a CI service to build 
 the SDK plugin from your source control system to the stage
 environment. We provide an example using GitHub and Travis CI below.
 
-* [Setting up the plugin project](#!/learn/workflow#setup)
-* [Creating a development strategy](#!/learn/workflow#strategy)
-* [Continuous integration](#!/learn/workflow#continuousIntegration)
-* [Non-continuous integration](#!/learn/workflow#nonCI)
+* [Setting up the plugin project](#setup)
+* [Creating a development strategy](#strategy)
+* [Continuous integration](#continuousIntegration)
+* [Non-continuous integration](#nonCI)
 
 ## Setting up the plugin project <a id="setup"></a>
 This diagram illustrates the recommended way to set up an SDK plugin project in a development environment.
@@ -157,10 +157,10 @@ This diagram illustrates a simple workflow if you cannot implement continuous in
 # Deployment <a id="deployment"></a>
 This section describes steps to deploy your SDK plugin.
 
-  * [Before you Deploy to Stage](#!/learn/workflow#beforeDeployment)
-  * [Deploying to Stage](#!/learn/workflow#deployToStage)
-  * [Reverting to a Previous Plugin](#!/learn/workflow#revert)
-  * [Pushing to Production](#!/learn/workflow#pushToProd)
+  * [Before you Deploy to Stage](#beforeDeployment)
+  * [Deploying to Stage](#deployToStage)
+  * [Reverting to a Previous Plugin](#revert)
+  * [Pushing to Production](#pushToProd)
 
 ## Before you deploy to stage <a id="beforeDeployment"></a>
 If you work in a multi-developer customization team, communicate closely with team

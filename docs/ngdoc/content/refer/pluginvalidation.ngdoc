@@ -27,17 +27,17 @@ the file added via the SDK.
 You can force the SDK plugin upload to fail when files in the SDK plugin also exist in the Studio
 plugin. To force this behavior, set `allowStudioOverrides` in `server.conf.json` to `false`.
 
-* [Asset validation](#!/refer/pluginvalidation#asset)
-* [Component validation](#!/refer/pluginvalidation#component)
-* [Layout validation](#!/refer/pluginvalidation#layout)
-* [Quilt validation](#!/refer/pluginvalidation#quilt)
-* [Skin validation](#!/refer/pluginvalidation#skin)
-* [Text validation](#!/refer/pluginvalidation#text)
-* [Endpoint validation](#!/refer/pluginvalidation#endpoint)
-* [Controller validation](#!/refer/pluginvalidation#controller)
-* [Macro validation](#!/refer/pluginvalidation#macro)
-* [Other validation requirements](#!/refer/pluginvalidation#other)
-* [Validation errors](#!/refer/pluginvalidation#otherErrors)
+* [Asset validation](#asset)
+* [Component validation](#component)
+* [Layout validation](#layout)
+* [Quilt validation](#quilt)
+* [Skin validation](#skin)
+* [Text validation](#text)
+* [Endpoint validation](#endpoint)
+* [Controller validation](#controller)
+* [Macro validation](#macro)
+* [Other validation requirements](#other)
+* [Validation errors](#otherErrors)
 
 
 # Asset validation <a id="asset"></a>
